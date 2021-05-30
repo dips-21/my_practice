@@ -5,7 +5,6 @@ public class ReverseNumber {
         int reverse = getReverse(8432);
         System.out.println(reverse);
     }
-
     static int getReverse(int num) {
         int reverse=0;
         while (num != 0) {

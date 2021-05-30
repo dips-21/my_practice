@@ -1,5 +1,14 @@
 package loops;
+/*
+1
+3  2  1
+5  4  3  2  1
+7  6  5  4  3  2  1
+9  8  7  6  5  4  3  2  1
+11  10  9  8  7  6  5  4  3  2  1
+13  12  11  10  9  8  7  6  5  4  3  2  1
 
+ */
 public class Pattern03 {
     public static void main(String[] args) {
         //printPattern(5);

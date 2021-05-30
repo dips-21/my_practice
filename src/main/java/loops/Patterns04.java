@@ -1,5 +1,12 @@
 package loops;
+/*
+xxxx5
+xxx4 5 4
+xx3 4 5 4 3
+x2 3 4 5 4 3 2
+1 2 3 4 5 4 3 2 1
 
+ */
 public class Patterns04 {
     static void patternprint(int lines) {
        // System.out.printf("%d %d", 15, 5);

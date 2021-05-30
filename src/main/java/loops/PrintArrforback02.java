@@ -23,6 +23,7 @@ public class PrintArrforback02 {
             for (int j = k; j >= 0; j--)
                 System.out.print(arr[j] + " ");
             System.out.println(" ");
+
         }
     }
     public static void main(String[] args) {

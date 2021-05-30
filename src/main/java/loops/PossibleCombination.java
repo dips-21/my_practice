@@ -12,7 +12,7 @@ public class PossibleCombination {
     }
 
     public static void main(String[] args) {
-printPattern(2,5);
+           printPattern(2,5);
 
     }
 

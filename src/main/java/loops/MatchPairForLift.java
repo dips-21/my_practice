@@ -8,8 +8,8 @@ public class MatchPairForLift {
                 int sum = weightOfmale[i] + weightOfFemale[i];
                 if (sum == 46) {
                     System.out.println("you can enter");
-                    count++;
                     System.out.println(MaleNames[i]+"->"+femaleNames[i]);
+                    count++;
                 }
                 else
                 {
@@ -19,7 +19,6 @@ public class MatchPairForLift {
             }
         return count;
     }
-
     public static void main(String[] args) {
         String maleNames[] = {"Harshal", "Vedant", " Akshay", "Prasad", "Jayant"};
         String femaleNames[] = {"Sanjana", "Trushali", "Jaanhvi", "Vishakha", "Smita"};

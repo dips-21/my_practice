@@ -12,11 +12,12 @@ public class HighestIIndexWindow {
             }
             System.out.print(max + " ");
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
         int[] array = {16, 3, 9, 4, 10, 3, 12};
-       // printHighestInSlidingWindow(array, 3);
+       printHighestInSlidingWindow(array, 3);
         printLowestIndexWindow(array,3);
     }
 

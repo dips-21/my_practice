@@ -1,7 +1,7 @@
 package loops;
 
 public class GreaterNumOnLeft {
-    static void greaterNumOnLeft(int array[]) {
+    static void greaterNumOnLeft(int[] array) {
         for (int start = 1; start < array.length; start++) {
             boolean isHighest = true;
             int count = 0;
@@ -19,7 +19,7 @@ public class GreaterNumOnLeft {
     }
 
 
-    static void greaterNumOnLeftIfConstantK(int array[], int k) {
+    static void greaterNumOnLeftIfConstantK(int[] array, int k) {
         for (int start = 1; start < array.length; start++) {
             boolean isHighest = true;
             int count = 0;
@@ -35,7 +35,7 @@ public class GreaterNumOnLeft {
     }
 
     public static void main(String[] args) {
-        int array[] = {3, 1, 4, 9, 6, 2};
+        int[] array = {3, 1, 4, 9, 6, 2};
         int k = 2;
         //  greaterNumOnLeftIfConstantK(array,k);
         greaterNumOnLeftIfConstantK(array, 3);

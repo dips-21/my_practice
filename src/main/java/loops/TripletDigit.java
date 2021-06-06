@@ -17,7 +17,7 @@ public class TripletDigit {
         }
     }
     public static void main(String[] args) {
-        int arr[] = {1, 2, 3};
+        int[] arr = {1, 2, 3};
         printTripletDigit(arr);
     }
 }

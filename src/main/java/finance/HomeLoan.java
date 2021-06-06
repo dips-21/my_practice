@@ -4,8 +4,8 @@ public class HomeLoan extends Loan {
     /*HomeLoan(){
         super(1.0f,1.0f);
     }*/
-    HomeLoan(float priniciple,float period){
-        super(priniciple,period);
+    HomeLoan(float principle,float period){
+        super(principle,period);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package payroll;
 
 public class Employee {
-    private int id;
+    private final int id;
     private int hours;
     private float rate;
     private static int count;

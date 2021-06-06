@@ -15,7 +15,7 @@ public class AdditionOfArray {
 
     public static void main(String[] args) {
 //(5 6 7) (5 6 8) (5 7 8) (6,7,8)
-        int arr[] = {1,2,3};
+        int[] arr = {1,2,3};
         //additionOfArray(arr);
         //printPairs(arr);
         printTriplet(arr);

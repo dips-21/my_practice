@@ -18,7 +18,7 @@ public class ArraySumFinder {
         return false;
     }
     public static void main(String[] args) {
-        int arr[] = {5, 4, 6, 7, 3};
+        int[] arr = {5, 4, 6, 7, 3};
         System.out.println(hasTwoSum(arr, 14));
     }
 }

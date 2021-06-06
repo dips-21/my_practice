@@ -8,7 +8,7 @@ import java.util.List;
 public class EmployeeData {
     private String name;
     private double height;
-    private double weight;
+    private final double weight;
 
     public EmployeeData(double height, double weight, String name) {
         this.height = height;

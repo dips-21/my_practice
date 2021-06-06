@@ -4,9 +4,9 @@ import java.util.List;
 
 public class EmployeeDataMain {
     public static void main(String[] args) {
-        double weight[] = {35, 45, 30, 65, 52};
-        double height[] = {3.6, 4.5, 1.6, 2.6, 5.5};
-        String name[] = {"Dipali", "Monika", "Rutuja", "Sanjana", "Radhika"};
+        double[] weight = {35, 45, 30, 65, 52};
+        double[] height = {3.6, 4.5, 1.6, 2.6, 5.5};
+        String[] name = {"Dipali", "Monika", "Rutuja", "Sanjana", "Radhika"};
         int totalEmployees = name.length;
         EmployeeData[] employees = new EmployeeData[weight.length];
         for (int i = 0; i < totalEmployees; i++) {

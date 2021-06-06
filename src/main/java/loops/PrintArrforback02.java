@@ -13,7 +13,7 @@ package loops;
 */
 
 public class PrintArrforback02 {
-    static void printArrforback02(int arr[], int number) {
+    static void printArrforback02(int[] arr, int number) {
 
         for (int k = number; k >= 0; k--) {
             for (int i = 0; i <= k; i++) {
@@ -27,7 +27,7 @@ public class PrintArrforback02 {
         }
     }
     public static void main(String[] args) {
-        int arr[] = {5, 9, 8, 7, 6};
+        int[] arr = {5, 9, 8, 7, 6};
         int number = 4;
         printArrforback02(arr,4);
     }

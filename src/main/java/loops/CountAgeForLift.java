@@ -1,7 +1,7 @@
 package loops;
 
 public class CountAgeForLift {
-    static int countTotalNumberOfMatches(int weightOfMale[],int weightOfFemale[],String maleNames[],String femaleNames[]){
+    static int countTotalNumberOfMatches(int[] weightOfMale, int[] weightOfFemale, String[] maleNames, String[] femaleNames){
         int count = 0;
         for (int i = 0; i < weightOfMale.length; i++) {
             for (int j = 0; j < weightOfMale.length; j++) {
@@ -22,10 +22,10 @@ public class CountAgeForLift {
 
     }
     public static void main(String[] args) {
-        String maleNames[] = {"rohan", "rahul", " akshay", "saurav", "jayant"};
-        String femaleNames[] = {"rupali", "nita", "neha", "anjali", "nisha"};
-        int weightOfMale[] = {25, 35, 36, 29, 27};
-        int weightOfFemale[] = {21, 24, 35, 36, 19};
+        String[] maleNames = {"rohan", "rahul", " akshay", "saurav", "jayant"};
+        String[] femaleNames = {"rupali", "nita", "neha", "anjali", "nisha"};
+        int[] weightOfMale = {25, 35, 36, 29, 27};
+        int[] weightOfFemale = {21, 24, 35, 36, 19};
 
         //print
         for (int i = 0; i < weightOfMale.length; i++) {

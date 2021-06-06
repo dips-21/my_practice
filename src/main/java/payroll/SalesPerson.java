@@ -1,7 +1,7 @@
 package payroll;
 
 public class SalesPerson extends Employee {
-    private double sales;
+    private final double sales;
     public SalesPerson(int h,int r,double s){
         super(h,r);
         sales=s;

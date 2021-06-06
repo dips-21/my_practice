@@ -19,7 +19,7 @@ public class ReverseArray {
     }
 
     public static void main(String[] args) {
-        int array[] = {5, 3, 6, 0, 2, 1};
+        int[] array = {5, 3, 6, 0, 2, 1};
         System.out.println(Arrays.toString(array));
         reverseArray(array);
         //swap(array, 1, 2);

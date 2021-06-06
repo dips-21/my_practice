@@ -1,7 +1,7 @@
 package loops;
 
 public class MatchPairForLift {
-    static int matchPairForLiftEntry(int weightOfmale[], int weightOfFemale[], String MaleNames[], String femaleNames[]) {
+    static int matchPairForLiftEntry(int[] weightOfmale, int[] weightOfFemale, String[] MaleNames, String[] femaleNames) {
         int count = 0;
         for (int i = 0; i < weightOfmale.length; i++)
            {
@@ -20,10 +20,10 @@ public class MatchPairForLift {
         return count;
     }
     public static void main(String[] args) {
-        String maleNames[] = {"Harshal", "Vedant", " Akshay", "Prasad", "Jayant"};
-        String femaleNames[] = {"Sanjana", "Trushali", "Jaanhvi", "Vishakha", "Smita"};
-        int weightOfMale[] = {25, 35, 36, 29, 27};
-        int weightOfFemale[] = {21, 24, 35, 36, 19};
+        String[] maleNames = {"Harshal", "Vedant", " Akshay", "Prasad", "Jayant"};
+        String[] femaleNames = {"Sanjana", "Trushali", "Jaanhvi", "Vishakha", "Smita"};
+        int[] weightOfMale = {25, 35, 36, 29, 27};
+        int[] weightOfFemale = {21, 24, 35, 36, 19};
         matchPairForLiftEntry(weightOfMale,weightOfFemale,maleNames,femaleNames);
     }
 }

@@ -9,6 +9,14 @@ public abstract class Loan {
         this.period=period;
     }
 
+    @Override
+    public String toString() {
+        return "Loan{" +
+                "principle=" + principle +
+                ", period=" + period +
+                '}';
+    }
+
     public abstract float getRate();
 
     public float getPrinciple() {

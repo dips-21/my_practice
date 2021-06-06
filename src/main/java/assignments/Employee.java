@@ -1,9 +1,9 @@
 package assignments;
 
 public class Employee {
-    private double salary;
-    private double commission;
-    private double bonus;
+    private final double salary;
+    private final double commission;
+    private final double bonus;
 
     public Employee() {
         this.salary = 5000;

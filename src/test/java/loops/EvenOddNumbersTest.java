@@ -10,6 +10,7 @@ public class EvenOddNumbersTest {
 
     @Test
     public void sumOfEvenNumbers() {
+
         assertThat(EvenOddNumbers.sumOfEvenNumbers(4),is(20));
     }
 

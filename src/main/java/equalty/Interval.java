@@ -2,8 +2,8 @@ package equalty;
 
 public class Interval {
     //A class defined without an explicit superclass implicitly extends java.lang.Object which is the common root of all reference types in Java
-        private int min;
-        private int sec;
+        private final int min;
+        private final int sec;
 
         public Interval(int m, int s) {
             min = m + s / 60;

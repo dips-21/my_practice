@@ -1,7 +1,7 @@
 package loops;
 
 public class Forback {
-    static void printArrForBack(int array[], int number) {
+    static void printArrForBack(int[] array, int number) {
         boolean isLeftToRight = true;
         for (int k = 0; k < number; k++) {
             if (isLeftToRight) {
@@ -20,7 +20,7 @@ public class Forback {
     }
 
     public static void main(String[] args) {
-        int array[] = {5, 9, 8, 7};
+        int[] array = {5, 9, 8, 7};
         int number = 5;
         printArrForBack(array, number);
     }

@@ -12,7 +12,7 @@ public class FinanceDemo {
         System.out.println(loan.getEMI());
 
         loan.setPeriod(8);
-        System.out.println(loan);
+        System.out.println(loan.toString());
         System.out.println(loan.getEMI());
 
         loan=new PersonalLoan(5000,4);

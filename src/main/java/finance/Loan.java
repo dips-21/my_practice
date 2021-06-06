@@ -1,6 +1,6 @@
 package finance;
 
-public abstract class Loan {
+public class Loan {
     protected float principle;
     protected float period;
 
@@ -17,7 +17,10 @@ public abstract class Loan {
                 '}';
     }
 
-    public abstract float getRate();
+    //public abstract float getRate();
+    public float getRate(){
+         throw new IllegalStateException("getRate not defined for Loan");
+    }
 
     public float getPrinciple() {
         return principle;

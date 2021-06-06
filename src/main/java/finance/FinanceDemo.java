@@ -3,9 +3,11 @@ package finance;
 public class FinanceDemo {
     public static void main(String[] args) {
         Loan loan=new PersonalLoan(5000,2);
+        //loan=new Loan(5000,2);
         System.out.println(loan.getEMI());
 
         loan=new BasicLoan(20000,5);
+        System.out.println(loan);
         System.out.println(loan.getEMI());
 
         loan=new HomeLoan(10000,20);

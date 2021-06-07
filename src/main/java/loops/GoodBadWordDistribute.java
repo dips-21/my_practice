@@ -1,16 +1,16 @@
 package loops;
 
 public class GoodBadWordDistribute {
-    static void printGoodBadWord(String []array){
+    static void moveBadWordToEnd(String []words ,String[] badWords){
         int GoodWords=0,BadWords=0;
-        for (int i = 0; i < array.length ; i++) {
+        for (int i = 0; i < words.length ; i++) {
+            if (i==GoodWords){
 
 
+            }
         }
     }
 
 
-    public static void main(String[] args) {
 
-    }
 }

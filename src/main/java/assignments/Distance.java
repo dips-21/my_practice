@@ -1,6 +1,5 @@
 package assignments;
 
-import java.util.Objects;
 
 public class Distance {
     private int feet;
@@ -93,7 +92,6 @@ public class Distance {
         //System.out.println(d1.equals(d0));
         Distance d4 = d1;
         // d1.equals(d4);
-        Employee e = new Employee();
         //d1.equals(e);
         Distance d5 = null;
         //d5.equals(d1); //null pointer exception

@@ -2,10 +2,13 @@ package sorting;
 
 import java.util.Arrays;
 
-public class Sorting1 {
+public class SelectionSort implements Sorted {
     //5,9,8,3,6,11,2
     //5,9,8,3,6,11,20
-    static void selectionSorting(int[] array) {
+
+
+    @Override
+    public void sort(int[] array) {
         for (int start = 0; start < array.length; start++) {
             int minPosition = start;
             for (int i = start; i < array.length; i++) {

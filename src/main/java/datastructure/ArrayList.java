@@ -39,10 +39,10 @@ public class ArrayList implements List {
     }
 
     @Override
-    public void addAtLast(int element) {
-        endPosition++;
-        int addAtLast = elements[endPosition];
+    public void add(int position, int element) {
+
     }
+
 
     @Override
     public Iterator getIterator() {

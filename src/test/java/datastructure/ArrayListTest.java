@@ -16,6 +16,8 @@ public class ArrayListTest {
         list.add(10);
         list.add(20);
         assertThat(list.remove(),is(20));
+
+
     }
 
 
@@ -28,5 +30,13 @@ public class ArrayListTest {
         assertThat(list.get(0),is(10));
         assertThat(list.get(1),is(20));
         assertThat(list.get(2),is(30));
+
+
+
+        Iterator itr=list.getIterator();
+        while (itr.hasNext()){
+          int i = (int) itr.next();
+            System.out.println("element is "+itr.next());
+        }
     }
-}
+    }

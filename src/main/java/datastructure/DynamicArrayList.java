@@ -1,25 +1,26 @@
 package datastructure;
 
-public class DynamicArrayList implements List {
-    int[] elements;
+public class DynamicArrayList<T> implements List<T> {
+    T[] elements;
     int position;
     int maxCapacity;
 
 
     public DynamicArrayList() {
-        elements = new int[10];
+        elements = (T[]) new Object[10];
         position = -1;
         maxCapacity = 10;
     }
 
     public DynamicArrayList(int maxCapacity) {
-        elements = new int[maxCapacity];
+        elements = (T[]) new Object[maxCapacity];
         position = -1;
         this.maxCapacity = maxCapacity;
     }
 
+
     @Override
-    public void add(int element) throws StackFullException {
+    public void add(T element) throws StackFullException {
         position++;
         if (position < maxCapacity) {
             elements[position] = element;
@@ -31,17 +32,22 @@ public class DynamicArrayList implements List {
     }
 
     @Override
-    public int remove() {
-        return 0;
+    public T remove() {
+        return null;
     }
 
     @Override
-    public int get(int position) {
+    public T remove(int position) {
+        return null;
+    }
+
+    @Override
+    public T get(int position) {
         return elements[position];
     }
 
     @Override
-    public void add(int position,int element) {
+    public void add(int position, T element) {
 
     }
 
@@ -49,11 +55,11 @@ public class DynamicArrayList implements List {
     public Iterator getIterator() {
         return new DynamicArrayListIterator();
     }
-    class DynamicArrayListIterator implements Iterator{
+    class DynamicArrayListIterator implements Iterator<T>{
         int iteratorPosition =-1;
 
         @Override
-        public Object next() {
+        public T next() {
             iteratorPosition++;
             return elements[iteratorPosition];
         }

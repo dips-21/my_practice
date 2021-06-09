@@ -10,17 +10,38 @@ public class DynamicArrayListTest {
 
     @Test
     public void get() throws StackFullException {
-        List list=new DynamicArrayList(10);
+        List list = new DynamicArrayList(10);
         list.add(10);
         list.add(20);
         list.add(30);
-        assertThat(list.get(0),is(10));
-        assertThat(list.get(1),is(20));
-        assertThat(list.get(2),is(30));
-        Iterator itr=list.getIterator();
-        while (itr.hasNext()){
+        //list.add("hgyu");
+        assertThat(list.get(0), is(10));
+        assertThat(list.get(1), is(20));
+        assertThat(list.get(2), is(30));
+        Iterator itr = list.getIterator();
+        while (itr.hasNext()) {
             int i = (int) itr.next();
-            System.out.println("element is "+i);
+            String j = (String) itr.next(); //run time class cast exception
+            System.out.println("element is " + i);
+        }
+    }
+
+
+    @Test
+    public void get_01() throws StackFullException {
+        List<Integer> list = new DynamicArrayList(10);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+       // list.add("jhbkj");
+        assertThat(list.get(0), is(10));
+        assertThat(list.get(1), is(20));
+        assertThat(list.get(2), is(30));
+        Iterator<Integer> itr = list.getIterator();
+        while (itr.hasNext()) {
+            int i = itr.next();
+          //   String j = (String) itr.next(); compile time error
+            System.out.println("element is " + i);
         }
     }
 }

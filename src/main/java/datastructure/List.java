@@ -1,10 +1,11 @@
 package datastructure;
 
-public interface List {
-    void add(int element) throws StackFullException;
-    int remove();
-    int get(int position);
-    void add(int position,int element);
-    Iterator getIterator();
+public interface List<T> {
+    void add(T element) throws StackFullException;
+    T remove();
+    T remove(int position);
+    T get(int position);
+    void add(int position,T element);
+    Iterator<T> getIterator();
 }
 

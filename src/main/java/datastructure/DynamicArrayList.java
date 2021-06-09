@@ -50,17 +50,17 @@ public class DynamicArrayList implements List {
         return new DynamicArrayListIterator();
     }
     class DynamicArrayListIterator implements Iterator{
-        int position=-1;
+        int iteratorPosition =-1;
 
         @Override
         public Object next() {
-            position++;
-            return elements[position];
+            iteratorPosition++;
+            return elements[iteratorPosition];
         }
 
         @Override
         public boolean hasNext() {
-            return position<maxCapacity;
+            return iteratorPosition <position;
         }
     }
 

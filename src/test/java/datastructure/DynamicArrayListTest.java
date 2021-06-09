@@ -1,0 +1,26 @@
+package datastructure;
+
+import org.junit.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.*;
+
+public class DynamicArrayListTest {
+
+    @Test
+    public void get() throws StackFullException {
+        List list=new DynamicArrayList(10);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        assertThat(list.get(0),is(10));
+        assertThat(list.get(1),is(20));
+        assertThat(list.get(2),is(30));
+        Iterator itr=list.getIterator();
+        while (itr.hasNext()){
+            int i = (int) itr.next();
+            System.out.println("element is "+i);
+        }
+    }
+}

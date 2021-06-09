@@ -6,8 +6,7 @@ public class DynamicArrayStack extends ArrayStack {
     }
 
     @Override
-    public void push(int element) throws StackFullException
-    {
+    public void push(int element) throws StackFullException {
         if (top == maxCapacity - 1) {
             expandStack();
         }
@@ -20,7 +19,7 @@ public class DynamicArrayStack extends ArrayStack {
         for (int i = 0; i < maxCapacity; i++) {
             newElements[i] = elements[i];
         }
-        this.maxCapacity=maxCapacity*2;
+        this.maxCapacity = maxCapacity * 2;
         this.elements = newElements;
     }
 

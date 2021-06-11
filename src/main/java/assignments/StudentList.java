@@ -29,8 +29,9 @@ class Student {
         Roll_No = roll_No;
     }
 
+
     public String getName() {
-        return Name;
+        return this.Name;
     }
 
     public void setName(String name) {

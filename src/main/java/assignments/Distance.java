@@ -12,14 +12,17 @@ public class Distance {
         this.inch = inch % 12;
     }
 
+
+
     public Distance() {
         //this.feet=5;
         //this.inch=8;
         this(5, 8);
     }
-     public Distance(int inch){
-     this(0,inch);
-     }
+
+    public Distance(int inch) {
+        this(0, inch);
+    }
 
 
     public int getDistance() {
@@ -71,14 +74,14 @@ public class Distance {
 
     @Override
     public int hashCode() {
-        int r=1;
-        r=r*31+feet;
-        r=r*31+inch;
+        int r = 1;
+        r = r * 31 + feet;
+        r = r * 31 + inch;
         return r;
     }
 
     public int hashCode1() {
-        return feet+ inch;
+        return feet + inch;
     }
 
     public static void main(String[] args) {
@@ -96,12 +99,12 @@ public class Distance {
         Distance d5 = null;
         //d5.equals(d1); //null pointer exception
         d1.equals(d5);
-        Distance dist=new Distance(49);
+        Distance dist = new Distance(49);
         System.out.println(dist);
         //d.add(d1)
-        Distance result= add(d1,dist);
-        System.out.println("addition of "+d1+" "+dist+" = "+ result);
-        System.out.println("d1 hash "+d1.hashCode()+" d2 hash "+d2.hashCode());
-       // System.out.println(Integer.hashCode(6));
+        Distance result = add(d1, dist);
+        System.out.println("addition of " + d1 + " " + dist + " = " + result);
+        System.out.println("d1 hash " + d1.hashCode() + " d2 hash " + d2.hashCode());
+        // System.out.println(Integer.hashCode(6));
     }
 }

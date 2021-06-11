@@ -11,7 +11,7 @@ public class SubClassTest1 {
      jack.getHours();
      jack.setRate(52);
      System.out.printf("Jack's ID is %d, INCOME is %.2f and TAX is %.2f%n", jack.getId(), jack.income(), tax(jack));
-     var jill=new payroll.SalesPerson(186,52,48000);
-        System.out.printf("jill's Id is %d,Income is %.2f and Tax is %.2f",jill.getId(),jill.income(),tax(jill));
+     //var jill=new payroll.SalesPerson(186,52,48000);
+      //  System.out.printf("jill's Id is %d,Income is %.2f and Tax is %.2f",jill.getId(),jill.income(),tax(jill));
     }
 }

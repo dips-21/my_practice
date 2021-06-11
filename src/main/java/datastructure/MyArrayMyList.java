@@ -1,6 +1,6 @@
 package datastructure;
 
-public class ArrayList<T> implements List<T> {
+public class MyArrayMyList<T> implements MyList<T> {
     T[] elements;
     int endPosition = -1;
     int maxCapacity;
@@ -11,7 +11,7 @@ public class ArrayList<T> implements List<T> {
 
     }
 
-    ArrayList(int maxCapacity) {
+    MyArrayMyList(int maxCapacity) {
         this.maxCapacity = maxCapacity;
         elements = (T[]) new Object[maxCapacity];
     }

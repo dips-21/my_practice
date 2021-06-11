@@ -1,6 +1,6 @@
 package datastructure;
 
-public interface List<T> {
+public interface MyList<T> {
     void add(T element) throws StackFullException;
     T remove();
     T remove(int position);

@@ -2,17 +2,17 @@ package datastructure;
 
 import org.junit.Test;
 
-import javax.naming.LimitExceededException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
 
-public class ArrayListTest {
+public class MyArrayMyListTest {
 
     @Test
     public void add() throws StackFullException {
-        List list = new ArrayList(10);
+        MyList list = new MyArrayMyList(10);
         list.add(10);
         list.add(20);
         list.add(30);
@@ -24,13 +24,22 @@ public class ArrayListTest {
         assertThat(list.get(3), is(30));
         assertThat(list.get(4), is(40));
 
-
+        List<Integer> list1=new ArrayList<>();
+        list1.add(5);
+        list1.add(8);
+        list1.add(6);
+        list1.add(7);
+        list1.add(8);
+        list1.add(2,9);
+        list1.remove((Integer) 8);
+        //list1.remove(8);
+        System.out.println(list1);
     }
 
 
     @Test
     public void remove() throws StackFullException {
-        List list = new ArrayList(10);
+        MyList list = new MyArrayMyList(10);
         list.add(10);
         list.add(20);
         list.add(30);
@@ -49,7 +58,7 @@ public class ArrayListTest {
 
     @Test
     public void remove_unordered_01() throws StackFullException {
-        ArrayList list = new ArrayList(10);
+        MyArrayMyList list = new MyArrayMyList(10);
         list.add(10);
         list.add(20);
         list.add(30);
@@ -64,7 +73,7 @@ public class ArrayListTest {
 
     @Test
     public void remove_01() throws StackFullException {
-        List list = new ArrayList(10);
+        MyList list = new MyArrayMyList(10);
         list.add(10);
         list.add(20);
         list.add(30);

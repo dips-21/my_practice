@@ -8,7 +8,6 @@ public class Loan {
         this.principle=principle;
         this.period=period;
     }
-
     @Override
     public String toString() {
         return "Loan{" +
@@ -16,29 +15,22 @@ public class Loan {
                 ", period=" + period +
                 '}';
     }
-
     //public abstract float getRate();
     public float getRate(){
          throw new IllegalStateException("getRate not defined for Loan");
-    }
-
-    public float getPrinciple() {
+    }public float getPrinciple() {
         return principle;
 
     }
-
     public void setPrinciple(float principle) {
         this.principle = principle;
     }
-
     public float getPeriod() {
         return period;
     }
-
     public void setPeriod(float period) {
         this.period = period;
     }
-
  public float getEMI(){
      float emi= principle * (1 + getRate() * period / 100) / (12 * period);
      return emi;

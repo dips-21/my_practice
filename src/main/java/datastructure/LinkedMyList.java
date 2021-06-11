@@ -1,13 +1,11 @@
 package datastructure;
 
-public class LinkedList<T> implements List<T>{
+public class LinkedMyList<T> implements MyList<T> {
  private LinkNode head;
-
-   /* public LinkedList(int value) {
+ /* public LinkedList(int value) {
         this.head = new LinkNode(value);
     }
-*/
-    @Override
+*/@Override
     public void add(T element) throws StackFullException {
         LinkNode<T> node=new LinkNode(element);
         if(head==null){

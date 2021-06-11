@@ -1,18 +1,18 @@
 package datastructure;
 
-public class DynamicArrayList<T> implements List<T> {
+public class DynamicArrayMyList<T> implements MyList<T> {
     T[] elements;
     int position;
     int maxCapacity;
 
 
-    public DynamicArrayList() {
+    public DynamicArrayMyList() {
         elements = (T[]) new Object[10];
         position = -1;
         maxCapacity = 10;
     }
 
-    public DynamicArrayList(int maxCapacity) {
+    public DynamicArrayMyList(int maxCapacity) {
         elements = (T[]) new Object[maxCapacity];
         position = -1;
         this.maxCapacity = maxCapacity;

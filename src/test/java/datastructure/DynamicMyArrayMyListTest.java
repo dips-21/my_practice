@@ -4,13 +4,12 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
 
-public class DynamicArrayListTest {
+public class DynamicMyArrayMyListTest {
 
     @Test
     public void get() throws StackFullException {
-        List list = new DynamicArrayList(10);
+        MyList list = new DynamicArrayMyList(10);
         list.add(10);
         list.add(20);
         list.add(30);
@@ -29,7 +28,7 @@ public class DynamicArrayListTest {
 
     @Test
     public void get_01() throws StackFullException {
-        List<Integer> list = new DynamicArrayList(10);
+        MyList<Integer> list = new DynamicArrayMyList(10);
         list.add(10);
         list.add(20);
         list.add(30);

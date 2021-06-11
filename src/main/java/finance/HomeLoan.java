@@ -1,22 +1,24 @@
 package finance;
 
-public class HomeLoan extends Loan {
-    /*HomeLoan(){
-        super(1.0f,1.0f);
-    }*/
-    HomeLoan(float principle,float period){
+public class HomeLoan extends Loan{
+    private double limit=2500000;
+    public HomeLoan(float principle,float period){
         super(principle,period);
     }
+    public HomeLoan(){
 
-    @Override
-    public float getRate() {
-        if(this.principle<2000000){
-            return 10;
-        }
-        else{
-            return 11;
-        }
-
+        this(100000,5);
     }
 
+    public float getRate(){
+
+        if(principle<=2000000)
+            return 10.0f;
+        else if
+        (principle>2500000)
+
+            return 12.0f;
+
+        return 11.0f;
+    }
 }

@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class LinkedListTest {
+public class LinkedMyListTest {
 
     @Test
     public void add() {

@@ -10,6 +10,7 @@ public class SearchTest {
     @Test
     public void search() {
         int[] nums={5,6,8,9,10,12,14};
+
         assertThat(new Search().search(nums,6),is(true));
     }
 

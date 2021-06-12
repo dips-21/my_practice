@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.is;
 
 import static org.junit.Assert.*;
 
-public class ArraySumFinderTest {
+public class PairSumSearchableArrayTest {
 
     @Test
     public void hasTwoSum() {

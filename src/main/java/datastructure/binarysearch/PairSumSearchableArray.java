@@ -9,7 +9,7 @@ import java.util.Arrays;
 //makeJuice(Fruit a){a.deseed())  //child can NOT decrease method visibility
 //Apple extends Fruit  , private deseed()
 //public protected default private
-public class PairSumSearchableArray implements SearchableArray{
+public class PairSumSearchableArray{
     int[] array;
 
     public PairSumSearchableArray(int[] array) {
@@ -17,22 +17,14 @@ public class PairSumSearchableArray implements SearchableArray{
         this.array = array;
     }
 
-    boolean hasSumPresent(final int sum) {
-        return hasSum(sum);
-
-    }
-    public boolean search(int num, int start, int end) {
-        for (int j = start; j <= end; j++) {
-            if (array[j] == num)
-                return true;
-        }
-        return false;
+    boolean hasSumPresent(final int sum){
+        return hasSumPresent(sum,new BinarySearch());
     }
 
-    boolean hasSum(final int sum) {
+    boolean hasSumPresent(final int sum,Searchable searchable) {
         for (int i = 0; i < array.length; i++) {
             int second_number = sum - array[i];            //sum==firstNumber+second_number;
-            boolean isPresent = search(second_number, i + 1, array.length - 1);
+            boolean isPresent = searchable.search(array,second_number, i + 1, array.length - 1);
             if (isPresent) {
                 System.out.println("no1 = "+second_number+ "no2 = "+array[i]);
                 return true;

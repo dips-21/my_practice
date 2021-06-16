@@ -1,9 +1,5 @@
 package oop;
 
-import assignments.Distance;
-
-import java.util.Queue;
-
 public class Weight {
     private int kilogram;
     private int gram;

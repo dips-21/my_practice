@@ -38,7 +38,7 @@ public class GenericStackTest {
         String s=stack.peak();
         //assertThat(stack.peak(), is(7));
     }
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void push02() {
         GenericStack<Integer> stack = new GenericStack(5);
         stack.push(123);

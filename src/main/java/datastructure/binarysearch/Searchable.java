@@ -1,5 +1,5 @@
 package datastructure.binarysearch;
 
 public interface Searchable {
-    boolean search(int key,int start,int end);
+    boolean search(int[] arr,int key,int start,int end);
 }

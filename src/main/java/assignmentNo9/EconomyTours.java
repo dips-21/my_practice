@@ -1,4 +1,4 @@
-package tours;
+package assignmentNo9;
     @Discount
     public class EconomyTours {
         public float registered(int numOfDiscount, int numOfPassenger) {

@@ -1,4 +1,4 @@
-package tours;
+package assignmentNo9;
 @Tax
 public class LuxuryTours {
         public float registered(int numOfDiscount, int numOfPassenger){

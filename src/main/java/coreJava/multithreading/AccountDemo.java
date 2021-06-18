@@ -83,8 +83,7 @@ boolean flag=false;
         int c = 0;
         while (true) {
             if (c > 50) break;
-            ;
-            // System.out.println( ""+accountDemo.balance);
+            System.out.println( ""+accountDemo.balance);
             c++;
             Thread.sleep(Math.abs(new Random(100).nextInt() % 300));
         }

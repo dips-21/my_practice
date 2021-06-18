@@ -1,4 +1,4 @@
-package tours;
+package assignmentNo9;
 
 @Discount(value = 10)
 public class BusinessTour {

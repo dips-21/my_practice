@@ -1,5 +1,4 @@
-package tours;
-import tours.Tax;
+package assignmentNo9;
 import java.lang.reflect.Method;
 import java.util.Scanner;
 

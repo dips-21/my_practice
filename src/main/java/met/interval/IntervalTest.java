@@ -1,4 +1,5 @@
-package met;
+package met.interval;
+import met.interval.Interval;
 
 public class IntervalTest {
     public static void main(String[] args) {
@@ -26,6 +27,5 @@ public class IntervalTest {
         intervalTwo.add(intervalOne);
         System.out.println(intervalOne);
         System.out.println(intervalTwo);
-
     }
 }

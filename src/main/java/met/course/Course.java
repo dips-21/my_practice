@@ -1,5 +1,4 @@
-package met;
-
+package met.course;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,6 @@ public class Course {
     public Course(String title) {
         this.title = title;
     }
-
 
     String getTitle() {
         return title;
@@ -29,11 +27,9 @@ public class Course {
         studentList.remove(student);
     }
 
-
     public void printStudentList() {
         for (Student student : studentList) {
             System.out.println(student);
         }
     }
-
 }

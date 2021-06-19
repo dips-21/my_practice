@@ -1,4 +1,4 @@
-package met;
+package met.interval;
 
 public class Interval {
     private int hours;

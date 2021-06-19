@@ -1,4 +1,4 @@
-package met;
+package met.course;
 
 class Student{
     private  String name;

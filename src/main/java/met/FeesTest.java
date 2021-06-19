@@ -10,10 +10,11 @@ public class FeesTest {
        String className=args[0];
        String methodName=args[1];
         Class<?> clazz = Class.forName(className);
-
+     Method m=clazz.getSuperclass().getDeclaredMethod(methodName);
+        System.out.println(m.getName()+"  ============");
        Object feesCalci= clazz.getConstructor().newInstance();
       Method method=clazz.getDeclaredMethod(methodName);
-        double fees= (double) method.invoke(feesCalci);
+        double fees= (Double) method.invoke(feesCalci);
         System.out.println(fees +" ");
     }
 }

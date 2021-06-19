@@ -11,8 +11,8 @@ import java.io.FileOutputStream;
  // 00         xor
         public static void main(String[] args) throws Exception {
             System.out.println(5^2);
-            var input = new FileInputStream(args[0]);
-            var output = new FileOutputStream(args[1]);
+            FileInputStream input = new FileInputStream(args[0]);
+            FileOutputStream output = new FileOutputStream(args[1]);
             byte[] buffer = new byte[80];
 
             while(input.available() > 0){

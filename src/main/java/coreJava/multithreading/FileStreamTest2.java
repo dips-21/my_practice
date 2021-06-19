@@ -15,7 +15,7 @@ public class FileStreamTest2  {
                 output.close();
             }else{
                 double total = 0;
-                var input = new DataInputStream(new FileInputStream("store.data"));
+                DataInputStream input = new DataInputStream(new FileInputStream("store.data"));
                 while(input.available() > 0){
                     String name = input.readUTF();
                     double price = input.readDouble();

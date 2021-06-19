@@ -17,7 +17,7 @@ public class DAC implements FeesCalculator{
         return 6;
     }
 
-    double getMonthlyFees() {
+  /*  double getMonthlyFees() {
         return (getFees() + (getInterest()) * getFees() / getPeriod());
-    }
+    }*/
 }

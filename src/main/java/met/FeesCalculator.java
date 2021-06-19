@@ -5,4 +5,8 @@ public interface FeesCalculator{
     double getFees();
     short getPeriod();
 
+    default double getMonthlyFees() {
+        return (getFees() + (getInterest()) * getFees() / getPeriod());
+    }
+
 }

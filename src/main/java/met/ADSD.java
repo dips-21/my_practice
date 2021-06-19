@@ -17,12 +17,12 @@ public class ADSD implements FeesCalculator {
         return 12;
     }
 
-    double getMonthlyFees() {
+    public double getMonthlyFees() {
         return (getFees() + (getInterest()) * getFees() / getPeriod());
 
     }
 
-    double getMonthlyConcession() {
+   public double getMonthlyConcession() {
         return getMonthlyFees()/2;
     }
 }

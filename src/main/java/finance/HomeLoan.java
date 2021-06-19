@@ -11,14 +11,15 @@ public class HomeLoan extends Loan{
     }
 
     public float getRate(){
-
+float rate;
         if(principle<=2000000)
-            return 10.0f;
-        else if
-        (principle>2500000)
+            rate= 10.0f;
+        else
+            rate=11.0f;
 
-            return 12.0f;
-
-        return 11.0f;
+        if(principle>limit){
+            return 1+rate;
+        }
+        return rate;
     }
 }

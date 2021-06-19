@@ -17,7 +17,7 @@ public class DACA implements FeesCalculator{
         return 6;
     }
 
-    double getMonthlyFees() {
+    public double getMonthlyFees() {
         return (getFees() + (getInterest()) * getFees() / getPeriod());
     }
 }

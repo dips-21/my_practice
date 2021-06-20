@@ -1,4 +1,4 @@
-package met;
+package met.fees;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 

@@ -3,6 +3,7 @@ package met;
 enum Gender {MALE, FEMALE};
 
 public class Employee implements Comparable<Employee> {
+    static String company="cdac";
     private String empName;
     private double height;
     private double weight;

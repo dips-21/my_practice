@@ -23,6 +23,5 @@ public class SimpleClient {
         int result = dataInputStream.readInt();
         System.out.println("result is "+result);
 
-
     }
 }

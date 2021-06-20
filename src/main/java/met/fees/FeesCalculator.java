@@ -1,4 +1,4 @@
-package met;
+package met.fees;
 
 public interface FeesCalculator{
     double getInterest();

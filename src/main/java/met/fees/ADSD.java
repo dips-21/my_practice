@@ -1,4 +1,4 @@
-package met;
+package met.fees;
 
 public class ADSD implements FeesCalculator {
 

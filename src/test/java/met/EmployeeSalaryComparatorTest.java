@@ -19,6 +19,8 @@ public class EmployeeSalaryComparatorTest {
     public void compare_first_greater() {
         Employee one=new Employee("",5,5,5000,Gender.FEMALE);
         Employee two=new Employee("",5,5,3000,Gender.FEMALE);
+        String c=Employee.company; //
+        one.compareTo(two); //
         assertThat(new EmployeeSalaryComparator().compare(one,two),is(1));
     }
 

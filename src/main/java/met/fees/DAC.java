@@ -1,15 +1,15 @@
-package met;
+package met.fees;
 
-public class DACA implements FeesCalculator{
+public class DAC implements FeesCalculator{
 
     @Override
     public double getInterest() {
-        return 8;
+        return 10;
     }
 
     @Override
     public double getFees() {
-        return 79000;
+        return 89000;
     }
 
     @Override
@@ -17,7 +17,7 @@ public class DACA implements FeesCalculator{
         return 6;
     }
 
-    public double getMonthlyFees() {
+  /*  double getMonthlyFees() {
         return (getFees() + (getInterest()) * getFees() / getPeriod());
-    }
+    }*/
 }

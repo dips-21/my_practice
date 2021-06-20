@@ -14,10 +14,11 @@ public class SimpleServer {
             InputStream inputStream = client.getInputStream();
             DataInputStream dataInputStream = new DataInputStream(inputStream);
             int num = dataInputStream.readInt();
+            //char msg=dataInputStream.readChar();
             OutputStream outputStream = client.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeInt(num * num);
+            //dataOutputStream.writeChars("hello");
         }
     }
-
 }

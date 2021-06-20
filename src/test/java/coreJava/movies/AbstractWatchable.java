@@ -1,25 +1,26 @@
 package coreJava.movies;
 
-public abstract class AbstractWatchable implements Watchable{
-int length;
-String name;
-String directorName;
-WatchableType type;
-int year;
-double budget;
+public abstract class AbstractWatchable implements Watchable {
+    int length;
+    String name;
+    String directorName;
+    WatchableType type;
+    int year;
+    double budget;
 
-public AbstractWatchable(int length, String name, String directorName, WatchableType type, int year,double budget){
-    this.length=length;
-    this.name=name;
-    this.directorName=directorName;
-    this.year=year;
-    this.type=type;
-    this.budget=budget;
+    public AbstractWatchable(int length, String name, String directorName, WatchableType type, int year, double budget) {
+        this.length = length;
+        this.name = name;
+        this.directorName = directorName;
+        this.year = year;
+        this.type = type;
+        this.budget = budget;
 
-}
+    }
+
     @Override
     public int getLength() {
-        return length ;
+        return length;
     }
 
     @Override

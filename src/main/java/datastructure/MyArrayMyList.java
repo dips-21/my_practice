@@ -2,76 +2,76 @@ package datastructure;
 
 public class MyArrayMyList<T> implements MyList<T> {
     T[] elements;
-    int endPosition = -1;
-    int maxCapacity;
+    int endposition = -1;
 
-    void ArrayList() {
-        maxCapacity = 10;
-        elements = (T[]) new Object[maxCapacity];
+    public MyArrayMyList() {
+        elements = (T[]) new Object[10];
+    }
+
+    public MyArrayMyList(int initialCapacity) {
+        elements = (T[]) new Object[initialCapacity];
+    }
+
+    @Override
+    public void add(T element) {
+        endposition++;
+        checkAndResize();
+        elements[endposition] = element;
 
     }
 
-    MyArrayMyList(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
-        elements = (T[]) new Object[maxCapacity];
+    private void checkAndResize() {
+        if (endposition >= elements.length) {
+            // throw new RuntimeException("index out of bound");
+            T[] resizedElements = (T[]) new Object[elements.length * 2];
+            // int[] resizedElements = new int[elements.length * 2];
+            //System.arraycopy(element,0,resizedElements,0,elements.length);
+            for (int i = 0; i < elements.length; i++) {
+                resizedElements[i] = elements[i];
+            }
+            this.elements = resizedElements;
+        }
     }
-
-
 
     @Override
     public T remove() {
-        T remove = elements[endPosition];
-        endPosition--;
+        T remove = elements[endposition];
+        endposition--;
         return remove;
     }
 
     @Override
     public T remove(int position) {
-        T removed = elements[position];
-        for (int i = position; i < endPosition; i++) {
+        T removedElem = elements[position];
+        for (int i = position; i < endposition; i++) {
             elements[i] = elements[i + 1];
         }
         position--;
-
-        return removed;
+        return removedElem;
     }
-
-
-    public T removeUnordered(int position) {
-        T temp = elements[position];
-        elements[position] = elements[endPosition];
-        elements[endPosition] = temp;
-        endPosition--;
-        return temp;
-    }
-//add at last
-    @Override
-    public void add(T element) throws StackFullException {
-        if (endPosition == maxCapacity) {
-            throw new StackFullException();
-        }
-        endPosition++;
-        elements[endPosition] = element;
-
-    }
-
-    @Override
-    public void add(int position, T element) {
-        for (int i = endPosition; i >= position ; i--) {
-             elements[i+1]=elements[i];
-        }
-        elements[position]=element;
-    }
-
 
     @Override
     public T get(int position) {
-        T element = elements[position];
-        return element;
+        if (position < 0 || position > endposition)
+            throw new IllegalArgumentException("position is invalid :" + position);
+        return elements[position];
+
     }
 
     @Override
-    public Iterator getIterator() {
+    public void add(int position, T element) {          //at any position
+        endposition++;
+        checkAndResize();
+        for (int i = endposition; i >= position; i--) {
+            elements[i + 1] = elements[i];
+        }
+        elements[position] = element;
+    }
+
+    @Override
+    public Iterator<T> getIterator() {
         return null;
     }
+
 }
+

@@ -8,7 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class EmployeeTest {
-
+/*
     @Test
     public void sort() {
         Employee[] employees = {new Employee("Dips", 5.6, 45, 30000, Gender.FEMALE),
@@ -39,6 +39,6 @@ public class EmployeeTest {
     @Test
     public void compare_equal() {
         assertThat(Employee.compareString("orange".toCharArray(), "orange".toCharArray()), is(0));
-    }
+    }*/
 
 }

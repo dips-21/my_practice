@@ -1,12 +1,14 @@
 package exam;
 
+import java.util.Arrays;
+
 public class Students {
     private int Id;
     private Date DOB;
-    private int marks;
+    private int []marks;
 
 
-    public Students(int id, Date DOB, int marks) {
+    public Students(int id, Date DOB, int []marks) {
         Id = id;
         this.DOB = DOB;
         this.marks = marks;
@@ -21,16 +23,17 @@ public class Students {
         return DOB;
     }
 
-    public int getMarks() {
+    public int [] getMarks() {
         return marks;
     }
+
 
     @Override
     public String toString() {
         return "Students{" +
                 "Id=" + Id +
                 ", DOB=" + DOB +
-                ", marks=" + marks +
+                ", marks=" + Arrays.toString(marks) +
                 '}';
     }
 }

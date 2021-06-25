@@ -21,7 +21,7 @@ public class JdbcInsertSelectDemo {
             //int id = Integer.parseInt(args[0]);
             int id=scanner.nextInt();
             String fname = args[1];
-          //  fname="diapli' or 1=1 or last_name='";
+            //fname="diapli' or 1=1 or last_name='";
            fname=scanner.next();
             String lname = args[2];
             lname=scanner.next();

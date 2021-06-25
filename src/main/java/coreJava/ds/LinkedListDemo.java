@@ -1,6 +1,5 @@
 package coreJava.ds;
 
-import datastructure.LinkedMyList;
 import operator.Person;
 
 import java.util.Iterator;

@@ -22,9 +22,11 @@ public class JdbcDemo {
                 System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
 
             }
+           // Actor
             con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 }
+//java heap ke bahar native memory me allocate hua hai so usko close krna jaruri hai!

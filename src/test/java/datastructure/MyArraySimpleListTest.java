@@ -2,16 +2,13 @@ package datastructure;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class MyArrayMyListTest {
+public class MyArraySimpleListTest {
     @Test
     public void add() throws StackFullException {
-        MyArrayMyList list = new MyArrayMyList(10);
+        MyArraySimpleList list = new MyArraySimpleList(10);
         list.add(10);
         list.add(20);
         list.add(30);
@@ -21,6 +18,7 @@ public class MyArrayMyListTest {
         assertThat(list.get(2), is(30));
         assertThat(list.get(3), is(40));
     }
+
 
    /* @Test//(expected = IllegalArgumentException.class)
     public void
@@ -41,7 +39,7 @@ public class MyArrayMyListTest {
 
     @Test
     public void remove() throws StackFullException {
-        MyList list = new MyArrayMyList(5);
+        SimpleList list = new MyArraySimpleList(5);
         list.add(10);
         list.add(20);
         list.add(30);
@@ -50,7 +48,7 @@ public class MyArrayMyListTest {
         assertThat(list.get(1), is(20));
         assertThat(list.get(2), is(30));
         assertThat(list.get(3), is(40));
-        list.remove(2);
+        list.removeLast(2);
         assertThat(list.get(0), is(10));
         assertThat(list.get(1), is(20));
         assertThat(list.get(2), is(40));
@@ -59,7 +57,7 @@ public class MyArrayMyListTest {
 
     @Test
     public void add_At_Position() throws StackFullException {
-        MyArrayMyList list = new MyArrayMyList(10);
+        MyArraySimpleList list = new MyArraySimpleList(10);
         list.add(10);
         list.add(20);
         list.add(30);

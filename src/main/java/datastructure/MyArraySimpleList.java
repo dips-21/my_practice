@@ -1,14 +1,14 @@
 package datastructure;
 
-public class MyArrayMyList<T> implements MyList<T> {
+public class MyArraySimpleList<T> implements SimpleList<T> {
     T[] elements;
     int endposition = -1;
 
-    public MyArrayMyList() {
+    public MyArraySimpleList() {
         elements = (T[]) new Object[10];
     }
 
-    public MyArrayMyList(int initialCapacity) {
+    public MyArraySimpleList(int initialCapacity) {
         elements = (T[]) new Object[initialCapacity];
     }
 
@@ -34,14 +34,14 @@ public class MyArrayMyList<T> implements MyList<T> {
     }
 
     @Override
-    public T remove() {
+    public T removeLast() {
         T remove = elements[endposition];
         endposition--;
         return remove;
     }
 
     @Override
-    public T remove(int position) {
+    public T removeLast(int position) {
         T removedElem = elements[position];
         for (int i = position; i < endposition; i++) {
             elements[i] = elements[i + 1];

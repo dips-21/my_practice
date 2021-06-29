@@ -1,6 +1,8 @@
 package datastructure;
 
 
+//import sun.jvm.hotspot.memory.UniverseExt;
+
 public class SimpleLinkedList<T> implements SimpleList<T> {
     private LinkNode head;
 
@@ -154,5 +156,21 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         }
         return secondNode;
     }
-}
 
+//null 10--->20-->30-->40-->50-->60  prev=null curr=10 nextNode 20
+    //<null--10<---20<--30<--40<--50<--60 (head)      prev=10   cur=20 next=30
+    //60-->50-->40-->30-->20-->10
+    //prevNode currNode nextNode
+    public LinkNode<T> reverseNodes(){
+        LinkNode<T>current=head;         //10        //20
+        LinkNode<T>previous=null;       //null        20!=null false
+        while (current!=null) {           //10!=null true             20
+            LinkNode<T>nextNode = current.next;      //20       30
+            previous = current;                 //10         20
+            current.next=previous;              //10
+            current = nextNode;                 // 20
+        }
+        return previous;                         //10
+
+    }
+}

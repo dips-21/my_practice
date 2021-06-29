@@ -161,16 +161,18 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
     //<null--10<---20<--30<--40<--50<--60 (head)      prev=10   cur=20 next=30
     //60-->50-->40-->30-->20-->10
     //prevNode currNode nextNode
-    public LinkNode<T> reverseNodes(){
+    public void reverseNodes(){
         LinkNode<T>current=head;         //10        //20
         LinkNode<T>previous=null;       //null        20!=null false
         while (current!=null) {           //10!=null true             20
             LinkNode<T>nextNode = current.next;      //20       30
-            previous = current;                 //10         20
             current.next=previous;              //10
-            current = nextNode;                 // 20
+            previous = current;                 //10         20
+            current = nextNode;
+            // 20
+            System.out.println(current);
         }
-        return previous;                         //10
+        this.head=previous;
 
     }
 }

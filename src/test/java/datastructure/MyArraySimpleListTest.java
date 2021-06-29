@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 public class MyArraySimpleListTest {
     @Test
     public void add() throws StackFullException {
-        MyArraySimpleList list = new MyArraySimpleList(10);
+        SimpleList list = new MyArraySimpleList(10);
         list.add(10);
         list.add(20);
         list.add(30);
@@ -48,7 +48,7 @@ public class MyArraySimpleListTest {
         assertThat(list.get(1), is(20));
         assertThat(list.get(2), is(30));
         assertThat(list.get(3), is(40));
-        list.removeLast(2);
+        list.remove(2);
         assertThat(list.get(0), is(10));
         assertThat(list.get(1), is(20));
         assertThat(list.get(2), is(40));

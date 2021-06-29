@@ -1,6 +1,9 @@
 package fileChannel;
 
+import java.io.File;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
@@ -8,11 +11,11 @@ import java.nio.file.StandardOpenOption;
 class FileChannelTest {
 
 	public static void main(String[] args) throws Exception {
-		var doc = Path.of(args[0]);
-		try(var channel = FileChannel.open(doc, StandardOpenOption.READ, StandardOpenOption.WRITE)){
-			var lock = channel.lock(); //other processes will not be allowed to access this file image
+		Path doc = new File(args[0]).toPath(); //Path.of(args[0]);
+		 try( FileChannel channel = FileChannel.open(doc, StandardOpenOption.READ, StandardOpenOption.WRITE)){
+			FileLock lock = channel.lock(); //other processes will not be allowed to access this file image
 			int n = (int)channel.size();
-			var image = channel.map(FileChannel.MapMode.READ_WRITE, 0, n);
+			MappedByteBuffer image = channel.map(FileChannel.MapMode.READ_WRITE, 0, n);
 			for(int i = 0, j = n - 1; i < j; ++i, j--){
 				byte ib = image.get(i);
 				byte jb = image.get(j);

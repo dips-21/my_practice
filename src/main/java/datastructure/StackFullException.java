@@ -1,7 +1,7 @@
 package datastructure;
 
 public class StackFullException extends Exception{
-    public StackFullException() {
+    public StackFullException() { //////checked exception bcz extend exception
         super("stack is full");
     }
 

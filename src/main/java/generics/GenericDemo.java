@@ -22,8 +22,10 @@ public class GenericDemo {
         myList.add(1);
         int ii= (int) myList.get(0);
         myList=new ArrayList<>();
-        myList.add("abcd");
+        myList.add("abcd");             //fruit apple orange
         int ij= (int) myList.get(0);
+        //error occur class cast exception, runtime exception bcz generic type missing type safety check
+      // when we write generic(compiler does type safety checked against generic type parameter)
 
         List<Integer> myIntList=new ArrayList<>();
         myIntList.add(123);

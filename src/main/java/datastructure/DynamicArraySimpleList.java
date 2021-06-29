@@ -37,7 +37,12 @@ public class DynamicArraySimpleList<T> implements SimpleList<T> {
     }
 
     @Override
-    public T removeLast(int position) {
+    public T remove(int position) {
+        return null;
+    }
+
+    @Override
+    public T remove(T element) {
         return null;
     }
 

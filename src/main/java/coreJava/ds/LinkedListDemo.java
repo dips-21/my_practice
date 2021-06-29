@@ -6,7 +6,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class LinkedListDemo {
+public class
+
+LinkedListDemo {
     public static void main(String[] args) {
         List<Person> list=new LinkedList<>();
         list.add(new Person(1,56,5.7,"Ajay"));

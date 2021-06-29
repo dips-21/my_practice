@@ -38,14 +38,14 @@ public class GenericStackTest {
         String s=stack.peak();
         //assertThat(stack.peak(), is(7));
     }
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = RuntimeException.class)        //checked  exception
     public void push02() {
-        GenericStack<Integer> stack = new GenericStack(5);
+        GenericStack<Integer> stack = new GenericStack(2);
         stack.push(123);
         stack.push(124);
         stack.push(345);
 
-        //int i= (int) stack.peak();
+        //int i= (int) stack.peak(); or below line
         int i=stack.peak(); //unboxing
         assertThat(stack.peak(), is(345));
     }

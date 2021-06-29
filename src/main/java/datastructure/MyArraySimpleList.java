@@ -2,7 +2,7 @@ package datastructure;
 
 public class MyArraySimpleList<T> implements SimpleList<T> {
     T[] elements;
-    int endposition = -1;
+    int endPosition = -1;
 
     public MyArraySimpleList() {
         elements = (T[]) new Object[10];
@@ -14,14 +14,14 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
 
     @Override
     public void add(T element) {
-        endposition++;
+        endPosition++;
         checkAndResize();
-        elements[endposition] = element;
+        elements[endPosition] = element;
 
     }
 
     private void checkAndResize() {
-        if (endposition >= elements.length) {
+        if (endPosition >= elements.length) {
             // throw new RuntimeException("index out of bound");
             T[] resizedElements = (T[]) new Object[elements.length * 2];
             // int[] resizedElements = new int[elements.length * 2];
@@ -35,15 +35,15 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
 
     @Override
     public T removeLast() {
-        T remove = elements[endposition];
-        endposition--;
+        T remove = elements[endPosition];
+        endPosition--;
         return remove;
     }
 
     @Override
-    public T removeLast(int position) {
+    public T remove(int position) {
         T removedElem = elements[position];
-        for (int i = position; i < endposition; i++) {
+        for (int i = position; i < endPosition; i++) {
             elements[i] = elements[i + 1];
         }
         position--;
@@ -51,8 +51,13 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
     }
 
     @Override
+    public T remove(T element) {
+        return null;
+    }
+
+    @Override
     public T get(int position) {
-        if (position < 0 || position > endposition)
+        if (position < 0 || position > endPosition)
             throw new IllegalArgumentException("position is invalid :" + position);
         return elements[position];
 
@@ -60,9 +65,9 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
 
     @Override
     public void add(int position, T element) {          //at any position
-        endposition++;
+        endPosition++;
         checkAndResize();
-        for (int i = endposition; i >= position; i--) {
+        for (int i = endPosition; i >= position; i--) {
             elements[i + 1] = elements[i];
         }
         elements[position] = element;

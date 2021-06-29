@@ -1,4 +1,4 @@
-package fileChannel;
+/*package fileChannel;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -32,4 +32,4 @@ class FileStreamTest2 {
 		}
 	}
 }
-
+*/

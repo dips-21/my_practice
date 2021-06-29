@@ -8,7 +8,7 @@ public class ArrayStack implements Stack{
         maxCapacity=10;
         elements=new int[maxCapacity];
        //Object[] elements=new Object[maxCapacity];
-    }//
+    }
 
     public ArrayStack(int maxCapacity){
         this.maxCapacity=maxCapacity;

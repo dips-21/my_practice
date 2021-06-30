@@ -9,6 +9,59 @@ import static org.hamcrest.Matchers.is;
 
 
 public class SimpleLinkedListTest {
+
+    @Test
+    public void replaceFirstMatch () {
+        SimpleLinkedList<Integer> simpleLinkedList = new SimpleLinkedList<>();
+        simpleLinkedList.add(10);
+        simpleLinkedList.add(20);
+        simpleLinkedList.add(30);
+        simpleLinkedList.add(20);
+        simpleLinkedList.add(40);
+        simpleLinkedList.replaceAtFirstPosition(20,25);
+        assertThat(simpleLinkedList.get(0), is(10));
+        assertThat(simpleLinkedList.get(1), is(25));
+        assertThat(simpleLinkedList.get(2), is(30));
+        assertThat(simpleLinkedList.get(3), is(20));
+        assertThat(simpleLinkedList.get(4), is(40));
+    }
+
+    @Test
+    public void replaceLastMatch () {
+        SimpleLinkedList<Integer> simpleLinkedList = new SimpleLinkedList<>();
+        simpleLinkedList.add(10);
+        simpleLinkedList.add(20);
+        simpleLinkedList.add(30);
+        simpleLinkedList.add(20);
+        simpleLinkedList.add(40);
+        simpleLinkedList.replaceAtLastPosition(20,25);
+        assertThat(simpleLinkedList.get(0), is(10));
+        assertThat(simpleLinkedList.get(1), is(20));
+        assertThat(simpleLinkedList.get(2), is(30));
+        assertThat(simpleLinkedList.get(3), is(25));
+        assertThat(simpleLinkedList.get(4), is(40));
+
+    }
+
+    @Test
+    public void replaceAtAll () {
+        SimpleLinkedList<Integer> simpleLinkedList = new SimpleLinkedList<>();
+        simpleLinkedList.add(10);
+        simpleLinkedList.add(20);
+        simpleLinkedList.add(30);
+        simpleLinkedList.add(20);
+        simpleLinkedList.add(40);
+        simpleLinkedList.replaceAtAllPosition(20,25);
+        assertThat(simpleLinkedList.get(0), is(10));
+        assertThat(simpleLinkedList.get(1), is(25));
+        assertThat(simpleLinkedList.get(2), is(30));
+        assertThat(simpleLinkedList.get(3), is(25));
+        assertThat(simpleLinkedList.get(4), is(40));
+
+    }
+
+
+
     @Test
     public void reverseOfNode() {
         SimpleLinkedList<Integer> simpleLinkedList = new SimpleLinkedList<>();
@@ -27,10 +80,9 @@ public class SimpleLinkedListTest {
         assertThat(simpleLinkedList.get(3), is(20));
         assertThat(simpleLinkedList.get(4), is(10));*/
     }
-}
 
         //10--20--30
-     /*   @Test
+        @Test
         public void add () {
             SimpleLinkedList<Integer> simpleLinkedList = new SimpleLinkedList<>();
             simpleLinkedList.add(10);
@@ -193,4 +245,4 @@ public class SimpleLinkedListTest {
             assertThat(simpleLinkedList.get(4), is(50));
         }
     }
-}*/
+

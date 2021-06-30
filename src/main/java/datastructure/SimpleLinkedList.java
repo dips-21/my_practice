@@ -157,23 +157,23 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         return secondNode;
     }
 
-    //null 10--->20-->30-->40-->50-->60  prev=null curr=10 nextNode 20
+//null 10--->20-->30-->40-->50-->60  prev=null curr=10 nextNode 20
     //<null--10<---20<--30<--40<--50<--60 (head)      prev=10   cur=20 next=30
     //60-->50-->40-->30-->20-->10
     //prevNode currNode nextNode
-    public LinkNode<T> reverseNodes() {
-        LinkNode<T> current = head;
-        LinkNode<T> previous = null;
-        while (current != null) {
-            LinkNode<T> nextNode = current.next;
-            previous = current;
-            current.next = previous;
+    public void reverseNodes() {
+        LinkNode<T> current = head;         //10        //20
+        LinkNode<T> previous = null;       //null        20!=null false
+        while (current != null) {           //10!=null true             20
+            LinkNode<T> nextNode = current.next;      //20       30
+            current.next = previous;              //10
+            previous = current;                 //10         20
             current = nextNode;
+            // 20
+            System.out.println(current);
         }
-        return previous;
-
+        this.head = previous;
     }
-
     //10 20 30 40 50     update(30,35)
     public void replaceAtFirstPosition(T oldElement, T newElement) {
         LinkNode<T> current = head;

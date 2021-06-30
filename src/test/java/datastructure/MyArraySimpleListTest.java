@@ -8,6 +8,28 @@ import static org.hamcrest.Matchers.is;
 
 public class MyArraySimpleListTest {
     @Test
+    public void getDistinct() throws StackFullException {
+        MyArraySimpleList<Integer> list = new MyArraySimpleList(10);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(10);
+        list.add(40);
+        list.add(20);
+        MyArraySimpleList<Integer> distinctList= list.getDistinct();
+
+        assertThat(distinctList.get(0), is(10));
+        assertThat(distinctList.get(1), is(20));
+        assertThat(distinctList.get(2), is(30));
+        assertThat(distinctList.get(3), is(40));
+
+    }
+
+
+
+
+
+    @Test
     public void add() throws StackFullException {
         SimpleList list = new MyArraySimpleList(10);
         list.add(10);

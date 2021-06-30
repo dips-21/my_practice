@@ -157,7 +157,7 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         return secondNode;
     }
 
-//null 10--->20-->30-->40-->50-->60  prev=null curr=10 nextNode 20
+    //null 10--->20-->30-->40-->50-->60  prev=null curr=10 nextNode 20
     //<null--10<---20<--30<--40<--50<--60 (head)      prev=10   cur=20 next=30
     //60-->50-->40-->30-->20-->10
     //prevNode currNode nextNode
@@ -174,6 +174,7 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         }
         this.head = previous;
     }
+
     //10 20 30 40 50     update(30,35)
     public void replaceAtFirstPosition(T oldElement, T newElement) {
         LinkNode<T> current = head;
@@ -205,7 +206,29 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
             if (current.data.equals(oldElement)) {
                 current.data = newElement;
             }
-            current=current.next;
+            current = current.next;
         }
+    }
+
+
+    public SimpleLinkedList<T> getDistinct() {            //dont print duplicate number(distinct)
+        SimpleLinkedList<T> distinctList = new SimpleLinkedList<T>();
+        LinkNode<T> current = head;
+        while (current != null) {
+            LinkNode<T> secondNode = head;
+            boolean isDuplicate = false;
+            while (secondNode != current) {
+                if (current.data.equals(secondNode.data)) {
+                    isDuplicate = true;
+                     break;
+                }
+                secondNode = secondNode.next;
+            }
+            if (isDuplicate == false)
+                distinctList.add(current.data);
+            current = current.next;
+        }
+
+        return distinctList;
     }
 }

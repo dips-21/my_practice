@@ -70,9 +70,9 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
                 lastMatchPosition = i;
             }
         }
-            if (lastMatchPosition != -1)
-                elements[lastMatchPosition] = newElement;
-        }
+        if (lastMatchPosition != -1)
+            elements[lastMatchPosition] = newElement;
+    }
 
 
     void updateFirstMatch(T oldElement, T newElement) {
@@ -89,6 +89,7 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
             if (elements[i].equals(oldElement)) {
                 elements[i] = newElement;
             }
+
         }
     }
 
@@ -106,6 +107,23 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
     public Iterator<T> getIterator() {
         return null;
     }
+    // 10 20 30 10 40 20
+    public MyArraySimpleList<T> getDistinct() {
+        MyArraySimpleList distinctList = new MyArraySimpleList<T>();
+        for (int current = 0; current <= endPosition; current++) {
+            boolean isDuplicate = false;
+            for (int j = current - 1; j >= 0; j--) {
+                if (elements[j].equals(elements[current])) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (isDuplicate == false) {
+                System.out.println(elements[current]);
+                distinctList.add(elements[current]);
+            }
 
+        }
+        return distinctList;
+    }
 }
-

@@ -9,6 +9,23 @@ import static org.hamcrest.Matchers.is;
 
 
 public class SimpleLinkedListTest {
+    @Test
+    public void getDistinct(){
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<Integer>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(10);
+        list.add(40);
+        list.add(20);
+        SimpleLinkedList<Integer> distinctList= list.getDistinct();
+        System.out.println(distinctList);
+        assertThat(distinctList.get(0), is(10));
+        assertThat(distinctList.get(1), is(20));
+        assertThat(distinctList.get(2), is(30));
+        assertThat(distinctList.get(3), is(40));
+
+    }
 
     @Test
     public void replaceFirstMatch () {
@@ -74,12 +91,12 @@ public class SimpleLinkedListTest {
         System.out.println(simpleLinkedList);
         simpleLinkedList.reverseNodes();
         System.out.println(simpleLinkedList);
+    }
        // assertThat(simpleLinkedList.reverseNodes(1).data, is(40));
 
       /*  assertThat(simpleLinkedList.get(2), is(30));
         assertThat(simpleLinkedList.get(3), is(20));
         assertThat(simpleLinkedList.get(4), is(10));*/
-    }
 
         //10--20--30
         @Test

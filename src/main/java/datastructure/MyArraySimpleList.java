@@ -63,6 +63,35 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
 
     }
 
+    void updateLastMatch(T oldElement, T newElement) {
+        int lastMatchPosition = -1;
+        for (int i = 0; i <= endPosition; i++) {
+            if (elements[i].equals(oldElement)) {
+                lastMatchPosition = i;
+            }
+        }
+            if (lastMatchPosition != -1)
+                elements[lastMatchPosition] = newElement;
+        }
+
+
+    void updateFirstMatch(T oldElement, T newElement) {
+        for (int i = 0; i <= endPosition; i++) {
+            if (elements[i].equals(oldElement)) {
+                elements[i] = newElement;
+                break;
+            }
+        }
+    }
+
+    void updateMatchAtAll(T oldElement, T newElement) {
+        for (int i = 0; i <= endPosition; i++) {
+            if (elements[i].equals(oldElement)) {
+                elements[i] = newElement;
+            }
+        }
+    }
+
     @Override
     public void add(int position, T element) {          //at any position
         endPosition++;

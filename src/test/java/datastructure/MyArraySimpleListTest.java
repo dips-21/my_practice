@@ -1,5 +1,6 @@
 package datastructure;
 
+import operator.Person;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -71,15 +72,89 @@ public class MyArraySimpleListTest {
         assertThat(list.get(1), is(20));
         assertThat(list.get(2), is(50));
         assertThat(list.get(3), is(30));
-        assertThat(list.get(4),is(40));
+        assertThat(list.get(4), is(40));
 
     }
 
+    @Test
+    public void updateAtAllPosition() throws StackFullException {
+        //10--20--30--40--20--90        count=1;
+        //update(20,25)          old element>count     update Initialposition/firstElement
 
-    //list.add(50);
-    //list.removeUnordered(2);
+        // SimpleList list = new MyArraySimpleList(10);
+        MyArraySimpleList<Integer> list = new MyArraySimpleList(10);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(10);
+        list.updateMatchAtAll(10, 15);
+        assertThat(list.get(0), is(15));
+        assertThat(list.get(1), is(20));
+        assertThat(list.get(2), is(30));
+        assertThat(list.get(3), is(40));
+        assertThat(list.get(4), is(15));
+    }
+@Test
+    public void updateAtLast() throws StackFullException {
+        //10--20--30--40--20--90
+        // update Initialposition/firstElement
+
+        // SimpleList list = new MyArraySimpleList(10);
+        MyArraySimpleList<Integer> list = new MyArraySimpleList(10);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(10);
+        list.updateLastMatch(10, 15);
+        assertThat(list.get(0), is(10));
+        assertThat(list.get(1), is(20));
+        assertThat(list.get(2), is(30));
+        assertThat(list.get(3), is(40));
+        assertThat(list.get(4), is(15));
+    }
+    @Test
+    public void updateAtFirst() throws StackFullException {
+        //10--20--30--40--20--90        count=1;
+        //update(20,25)          old element>count     update Initialposition/firstElement
+
+        // SimpleList list = new MyArraySimpleList(10);
+        MyArraySimpleList<Integer> list = new MyArraySimpleList(10);
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(10);
+        list.updateFirstMatch(10, 15);
+        assertThat(list.get(0), is(15));
+        assertThat(list.get(1), is(20));
+        assertThat(list.get(2), is(30));
+        assertThat(list.get(3), is(40));
+        assertThat(list.get(4), is(10));
+    }
+
+
+
+    @Test
+    public void update_objectAtFirst() throws StackFullException {
+        //10--20--30--40--20--90
+        //update(20,25)
+        // SimpleList list = new MyArraySimpleList(10);
+        MyArraySimpleList<Person> list = new MyArraySimpleList(10);
+        list.add(new Person(1, 60, 6.1, "dips"));
+        list.add(new Person(1, 50, 5.7, "pips"));
+        list.add(new Person(1, 40, 5.4, "sips"));
+        list.add(new Person(1, 60, 6.1, "dips"));
+
+        list.updateFirstMatch(new Person(1, 60, 6.1, "dips"), new Person(1, 56, 6.1, "dips"));
+        System.out.println(list);
+
+
+        //list.add(50);
+        //list.removeUnordered(2);
+    }
 }
-
 
 
 

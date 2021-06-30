@@ -47,6 +47,7 @@ public class Person implements Serializable /*implements Comparable<Person>*/{
   return this.name.compareTo(o.name);
  }*/
 
+
  @Override
  public boolean equals(Object o) {
   if (this == o) return true;

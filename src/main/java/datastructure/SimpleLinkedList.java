@@ -157,20 +157,55 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         return secondNode;
     }
 
-//null 10--->20-->30-->40-->50-->60  prev=null curr=10 nextNode 20
+    //null 10--->20-->30-->40-->50-->60  prev=null curr=10 nextNode 20
     //<null--10<---20<--30<--40<--50<--60 (head)      prev=10   cur=20 next=30
     //60-->50-->40-->30-->20-->10
     //prevNode currNode nextNode
-    public LinkNode<T> reverseNodes(){
-        LinkNode<T>current=head;         //10        //20
-        LinkNode<T>previous=null;       //null        20!=null false
-        while (current!=null) {           //10!=null true             20
-            LinkNode<T>nextNode = current.next;      //20       30
-            previous = current;                 //10         20
-            current.next=previous;              //10
-            current = nextNode;                 // 20
+    public LinkNode<T> reverseNodes() {
+        LinkNode<T> current = head;
+        LinkNode<T> previous = null;
+        while (current != null) {
+            LinkNode<T> nextNode = current.next;
+            previous = current;
+            current.next = previous;
+            current = nextNode;
         }
-        return previous;                         //10
+        return previous;
 
+    }
+
+    //10 20 30 40 50     update(30,35)
+    public void replaceAtFirstPosition(T oldElement, T newElement) {
+        LinkNode<T> current = head;
+        while (current != null && !current.data.equals(oldElement)) {
+            current = current.next;
+            break;
+        }
+        if (current != null)
+            current.data = newElement;
+    }
+
+
+    public void replaceAtLastPosition(T oldElement, T newElement) {
+        LinkNode<T> current = head;
+        LinkNode<T> lastMatchingNode = null;
+        while (current != null) {
+            if (current.data.equals(oldElement)) {
+                lastMatchingNode = current;
+            }
+            current = current.next;
+        }
+        if (lastMatchingNode != null)
+            lastMatchingNode.data = newElement;
+    }
+
+    public void replaceAtAllPosition(T oldElement, T newElement) {
+        LinkNode<T> current = head;
+        while (current != null) {
+            if (current.data.equals(oldElement)) {
+                current.data = newElement;
+            }
+            current=current.next;
+        }
     }
 }

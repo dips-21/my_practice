@@ -169,7 +169,8 @@ public class MyArraySimpleListTest {
         list.add(new Person(1, 40, 5.4, "sips"));
         list.add(new Person(1, 60, 6.1, "dips"));
 
-        list.updateFirstMatch(new Person(1, 60, 6.1, "dips"), new Person(1, 56, 6.1, "dips"));
+        list.updateFirstMatch(new Person(1, 60, 6.1, "dips"),
+                new Person(1, 56, 6.1, "dips"));
         System.out.println(list);
 
 

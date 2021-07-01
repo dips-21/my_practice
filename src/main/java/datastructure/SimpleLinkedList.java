@@ -211,7 +211,7 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
     }
 
 
-    public SimpleLinkedList<T> getDistinct() {            //dont print duplicate number(distinct)
+    public SimpleLinkedList<T>  getDistinct() {            //dont print duplicate number(distinct)
         SimpleLinkedList<T> distinctList = new SimpleLinkedList<T>();
         LinkNode<T> current = head;
         while (current != null) {

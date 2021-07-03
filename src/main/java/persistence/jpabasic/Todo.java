@@ -1,4 +1,4 @@
-package persistence.jpabasic;
+/*package persistence.jpabasic;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,3 +46,4 @@ public class Todo implements Serializable {
     }
 
 }
+*/

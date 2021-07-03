@@ -1,6 +1,6 @@
 package datastructure;
 
-public class MyArraySimpleList<T> implements SimpleList<T> {
+public class   MyArraySimpleList<T> implements SimpleList<T> {
     T[] elements;
     int endPosition = -1;
 

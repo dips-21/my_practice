@@ -5,21 +5,29 @@ public class JdbcDemo {
             final String DB_URL = "jdbc:mysql://localhost/";
             final String USER = "dips@localhost";
             final String PASS = "mypass123";
-            final String QUERY = "SELECT staffName,staffAge  FROM deptstaff";
 
+            // final String QUERY = "SELECT *  FROM deptstaff where staffName='"+args[0]+"'";
+             final String QUERY = "SELECT *  FROM deptstaff ";
+        String ageInput = args[0];
+        System.out.println(ageInput);
+        //final String QUERY = "SELECT *  FROM deptstaff where staffAge="+ ageInput;
+/*String msg="select name from table where age=%s";
+String.format(msg,10);*/
                 // Open a connection
+        System.out.println(QUERY);
                 try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cdac", "dips", "mypass123");
                     Statement stmt = conn.createStatement();
                     ResultSet rs = stmt.executeQuery(QUERY);) {
-                    // Extract data from result set
+                    // Extract data from r
+                    // result set
                     while (rs.next()) {
                         // Retrieve by column name
                         //System.out.print("PersonID: " + rs.getInt(1));
 
-                        System.out.println(", StaffName: " + rs.getString(1));
-                        System.out.println(",StaffAge: " + rs.getInt(2));
-                      //  System.out.print(",StaffAddress: " + rs.getString("StaffAddress"));
-                        //System.out.println(",MonthlyPackage: " + rs.getString("MonthlyPackage"));
+                        System.out.print("StaffName: " + rs.getString("StaffName"));
+                        System.out.print(",StaffAge: " + rs.getInt( "StaffAge"));
+                       System.out.print(",StaffAddress: " + rs.getString("StaffAddress"));
+                        System.out.println(",MonthlyPackage: " + rs.getString("MonthlyPackage"));
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();

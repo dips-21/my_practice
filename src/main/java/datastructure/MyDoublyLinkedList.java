@@ -1,5 +1,5 @@
 package datastructure;
 
-public class MyDoublyLinkedList {
+public class MyDoublyLinkedList{
     //revise singly n try to write on own
 }

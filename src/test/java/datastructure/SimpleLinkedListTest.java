@@ -304,5 +304,60 @@ public class SimpleLinkedListTest {
        assertThat(list.hasLoopConstantSpace(), is(false));
     }
 
+    @Test
+    public void getMiddle() {
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(50);
+        list.add(60);
+        assertThat(list.getMiddle().data, is(30));
+    }
+
+    @Test
+    public void getMiddle_01() {
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(50);
+
+        assertThat(list.getMiddle().data, is(30));
+    }
+
+    @Test
+    public void getMiddleByTwoLoop() {
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(50);
+
+        assertThat(list.getMiddleByTwoLoop().data, is(30));
+    }
+
+    @Test
+    public void getMiddleByTwoLoop_evenLength_01() {
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
+        list.add(10);
+        list.add(20);
+        assertThat(list.getMiddleByTwoLoop().data, is(20));
+    }
+
+
+    @Test
+    public void getMiddleByTwoLoop_evenLength_02() {
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        assertThat(list.getMiddleByTwoLoop().data, is(30));
+    }
+
 }
 

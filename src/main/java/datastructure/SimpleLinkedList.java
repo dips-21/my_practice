@@ -40,7 +40,8 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
             current.next = node;
         }
     }
-//there is a 1st time for everything ....cab ...
+
+    //there is a 1st time for everything ....cab ...
     //remove
     //10-20-30-4 0-null  cur.next.next!=null
     @Override
@@ -72,10 +73,12 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         return removeNodeAtPosition(position).data;
     }
 
+    // 3-5-8-9-10-null
+    //3-5--9-10-null
     @Override
     public T remove(T element) {
         LinkNode<T> current = head;
-        LinkNode<T> prev = head;
+        LinkNode<T> prev = null;
         while (current.next != null) {
             if (current.data.equals(element)) {  //element.equals(current.data);
                 LinkNode<T> nextNode = current.next;
@@ -120,10 +123,6 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
     @Override
     public void add(int position, T element) {
         LinkNode<T> nodeToAdd = new LinkNode(element);
-        if (position == 0) {
-            addAtStart(nodeToAdd);
-            return;
-        }
         LinkNode<T> current = head;
         int currentPosition = 0;
         while (currentPosition < position - 1) {
@@ -133,7 +132,9 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         LinkNode<T> nextNode = current.next;
         current.next = nodeToAdd;
         nodeToAdd.next = nextNode;
+
     }
+
 
     private void addAtStart(LinkNode<T> node) {
         node.next = head;
@@ -292,4 +293,58 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         }
         return false;
     }
+
+
+    LinkNode<T> getMiddle() {  // T getMiddle(){
+        LinkNode<T> current = head;
+        int position = 0;
+        int count = 0;
+        while (current.next != null) {
+            current = current.next;
+            position++;
+            count++;
+        }
+        count = count / 2;
+        position = 0;
+        current = head;
+        while (position < count) {
+            position++;
+            current = current.next;
+        }
+        return current;                       //     return current.data;
+    }
+
+
+    LinkNode<T> getMiddleByTwoLoop() {          //alternate for above method it is second type
+        LinkNode<T> firstNode = head;
+        LinkNode<T> secondNode = head;
+        int position = 0;
+        while (firstNode != null && firstNode.next != null) {
+            position++;
+            firstNode = firstNode.next.next;
+           /* if(firstNode==null){            //depends on definition of middle in even case
+                return secondNode;
+            }*/
+            secondNode = secondNode.next;
+        }
+
+        return secondNode;
+    }
 }
+
+    /*void splitAtMiddle() {
+        LinkNode<T> firstNode = head;
+        LinkNode<T> secondNode = head;
+        LinkNode<T> prev = firstNode;
+        int position = 0;
+        while (firstNode != null) {
+            prev = firstNode;
+            firstNode = firstNode.next;
+            position++;
+
+            firstNode = firstNode.next;
+            secondNode = secondNode.next;
+        }
+        prev = secondNode;
+
+    }*/

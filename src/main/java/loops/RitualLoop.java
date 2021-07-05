@@ -1,6 +1,5 @@
 package loops;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class RitualLoop {
@@ -12,7 +11,7 @@ public class RitualLoop {
                 for(int j=1;j<=i;j++){
                     System.out.print(" * ");
                 }
-                System.out.println();//new line
+                System.out.println();
             }
         }
     }

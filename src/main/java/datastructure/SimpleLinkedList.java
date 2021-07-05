@@ -3,6 +3,9 @@ package datastructure;
 
 //import sun.jvm.hotspot.memory.UniverseExt;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SimpleLinkedList<T> implements SimpleList<T> {
     private LinkNode head;
 
@@ -10,6 +13,19 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
            this.head = new LinkNode(value);
        }
    */
+
+    public LinkNode getHead() {
+        return head;
+    }
+
+    SimpleLinkedList() {
+
+    }
+
+    SimpleLinkedList(SimpleLinkedList<T> oldList) {
+
+    }
+
     // 5-->2->3->4->null
     @Override
     public void add(T element) {
@@ -24,7 +40,7 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
             current.next = node;
         }
     }
-
+//there is a 1st time for everything ....cab ...
     //remove
     //10-20-30-4 0-null  cur.next.next!=null
     @Override
@@ -91,7 +107,7 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         return getNode(position).data;
     }
 
-    LinkNode<T> getNode(int position) {
+    public LinkNode<T> getNode(int position) {
         LinkNode<T> current = head;
         int currentPosition = 0;
         while (currentPosition < position) {
@@ -211,7 +227,7 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
     }
 
 
-    public SimpleLinkedList<T>  getDistinct() {            //dont print duplicate number(distinct)
+    public SimpleLinkedList<T> getDistinct() {            //dont print duplicate number(distinct)
         SimpleLinkedList<T> distinctList = new SimpleLinkedList<T>();
         LinkNode<T> current = head;
         while (current != null) {
@@ -220,7 +236,7 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
             while (secondNode != current) {
                 if (current.data.equals(secondNode.data)) {
                     isDuplicate = true;
-                     break;
+                    break;
                 }
                 secondNode = secondNode.next;
             }
@@ -230,5 +246,50 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         }
 
         return distinctList;
+    }
+
+
+    boolean hasLoop() {
+        Set<LinkNode<T>> visitedSet = new HashSet<>();
+        LinkNode<T> currentNode = head;
+        while (currentNode != null) {
+            if (visitedSet.contains(currentNode))
+                return true;
+            visitedSet.add(currentNode);
+            currentNode = currentNode.next;
+        }
+        return false;
+    }
+
+    void createLoop(int position) {
+        LinkNode<T> currentNode = head;
+        int currentPosition = 0;
+        LinkNode<T> loopNode = null;  //curr=cur.next
+        while (currentNode.next != null) {   //head.next=currentNode ,currentNode=current.Next ,head=head.next
+            if (currentPosition == position) {
+                loopNode = currentNode;
+            }
+            currentPosition++;
+            currentNode = currentNode.next;
+        }
+        currentNode.next = loopNode;
+    }
+
+    boolean hasLoopConstantSpace() {
+        LinkNode<T> currentNode = head;
+        LinkNode<T> secondCurrentNode = head;
+
+        while (currentNode != null) {
+
+            currentNode = currentNode.next;
+            if (currentNode != null)
+                currentNode = currentNode.next;
+            secondCurrentNode = secondCurrentNode.next;
+
+            if (currentNode == secondCurrentNode) {
+                return true;
+            }
+        }
+        return false;
     }
 }

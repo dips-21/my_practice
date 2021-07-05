@@ -1,15 +1,35 @@
 package datastructure;
 
-public class   MyArraySimpleList<T> implements SimpleList<T> {
+import java.util.Arrays;
+import java.util.StringJoiner;
+
+public class MyArraySimpleList<T> implements SimpleList<T> {
     T[] elements;
     int endPosition = -1;
 
     public MyArraySimpleList() {
         elements = (T[]) new Object[10];
-    }
+    }  //shallow
 
     public MyArraySimpleList(int initialCapacity) {
         elements = (T[]) new Object[initialCapacity];
+    }
+
+    public MyArraySimpleList(MyArraySimpleList<T> oldList) {
+        elements = (T[]) new Object[oldList.endPosition + 1]; //0 1 endPos 1 then length2
+        for (int i = 0; i <= oldList.endPosition; i++) {
+            elements[i] = oldList.get(i);
+            endPosition++;
+        }
+    }
+
+    MyArraySimpleList<T> getCopy() {
+        MyArraySimpleList<T> newList = new MyArraySimpleList<>(this.endPosition);
+        for (int i = 0; i < endPosition; i++) {
+            newList.elements[i] = elements[i];
+            newList.endPosition++;
+        }
+        return newList;
     }
 
     @Override
@@ -84,6 +104,21 @@ public class   MyArraySimpleList<T> implements SimpleList<T> {
         }
     }
 
+    @Override
+    public String toString() {
+        String result = "";
+      //  StringBuilder stringBuilder=new StringBuilder();  //StringBuffer-synchronized
+        StringJoiner stringJoiner=new StringJoiner("||");
+        for (int i = 0; i <= endPosition; i++) {
+            //result += "-->"+elements[i];
+            //stringBuilder.append(elements[i]);
+            stringJoiner.add(elements[i].toString());
+        }
+        return stringJoiner.toString();
+    }
+
+
+
     void updateMatchAtAll(T oldElement, T newElement) {
         for (int i = 0; i <= endPosition; i++) {
             if (elements[i].equals(oldElement)) {
@@ -107,6 +142,7 @@ public class   MyArraySimpleList<T> implements SimpleList<T> {
     public Iterator<T> getIterator() {
         return null;
     }
+
     // 10 20 30 10 40 20
     public MyArraySimpleList<T> getDistinct() {
         MyArraySimpleList distinctList = new MyArraySimpleList<T>();

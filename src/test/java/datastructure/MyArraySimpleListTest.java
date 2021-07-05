@@ -16,7 +16,7 @@ public class MyArraySimpleListTest {
         list.add(10);
         list.add(40);
         list.add(20);
-        MyArraySimpleList<Integer> distinctList= list.getDistinct();
+        MyArraySimpleList<Integer> distinctList = list.getDistinct();
 
         assertThat(distinctList.get(0), is(10));
         assertThat(distinctList.get(1), is(20));
@@ -24,9 +24,6 @@ public class MyArraySimpleListTest {
         assertThat(distinctList.get(3), is(40));
 
     }
-
-
-
 
 
     @Test
@@ -117,7 +114,8 @@ public class MyArraySimpleListTest {
         assertThat(list.get(3), is(40));
         assertThat(list.get(4), is(15));
     }
-@Test
+
+    @Test
     public void updateAtLast() throws StackFullException {
         //10--20--30--40--20--90
         // update Initialposition/firstElement
@@ -136,6 +134,7 @@ public class MyArraySimpleListTest {
         assertThat(list.get(3), is(40));
         assertThat(list.get(4), is(15));
     }
+
     @Test
     public void updateAtFirst() throws StackFullException {
         //10--20--30--40--20--90        count=1;
@@ -157,7 +156,6 @@ public class MyArraySimpleListTest {
     }
 
 
-
     @Test
     public void update_objectAtFirst() throws StackFullException {
         //10--20--30--40--20--90
@@ -173,16 +171,33 @@ public class MyArraySimpleListTest {
                 new Person(1, 56, 6.1, "dips"));
         System.out.println(list);
 
+        //list2=list.copy()
+        //list2=new new MyArraySimpleList(list);
 
-        //list.add(50);
-        //list.removeUnordered(2);
+    }
+
+    @Test
+    public void getCopy() {
+       MyArraySimpleList<Person>list=new MyArraySimpleList<>(10);
+        list.add(new Person(1, 60, 6.1, "dips"));
+        list.add(new Person(1, 50, 5.7, "pips"));
+        list.add(new Person(1, 40, 5.4, "sips"));
+        list.add(new Person(1, 60, 6.1, "dips"));
+
+        MyArraySimpleList<Person>list2=new MyArraySimpleList<Person>(list);
+        list2.add((new Person(1, 60, 6.1, "sonu")));
+        System.out.println(list2);
+        System.out.println("old list 2nd "+list.get(2));
+        Person p=list2.get(2);
+        System.out.println(p);
+        p.setWeight(23);
+        System.out.println(p);
+        System.out.println(" old list 2nd"+list.get(2));
+        System.out.println(list.get(1));
+        System.out.println(list2.get(4));
     }
 }
-
-
-
-/*
-    @Test
+  /*@Test
     public void add() throws StackFullException {
         MyList list = new MyArrayMyList(10);
         list.add(10);
@@ -225,8 +240,7 @@ public class MyArraySimpleListTest {
         while (itr.hasNext()){
           int i = (int) itr.next();
             System.out.println("element is "+itr.next());
-        }*/
-    /*
+        }
 
     @Test
     public void remove_unordered_01() throws StackFullException {
@@ -256,4 +270,10 @@ public class MyArraySimpleListTest {
         assertThat(list.get(1), is(20));
         assertThat(list.get(2), is(40));
         assertThat(list.get(3), is(50));
-    }*/
+    }
+*/
+
+
+     /* for (int i = 0; i <=list2.endPosition ; i++) {
+            System.out.print(list2.get(i)+" ");
+        }*/

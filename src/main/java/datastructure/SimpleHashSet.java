@@ -17,7 +17,7 @@ public class SimpleHashSet<T> {
         elements = (T[]) new Object[initialCapacity];
     }
 
-    // "dipali" 12
+    // "Jaanhvi" 12
     void add(T element) {
         int position = getPosition(element);
         elements[position] = element;

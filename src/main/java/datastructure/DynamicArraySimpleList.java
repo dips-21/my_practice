@@ -33,6 +33,8 @@ public class DynamicArraySimpleList<T> implements SimpleList<T> {
 
     @Override
     public T removeLast() {
+
+
         return null;
     }
 

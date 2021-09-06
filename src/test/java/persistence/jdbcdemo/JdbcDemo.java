@@ -11,8 +11,8 @@ public class JdbcDemo {
         String ageInput = args[0];
         System.out.println(ageInput);
         //final String QUERY = "SELECT *  FROM deptstaff where staffAge="+ ageInput;
-/*String msg="select name from table where age=%s";
-String.format(msg,10);*/
+       /*String msg="select name from table where age=%s";
+          String.format(msg,10);*/
                 // Open a connection
         System.out.println(QUERY);
                 try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cdac", "dips", "mypass123");

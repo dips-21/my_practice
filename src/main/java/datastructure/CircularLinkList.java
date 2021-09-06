@@ -33,4 +33,7 @@ public class CircularLinkList<T> {
     boolean hasLoop() {
       return internalLinkList.hasLoop();
     }
+
+
+
 }

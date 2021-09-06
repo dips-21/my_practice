@@ -8,7 +8,7 @@ public class PreparedStatementInsertDemo {
         final String DB_URL = "jdbc:mysql://localhost/";
         final String USER = "dips@localhost";
         final String PASS = "mypass123";
-        final String Query = "insert into deptstaff values(?,?, ?,?,?)";
+        final String Query = "insert into deptstaff values(?,?,?,?,?)";
         int PersonID = Integer.parseInt(args[0]);
         String name = args[1];
         int age = Integer.parseInt(args[2]);

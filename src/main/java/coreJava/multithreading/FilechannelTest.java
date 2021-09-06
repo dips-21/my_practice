@@ -5,13 +5,15 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 //import java.nio.file.Path;
 //import java.nio.file.StandardOpenOption;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.concurrent.locks.Lock;
 
 class FileChannelTest {
     //reverses content of a specified file using memory-mapped i/o
 
         public static void main(String[] args) throws Exception {
-       /*     Path doc;
+           Path doc = null;
             try(FileChannel channel = FileChannel.open(doc, StandardOpenOption.READ, StandardOpenOption.WRITE)){
                 FileLock lock = channel.lock(); //other processes will not be allowed to access this file image
                 int n = (int)channel.size();
@@ -24,7 +26,7 @@ class FileChannelTest {
                 }
                 System.out.println(image.toString());
                 lock.release();
-            }*/
+            }
         }
     }
 

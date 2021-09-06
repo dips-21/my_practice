@@ -16,6 +16,7 @@ public class Pyramid02 {
             for (k = i; k >= 1; k--) {   //numbers of LHS//decrease
                 System.out.print(k + " ");
 
+
             }
             for (int l = 1; l <= i ; l++) //Numbers of RHS
                 System.out.print(l + " ");

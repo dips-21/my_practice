@@ -41,7 +41,7 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
         }
     }
 
-    //there is a 1st time for everything ....cab ...
+
     //remove
     //10-20-30-4 0-null  cur.next.next!=null
     @Override
@@ -330,8 +330,17 @@ public class SimpleLinkedList<T> implements SimpleList<T> {
 
         return secondNode;
     }
-}
 
+  /*  LinkNode<T> getNthPosition(int n) {
+        LinkNode<T> current = head;                 //practice
+        LinkNode<T> secondNode = head;
+        int count = 0;
+        while (current != null) {
+            count = count++;
+        }
+
+    }*/
+}
     /*void splitAtMiddle() {
         LinkNode<T> firstNode = head;
         LinkNode<T> secondNode = head;

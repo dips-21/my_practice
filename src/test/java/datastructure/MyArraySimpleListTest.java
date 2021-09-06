@@ -27,7 +27,7 @@ public class MyArraySimpleListTest {
 
 
     @Test
-    public void add() throws StackFullException {
+    public void add() {
         SimpleList list = new MyArraySimpleList(10);
         list.add(10);
         list.add(20);
@@ -37,6 +37,7 @@ public class MyArraySimpleListTest {
         assertThat(list.get(1), is(20));
         assertThat(list.get(2), is(30));
         assertThat(list.get(3), is(40));
+        System.out.println(list);
     }
 
 
@@ -76,7 +77,7 @@ public class MyArraySimpleListTest {
 
 
     @Test
-    public void add_At_Position() throws StackFullException {
+    public void add_At_Position() {
         MyArraySimpleList list = new MyArraySimpleList(10);
         list.add(10);
         list.add(20);
@@ -178,25 +179,29 @@ public class MyArraySimpleListTest {
 
     @Test
     public void getCopy() {
-       MyArraySimpleList<Person>list=new MyArraySimpleList<>(10);
+        MyArraySimpleList<Person> list = new MyArraySimpleList<>(10);
         list.add(new Person(1, 60, 6.1, "dips"));
         list.add(new Person(1, 50, 5.7, "pips"));
         list.add(new Person(1, 40, 5.4, "sips"));
         list.add(new Person(1, 60, 6.1, "dips"));
 
-        MyArraySimpleList<Person>list2=new MyArraySimpleList<Person>(list);
+        MyArraySimpleList<Person> list2 = new MyArraySimpleList<Person>(list);
         list2.add((new Person(1, 60, 6.1, "sonu")));
         System.out.println(list2);
-        System.out.println("old list 2nd "+list.get(2));
-        Person p=list2.get(2);
+        System.out.println("old list 2nd " + list.get(2));
+        Person p = list2.get(2);
         System.out.println(p);
         p.setWeight(23);
         System.out.println(p);
-        System.out.println(" old list 2nd"+list.get(2));
+        System.out.println(" old list 2nd" + list.get(2));
         System.out.println(list.get(1));
         System.out.println(list2.get(4));
     }
+
+
+
 }
+
   /*@Test
     public void add() throws StackFullException {
         MyList list = new MyArrayMyList(10);

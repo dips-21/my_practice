@@ -38,7 +38,7 @@ public class MethodTest {
             System.out.println("Even numbers");
             //PrintNumber takes and object of class which implements utility interface
             //which is a function interface
-            //in place of that we can pass method reference or Lamda expression also
+            //in place of that we can pass method reference or Lambda expression also
             printNumber(numbers, new EvenUtility());
             printNumber(numbers, new OddUtility());
             printNumber(numbers, MethodDemoTest::isPrime);

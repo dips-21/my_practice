@@ -2,7 +2,7 @@ package datastructure;
 
 public class GenericStack<T> {
 
-    T[] elements;
+     T[] elements;
     int top = -1;
     int maxCapacity;
 

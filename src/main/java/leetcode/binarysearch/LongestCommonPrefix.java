@@ -1,10 +1,33 @@
 package leetcode.binarysearch;
 
+//flowing
 //flower
-//flow
-//0 1 2 3 4
+//flow                      0123456789  0123456
+//0 1 2 3                 //maharashtra mahabali 0 1 2 3
+//flower flowing flight fluck flick flush
+// for 1- last
 public class LongestCommonPrefix {
-    int LengthOfCommonPrefix(String wordOne, String wordTwo) {
+    //abcdef abcde abc abcon abon
+    String commonPrefix(String[] words) {
+        String common = commonPrefix(words[0], words[1]);
+        for (int i = 2; i < words.length; i++) {
+            String newCommon = commonPrefix(common, words[i]);
+            common = newCommon;
+        }
+        return common;
+    }
+
+    String commonPrefix(String wordOne, String wordTwo) {
+        int prefixLength = lengthOfCommonPrefix(wordOne, wordTwo);
+        /*char[] commonPrefix = new char[prefixLength];
+        for (int i = 0; i < prefixLength; i++) {
+            commonPrefix[i] = wordOne.charAt(i);
+        }
+        return new String(commonPrefix); */
+        return wordOne.substring(0, prefixLength);
+    }
+
+    int lengthOfCommonPrefix(String wordOne, String wordTwo) {
         char[] one = wordOne.toCharArray();
         char[] two = wordTwo.toCharArray();
         int i = 0;
@@ -13,20 +36,8 @@ public class LongestCommonPrefix {
                 return i;
             }
             i++;
-        }          //flower flow   4 words common
-//dips flower
-        // return Math.min(one.length, two.length);
-        return i;
-    }
-
-    int CommonPrefix(String[] wordArray) {
-        String[] commonChar = null;
-
-        for (int i = 0, j = 0; i < wordArray.length; i++, j++) {
-            char[] one=wordArray[i].toCharArray();
         }
-    return 0;
+
+        return i;           // // return Math.min(one.length, two.length);
     }
-
-
 }

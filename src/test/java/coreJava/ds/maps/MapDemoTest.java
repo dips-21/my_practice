@@ -32,8 +32,10 @@ public class MapDemoTest {
     public void getMapping_03() {
         assertThat(mapDemo.getRequestMapping("/score", "DELETE"), is("score_delete()"));
     }
+
+
     @Test
     public void getMapping_not_found() {
-        assertThat(mapDemo.getRequestMapping("/student", "DELETE"), is("404-not-found"));
+        assertThat(mapDemo.getRequestMapping("/student", "DELETE"), is("404-url-not-found"));
     }
 }

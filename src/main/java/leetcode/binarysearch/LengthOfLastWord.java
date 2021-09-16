@@ -1,27 +1,19 @@
 package leetcode.binarysearch;
-//dipali
+
+//9 10 8 10 5 7 given int array ,find how many times prices fall
+//30 40 0 20 25 25 19
+//c=1
+ //isCharSeen
+//Dipali          mind is stuck
 public class LengthOfLastWord {
+
+
     int getLengthOfLastWord(String sentence) {
-        char[] words = sentence.toCharArray();            //  // I LIKE SWEETS
+        char[] words = sentence.toCharArray();
         int wordCount = 0;
 
-        int positionOfLastWord = -1;
-        boolean isCharSeen = false;
-        for (int position = 0; position < sentence.length()-1; position++) {
-            // if (words[position] == 0) ||
-            if (words[position] == ' ' && isCharSeen == true) {
-                wordCount++;
-                isCharSeen = false;
-                //end
-            }
-            if(words[position]!=' '&& isCharSeen==false){
-                isCharSeen=true;
-                //start=pos
-            }
 
-        }
-        if (isCharSeen==true)
-            wordCount++;
         return wordCount;
     }
 }
+

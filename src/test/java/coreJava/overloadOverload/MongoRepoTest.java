@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.is;
 
 public class MongoRepoTest {
     /*  Explanation:-  here SqlRepo is an interface and we cant create object of it.this interface
-       has two interface MySqlRepo and MongoRepo..so we are passing MySqlRepo object to interface.
+       has two implementation MySqlRepo and MongoRepo..so we are passing MySqlRepo object to interface.
         After that i had created person object of type man.
         man is a run time type of person.
         and Person is a compile time type of person variable.
@@ -50,7 +50,7 @@ public class MongoRepoTest {
         SqlRepo sqlRepo = new MongoRepo();
         Man m = new Man("me", 26, "fear");//overriding
         addToRepo(sqlRepo, m);
-        assertThat(sqlRepo.addUser(m),is("Man to MongoDb"));
+        assertThat(sqlRepo.addUser(m), is("Man to MongoDb"));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class MongoRepoTest {
         SqlRepo sqlRepo = new MySqlRepo();
         Man m = new Man("me", 26, "fear");//overriding
         addToRepo(sqlRepo, m);
-        assertThat(sqlRepo.addUser(m),is("Man to mysql"));
+        assertThat(sqlRepo.addUser(m), is("Man to mysql"));
     }
 
     @Test
@@ -66,15 +66,47 @@ public class MongoRepoTest {
         SqlRepo sqlRepo = new MySqlRepo();
         Person p = new Women("me", 26, "fear");//overriding
         addToRepo(sqlRepo, p);
-        assertThat(sqlRepo.addUser(p),is("Person to mysql"));
+        assertThat(sqlRepo.addUser(p), is("Person to mysql"));
+    }
+
+
+    @Test
+    public void testAddUserSqlRepo2() {
+        SqlRepo sqlRepo = new MySqlRepo();
+        Person p = new Man("me", 26, "fear");//overriding
+        addToRepo(sqlRepo, p);
+        assertThat(sqlRepo.addUser(p), is("Person to mysql"));
+    }
+
+    @Test
+    public void testAddUserMongoRepo3() {
+        SqlRepo sqlRepo = new MongoRepo();
+        Man p = new Man("me", 26, "fear");//overriding
+
+
+        Man p1 = new Man("me", 26, "fear");//overriding
+        assertThat(addToRepo(sqlRepo, p),is("Person to MongoDb"));
+        assertThat(sqlRepo.addUser(p), is("Man to MongoDb"));
+    }
+
+    @Test
+    public void testAddUserSqlRepo4() {
+        String s="kuch bhi";
+        String s1=new String("kuch bhi");
+        System.out.println(s.equals(s1));
+        System.out.println(s.hashCode());
+        System.out.println(s1.hashCode());
+
+        SqlRepo sqlRepo = new MySqlRepo();
+        Man p = new Man("me", 26, "fear");//overriding
+        assertThat(addToRepo(sqlRepo, p),is("Person to mysql"));
+        assertThat(sqlRepo.addUser(p), is("Man to mysql"));
     }
 
 
 
-
-    void addToRepo(SqlRepo r, Person p) {
-        r.addUser(p);
-        //assertThat(r.addUser(p),is());
+    String addToRepo(SqlRepo r, Person p) {
+        return r.addUser(p);
     }
 
 

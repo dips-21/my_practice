@@ -38,23 +38,23 @@ public class MongoRepoTest {
     }
 
     @Test
-    public void testAddUserMySqlRepo() {
-        SqlRepo sqlRepo = new MongoRepo();                   //from which class rtt
+    public void overrideOnRepoOnRunTimeTypeOfRepoAndCompileTimeTypeOfPerson() {
+        SqlRepo sRepo = new MongoRepo();                   //from which class rtt
         Person person = new Man("dips", 26, "fear");//overriding
-        addToRepo(sqlRepo, person);   //parameter compile time
-        assertThat(sqlRepo.addUser(person), is("Person to MongoDb"));
+        addToRepo(sRepo, person);   //parameter compile time
+        assertThat(sRepo.addUser(person), is("Person to MongoDb"));
     }
 
-    @Test
-    public void testAddUserMongoRepo() {
-        SqlRepo sqlRepo = new MongoRepo();
+    @Test //overridden called is based on run time of parameter and c
+    public void overrideOnRepoRunTimeTypeOfSqlRepoAndCompileTimeTypeOfm() {  // LHS Compile time type
+        SqlRepo sqlRepo = new MongoRepo();                                  // RHS runtime type
         Man m = new Man("me", 26, "fear");//overriding
         addToRepo(sqlRepo, m);
         assertThat(sqlRepo.addUser(m), is("Man to MongoDb"));
     }
 
     @Test
-    public void testAddUserSqlRepo() {
+    public void overridnDemoOfAddUserOfmRuntimeOfsqlRepoIsMysqlAndCompileTimeOfmIsMan() {    //
         SqlRepo sqlRepo = new MySqlRepo();
         Man m = new Man("me", 26, "fear");//overriding
         addToRepo(sqlRepo, m);
@@ -62,16 +62,15 @@ public class MongoRepoTest {
     }
 
     @Test
-    public void testAddUserSqlRepo1() {
+    public void overridenDemoOfAddUserOfpRuntimeOfsqlRepoIsMysqlAndCompileTimeOfmIsPerson() {
         SqlRepo sqlRepo = new MySqlRepo();
         Person p = new Women("me", 26, "fear");//overriding
         addToRepo(sqlRepo, p);
         assertThat(sqlRepo.addUser(p), is("Person to mysql"));
     }
 
-
     @Test
-    public void testAddUserSqlRepo2() {
+    public void overridingOnRepoRunTimeTypeAndOverloadingOnPersonCompileTimeType() {
         SqlRepo sqlRepo = new MySqlRepo();
         Person p = new Man("me", 26, "fear");//overriding
         addToRepo(sqlRepo, p);
@@ -81,31 +80,52 @@ public class MongoRepoTest {
     @Test
     public void testAddUserMongoRepo3() {
         SqlRepo sqlRepo = new MongoRepo();
-        Man p = new Man("me", 26, "fear");//overriding
-
-
+        Man m = new Man("me", 26, "fear");//overriding
         Man p1 = new Man("me", 26, "fear");//overriding
-        assertThat(addToRepo(sqlRepo, p),is("Person to MongoDb"));
-        assertThat(sqlRepo.addUser(p), is("Man to MongoDb"));
+        assertThat(addToRepo(sqlRepo, m), is("Person to MongoDb"));
+        assertThat(addToCommonRepo(sqlRepo, m), is("Person to MongoDb"));
+        //sqlRepo runtime type is mongorepo and compile time of p is man
+        assertThat(sqlRepo.addUser(m), is("Man to MongoDb"));
     }
 
     @Test
-    public void testAddUserSqlRepo4() {
-        String s="kuch bhi";
-        String s1=new String("kuch bhi");
-        System.out.println(s.equals(s1));
-        System.out.println(s.hashCode());
-        System.out.println(s1.hashCode());
-
-        SqlRepo sqlRepo = new MySqlRepo();
+    public void testAmbigiousCall() {
+        String s;
+        MySqlRepo sqlRepo = new MySqlRepo();
         Man p = new Man("me", 26, "fear");//overriding
-        assertThat(addToRepo(sqlRepo, p),is("Person to mysql"));
+        //assertThat(addToRepo(sqlRepo, p), is("Person to mysql"));
         assertThat(sqlRepo.addUser(p), is("Man to mysql"));
     }
 
 
+    @Test
+    public void testAddUserSqlRepo4() {
+        SqlRepo sqlRepo = new MySqlRepo();
+        assertThat(SqlRepo.repoName(),is("default-name"));
+        Man p = new Man("me", 26, "fear");//overriding
+        assertThat(addToRepo(sqlRepo, p), is("Person to mysql"));
+        assertThat(addToCommonRepo(sqlRepo, p), is("Man to mysql"));
+        assertThat(sqlRepo.addUser(p), is("Man to mysql"));
+    }
 
+    //assume this is in another class ,service class , service.add(person) , internally calls repo.add(person)
     String addToRepo(SqlRepo r, Person p) {
+        return r.addUser(p);
+    }
+
+    String addToRepo(SqlRepo r, Women man) {
+        return r.addUser(man);
+    }
+
+    String addToRepo(MySqlRepo r, Person p) {
+        return r.addUser(p);
+    }
+
+   /* String addToRepo(SqlRepo r, Man p) {
+        return r.addUser(p);
+    }
+*/
+   static String addToCommonRepo(SqlRepo r, Man p) {
         return r.addUser(p);
     }
 
@@ -114,3 +134,23 @@ public class MongoRepoTest {
     public void testAddUser1() {
     }
 }
+
+
+   /* @Test
+    public void overridingOnRepoRunTimeTypeAndOverloadingOnPersonCompileTimeType() {
+        SqlRepo sqlRepo = new MySqlRepo();
+        Person p = new Man("me", 26, "fear");//overriding
+        addToRepo(sqlRepo, p);
+        assertThat(sqlRepo.addUser(p), is("Person to mysql"));
+    }}*/
+/**
+ * if a method is non static the call will be resolved on its run time type of object.but the method is declared in
+   different classes and if it  follows inheritance hireachy then call will be resolved on compile time  type of object .
+ * suppose we have taken interface of SqlRepo there is add method for man,women,person *String addUser(Person p);*
+    sqlRepo and MongoRepo are two implentation of SQLREPO.
+
+ if we create an object of SqlRepo and we have passed in it MySqlRepo
+  and person p=new();
+ addToRepo(sqlRepo,p)
+ *
+ * */

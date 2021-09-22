@@ -8,7 +8,8 @@ public class Model extends Person {
     Comparator<Model> modelComparator;
 
 
-    public Model(String name, int height, int weight, int age, int hairLength, String color, Comparator<Model> modelComparator) {
+    public Model(String name, int height, int weight, int age, int hairLength,
+                 String color, Comparator<Model> modelComparator) {
         super(name, height, weight, age);
         this.hairLength = hairLength;
         this.color = color;

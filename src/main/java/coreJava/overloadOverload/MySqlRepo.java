@@ -27,4 +27,8 @@ public class MySqlRepo implements SqlRepo {
         System.out.println(msg);
         return msg;
     }
+
+    static String repoName() {
+        return "mysql_repo";
+    }
 }

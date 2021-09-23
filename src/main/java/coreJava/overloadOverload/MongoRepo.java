@@ -10,7 +10,7 @@ public class MongoRepo implements SqlRepo {
     @Override
     public String addUser(Person p) {
         String msg = "Person to " + db;
-       System.out.println(msg);
+        System.out.println(msg);
         return msg;
     }
 
@@ -21,11 +21,14 @@ public class MongoRepo implements SqlRepo {
         return msg;
     }
 
-        @Override
-        public String addUser (Women women){
-            String msg = "women to " + db;
-            System.out.println(msg);
-            return msg;
-        }
+    @Override
+    public String addUser(Women women) {
+        String msg = "women to " + db;
+        System.out.println(msg);
+        return msg;
     }
 
+    static String repoName() {
+        return "mongo_repo";
+    }
+}

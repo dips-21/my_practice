@@ -1,5 +1,7 @@
 package coreJava.abstraction;
 
+import java.util.Objects;
+
 public class Person {
     String name;
     int age;
@@ -22,4 +24,5 @@ public class Person {
     public String getHobby() {
         return hobby;
     }
+
 }

@@ -1,24 +1,27 @@
 /Protected - 
-===============
+======================================
 access in same package and child class
 eg SimpleList ,protected elements[]
 DynamicList extends SimpleList use elements[]
 
 private - 
-===========
+======================================
 access within the inner class. private or any other can be static.
 
 USE:- validation and controlled,or immutable object.
       less complexity
 
 public -   throughout  the class.
-=========
+======================================
 Default -  package level. 
-==========
+======================================
             
 
- Encapsulation - 
+ Encapsulation - (data fields)
 ============================================
+Binding (or wrapping) code and data together into a single unit are known as encapsulation.
+ ex.  A java class is the example of encapsulation.
+ex. Java bean is the fully encapsulated class because all the data members are private here.
 * Encapsulation is data hiding it allows to have valid states of object.
   *field is private n methods are public.
   *we can reuse our code.
@@ -26,8 +29,12 @@ Default -  package level.
   * Data is modified at one place because fields are private and it is accessible only within the class.only this method
     can direct access of it.
     
-Abstraction:-
-============================
+    
+Abstraction:- (types of implementation hiding)
+=================================================
+Hiding internal details and showing functionality is known as abstraction.
+For example phone call, we don't know the internal processing.
+
 *Abstraction hides the implementation details.
 it can be method body.
 *it allows loose coupling.
@@ -35,8 +42,11 @@ In system there is 3 kind of user men women and child.if we have to add User the
   methods for them.but with them help of abstraction we can define abstract type of it which is person.
 If those three classes has same functionality then we can add it in person class and override it into child class with extends keyword.
 
+
 Inheritance:-
-=============================
+================================================
+When one object acquires all the properties and behaviors of a parent object, it is known as inheritance. 
+  It provides code reusability. It is used to achieve runtime polymorphism.
 *Inheritance allows code reusability.
 *in that we can allows code defined in one class and other classes can be reused it.
 *Ex.if we have a women class ,in that  we have taken  working and non working women .means we can inherit all the properties
@@ -45,7 +55,7 @@ so we dont write women functionality to the both sub classes.
 
 
 Polymorphism:-
-==============================
+==================================================
 *in polymorphism, it calls dynamically on correct object type.
 It is also known as dynamic dispatch methods because method called on run time type of object.
 Example:--we have a women man and child class and in that gethobby is a method.when we call getHobby of person then it will
@@ -186,9 +196,42 @@ Student p=new Teacher()
 a.add(p)  //course student
 //compile time type of p is student and run time of a is course then it will be add in student course.
 
-**Aggregation and Composition
+**ASSOCIATION: Association
+================================
+Association refers to the relationship between multiple objects. 
+It refers to how objects are related to each other and how they are using each other's functionality.
+Composition and aggregation are two types of association.
+
+Aggregation and Composition
 ==============================
+Aggregation
+==============
+Aggregation is a way to achieve Association.
+Aggregation implies a relationship where the child can exist independently of the parent.
+
+For example, Bank and Employee, delete the Bank and the Employee still exist.
+It represents the weak relationship between objects.
+It is another way to reuse objects.
+
+Aggregation
+
+Aggregation is a weak association. 
+An association is said to be aggregation if both Objects can exist independently. 
+For example, a Team object and a Player object.
+The team contains multiple players but a player can exist without a team.
 
 
+Composition   HAS -A - RELATIONSHIP
+====================================
+The composition is also a way to achieve Association. 
+The composition represents the relationship where one object contains other objects as a part of its state. 
+Composition implies a relationship where the child cannot exist independent of the parent.
+There is a strong relationship between the containing object and the dependent object.
+It is the state where containing objects do not have an independent existence. 
+If you delete the parent object, all the child objects will be deleted automatically. 
 
 
+The composition is the strong type of association.
+If an Object depends on another object and another object cannot exist without the owner object. 
+Consider the case of Human having a heart. 
+Here Human object contains the heart and heart cannot exist without Human.

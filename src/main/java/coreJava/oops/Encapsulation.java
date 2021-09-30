@@ -14,8 +14,8 @@ public class Encapsulation {
 }
 //chaos
 class Person1 {
-    private int legLength ; //private parts
-    private int handLength ;//
+    private int legLength ;
+    private int handLength ;
     private int age;//
     public void setSize(int length) {
         if (length < 0)

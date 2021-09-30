@@ -4,9 +4,16 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Random;
 
+/*class Mango{
+    String name;
+    public Mango(String name) {
+        this.name=name;
+    }
+}*/
 public class Person implements Serializable /*implements Comparable<Person>*/ {
     int id;
     int weight;
+    //transient Mango mango=new Mango("alphonso");
 
     @Override
     public String toString() {

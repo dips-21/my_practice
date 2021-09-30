@@ -7,6 +7,11 @@ public class Man extends Person{
     }
 
     @Override
+    protected void f() {
+        super.f();
+    }
+
+    @Override
     public String toString() {
         return "Man{" +
                 "name='" + name + '\'' +
@@ -22,6 +27,7 @@ public class Man extends Person{
         result = 31 * result + (getHobby() != null ? getHobby().hashCode() : 0);
         return result;
     }
+
 }
 
 class Student{

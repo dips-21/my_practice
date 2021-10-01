@@ -8,6 +8,7 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
     int endPosition = -1;                  //10,20,30,40,50
 
     public MyArraySimpleList() {
+
         elements = (T[]) new Object[10];
     }  //shallow
 
@@ -43,8 +44,8 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
     private void checkAndResize() {
         if (endPosition >= elements.length) {
             // throw new RuntimeException("index out of bound");
-           // T[] resizedElements = (T[]) new Object[elements.length + 1];
-           T[] resizedElements = (T[]) new Object[elements.length * 2];
+            // T[] resizedElements = (T[]) new Object[elements.length + 1];
+            T[] resizedElements = (T[]) new Object[elements.length * 2];
             // int[] resizedElements = new int[elements.length * 2];
             //System.arraycopy(element,0,resizedElements,0,elements.length);
             for (int i = 0; i < elements.length; i++) {
@@ -108,8 +109,8 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
     @Override
     public String toString() {
         String result = "";
-      //  StringBuilder stringBuilder=new StringBuilder();  //StringBuffer-synchronized
-        StringJoiner stringJoiner=new StringJoiner("||");
+        //  StringBuilder stringBuilder=new StringBuilder();  //StringBuffer-synchronized
+        StringJoiner stringJoiner = new StringJoiner("||");
         for (int i = 0; i <= endPosition; i++) {
             //result += "-->"+elements[i];
             //stringBuilder.append(elements[i]);
@@ -117,7 +118,6 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
         }
         return stringJoiner.toString();
     }
-
 
 
     void updateMatchAtAll(T oldElement, T newElement) {
@@ -135,7 +135,7 @@ public class MyArraySimpleList<T> implements SimpleList<T> {
         checkAndResize();
 
         for (int i = endPosition; i >= position; i--) {
-           elements[i + 1] = elements[i];
+            elements[i + 1] = elements[i];
         }
         elements[position] = element;
     }

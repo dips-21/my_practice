@@ -29,4 +29,11 @@ public class RatedMovieTest {
         RatedMovie m1=movieBuffer.setName("matilda").setYear(2020).setRating("10+").setGenre("comedy").build();
         System.out.println(m1);
     }
+    /*final  void iDontThink(){
+
+    }
+
+    final void iDontThink(int i){
+
+    }*/
 }

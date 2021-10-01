@@ -54,8 +54,11 @@ public class CollectionsDemoTest {
 
 
     @Test
-    public void HashSetContains() {
+    public void HashSetContainsWithoutEquals() {
         HashSet<Person> hashSet = getTestHashSet();
+        hashSet.add(new Women("dips", 26, "fear"));
+        hashSet.add(new Man("ravi", 25, "learn"));
+        hashSet.add(new Child("sonu", 6, "play"));
         assertThat(hashSet.contains(new Man("ravi", 25, "learn")), is(true));
 
     }
@@ -63,6 +66,9 @@ public class CollectionsDemoTest {
     @Test
     public void HashSetRemove() {
         HashSet<Person> hashSet = getTestHashSet();
+        hashSet.add(new Women("dips", 26, "fear"));
+        hashSet.add(new Man("ravi", 25, "learn"));
+        hashSet.add(new Child("sonu", 6, "play"));
         assertThat(hashSet.remove(new Man("ravi", 25, "learn")), is("true"));
         System.out.println("after" + "" + hashSet.remove("ravi"));
         assertThat(hashSet.contains(new Man("ravi", 25, "learn")), is(false));

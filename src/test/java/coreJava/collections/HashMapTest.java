@@ -1,9 +1,10 @@
 package coreJava.collections;
 
+import coreJava.abstraction.Child;
 import coreJava.abstraction.Man;
 import coreJava.abstraction.Person;
 import coreJava.abstraction.Women;
-import modifiers.PermanentEmployee;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -15,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class HashMapTest {
 
     @Test
-    public void testMapPutGet() {
+    public void testMapPutGet() {  //hash code and equals matters of key
         HashMap<Women, Man> womenToManMap = new HashMap<>();
         womenToManMap.put(new Women("dips", 26, "worrying"), new Man("jo-bhi", 26, "timepass"));
         Man man = womenToManMap.get(new Women("dips", 26, "worrying"));
@@ -47,11 +48,70 @@ public class HashMapTest {
     }
 
     @Test
-    public void testWordCountMapOfPerson() {
-        HashMap<Person,Integer>hashMap=new HashMap<>();
+    public void testPersonNotFoundOnGetWithoutHashcodeEquals() {
+        Person[] allPersons = {new Person("dips", 26, "cry"),
+                new Person("dips", 26, "cry"),
+                new Person("tips", 26, "cry"),
+                new Person("dips", 26, "cry"),
+                new Person("dips", 26, "cry"),
+                new Person("sanju", 23, "walk")};
+        HashMap<Person, Integer> personCountMap = new HashMap<>();
 
-
+        //   hashMap.put(new Person("sanju",23,"walk"),hashMap.put());
+        for (Person p : allPersons) {
+            if (!personCountMap.containsKey(p)) {
+                personCountMap.put(p, 1);
+            } else {
+                Integer prevCount = personCountMap.get(p);
+                personCountMap.put(p, prevCount + 1);
+            }
+        }
+        Assert.assertNull(personCountMap.get(new Person("dips", 26, "cry")));
     }
 
+    @Test
+    public void testPersonNotFoundOnGetWithHashcodeEquals() {
+        Person[] allPersons = {new Women("dips", 26, "cry"),
+                new Women("dips", 26, "cry"),
+                new Women("tips", 26, "cry"),
+                new Women("dips", 26, "cry"),
+                new Women("dips", 26, "cry"),
+                new Women("sanju", 23, "walk")};
 
+        HashMap<Person, Integer> hashMap = new HashMap<>();
+
+        //   hashMap.put(new Person("sanju",23,"walk"),hashMap.put());
+        for (Person p : allPersons) {
+            if (!hashMap.containsKey(p)) {
+                hashMap.put(p, 1);
+            } else {
+                Integer prevCount = hashMap.get(p);
+                hashMap.put(p, prevCount + 1);
+            }
+        }
+        assertThat(hashMap.get(new Women("dips", 26, "cry")), is(4));
+    }
+
+    @Test
+    public void testChildOnGetWithEqualsAndWithoutHashCodeDoesNotGet() {
+        Person[] allPersons = {new Child("dips", 26, "cry"),
+                new Child("dips", 26, "cry"),
+                new Child("tips", 26, "cry"),
+                new Child("dips", 26, "cry"),
+                new Child("dips", 26, "cry"),
+                new Child("sanju", 23, "walk")};
+
+        HashMap<Person, Integer> hashMap = new HashMap<>();
+
+        //   hashMap.put(new Person("sanju",23,"walk"),hashMap.put());
+        for (Person p : allPersons) {
+            if (!hashMap.containsKey(p)) {
+                hashMap.put(p, 1);
+            } else {
+                Integer prevCount = hashMap.get(p);
+                hashMap.put(p, prevCount + 1);
+            }
+        }
+        assertThat(hashMap.get(new Child("dips", 26, "cry")), is(4));
+    }
 }

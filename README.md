@@ -27,24 +27,25 @@ Default -  package level.
 
  Encapsulation - (data fields) 
 ======================================
-Binding (or wrapping) method and data together into a single unit are known as encapsulation.
-  
-  we can hide only data fields in it..like the scope of resize an array is inside the class only
+Binding method and data together into a single unit are known as encapsulation.
+we can hide only data fields in it..like the scope of resize an array is inside the class only
  so we can hide it from others..
-
+  ArrayList versus array ,array has no encapsulation .Arraylist add hides complexity of resize when it's full.
 * Encapsulation is data hiding it allows to have valid states of object.
   *field is private n methods are public.
   *we can reuse our code.
   *we can do validation at one level.(age is not be negative then we can check it at one level.)
-  ArrayList versus array ,array has no encapsulation .Arraylist add hides complexity of resize when it's full.
   
-["dipali","mona","sona","mina"]     To store a TrekkingGroup information if we take 3 arrays names[],ages[],cities[] 
+  
+["dipali","mona","sona","mina"]     To store a TrekkingGroup information of person if we take 3 arrays names[],ages[],cities[] 
 25         29      33    16         if we add remove in one array then
 P           M      A      N          data of persons can be mismatch if we didnt make changes in other array,bcz one person data
 After deletion                      is not encapsulated.Instead of this we can take Person array, Person[] where person 
-["dipali","sona","mina"]            has name age and city then it has some encapsulation ,while adding if person array is full 
-25         29      33    16         resizing group or condition like add only 18+ age group ,it has to be done everywhere 
-P           M      A      N         where person is added to group.
+["dipali","sona","mina"]            has name age and city then it has some encapsulation ,while modifying data of one peroson 
+                                    will not affect on data of another person if person array is full 
+25         29      33    16         resizing group or condition like add only between 18 to 25 age group must be added in group
+                                    ,it has to be done everywhere  where person is added to group.
+P           M      A      N       
                                     If we make a  TrekkingGroup class with private Person array or list then in addMember
 class TrekkingGroup{                 method any validation can be performed and group data in encapsulated inside it.
 private Person[] members;
@@ -60,7 +61,8 @@ person1<<name,age,city  >>    person2<<name,age,city>>  //one person can access 
 
   * Data is modified at one place because fields are private and it is accessible only within the class.
     only this method can direct access of it.n others from getters and setters method.
-    
+ 
+    Benefits: reduces complexity ,better control over data
     
 Abstraction:- (types of implementation hiding)
 =================================================
@@ -74,11 +76,11 @@ AbstractionCodeReuseTest
 loose coupling : If there is a UserService and it has an abstract type SqlRepo then 
                  it is loosely coupled and if the implementation
                  changes from MySqlRepo to MongoRepo then UserService does not need to change.
+implemented using interface and abstract class
 UserServiceTest
 
-*Abstraction hides the implementation details.
 it can be method body.
-*it allows loose coupling.
+
 In system there is 3 kind of user men women and child.if we have to add User then we will have to call three separate 
   methods for them.but with the help of abstraction we can define abstract type of it which is person.
 If those three classes has same functionality then we can add it in person class and override it into child class with extends keyword.
@@ -86,12 +88,14 @@ If those three classes has same functionality then we can add it in person class
 
 Inheritance:-
 ==================================================
-When one object acquires all the properties and behaviors of a parent object, it is known as inheritance. 
-  It provides code reusability. It is used to achieve runtime polymorphism,  
-*in that we can allows code defined in one class and other classes can be reused it.
+*When one object acquires all the properties and behaviors of a parent object, it is known as inheritance. 
+*It provides code reusability. 
+*It is used to achieve runtime polymorphism,  
+*In that we can allows code defined in one class and other classes can be reused it.
+
 *Ex.if we have a women class ,in that  we have taken  working and non working women .means we can inherit all the properties
 of women in both the classes and also we can add others information in it like working women get salary.
-so we dont write women functionality to the both sub classes.
+so we dont have to write women functionality to the both sub classes.
 AgeWeightComparator AgeWeightHeightComparator  , we can override(modify) specific behavior (only methods that we need)
 ,rest of methods will be accessible from parent class 
 
@@ -113,16 +117,18 @@ c.equals
 
 Polymorphism:-
 ==================================================
-* In polymorphism, it calls dynamically on correct object type.
+* In polymorphism, calls resolved  dynamically on correct object type.
 * It is also known as dynamic dispatch methods because method called resolved on run time type of object.
-Example:--we have a women, man and child class and in that gethobby is a method.when we call getHobby of person then it will
-            called on correct run time type of object and gives actual class hobby,
-*overriden happens in run time type of polymorphism.
+Example:--we have a women, man and child class and in that gethobby is a method.when we call getHobby of person then it
+         will called on correct run time type of object and gives actual class hobby,
+*overridden happens in run time type of polymorphism.
 
 
 **Overloading
 ===================                                         
-*  happens when in the same class if there is same method name and different parameters.
+*  In the same class there can be methods with same name but different parameters ,the decision on
+   which method will be called is made on the compile time type of parameters.The most specific matching method is called
+   If there is no unique match then it's a compile time error.
 *it must be in same classes.                            
 *the called resolved on compile time type of object.
 * we can change access modifier.
@@ -140,9 +146,9 @@ Eg.List has add(position,element)   //list has add method and it takes position 
 **Overriding Polymorphism
 ===========================
 When the method being called is present in multiple classes which are in an inheritance hierarchy then the
-decision to call which method is based on run time type of the object.
+decision to call which method is based on run time type of the object.obj has virtual pointer n it points to virtual table.
+virtual table of it's class has location of all function of that class.
 *it must follow inheritance hirearchy.
-*the called resolved on run time type of object.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
@@ -320,20 +326,24 @@ Type erasure , generics are erased after compilation.
 //(Integer)list.get(i) 
 
 
-
+COLLECTIONS:-
+=======================================================================
+The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
+Java Collections can achieve all the operations that you perform on a data such as searching, sorting,
+insertion, manipulation, and deletion. Java Collection means a single unit of objects.
 
 Iterable :
 ================
 Abstraction of types that can be iterated using iterator ,iterate over big data set .
 An Iterable can represent group of objects whose size is not known .
-It can be like a FacebookFeed where all objects are not loaded in memory
+It can be like a FacebookFeed where all objects are not loaded in memory.
 and can provide an iterator implementation to iterate over large data set .For eg iterator can query from db 
 or another web service on next() calls
-It is root(parent) of all collections .List ,Set,Queue all are iterable 
+It is root(parent) of all collections .List ,Set,Queue all are iterable .
 
 /**Iterator:-
 ==========================================================================
-* Iterator is an interface it encapuslated the iteration logic 
+* Iterator is an interface it encapsulated the iteration logic 
   which is applied on collection of objects which can be iterable.
 * collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations of Collection
 * Any Iterable has to provide iterator() .
@@ -357,16 +367,9 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable
   then expected count will not be equal to actual count
   this is treated as concurrent modification and exception is thrown
 * This is fail fast iterator.
-* when listIerator.remove() is called both iterator expected count and actual count decrease
+* when listIterator.remove() is called both iterator expected count and actual count decrease
 * so no exception is thrown.
 
-
-
-Collections:-
-=======================================================================
-The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
-Java Collections can achieve all the operations that you perform on a data such as searching, sorting, 
-insertion, manipulation, and deletion. Java Collection means a single unit of objects.
 
 ArrayList                                                    
 =======================================================================
@@ -377,6 +380,15 @@ If we remove elements from it then it will be shuffle if elements is at middle o
 cache friendly bcz continuouse memory allocation.
 fixed memory allocation.
 Dynamic array (if array size full then it internally create new array).so memory could be wasted.
+
+
+map is an interface.It is a data structure which is used to store key and value pair and we can get/remove value using key..
+while set is collection of unique elements which internally uses map and a static final dummy object as dummy value  
+in the map.   
+implementation <------linkedHashSet,HashSet,TreeSet
+For eg : map word count ,   <----                     
+set : store unique words ,find first duplicate     
+
 
 
 LinkedList:-
@@ -407,7 +419,6 @@ It provides an efficient means of storing key-value pairs in sorted order.
     Java TreeMap contains values based on the key. 
 It implements the NavigableMap interface and extends AbstractMap class.
     Java TreeMap contains only unique elements.
-   // Java TreeMap cannot have a null key but can have multiple null values.
     Java TreeMap is non synchronized.
     Java TreeMap maintains ascending order.
 
@@ -571,14 +582,35 @@ In other words, we can wrap a primitive value into a wrapper class object.
 
 Serializable Interface :=     (to convert object state,without object how will we send data to server )     
 =======================================================
-The Serializable interface is present in java.io package.To use Java serialization a class has to implement Serializable.
-Other serializations are json ,xml based(text) which are language/platform independent. JVM generates additional metadata for
-serializable objects to represent their serialized structure.
-Serialization is a mechanism of converting the state of an object into a byte stream(binary) that allows to send on socket file.
-Static and transient fields are not serialised ,they are not part of object state.
-Serialization is done using ObjectOutputStream.
-Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory.
-All fields of serialization must be serializable..or transient..
+*The Serializable interface is present in java.io package.
+*To use Java serialization a class has to implement Serializable.
+*Other serializations are json ,xml based(text) which are language/platform independent. JVM generates additional metadata 
+means extra information needs to be included in objects of this class ,in object header metadata like total fields
+,offsets,sizes(from to to size of field)) For serializable objects to represent their serialized structure.
+*Serialization is a mechanism of converting the state of an object into a byte stream(binary) 
+ that allows to send on socket file....
+*Static and transient fields are not serialised ,they are not part of object state.
+*Serialization is done using ObjectOutputStream.
+*Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory.
+*All fields of serialization must be serializable... or transient... 
+
+Serializable Marker Interface:-
+====================================
+It checks the interface is serializable or not..
+They are used because we are telling to JVM that , that class have special behaviour.
+(means extra information needs to be included in objects of this class ,in object header metadata like total fields
+,offsets,sizes(from to to size of field)).
+Serializable is a marker interface means that it contains no methods.
+Therefore, a class implementing Serializable does not have to implement any specific methods.
+
+The serialization runtime associates with each serializable class a version number, called a serialVersionUID,
+which is used during deserialization to verify that the sender and receiver of a serialized object have loaded
+classes for that object that are compatible with respect to serialization.
+If the receiver has loaded a class for the object that has a different serialVersionUID than that of the 
+corresponding sender's class, then deserialization will result in an InvalidClassException. 
+A serializable class can declare its own serialVersionUID explicitly by declaring a field named serialVersionUID 
+that must be static, final, and of type long:
+                                         ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
 
 
 Why;-
@@ -591,15 +623,7 @@ if we don't want to save value of a particular variable in a file, then we use t
 When JVM comes across transient keyword, it ignores original value of the variable and save default value of 
 that variable data type.
 
-Serializable Marker Interface:-
-====================================
-It checks the interface is serializable or not..
-They are used because we are telling to JVM that , that class have special behaviour.
-(means extra information needs to be included in objects of this class ,in object header metadata like total fields 
-,offsets,sizes(from to to size of field)).
-Serializable is a marker interface means that it contains no methods. 
-Therefore, a class implementing Serializable does not have to implement any specific methods. 
-Implementing Serializable just tells the Java serialization classes that this class is intended for object serialization.
+lementing Serializable just tells the Java serialization classes that this class is intended for object serialization.
 
 Externalizable
 =====================
@@ -627,6 +651,43 @@ Stream versus Reader classes
 BufferedReader , BufferedInputStream
 
 Spring dependency injection  (component scanning and creation of object using reflection )
+In Dependency injection dependencies of an object are passed to it instead of the object getting it's own dependencies.
+Dependency can be passed through constructor or setter .It allows loose coupling
+For eg UserService(SqlRepo repo){ } //Dependency injection <--SqlRepo dependency is passed as a constructor parameter
+UserService(){
+repo=new MysqlRepo()} //No dependency injection ,tight coupling
+
+Dependency injection framework initialises objects by passing them their dependencies .In Spring 
+@Autowired or @Resource is used to indicate that the dependency needs to be injected 
+for eg class UserService{
+@Autowired
+SqlRepo repo
+}
+By default Spring DI is by type (means matching Interface/Class type).If multiple matches then which one
+needs to be specified by using @Qualifier (DI by name) ,eg @Qualifier("MongoRepo")
+Each object created by Spring is managed by spring and is a spring bean and it has a name.
+By default each spring bean is Singleton (ie only one instance of class exists)
+RequestScope(one object created by request)
+PrototypeScope (on every use one instance is created)
+ApplicationScope (one per application )
+
+ApplicationContext (manages all beans and spring config )
+
+Controller ,Service,Repository
+@Controller this will url mapping of the method to be called on http requests ,Spring dispatcher servlet will call
+it's methods on matching url .For eg GET /questions/ 
+@Service this is for business logic and handle transactions .It will act over data fetched by repository(or reposiotires)
+@Repository This is data layer which adds/gets data from database .With Spring data repository we only need to create
+a interface extending CRUDRepository and it's implementation is dynamically generated.It provides methods like
+findById() ,findAll() ,deleteById() etc .If we need other methods the queries are generated based on method name
+for eg FindByEmail(String email) (this would generate select * from table where email=?)
+We can also write our own query using @Query on method
+
+Spring uses reflection to call our controller method with matching url
+
+@Transaction for transactional method.Transaction management is done by spring
+
+
 MVC design 
 Transaction management
 

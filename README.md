@@ -156,9 +156,11 @@ In SOLID
 L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
 for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
 private then addAll will break
+
 *private or static or final cannot be overridden.
 
 *The protected method can be made public but not private in the subclass.
+
 If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
 * Run time polymorphism. non static not final method can be overriden.
 
@@ -195,7 +197,7 @@ eg. to be human you have to impplements all methods in interface like walk.talk,
 It provides loose coupling.
 Interface can extend interface.
 
- *It is mechanism to achieve fully abstraction.
+ *It is mechanism to achieve full abstraction.
  *There can be only abstract methods in the java interface not method body.
  * 
 
@@ -345,7 +347,8 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 ==========================================================================
 * Iterator is an interface it encapsulated the iteration logic 
   which is applied on collection of objects which can be iterable.
-* collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations of Collection
+* collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations
+  of Collection.
 * Any Iterable has to provide iterator() .
 * It has hasnext(),next(),remove() method.
 * HasNext() method return boolean value ,if the iterable list has more elements to
@@ -382,15 +385,6 @@ fixed memory allocation.
 Dynamic array (if array size full then it internally create new array).so memory could be wasted.
 
 
-map is an interface.It is a data structure which is used to store key and value pair and we can get/remove value using key..
-while set is collection of unique elements which internally uses map and a static final dummy object as dummy value  
-in the map.   
-implementation <------linkedHashSet,HashSet,TreeSet
-For eg : map word count ,   <----                     
-set : store unique words ,find first duplicate     
-
-
-
 LinkedList:-
 ========================================================================
 The linked List node is encapsulated in it.
@@ -409,8 +403,16 @@ DOubly Linked List additional memory will take for adding new node ,prev code.
 
 If too many elements removes then use linked list otherwise use arrayList. <-When to use
 
-we can get elements easily bcz we know position.(memory allocation is continuous so access direct access
+we can get elements easily bcz we know position.(memory allocation is continuous so direct access
 eg int[]a =new int[10]  and a[4] will be at address size of int*4 )
+
+
+Map is an interface.It is a data structure which is used to store key and value pair and we can get/remove value using key..
+while Set is collection of unique elements which internally uses map and a static final dummy object as dummy value  
+in the map.   
+implementation <------linkedHashSet,HashSet,TreeSet
+For eg : map word count ,   <----                     
+set : store unique words ,find first duplicate
 
 
 TreeMap:=

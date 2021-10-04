@@ -44,16 +44,6 @@ public class PalindromeTest {
         assertThat(palindrome.getCommonCharacter("dipali","rupali"),is(4));
     }
 
-    @Test
-    public void commonCharacter01() {
-        Palindrome palindrome=new Palindrome();
-        assertThat(palindrome.getCommonCharacter("dips","di"),is(2));
-    }
 
-    @Test
-    public void commonCharacter02() {
-        Palindrome palindrome=new Palindrome();
-        assertThat(palindrome.getCommonCharacter("d",""),is(0));
-    }
 
 }

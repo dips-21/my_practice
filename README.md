@@ -221,6 +221,8 @@ then string Builder is used.buffer is already synchronized n it uses multiple th
 
 intern -
 ============
+returns the canonical representation of the string
+
 
 
 **Comparable And Comparator:-

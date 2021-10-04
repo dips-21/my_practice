@@ -1,6 +1,6 @@
 package arrays;
 
-import java.util.Arrays;
+import java.util.HashSet;
 
 public class Palindrome {
     //wow   w
@@ -78,10 +78,10 @@ public class Palindrome {
 
     //laptop  0 5
     //i =0 j=5
-  //for (i=0, i<len;i++) //  //j=5
-     //  for (i=0, i<len;i++) //  //j=4
+    //for (i=0, i<len;i++) //  //j=5
+    //  for (i=0, i<len;i++) //  //j=4
 
-   // for (i=0, i<len;i++) //  //j=1
+    // for (i=0, i<len;i++) //  //j=1
     //  for (i=0, i<len;i++) //  //j=0
 //aa
     //laptop
@@ -90,33 +90,16 @@ public class Palindrome {
     //0-14 1-14 2-14 3-14  4-14   7-14   8-14   14-14
     //1-1
 
-    void printAllSubstring(String word){
-        int max=0;
+    void printAllSubstring(String word) {
+        int max = 0;
         //word.charAt(i)    word[i]
-        for (int i = 0; i <word.length() ; i++) {
-            for (int j = 0; j <word.length() ; j++) { //O(n2)
-              //start =i , end =j   //
-
+        for (int i = 0; i < word.length(); i++) {
+            for (int j = 0; j < word.length(); j++) { //O(n2)
+                //start =i
             }
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
    /* char temp = words[start];             //n

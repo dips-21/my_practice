@@ -172,10 +172,10 @@ private and final can't be overriden  ,final College class getFees()  ,College c
 final class cant be overriden
 
 override example
-
+==============================
 If we take Loan as abstract class and it has three implementation class personal loan,home loan and gold loan.
 and there is getRateOfInterest method().If we take loan.getRateOfInterest(new homeloan) it will gives the homeLoan.
-
+======================================================================================================================
 Eg. HashCode And Equals:-
 put(key,value)  get(key,value)
 
@@ -231,7 +231,7 @@ It can be fully implemented, partially implemented or not even implemented.
 
 String BUILDEr/buffer-
 ==================================================
-Strings are immutable so if we want to change it ,everytime new object will have to create.
+Strings are immutable so if we want to change it ,everytime new object will have to be  created.
 but with the help of buffer/builder we can append it n modify it .
 
 builder n buffer- buffer is synchronized.(objects shared by multiple threads )

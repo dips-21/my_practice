@@ -450,10 +450,11 @@ It provides an efficient means of storing key-value pairs in sorted order.
 It implements the NavigableMap interface and extends AbstractMap class.
     Java TreeMap contains only unique elements.
     Java TreeMap is non synchronized.
-    Java TreeMap maintains ascending order.
+    
 
 TreeMap is a balanced binary search tree.
 It has key and value.
+Java TreeMap maintains ascending order.
 it has sorted order based on comparator if we passed comparator then it will use comparator ,if key type is comparable
 then and we didnt pass comparator then it will use comparable..If key type is not comparable n we dont pass comparator 
 then it will gives class cast exception.
@@ -615,7 +616,8 @@ These are also called as Runtime Exceptions.
 These include programming bugs, such as logic errors or improper use of an API.
 Runtime exceptions are ignored at the time of compilation.
 
-For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then an ArrayIndexOutOfBoundsExceptionexception occurs.
+For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
+an ArrayIndexOutOfBoundsExceptionexception occurs.
 
 Thread vs Runnable:-
 ====================
@@ -623,7 +625,7 @@ Thread
 ===============
 It is a class.
 It can be used to create a thread.
-It has multiple methods such as ‘start’ and ‘run’.
+It has  methods such as ‘start’ and ‘run’.
 It requires more memory space.
 Since multiple inheritance is not allowed in Java, hence, after a class extends the Thread class, it can’t extend to any other class.
 Every thread creates a unique object and associates with it.

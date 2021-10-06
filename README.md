@@ -133,8 +133,8 @@ Example:--we have a women, man and child class and in that gethobby is a method.
 *the called resolved on compile time type of object.
 * we can change access modifier.
 
-*static method be overloaded.                   
-*private final 
+*static,*private ,final  method be overloaded.                   
+
 * compile time polymorphism (because the method called varies depending on compile time type of parameters)
 *
 Eg.List has add(position,element)   //list has add method and it takes position and element.
@@ -149,6 +149,7 @@ When the method being called is present in multiple classes which are in an inhe
 decision to call which method is based on run time type of the object.obj has virtual pointer n it points to virtual table.
 virtual table of it's class has location of all function of that class.
 *it must follow inheritance hirearchy.
+*private or static or final cannot be overridden.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
@@ -156,9 +157,10 @@ In SOLID
 L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
 for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
 private then addAll will break
-*private or static or final cannot be overridden.
+
 
 *The protected method can be made public but not private in the subclass.
+
 If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
 * Run time polymorphism. non static not final method can be overriden.
 
@@ -191,18 +193,40 @@ Interface:-
 ==================================================
 Interface is a type defines contract what behaviour it must have to do of that type.
 It defines what but not how methods do.
-eg. to be human you have to impplements all methods in interface like walk.talk,
+eg. to be human you have to implements all methods in interface like walk.talk,
 It provides loose coupling.
 Interface can extend interface.
 
- *It is mechanism to achieve fully abstraction.
+ *It is mechanism to achieve full abstraction.
  *There can be only abstract methods in the java interface not method body.
- * 
+ * It contains a declaration part only.
+
+Multiple inheritance can be achieved using interface.
+It doesn’t contain a constructor.
+It doesn’t contain static members.
+It contains public access modifier since everything in an interface is considered public.
+The performance of interface is not good.
+It is slow since it needs time to search for an actual method in the respective class.
+It is used to implement peripheral abilities of a class.
+It can use multiple interface.
+If multiple implementations share methods, then the ‘Interface’ can be used.
+Interface can contain methods only.
+It needs to be fully implemented.
 
 Abstract Class:-
 =======================
 if we know Partial implementation.
-Abstract method 
+It contains the declaration and definition part.
+Multiple inheritance can’t be implemented using abstract class.
+It contains the constructor.
+It can also contain some static members.
+It can contain multiple types of access modifiers such as public, private, protected.
+The performance of an abstract class is very good, because it is quick.
+It is used to implement the core identity/functionality of a class.
+A class can use only one abstract class.
+If many implementations are same, and they have a common behaviour, it is suggested to use an abstract class.
+Abstract classes contain methods, fields, constants.
+It can be fully implemented, partially implemented or not even implemented.
 
 
 String BUILDEr/buffer-
@@ -215,10 +239,13 @@ builder n buffer- buffer is synchronized.(objects shared by multiple threads )
 String is thread safe.
 
 If we want  friends list from different sources then we have to take append(method) from single thread
-then string Builder is used.buffer is already synchronized n it uses multiple thread.  
+then string Builder is used.
+Buffer is already synchronized n it uses multiple thread.  
 
 intern -
 ============
+returns the canonical representation of the string
+
 
 
 **Comparable And Comparator:-
@@ -235,10 +262,14 @@ with this.object itself)
 
 Comparison logic is coupled in comparable .
 comparable is tighly coupled with that class to check object comparsion.
+It is also used to compare the current instance with another object of same type.
+
+
 
 
             Comparator
 *Comparator interface is used to compare two or multiple elements
+The Comparer interface is used to sort elements that compare two objects and provides additional comparison method.
 *It implements comparable.
 *It has compare() method to compare. 
 *it is in java.util package
@@ -271,6 +302,7 @@ Aggregation is a way to achieve Association.
 Aggregation implies a relationship where the child can exist independently of the parent.
 
 For example, Bank and Employee, delete the Bank and the Employee still exist.
+
 It represents the weak relationship between objects.
 It is another way to reuse objects.
 
@@ -296,8 +328,6 @@ The composition is the strong type of association.
 If an Object depends on another object and another object cannot exist without the owner object. 
 Consider the case of Human having a heart. 
 Here Human object contains the heart and heart cannot exist without Human.
-
-
 
 Generics:-
 ================
@@ -345,7 +375,8 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 ==========================================================================
 * Iterator is an interface it encapsulated the iteration logic 
   which is applied on collection of objects which can be iterable.
-* collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations of Collection
+* collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations
+  of Collection.
 * Any Iterable has to provide iterator() .
 * It has hasnext(),next(),remove() method.
 * HasNext() method return boolean value ,if the iterable list has more elements to
@@ -399,9 +430,17 @@ Memory will allocate dynamically so no waste.
 DOubly Linked List additional memory will take for adding new node ,prev code.
 
 If too many elements removes then use linked list otherwise use arrayList. <-When to use
-
-we can get elements easily bcz we know position.(memory allocation is continuous so access direct access
+========================================================================================
+we can get elements easily bcz we know position.(memory allocation is continuous so direct access
 eg int[]a =new int[10]  and a[4] will be at address size of int*4 )
+
+
+Map is an interface.It is a data structure which is used to store key and value pair and we can get/remove value using key..
+while Set is collection of unique elements which internally uses map and a static final dummy object as dummy value  
+in the map.   
+implementation <------linkedHashSet,HashSet,TreeSet
+For eg : map word count ,   <----                     
+set : store unique words ,find first duplicate
 
 
 TreeMap:=
@@ -411,10 +450,11 @@ It provides an efficient means of storing key-value pairs in sorted order.
 It implements the NavigableMap interface and extends AbstractMap class.
     Java TreeMap contains only unique elements.
     Java TreeMap is non synchronized.
-    Java TreeMap maintains ascending order.
+    
 
 TreeMap is a balanced binary search tree.
 It has key and value.
+Java TreeMap maintains ascending order.
 it has sorted order based on comparator if we passed comparator then it will use comparator ,if key type is comparable
 then and we didnt pass comparator then it will use comparable..If key type is not comparable n we dont pass comparator 
 then it will gives class cast exception.
@@ -436,8 +476,9 @@ for eg "dog" new String("dog") , not same by == but are logically same ,
 p1=new Person("Dipali") p2=new Person("Dipali").
 
 for new objects to be equal which are logically same we have to overrride equals.
+
 Also if in a class we override equals but not hashcode then it will not behave correctly when used in a HashMap,HashSet.
-map.put(new Person("Dipali"),"hachi") 
+map.put(new Person("Dipali"),"hachi")       =============
 map.get(new Person("Dipali") should have returned "hachi"  ,Even if keys are equal by equals since new object has different hashcode ,
 so it will check at different position so it will not be found and will return null.
 GET/PUT  First find position using hashcode, then find entry in that bucket using equals.
@@ -511,7 +552,103 @@ Solutions on Producer and Consumer Problems:-
 
 
 
-//checked unchecked exception
+Exceptions:-
+----------------------
+Exception vs error;-
+=====================
+Exceptions and errors both are subclasses of Throwable class.
+The error indicates a problem that mainly occurs due to the lack of system resources and our application should not catch 
+these types of problems. Some of the examples of errors are system crash error and out of memory error.
+Errors mostly occur at runtime that's they belong to an unchecked type.
+
+Exceptions are the problems which can occur at runtime and compile time.
+It mainly occurs in the code written by the developers.  
+Exceptions are divided into two categories such as checked exceptions and unchecked exceptions.
+
+Sr. No.	                                    Key	Error	                                            Exception
+1                                             Type        `                                           Package
+                                Classified as an unchecked type                     Classified as checked and unchecked
+
+2  .                                          Package
+                                    It belongs to java.lang.error                      It belongs to java.lang.Exception
+
+3                                  Recoverable/ Irrecoverable
+                                       It is irrecoverable                              It is recoverable
+
+
+4                              It can't be occur at compile time
+Example
+                                OutOfMemoryError ,IOError                               NullPointerException , SqlException
+
+
+
+
+
+Checked Exceptions
+=============================
+They occur at compile time.
+The compiler checks for a checked exception.
+These exceptions can be handled at the compilation time.
+It is a sub-class of the exception class.
+The JVM requires that the exception be caught and handled.
+Example of Checked exception- ‘File Not Found Exception’
+
+A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. 
+These exceptions cannot simply be ignored at the time of compilation; 
+the programmer should take care of (handle) these exceptions.
+
+For example, if you use FileReader class in your program to read data from a file,
+if the file specified in its constructor doesn't exist, then a FileNotFoundException occurs,
+and the compiler prompts the programmer to handle the exception.
+
+Unchecked Exceptions
+================================
+These exceptions occur at runtime.
+The compiler doesn’t check for these kinds of exceptions.
+These kinds of exceptions can’t be caught or handled during compilation time.
+This is because the exceptions are generated due to the mistakes in the program.
+These are not a part of the ‘Exception’ class since they are runtime exceptions.
+The JVM doesn’t require the exception to be caught and handled.
+Example of Unchecked Exceptions- ‘No Such Element Exception
+
+An unchecked exception is an exception that occurs at the time of execution. 
+These are also called as Runtime Exceptions.
+These include programming bugs, such as logic errors or improper use of an API.
+Runtime exceptions are ignored at the time of compilation.
+
+For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
+an ArrayIndexOutOfBoundsExceptionexception occurs.
+
+Thread vs Runnable:-
+====================
+Thread
+===============
+It is a class.
+It can be used to create a thread.
+It has  methods such as ‘start’ and ‘run’.
+It requires more memory space.
+Since multiple inheritance is not allowed in Java, hence, after a class extends the Thread class, it can’t extend to any other class.
+Every thread creates a unique object and associates with it.
+
+Runnable
+===================
+It is a functional interface.
+It can be used to create a thread.
+It has a single abstract method ‘run’.
+It requires less memory space.
+When a class implements the ‘runnable’ interface, the class can extend to other classes.
+Multiple threads can share the same objects.
+
+
+Runnable Vs Callable:-
+========================
+Runnable and Callable both functional interface. Classes which are implementing these interfaces 
+are designed to be executed by another thread.
+Thread can be started with Ruunable and they are two ways to start a new thread:
+one is by subclassing Thread class and another is implementing Runnable interface.
+Thread class does not have constructor for callable so we should use ExecutorService  class for executing thread.
+
+
 
 //final :  final can be initialized only once , they can be initialized during declaration 
             or in constructor if they are class fields
@@ -575,9 +712,11 @@ Serializable Interface :=     (to convert object state,without object how will w
 =======================================================
 *The Serializable interface is present in java.io package.
 *To use Java serialization a class has to implement Serializable.
-*Other serializations are json ,xml based(text) which are language/platform independent. JVM generates additional metadata 
-means extra information needs to be included in objects of this class ,in object header metadata like total fields
+*Other serializations are json ,xml based(text) which are language/platform independent. 
+JVM generates additional metadata means extra information needs to be included in objects of this class ,
+in object header metadata like total fields
 ,offsets,sizes(from to to size of field)) For serializable objects to represent their serialized structure.
+
 *Serialization is a mechanism of converting the state of an object into a byte stream(binary) 
  that allows to send on socket file....
 *Static and transient fields are not serialised ,they are not part of object state.
@@ -610,16 +749,15 @@ Object in memory representation to a representation which can be sent over a net
 
 Transient:-
 =================
-if we don't want to save value of a particular variable in a file, then we use transient keyword. 
+If we don't want to save value of a particular variable in a file, then we use transient keyword. 
 When JVM comes across transient keyword, it ignores original value of the variable and save default value of 
 that variable data type.
 
-lementing Serializable just tells the Java serialization classes that this class is intended for object serialization.
+implementing Serializable just tells the Java serialization classes that this class is intended for object serialization.
 
 Externalizable
 =====================
 Externalization provides implementation logic control to the application by overriding readExternal and writeExternal methods.
-
 
 
 collection definiion:-
@@ -641,51 +779,65 @@ blocking and non blocking IO
 Stream versus Reader classes
 BufferedReader , BufferedInputStream
 
-Spring dependency injection  (component scanning and creation of object using reflection )
+Spring Dependency Injection  (component scanning and creation of object using reflection ):-
 ============================================================================================
 In Dependency injection dependencies of an object are passed to it instead of the object getting it's own dependencies.
-Dependency can be passed through constructor or setter .It allows loose coupling
-For eg UserService(SqlRepo repo){ } //Dependency injection <--SqlRepo dependency is passed as a constructor parameter
-UserService(){
-repo=new MysqlRepo()} //No dependency injection ,tight coupling
+Dependency can be passed through constructor or setter .
+It  have loose coupling 
+For eg UserService(SqlRepo repo){  } //Dependency injection <--SqlRepo dependency is passed as a constructor parameter
 
-Dependency injection framework initialises objects by passing them their dependencies .In Spring 
-@Autowired or @Resource is used to indicate that the dependency needs to be injected 
+UserService(){
+repo=new MysqlRepo()}             //No dependency injection ,tight coupling
+
+Dependency Injection Framework initialises objects by passing them their dependencies.
+In Spring @Autowired or @Resource is used to indicate that the dependency needs to be injected 
+
 for eg class UserService{
 @Autowired
 SqlRepo repo
 }
-By default Spring DI is by type (means matching Interface/Class type).If multiple matches then which one
-needs to be specified by using @Qualifier (DI by name) ,eg @Qualifier("MongoRepo")
+
+By default Spring DI is by type (means matching Interface/Class type).
+If multiple matches then which one needs to be specified by using @Qualifier (DI by name) ,
+eg @Qualifier("MongoRepo"),
 Each object created by Spring is managed by spring and is a spring bean.
-By default each spring bean is Singleton (ie only one instance of class exists) .It is per application context.
+By default each spring bean is Singleton (ie only one instance of class exists) .
+It is per application context.
 
 **ApplicationContext:**
+==============================
 Central interface to provide configuration for an spring application.Usually there will be only one
-but multiple application contexts can be created per jvm(tomcat)
+but multiple application contexts can be created per jvm(tomcat).
 
 **RequestScope(one object created by request)**
 
 **PrototypeScope** (on every injection,when bean is asked a new instance is created)
 
-**SessionScope** (every http session ,one instance is created ).A HttpSession is for http state management as http is a state
-less protocol (A request has no information on what happened in previous request).Using a session id,state is saved on
-server and whenever a request sends that session id it belongs to that session
+**SessionScope** (every http session ,one instance is created ).
+A HttpSession is for http state management as http is a state less protocol
+(A request has no information on what happened in previous request).
+Using a session id,state is saved on server and whenever a request sends that session id it belongs to that session.
 
-**ApplicationScope** (one per application ie ServletContext  ) ServletContext object is per web container (like tomcat)
-so only 1 instance of ApplicationScope beans will be there in the web application
+**ApplicationScope** (one per application ie ServletContext) 
+ServletContext object is per web container (like tomcat) so only 1 instance of ApplicationScope beans will be 
+there in the web application.
 
 ApplicationContext (manages all beans and spring config )
 
 Jsp bean scopes (Page ,request,session,application)
 
 Controller ,Service,Repository
+==============================================
 @Controller this will url mapping of the method to be called on http requests ,Spring dispatcher servlet will call
 it's methods on matching url .For eg GET /questions/ 
+
 @Service this is for business logic and handle transactions .It will act over data fetched by repository(or reposiotires)
+
 @Repository This is data layer which adds/gets data from database .With Spring data repository we only need to create
-a interface extending CRUDRepository and it's implementation is dynamically generated.It provides methods like
-findById() ,findAll() ,deleteById() etc .If we need other methods the queries are generated based on method name
+a interface extending CRUDRepository and it's implementation is dynamically generated.
+It provides methods like findById() ,findAll() ,deleteById() etc .
+
+If we need other methods the queries are generated based on method name
 for eg FindByEmail(String email) (this would generate select * from table where email=?)
 We can also write our own query using @Query on method
 
@@ -694,18 +846,41 @@ Spring uses reflection to call our controller method with matching url
 @Transaction for transactional method.Transaction management is done by spring (Declarative transaction management)
 AOP aspect oriented programming 
 
-What is SPring Data Repository?
+What is Spring Data Repository?
 =========================================
 * In spring data repository we use Repository annotation on interface which extends CrudRepository
 * it's implementation is dynamically generated by Spring .It works on an Entity
   and methods to find/delete by primary key are already available ,findById() deleteById() ,findAll()
-* Entity is the class mapped to table and object to relational form (i.e query) and query result to object
-* conversion is done by Spring ORM (like hibernate)
+* Entity is the class mapped to table and object to relational form (i.e query) and query result to object conversion is 
+  done by Spring ORM (like hibernate).
 * We can also define our methods in interface using standard naming pattern and query will be generated
-* based on the method name for eg findByQuestionDescription(String description); //where description =?
+  based on the method name for eg findByQuestionDescription(String description); //where description =?
 * We can also write custom query on method using @Query
 
-
+Spring IOC Container:-
+==============================
+The Spring container is at the core of the Spring Framework.
+The container will create the objects, wire them together, configure them, and manage their complete life cycle 
+from creation till destruction. 
+The Spring container uses DI to manage the components that make up an application. 
+These objects are called Spring Beans,
+The container gets its instructions on what objects to instantiate, configure, and assemble by reading the 
+configuration metadata provided. The configuration metadata can be represented either by XML, Java annotations, or Java code. 
+The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured 
+and executable system or application.
 
 MVC design
+================
+MVC Pattern stands for Model-View-Controller Pattern. 
+This pattern is used to separate application's concerns.
+
+Model - Model represents an object or JAVA POJO carrying data. It can also have logic to update controller if its data changes.
+
+View - View represents the visualization of the data that model contains.
+
+Controller - Controller acts on both model and view. It controls the data flow into model object and 
+updates the view whenever data changes. It keeps view and model separate.
+
 Transaction management
+=============================
+

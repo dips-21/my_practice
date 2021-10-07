@@ -21,7 +21,13 @@ for i 0 to n , map.put(from[i],to[i] )
 startcity       
 nextcity=map.get(startcity)
 map.get(Citycity)
-
+//int getNumCitiesFrom(String source){   //while map contains city{ city=map. }
+if not contains source then zero else count++
+int dest1=map.get(source)
+if not contains dest1 then zero else count++
+dest2= map.get(dest1)
+if not contains dest1 then zero else count++
+}
 
 
 // Find if word has duplicate letters "apple" true , pen false

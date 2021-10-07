@@ -609,7 +609,7 @@ These kinds of exceptions can’t be caught or handled during compilation time.
 This is because the exceptions are generated due to the mistakes in the program.
 These are not a part of the ‘Exception’ class since they are runtime exceptions.
 The JVM doesn’t require the exception to be caught and handled.
-Example of Unchecked Exceptions- ‘No Such Element Exception
+Example of Unchecked Exceptions- ‘No Such Element Exceptio
 
 An unchecked exception is an exception that occurs at the time of execution. 
 These are also called as Runtime Exceptions.
@@ -619,6 +619,13 @@ Runtime exceptions are ignored at the time of compilation.
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
 an ArrayIndexOutOfBoundsExceptionexception occurs.
 
+
+Multithreading:-
+===========================================
+The main purpose of multithreading is to provide simultaneous execution of two or more parts of a program 
+to maximum utilize the CPU time.
+A multithreaded program contains two or more parts that can run concurrently.
+Each such part of a program called thre
 Thread vs Runnable:-
 ====================
 Thread
@@ -759,16 +766,8 @@ Externalizable
 =====================
 Externalization provides implementation logic control to the application by overriding readExternal and writeExternal methods.
 
-
-collection definiion:-
-checked unchecked/solid/
-
-Thread -Runnable versus thread
 executorService
 volatile ,lock,synchronised
-
-Concurrent Collection 
-ConcurrentHashMap
 
 java8 lambda ,streams
 
@@ -779,11 +778,15 @@ blocking and non blocking IO
 Stream versus Reader classes
 BufferedReader , BufferedInputStream
 
+**SPRING**
+
 Spring Dependency Injection  (component scanning and creation of object using reflection ):-
 ============================================================================================
 In Dependency injection dependencies of an object are passed to it instead of the object getting it's own dependencies.
 Dependency can be passed through constructor or setter .
-It  have loose coupling 
+It provides loose coupling.
+The object does not look up its dependencies and does not know the location or class of the dependencies, 
+rather everything is taken care by the Spring Framework.
 For eg UserService(SqlRepo repo){  } //Dependency injection <--SqlRepo dependency is passed as a constructor parameter
 
 UserService(){
@@ -804,19 +807,52 @@ Each object created by Spring is managed by spring and is a spring bean.
 By default each spring bean is Singleton (ie only one instance of class exists) .
 It is per application context.
 
-**ApplicationContext:**
+**BEAN**:-
+------------
+The objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. 
+A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container. 
+These beans are created with the configuration metadata that you supply to the container.
+
+LIFE-CYCLE OF BEAN:-
+---------------------
+When a bean is instantiated, it may be required to perform some initialization to get it into a usable state.
+To define setup and teardown for a bean, we simply declare the <bean> with initmethod and/or destroy-method parameters. 
+The init-method attribute specifies a method that is to be called on the bean immediately upon instantiation. 
+Similarly, destroymethod specifies a method that is called just before a bean is removed from the container.
+Similarly, when the bean is no longer required and is removed from the container, some cleanup may be required.
+
+
+**ApplicationContext:**BEAN SCopes:-
 ==============================
 Central interface to provide configuration for an spring application.Usually there will be only one
 but multiple application contexts can be created per jvm(tomcat).
 
-**RequestScope(one object created by request)**
+**singleton**
+This scopes the bean definition to a single instance per Spring IoC container (default).
+If a scope is set to singleton, the Spring IoC container creates exactly one instance of the object defined by that bean 
+definition. This single instance is stored in a cache of such singleton beans, and all subsequent requests 
+and references for that named bean return the cached object.
+The default scope is always singleton. However, when you need one and only one instance of a bean,
+you can set the scope property to singleton in the bean configuration file,
 
-**PrototypeScope** (on every injection,when bean is asked a new instance is created)
+**prototype**(on every injection,when bean is asked a new instance is created)
+This scopes a single bean definition to have any number of object instance.
+If the scope is set to prototype, the Spring IoC container creates a new bean instance of the object every time 
+a request for that specific bean is made. As a rule, use the prototype scope for all state-full beans and 
+the singleton scope for stateless beans.
+To define a prototype scope, you can set the scope property to prototype in the bean configuration file.
+
+**RequestScope(one object created by request)**
+This scopes a bean definition to an HTTP request. Only valid in the context of a web-aware Spring ApplicationContext.
 
 **SessionScope** (every http session ,one instance is created ).
+This scopes a bean definition to an HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
 A HttpSession is for http state management as http is a state less protocol
 (A request has no information on what happened in previous request).
 Using a session id,state is saved on server and whenever a request sends that session id it belongs to that session.
+
+**global-session**
+This scopes a bean definition to a global HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
 
 **ApplicationScope** (one per application ie ServletContext) 
 ServletContext object is per web container (like tomcat) so only 1 instance of ApplicationScope beans will be 

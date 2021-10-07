@@ -2,7 +2,7 @@ package coreJava.ds.maps;
 
 //question ,DELETE
 public class MapDemo {
-    String[] urls = {"/question", "/question", "/exam", "/exam", "/score", "/score", "/score"};
+    String[] urls =  {"/question", "/question", "/exam", "/exam", "/score", "/score", "/score"};
     String[] method = {"GET", "POST", "GET", "DELETE", "GET", "PUT", "DELETE"};
     String[] methodNames = {"qstnController.getQsts()", "qstnController.save", "examController.get()",
             "examController.End()", "score_get", "score_put", "score_delete()"};

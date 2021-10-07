@@ -24,6 +24,25 @@ public -   throughout  the class.thorughout the all package.
 Default -  package level. 
 ======================================
             
+JVM:-  Java virtual machine is an abstract machine.It is specification that provides run time environment in which java bytecode
+can be executed.JVM performs loads code,verifies code,executes code,provides run time env.
+JVM provides the memory area,class file format,register set ,garbage collector heap.
+
+CLassloader is sub type of jvm which loads the class files.whenever we run the program it is loaded first by the classloadder.
+* bootstrap classloader- it loads the jar.file which contains all class files of java std edition like java.lang package,
+java.util,java.io package 
+
+extension:-This is the child classloader of Bootstrap and parent classloader of system classloader.
+
+system/Application classloader:- this is the child classloader of extension classloader..It loads the classfiles from classpath.
+by default,classpath is set to current directory.
+
+Execution Engine:-It contains
+===============================
+Interpreter :-read bytecode stream then execute the instructions.
+Just in time(JIT)compiler:-here compiler refers to translator from the instruction set of a java virtual machine to instruction
+set of specific cpu.
+A Virtual processor.
 
  Encapsulation - (data fields) 
 ======================================
@@ -617,7 +636,7 @@ These include programming bugs, such as logic errors or improper use of an API.
 Runtime exceptions are ignored at the time of compilation.
 
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
-an ArrayIndexOutOfBoundsExceptionexception occurs.
+an ArrayIndexOutOfBoundsException exception occurs.
 
 Thread vs Runnable:-
 ====================
@@ -883,4 +902,8 @@ updates the view whenever data changes. It keeps view and model separate.
 
 Transaction management
 =============================
-
+ACID:-  
+Atomicity -The entire transaction takes place at once or doesnt happen at all.  abort n commit
+Consistency:-the database must be consistent before and after the transaction.
+Isolation:-Multiple transaction occur independently without reference.
+Durability:-The changes of a successful transaction occurs even if the system failure occurs.

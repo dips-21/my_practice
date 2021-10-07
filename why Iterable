@@ -1,0 +1,43 @@
+why Iterable
+-> Iterable is an interface .iterables provide iterate method on over multiple object.
+
+An ITERABLE is:
+
+    anything that can be looped over (i.e. you can loop over a string or file) or
+    anything that can appear on the right-side of a for-loop: for x in iterable: ... or
+    anything you can call with iter() that will return an ITERATOR: iter(obj) or
+    an object that defines __iter__ that returns a fresh ITERATOR, or it may have a __getitem__ method suitable for indexed lookup.
+
+
+
+why java.util.Collection ? //role of this 
+
+
+AbstractList   //equals 
+
+LinkedList ArrayList      arraylist (1)  random access ,better cache localisation (cache friendly) 
+                           linkedlist (dynamically allocated nodes , arraylist is static ,can be resized )
+
+
+arraylist implements  to the list interface.it stores the dynamic array and duplicated elements are stored in it.array list maintained the insertion order.we can randomly access elements in arraylist.
+
+linked list also implements listInterface.elements accessed at both end .it used doubly linked list internally.we can randomly access elements in it.It also maintains the insertion order.
+
+
+why both list are non synchronised.and vector is also similar to arraylist n why it is synchronized
+
+
+
+why arraylist if there array 
+
+
+TreeSet TreeMap   get o(log n) put o(log n) because height of tree of n nodes is log n ,.A tree of 8 nodes will have height 3
+3=log 8 (log base is 2) //2^3=8      3=log 8
+
+ Comparable if No comparator passed to constructor ,if object not comparable then ClassCastEx
+
+HashSet HashMap    hashcode equals  time complexity o(1) get and put , additional constant cost/code for hashcode //
+Similar to associative array , AgeOfPerson[5]=25 (in array)   AgeOfPerson["dipali"]=25 ,AgeOfPErson.put("dipali",25)
+ 
+
+ LinkedHashSet LinkedHashMap    //hashcode equals 

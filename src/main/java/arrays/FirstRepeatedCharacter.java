@@ -9,7 +9,6 @@ import java.util.LinkedHashMap;
 //d-1 i-2 a-
 public class FirstRepeatedCharacter {
     char get(String word) {
-
         char[] words = word.toCharArray();
         HashMap<Character, Integer> wordCount = new LinkedHashMap<>();
         //word count

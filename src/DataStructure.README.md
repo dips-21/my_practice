@@ -24,10 +24,12 @@ In Map, one or more keys can have the same values, but two keys cannot be the sa
 The insertion order is also not maintained by the Map.
 
 Set:-
-It cannot contain repeated values.
-We can iterate the Set elements using the keyset() and the entryset() method of it.
-Insertion order is not maintained by the Set interface.
- like LinkedHashSet, maintains the insertion order.
+Set is a data structure which contains unique elements.Equality of sets does not depend on order
+of elements .(HashSet does not have specific order ,TreeSet order on comparator /comparable )
+HashSet
+TreeSet
+LinkedHashSet, iterator maintains the insertion order.
+Internally Set implementations using a Map instance with a static final object as dummy value
 
 HashMap 
 ======================

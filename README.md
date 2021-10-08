@@ -87,7 +87,8 @@ Abstraction:- (types of implementation hiding)
 =================================================
 abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to check equality 
 for arraylist,linkedList.
-List is an abstraction of arraylist and linkedlist so CheckIfEqual(List<Integer> listOne,List<Integer> listTwo)
+List is an abstraction of arraylist and linkedlist so CheckIfEqual which takes two parameters as a list
+not arraylist n linked list.(List<Integer> listOne,List<Integer> listTwo)
 same method can be used to check if two linkedlist or arraylist are equal.
 CheckIfEqual(List<Integer> listOne,List<Integer> listTwo)
 AbstractionCodeReuseTest
@@ -192,7 +193,7 @@ final class cant be overriden
 
 override example
 ==============================
-If we take Loan as abstract class and it has three implementation class personal loan,home loan and gold loan.
+Ex...If we take Loan as abstract class and it has three implementation class personal loan,home loan and gold loan.
 and there is getRateOfInterest method().If we take loan.getRateOfInterest(new homeloan) it will gives the homeLoan.
 ======================================================================================================================
 Eg. HashCode And Equals:-
@@ -210,6 +211,7 @@ It will call equals from correct man class.
 
 Interface:-
 ==================================================
+
 Interface is a type defines contract what behaviour it must have to do of that type.
 It defines what but not how methods do.
 eg. to be human you have to implements all methods in interface like walk.talk,
@@ -284,8 +286,6 @@ comparable is tighly coupled with that class to check object comparsion.
 It is also used to compare the current instance with another object of same type.
 
 
-
-
             Comparator
 *Comparator interface is used to compare two or multiple elements
 The Comparer interface is used to sort elements that compare two objects and provides additional comparison method.
@@ -350,7 +350,6 @@ Here Human object contains the heart and heart cannot exist without Human.
 
 Generics:-
 ================
-
 //Java generic feature added into java language from java5.
 Generic allows us to create parametrized types ,we can re-use same class with different type parameters.
 The compiler checks at compile time if all usages of that instance match the specified parameter type in generics .
@@ -374,194 +373,6 @@ Type erasure , generics are erased after compilation.
 [a relative link](src/test/java/coreJava/collections/CollectionOfArrayListTest.java)
 //(Integer)list.get(i) 
 
-
-COLLECTIONS:-
-=======================================================================
-The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
-Java Collections can achieve all the operations that you perform on a data such as searching, sorting,
-insertion, manipulation, and deletion. Java Collection means a single unit of objects.
-
-Iterable :
-================
-Abstraction of types that can be iterated using iterator ,iterate over big data set .
-An Iterable can represent group of objects whose size is not known .
-It can be like a FacebookFeed where all objects are not loaded in memory.
-and can provide an iterator implementation to iterate over large data set .For eg iterator can query from db 
-or another web service on next() calls
-It is root(parent) of all collections .List ,Set,Queue all are iterable .
-
-/**Iterator:-
-==========================================================================
-* Iterator is an interface it encapsulated the iteration logic 
-  which is applied on collection of objects which can be iterable.
-* collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations
-  of Collection.
-* Any Iterable has to provide iterator() .
-* It has hasnext(),next(),remove() method.
-* HasNext() method return boolean value ,if the iterable list has more elements to
-  iterate then it return true value.
-* Next() method is used to called the next elements in the list.if the iterator has no next element to iterate
-   then it throws NosuchElementsException.
-* if we called iterator without next method then it throws IllegalStateException.bcz when we called for remove
-  method then iterator check their expected count and actual size of elements.then if it  will not be matched then he throws
-  IllegalStateException bcz size of list elements always checked when we use next method..
-* Remove() method remove the last elements which is called by next() method.
-* it is uni directional.It moves forward direction only.
-
-
-**Why Iterator throws ConcurrentModificationException:-
-=========================================================================
-* iterator has a expected count field (==list size)
-  while iterating it will check if expected count==size(actual count)
-* if list is directly modified (list.add() or list.remove())
-  then expected count will not be equal to actual count
-  this is treated as concurrent modification and exception is thrown
-* This is fail fast iterator.
-* when listIterator.remove() is called both iterator expected count and actual count decrease
-* so no exception is thrown.
-
-
-ArrayList                                                    
-=======================================================================
-In arraylist the array is encapsulated in it.
-
-Complexity of get element is O(1).
-If we remove elements from it then it will be shuffle if elements is at middle or first .
-cache friendly bcz continuouse memory allocation.
-fixed memory allocation.
-Dynamic array (if array size full then it internally create new array).so memory could be wasted.
-
-
-LinkedList:-
-========================================================================
-The linked List node is encapsulated in it.
-get element complexity is O(n) in worst case.
-Need not shuffle while adding or removing elements.
-At start -O(1) to get element.
-
-
-Sequential access with linked node.
-Non cache friendly because memory allocation is not continuous so when a page is loaded in memory ,
-chances are less that other elements will be in same page (unlike in an array )
-
-It is dynamic memory allocation.
-Memory will allocate dynamically so no waste.
-DOubly Linked List additional memory will take for adding new node ,prev code.
-
-If too many elements removes then use linked list otherwise use arrayList. <-When to use
-========================================================================================
-we can get elements easily bcz we know position.(memory allocation is continuous so direct access
-eg int[]a =new int[10]  and a[4] will be at address size of int*4 )
-
-
-Map is an interface.It is a data structure which is used to store key and value pair and we can get/remove value using key..
-while Set is collection of unique elements which internally uses map and a static final dummy object as dummy value  
-in the map.   
-implementation <------linkedHashSet,HashSet,TreeSet
-For eg : map word count ,   <----                     
-set : store unique words ,find first duplicate
-
-
-TreeMap:=
-=================================================================================
-It provides an efficient means of storing key-value pairs in sorted order.
-    Java TreeMap contains values based on the key. 
-It implements the NavigableMap interface and extends AbstractMap class.
-    Java TreeMap contains only unique elements.
-    Java TreeMap is non synchronized.
-    
-
-TreeMap is a balanced binary search tree.
-It has key and value.
-Java TreeMap maintains ascending order.
-it has sorted order based on comparator if we passed comparator then it will use comparator ,if key type is comparable
-then and we didnt pass comparator then it will use comparable..If key type is not comparable n we dont pass comparator 
-then it will gives class cast exception.
-
-
-HashCode and Equals:-
-=================================================================================
-HashSet contains only Keys whereas HashMap contains an entry(key and value).
-Mapping between key(object) to integer is known as hashing.
-
-Its a mapping between object to integer for even distribution in hash based structure like hashMap,hashSet.
-It allows constant time to get and put element.                                         O(1)->constant time
-Equal objects should have equal hashCode.   (a.equals(b))
-and Unequal objects may have same hashCode due to collision but that can be minimized using a good hash function.
-First position is found using hashCode % array size ,in that entry will be found using equals.
-If we want logical equality (not identity ,memory address based) then we need to override equals.
-
-for eg "dog" new String("dog") , not same by == but are logically same ,
-p1=new Person("Dipali") p2=new Person("Dipali").
-
-for new objects to be equal which are logically same we have to overrride equals.
-
-Also if in a class we override equals but not hashcode then it will not behave correctly when used in a HashMap,HashSet.
-map.put(new Person("Dipali"),"hachi")       =============
-map.get(new Person("Dipali") should have returned "hachi"  ,Even if keys are equal by equals since new object has different hashcode ,
-so it will check at different position so it will not be found and will return null.
-GET/PUT  First find position using hashcode, then find entry in that bucket using equals.
-If we dont override HashCode and Equals then we will not get element at same position if we put it earlier on that position.
-
-
-coreJava.collections.HashMapTest
-HashMap takes key and value.
-HashMap
-Use of hashcode :
-Use of equals :
-Person(age ) hashcode(){return age;)  //not even distribution
-new Person("Dipali") //hashcode = 56 ,hashcode%size of array =1 , in array at position 1
-new Person("Dipali") can be 60 , 60%5=0
-int result=0                             //object.hash(built in method java util.library)
-result = 31 * result + age;              //collision 
-result = 31 * result +pincode;
-result = 31 * result +name.hashcode();
-return result
-= = = = =
-
-LinkedHashMap:-
-========================================================================
-Its iterator gives element in insertion order.
-Internally it uses a queue in addition to hashMap.
-complexity   <---O(1)
-
-
-Comparison Table of LinkedHashMap and HashMap
-=======================================================================
-Consider the below comparison table of HashMap and LinkedHashMap:
-Property 	                           HashMap 	                            LinkedHashMap
-===============                 =====================                   =====================
-Order of Iteration          	   No guarantee order  	                    Insertion order
-Implements (Interface) 	                 Map 	                                  Map
-Null key/values 	        Only one null key & multiple values 	    Only one null key & multiple values
-Implementation 	                        Buckets 	                        Double-linked buckets
-Synchronized 	                    Non-synchronized 	                      non-synchronized
-Performance 	                         Fast 	                          Almost Similar to HashMap
-Extends 	                        AbstractMap class 	                        HashMap class
-Memory 	                                Low Memory                  	More memory as compared to HashMap.
-Thread-safety 	                    Non-thread-safe 	                        Non-thread-safe
-
-
-
-Queue:-
-================================================================================
-It is FIFO data structure.
-It has poll,remove,add,offer methods.
-Add---it will throws exception while adding element if blockingQueue is full. 
-Offer---Offer will returns false if queue is full.It returns immediately or after waiting given time out.
-
-Remove---it will throws exception while removing element if blockingQueue has no element..
-Poll---Poll will returns null value if queue is empty.It returns immediately or after waiting given time out.
-
-this is for blocking queue only.
-
-Take--Take wait(blocks calling thread) wait until an element is available.
-
-Example:--
-//Producer consumer ,Reader Writer:-
-
-//When queue is full then put() will block the thread trying to add until there is capacity.   //roti dabba full then wait to space to be available
-//When queue is empty then take() will block the thread trying to remove until there is an element.
 
 Solutions on Producer and Consumer Problems:-
 =================================================
@@ -632,36 +443,7 @@ Runtime exceptions are ignored at the time of compilation.
 
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
 an ArrayIndexOutOfBoundsException exception occurs.
-
-Thread vs Runnable:-
-====================
-Thread
-===============
-It is a class.
-It can be used to create a thread.
-It has  methods such as ‘start’ and ‘run’.
-It requires more memory space.
-Since multiple inheritance is not allowed in Java, hence, after a class extends the Thread class, it can’t extend to any other class.
-Every thread creates a unique object and associates with it.
-
-Runnable
-===================
-It is a functional interface.
-It can be used to create a thread.
-It has a single abstract method ‘run’.
-It requires less memory space.
-When a class implements the ‘runnable’ interface, the class can extend to other classes.
-Multiple threads can share the same objects.
-
-
-Runnable Vs Callable:-
-========================
-Runnable and Callable both functional interface. Classes which are implementing these interfaces 
-are designed to be executed by another thread.
-Thread can be started with Ruunable and they are two ways to start a new thread:
-one is by subclassing Thread class and another is implementing Runnable interface.
-Thread class does not have constructor for callable so we should use ExecutorService  class for executing thread.
-
+===================================================
 
 
 //final :  final can be initialized only once , they can be initialized during declaration 
@@ -682,7 +464,6 @@ class inside the class.For eg If ListIterator is non static inner class of List,
 needs to be created first and ListIterator object will have reference to list object.
 
 InstanceOf (operator):-check Run time type.
-
 
 
 static class:-
@@ -722,58 +503,6 @@ When we create an object to a wrapper class, it contains a field and in this fie
 we can store primitive data types. 
 In other words, we can wrap a primitive value into a wrapper class object.
 
-Serializable Interface :=     (to convert object state,without object how will we send data to server )     
-=======================================================
-*The Serializable interface is present in java.io package.
-*To use Java serialization a class has to implement Serializable.
-*Other serializations are json ,xml based(text) which are language/platform independent. 
-JVM generates additional metadata means extra information needs to be included in objects of this class ,
-in object header metadata like total fields
-,offsets,sizes(from to to size of field)) For serializable objects to represent their serialized structure.
-
-*Serialization is a mechanism of converting the state of an object into a byte stream(binary) 
- that allows to send on socket file....
-*Static and transient fields are not serialised ,they are not part of object state.
-*Serialization is done using ObjectOutputStream.
-*Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory.
-*All fields of serialization must be serializable... or transient... 
-
-Serializable Marker Interface:-
-====================================
-It checks the interface is serializable or not..
-They are used because we are telling to JVM that , that class have special behaviour.
-(means extra information needs to be included in objects of this class ,in object header metadata like total fields
-,offsets,sizes(from to to size of field)).
-Serializable is a marker interface means that it contains no methods.
-Therefore, a class implementing Serializable does not have to implement any specific methods.
-
-The serialization runtime associates with each serializable class a version number, called a serialVersionUID,
-which is used during deserialization to verify that the sender and receiver of a serialized object have loaded
-classes for that object that are compatible with respect to serialization.
-If the receiver has loaded a class for the object that has a different serialVersionUID than that of the 
-corresponding sender's class, then deserialization will result in an InvalidClassException. 
-A serializable class can declare its own serialVersionUID explicitly by declaring a field named serialVersionUID 
-that must be static, final, and of type long:
-                                         ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
-
-
-Why;-
-========
-Object in memory representation to a representation which can be sent over a network/file .
-
-Transient:-
-=================
-If we don't want to save value of a particular variable in a file, then we use transient keyword. 
-When JVM comes across transient keyword, it ignores original value of the variable and save default value of 
-that variable data type.
-
-implementing Serializable just tells the Java serialization classes that this class is intended for object serialization.
-
-Externalizable
-=====================
-Externalization provides implementation logic control to the application by overriding readExternal and writeExternal methods.
-
-
 collection definiion:-
 checked unchecked/solid/
 
@@ -793,112 +522,5 @@ blocking and non blocking IO
 Stream versus Reader classes
 BufferedReader , BufferedInputStream
 
-Spring Dependency Injection  (component scanning and creation of object using reflection ):-
-============================================================================================
-In Dependency injection dependencies of an object are passed to it instead of the object getting it's own dependencies.
-Dependency can be passed through constructor or setter .
-It  have loose coupling 
-For eg UserService(SqlRepo repo){  } //Dependency injection <--SqlRepo dependency is passed as a constructor parameter
 
-UserService(){
-repo=new MysqlRepo()}             //No dependency injection ,tight coupling
 
-Dependency Injection Framework initialises objects by passing them their dependencies.
-In Spring @Autowired or @Resource is used to indicate that the dependency needs to be injected 
-
-for eg class UserService{
-@Autowired
-SqlRepo repo
-}
-
-By default Spring DI is by type (means matching Interface/Class type).
-If multiple matches then which one needs to be specified by using @Qualifier (DI by name) ,
-eg @Qualifier("MongoRepo"),
-Each object created by Spring is managed by spring and is a spring bean.
-By default each spring bean is Singleton (ie only one instance of class exists) .
-It is per application context.
-
-**ApplicationContext:**
-==============================
-Central interface to provide configuration for an spring application.Usually there will be only one
-but multiple application contexts can be created per jvm(tomcat).
-
-**RequestScope(one object created by request)**
-
-**PrototypeScope** (on every injection,when bean is asked a new instance is created)
-
-**SessionScope** (every http session ,one instance is created ).
-A HttpSession is for http state management as http is a state less protocol
-(A request has no information on what happened in previous request).
-Using a session id,state is saved on server and whenever a request sends that session id it belongs to that session.
-
-**ApplicationScope** (one per application ie ServletContext) 
-ServletContext object is per web container (like tomcat) so only 1 instance of ApplicationScope beans will be 
-there in the web application.
-
-ApplicationContext (manages all beans and spring config )
-
-Jsp bean scopes (Page ,request,session,application)
-
-Controller ,Service,Repository
-==============================================
-@Controller this will url mapping of the method to be called on http requests ,Spring dispatcher servlet will call
-it's methods on matching url .For eg GET /questions/ 
-
-@Service this is for business logic and handle transactions .It will act over data fetched by repository(or reposiotires)
-
-@Repository This is data layer which adds/gets data from database .With Spring data repository we only need to create
-a interface extending CRUDRepository and it's implementation is dynamically generated.
-It provides methods like findById() ,findAll() ,deleteById() etc .
-
-If we need other methods the queries are generated based on method name
-for eg FindByEmail(String email) (this would generate select * from table where email=?)
-We can also write our own query using @Query on method
-
-Spring uses reflection to call our controller method with matching url
-
-@Transaction for transactional method.Transaction management is done by spring (Declarative transaction management)
-AOP aspect oriented programming 
-
-What is Spring Data Repository?
-=========================================
-* In spring data repository we use Repository annotation on interface which extends CrudRepository
-* it's implementation is dynamically generated by Spring .It works on an Entity
-  and methods to find/delete by primary key are already available ,findById() deleteById() ,findAll()
-* Entity is the class mapped to table and object to relational form (i.e query) and query result to object conversion is 
-  done by Spring ORM (like hibernate).
-* We can also define our methods in interface using standard naming pattern and query will be generated
-  based on the method name for eg findByQuestionDescription(String description); //where description =?
-* We can also write custom query on method using @Query
-
-Spring IOC Container:-
-==============================
-The Spring container is at the core of the Spring Framework.
-The container will create the objects, wire them together, configure them, and manage their complete life cycle 
-from creation till destruction. 
-The Spring container uses DI to manage the components that make up an application. 
-These objects are called Spring Beans,
-The container gets its instructions on what objects to instantiate, configure, and assemble by reading the 
-configuration metadata provided. The configuration metadata can be represented either by XML, Java annotations, or Java code. 
-The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured 
-and executable system or application.
-
-MVC design
-================
-MVC Pattern stands for Model-View-Controller Pattern. 
-This pattern is used to separate application's concerns.
-
-Model - Model represents an object or JAVA POJO carrying data. It can also have logic to update controller if its data changes.
-
-View - View represents the visualization of the data that model contains.
-
-Controller - Controller acts on both model and view. It controls the data flow into model object and 
-updates the view whenever data changes. It keeps view and model separate.
-
-Transaction management
-=============================
-ACID:-  
-Atomicity -The entire transaction takes place at once or doesnt happen at all.  abort n commit
-Consistency:-the database must be consistent before and after the transaction.
-Isolation:-Multiple transaction occur independently without reference.
-Durability:-The changes of a successful transaction occurs even if the system failure occurs.

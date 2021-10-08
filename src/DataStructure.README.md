@@ -86,6 +86,7 @@ t is used for inserting, deleting or searching any element in tree.
 
 
 GRAPH:-
+=================
 A Graph is also a non-linear data structure.
 It is a collection of vertices and edges. For example, vertices are represented by V, and edge is represented as 'E', 
 so it can be written as:T = {V, E}
@@ -114,14 +115,11 @@ It is hierarchical data structure means that the elements are stored in the form
 It is used to access the global variables by default.
 As it is hierarchical data structure, so elements are stored in the random manner.
 
-	
-
 
 STACK Vs ARRAY:-
 
-Array:-
-=========
 Array
+===========
 It is a data structure that consists of a collection of elements that are identified by their indexes, 
 where the first index is available at index 0.	
 It is a collection of elements of the same data type.	
@@ -159,7 +157,7 @@ to prefix or postfix.                                   ,message queue.
 
 map vs set:-
 ---------------
-map:-
+Map:-
 Map is an interface.
 It is a data structure which is used to store key and value pair and we can get/remove value using key..
 in the map.   
@@ -191,7 +189,6 @@ It's not thread safe (not synchronized,not safe to be used from multiple threads
 and iterators are fail fast.
 If map is directly modified while iteration ConcurrentModificationException is thrown.
 
-
 HashSet:-
 ===========
 HashSet contains only key value.
@@ -203,3 +200,25 @@ It is used when we need to maintain the uniqueness of data.
 eg.findDuplicateCharactersInWord
 arrays.DuplicateLettersInWordTest
 
+ArrayList
+=======================================================================
+In arraylist the array is encapsulated in it.
+
+Complexity of get element is O(1).
+If we remove elements from middle of first popsition then it then all elements will be shuffle.
+cache friendly bcz continuouse memory allocation.when the page is loaded in memory then other elements
+are in same place.
+fixed memory allocation.
+Dynamic array (if array size full then it internally create new array).so memory could be wasted.
+in special case adding at last n there is spcae in internal array then complexity is o(1).
+o(n)-to add or remove element from any position.
+
+
+10) Merge sort
+    ==================
+    Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls
+    itself for the two halves, and then merges the two sorted halves. 
+    The merge() function is used for merging two halves. 
+    The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and
+    arr[m+1..r] are sorted and merges the two sorted sub-arrays into one. See the following C
+    implementation for details.

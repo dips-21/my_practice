@@ -106,10 +106,12 @@ In arraylist the array is encapsulated in it.
 
 Complexity of get element is O(1).
 If we remove elements from middle of first popsition then it then all elements will be shuffle.
-cache friendly bcz continuouse memory allocation.
+cache friendly bcz continuouse memory allocation.when the page is loaded in memory then other elements 
+are in same place.
 fixed memory allocation.
 Dynamic array (if array size full then it internally create new array).so memory could be wasted.
-
+in special case adding at last n there is spcae in internal array then complexity is o(1).
+o(n)-to add or remove element from any position.
 
 LinkedList:-
 ========================================================================
@@ -118,8 +120,7 @@ get element complexity is O(n) in worst case.
 Need not shuffle while adding or removing elements.
 At start complexity is O(1) to get element.
 
-
-Sequential access with linked node.
+It only has Sequential access with linked node .
 Non cache friendly because memory allocation is not continuous so when a page is loaded in memory ,
 chances are less that other elements will be in same page (unlike in an array )
 
@@ -242,19 +243,30 @@ which are queued up, and then consumed by one or more consumer threads.
 
 
 A blocking queue is a queue that blocks when you try to dequeue from it and the queue is empty, 
-or if you try to enqueue items to it and the queue is already full. 
+or if you try to enqueue items to it and the queue is already full.  
 A thread trying to dequeue from an empty queue is blocked until some other thread inserts an item into the queue. 
 A thread trying to enqueue an item in a full queue is blocked until some other thread makes space in the queue, 
 either by dequeuing one or more items or clearing the queue completely.
 
 A BlockingQueue with one thread putting into it, and another thread taking from it.
 
+Abstract class:-
+=========================
+The purpose of Abstract class is to have partial implementation,i.e it needs to have at least one abstract method and 
+partial initialization can be done in abstract class constructor.
+It's constructor will be called when Child class object is created 
+eg AbstractList (implements equals method) ,helps in code reuse
 
-Thread Pool:-
-=============
-A thread pool is a pool threads that can be "reused" to execute tasks, so that each thread may execute more than 
-one task. A thread pool is an alternative to creating a new thread for each task you need to execute.
-Creating a new thread comes with a performance overhead compared to reusing a thread that is already created.
-That is why reusing an existing thread to execute a task can result in a higher total throughput than creating a 
-new thread per task.
 
+The purpose of Interface is to define a contract on what behaviors will an object have(i.e methods declarations)
+Since java8 interface can have default method implementations (because earlier if an method was added to interface
+all it's implementation will have to be modified to add the new method).
+It can't have constructor (i.e any object initialisation logic)
+eg: List  only defines methods like add,remove,get //pure abstraction
+
+2)A class can extend only one abstract class ,so it cannot be extend any other class 
+Interface is more loosely coupled ,if a class implements an interface ,it can implement other interfaces.
+for eg: ArrayList implements Iterable Serializable 
+
+3) Interface can only have public static final fields ,Abstract class can have any type of fields
+4) All methods in interface are implicitly public ,abstract can have private,protected ,default or public methods

@@ -67,8 +67,13 @@ is stored ordered by only clustered index on disk
 
 Normalization is basically to design a database schema such that duplicate and redundant data is avoided.
 solution to database anamolies https://dba.stackexchange.com/questions/194631/how-does-normalization-fix-the-three-types-of-update-anomalies
-1NF avoid multi value columns like storing all phone numbers in a phone number column,have primary key
-2NF all non key columns except should depend on entire key
+
+1NF avoid multi value columns like storing all phone numbers in a phone number column,have primary key.
+To satisfy First normal form, each column of a table must have a single value. Columns which contain sets 
+of values or nested records are not allowed.
+In the initial table, Subject contains a set of subject values, meaning it does not comply.
+
+s2NF all non key columns except should depend on entire key
 3NF no transitive dependencies from non key columns to other cols
 https://stackoverflow.com/questions/723998/what-are-database-normal-forms-and-can-you-give-examples
 
@@ -96,3 +101,31 @@ A trigger is executed in response to a DDL statement, DML statement or any datab
 
 Constraints:-
 =================
+
+
+
+Joins:-
+=============
+The goal of creating a join condition is that it helps you to combine the data from two or more DBMS tables. 
+The tables in DBMS are associated using the primary key and foreign keys.
+
+INNER JOIN is used to return rows from both tables which satisfy the given condition.
+It is the most widely used join operation and can be considered as a default join-type
+
+
+Outer Join
+An OUTER JOIN doesn’t require each record in the two join tables to have a matching record.
+In this type of join, the table retains each record even if no other matching record exists.
+
+Three types of Outer Joins are:
+
+Left Outer Join-
+Left Outer Join (A  B)
+LEFT JOIN returns all the rows from the table on the left even if no matching rows have been found in the table on 
+the right. When no matching record found in the table on the right, NULL is returned.
+
+Right Outer Join-RIGHT JOIN returns all the columns from the table on the right even if no matching rows have been
+found in the table on the left.
+
+Full Outer Join-n a FULL OUTER JOIN , all tuples from both relations are included in the result, 
+irrespective of the matching condition.

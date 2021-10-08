@@ -566,11 +566,6 @@ Example:--
 Solutions on Producer and Consumer Problems:-
 =================================================
 
-
-
-
-
-
 Exceptions:-
 ----------------------
 Exception vs error;-

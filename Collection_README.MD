@@ -43,6 +43,23 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 * when listIterator.remove() is called both iterator expected count and actual count decrease
 * so no exception is thrown.
 
+Enumerator:-
+==============
+Enumeration is an interface. 
+It is used in the collection framework in java to retrieve the elements one by one. 
+Enumeration is a legacy interface that is applicable only for legacy classes like Vector, HashTable, Stack, etc. 
+It provides a single direction iteration. By using enumeration, we can perform only read operation, 
+and we cannot perform remove operation.
+Enumeration object can be created by calling elements() method present in the Vector class.
+
+Iterator:-
+=============
+An iterator is a universal cursor that can be applied to any collection object. 
+It provides a single direction iteration. By using an iterator, we can perform both read and remove operation, 
+but we cannot perform replace operation. Iterator must be used whenever we want to enumerate elements in 
+all collection framework implemented interfaces like Set, List, Queue, DeQue, and also implemented classes 
+of Map interface.
+Iterator object can be created by calling iterator() method present in the Collection interface
 
 **Comparable And Comparator:-
 ==================================
@@ -57,14 +74,14 @@ syntax---compareTo(one object passed to compare
 with this.object itself)
 
 Comparison logic is coupled in comparable .
-comparable is tighly coupled with that class to check object comparsion.
+comparable is tighly coupled with that class to check object comparison.
 It is also used to compare the current instance with another object of same type.
 
 
       Comparator
 =======================
 *Comparator interface is used to compare two or multiple elements
-The Comparer interface is used to sort elements that compare two objects and provides additional comparison method.
+The Comparator interface is used to sort elements that compare two objects and provides additional comparison method.
 *It implements comparable.
 *It has compare() method to compare.
 *it is in java.util package
@@ -88,7 +105,7 @@ ArrayList
 In arraylist the array is encapsulated in it.
 
 Complexity of get element is O(1).
-If we remove elements from it then it will be shuffle if elements is at middle or first .
+If we remove elements from middle of first popsition then it then all elements will be shuffle.
 cache friendly bcz continuouse memory allocation.
 fixed memory allocation.
 Dynamic array (if array size full then it internally create new array).so memory could be wasted.
@@ -99,7 +116,7 @@ LinkedList:-
 The linked List node is encapsulated in it.
 get element complexity is O(n) in worst case.
 Need not shuffle while adding or removing elements.
-At start -O(1) to get element.
+At start complexity is O(1) to get element.
 
 
 Sequential access with linked node.
@@ -114,14 +131,6 @@ If too many elements removes then use linked list otherwise use arrayList. <-Whe
 ========================================================================================
 we can get elements easily bcz we know position.(memory allocation is continuous so direct access
 eg int[]a =new int[10]  and a[4] will be at address size of int*4 )
-
-
-Map is an interface.It is a data structure which is used to store key and value pair and we can get/remove value using key..
-while Set is collection of unique elements which internally uses map and a static final dummy object as dummy value  
-in the map.   
-implementation <------linkedHashSet,HashSet,TreeSet
-For eg : map word count ,   <----                     
-set : store unique words ,find first duplicate
 
 
 TreeMap:=
@@ -160,8 +169,8 @@ for new objects to be equal which are logically same we have to overrride equals
 
 Also if in a class we override equals but not hashcode then it will not behave correctly when used in a HashMap,HashSet.
 map.put(new Person("Dipali"),"hachi")       =============
-map.get(new Person("Dipali") should have returned "hachi"  ,Even if keys are equal by equals since new object has different hashcode ,
-so it will check at different position so it will not be found and will return null.
+map.get(new Person("Dipali") should have returned "hachi"  ,Even if keys are equal by equals since new object has different  ,
+hashcode so it will check at different position so it will not be found and will return null.
 GET/PUT  First find position using hashcode, then find entry in that bucket using equals.
 If we dont override HashCode and Equals then we will not get element at same position if we put it earlier on that position.
 
@@ -184,8 +193,12 @@ return result
 LinkedHashMap:-
 ========================================================================
 Its iterator gives element in insertion order.
-Internally it uses a queue in addition to hashMap.
+Internally it uses a doubly linked list in addition to hashMap to maintain insertion order .
+It internally use 
 complexity   <---O(1)
+non synchronized
+non thread safe
+
 
 
 Comparison Table of LinkedHashMap and HashMap
@@ -209,10 +222,10 @@ Queue:-
 ================================================================================
 It is FIFO data structure.
 It has poll,remove,add,offer methods.
-Add---it will throws exception while adding element if blockingQueue is full.
+Add---it will throw exception while adding element if blockingQueue is full.
 Offer---Offer will returns false if queue is full.It returns immediately or after waiting given time out.
 
-Remove---it will throws exception while removing element if blockingQueue has no element..
+Remove---it will throw exception while removing element if blockingQueue has no element..
 Poll---Poll will returns null value if queue is empty.It returns immediately or after waiting given time out.
 
 this is for blocking queue only.
@@ -220,7 +233,28 @@ this is for blocking queue only.
 Take--Take wait(blocks calling thread) wait until an element is available.
 
 Example:--
-//Producer consumer ,Reader Writer:-
+Producer consumer ,Reader Writer:-PRoblem
+The producer consumer pattern is a concurrency design pattern where one or more producer threads produce objects
+which are queued up, and then consumed by one or more consumer threads.
 
 //When queue is full then put() will block the thread trying to add until there is capacity.   //roti dabba full then wait to space to be available
 //When queue is empty then take() will block the thread trying to remove until there is an element.
+
+
+A blocking queue is a queue that blocks when you try to dequeue from it and the queue is empty, 
+or if you try to enqueue items to it and the queue is already full. 
+A thread trying to dequeue from an empty queue is blocked until some other thread inserts an item into the queue. 
+A thread trying to enqueue an item in a full queue is blocked until some other thread makes space in the queue, 
+either by dequeuing one or more items or clearing the queue completely.
+
+A BlockingQueue with one thread putting into it, and another thread taking from it.
+
+
+Thread Pool:-
+=============
+A thread pool is a pool threads that can be "reused" to execute tasks, so that each thread may execute more than 
+one task. A thread pool is an alternative to creating a new thread for each task you need to execute.
+Creating a new thread comes with a performance overhead compared to reusing a thread that is already created.
+That is why reusing an existing thread to execute a task can result in a higher total throughput than creating a 
+new thread per task.
+

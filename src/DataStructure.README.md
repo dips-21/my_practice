@@ -1,5 +1,4 @@
-An ADT tells what is to be done and data structure tells how it is to be done. 
-In other words, we can say that ADT gives us the blueprint while data structure provides the
+ADT gives us the blueprint while data structure provides the
 implementation part.
 
 The following are the advantages of a data structure:
@@ -16,7 +15,7 @@ The client can only see the interface.
 
 ARRAY vs LINKED LIST:-
 
-ARRAYLIST:-
+ARRAY:-
 
 An array is a collection of elements of a similar data type.
 Array elements store in a contiguous memory location.
@@ -71,7 +70,7 @@ If front== -1 or front = rear+1, which means that the queue is empty.
 If rear==max-1, this condition implies that the stack is full.
 It is of three types like priority queue, circular queue and double ended queue.
 
-TREE vs GRAPH:-
+TREE vs GRAPH:-TreeMap has complexity of O(logN) for insertion and lookup
 ===========================
 Tree is a non-linear data structure in which elements are arranged in multiple levels.	
 It is a collection of edges and nodes. For example, node is represented by N and edge is represented as E, 
@@ -99,7 +98,7 @@ It is mainly used for finding the shortest path in the network.
 
 STACK VS HEAP:-
 ===========================
-Stack	Heap
+Stack	
 Stack provides static memory allocation, i.e., it is used to store the temporary variables.
 It is a linear data structure means that elements are stored in the linear manner, i.e., one data after another.
 It is used to access the local variables.
@@ -122,13 +121,13 @@ STACK Vs ARRAY:-
 
 Array:-
 =========
-Array	Stack
-It is a data structure that consists of a collection of elements that are identified by their indexes, where the first index is available at index 0.	
+Array
+It is a data structure that consists of a collection of elements that are identified by their indexes, 
+where the first index is available at index 0.	
 It is a collection of elements of the same data type.	
 It provides random-access, i.e., read and write operations would be performed to any element at
 any position through their indexes.	
 It is rich in methods or operations like sorting, traversing, reverse, push, pop, etc.
-It is a data type.. It is an abstract data type.
 It is used when we know all the data to be processed and require constant changes at any element.
 
 STACK:-
@@ -140,17 +139,17 @@ We can access the only top element of the stack using push and pop operations.
 The limited operations can be performed on a stack like push, pop, peek, etc.
 It is good to use when there are dynamic processes. 
 It is useful when we do not know how much data would be required.
-=======
+
 STACK VS QUEUE:-
 =====================
        STACK                                                       QUEUE
-     
+    =============                                               =============
    LIFO utility ds.                                                 FIFO
-   Push and pop opeartion are done                     push n pop- different ends "rear","front".
+   Push and pop opeartion are done                     enque n deque- different ends "rear","front".
    at same end.
    no types of stack                                    types-linear,circular,priority,deque
    Application-
-1)fun activation records are created on stack      1)Printer maintains queue of documents to be printed
+1)function activation records are created on stack      1)Printer maintains queue of documents to be printed
 for each fun call.
 2)To solve infix expression by converting          2)Os uses queues for many functinalities-ready queue,waiting queue
 to prefix or postfix.                                   ,message queue.
@@ -161,26 +160,36 @@ to prefix or postfix.                                   ,message queue.
 map vs set:-
 ---------------
 map:-
-It can have the same value for different keys.
-Map contains unique key and repeated values. 
+Map is an interface.
+It is a data structure which is used to store key and value pair and we can get/remove value using key..
+in the map.   
+implementation <------linkedHashSet,HashSet,TreeSet
+For eg : map word count ,   <----                     
+set : store unique words ,find first duplicate
+
 In Map, one or more keys can have the same values, but two keys cannot be the same.
-The insertion order is also not maintained by the Map.
+
 
 Set:-
+while Set is collection of unique elements which internally uses map and a static final dummy object as dummy value.
 Set is a data structure which contains unique elements.Equality of sets does not depend on order
 of elements .(HashSet does not have specific order ,TreeSet order on comparator /comparable )
-HashSet
-TreeSet
-LinkedHashSet, iterator maintains the insertion order.
-Internally Set implementations using a Map instance with a static final object as dummy value
+types:-HashSet
+       TreeSet
+       LinkedHashSet, iterator maintains the insertion order.
+
 
 HashMap 
 ======================
-Hashmap contains key value pair.
-It does not allow duplicate keys, but duplicate values are allowed.
-HashMap uses the put() method to add the elements in the HashMap.
-Always prefer when we do not maintain the uniqueness.
+Hashmap is a Map implementation based on hash table.It supports get ,put and remove with time complexity of O(1)
+It uses hashcode of the key object to find the bucket in hash table
+and equals method to find the entry in that bucket .In case of hash collisions multiple entries will be chained in a 
+linkedlist in that bucket (in java8 it can be binary search tree if collision size if above threshold)
 
+It does not allow duplicate keys, but duplicate values are allowed.Only one Null key is allowed
+It's not thread safe (not synchronized,not safe to be used from multiple threads) 
+and iterators are fail fast.
+If map is directly modified while iteration ConcurrentModificationException is thrown.
 
 
 HashSet:-
@@ -188,7 +197,9 @@ HashSet:-
 HashSet contains only key value.
 In HashSet, we store objects.
 It does not allow duplicate values.
-HashSet uses the add() method to add elements in the HashSet.
+HashSet uses the add() method to add elements in the HashSet. 
 it internally uses Hashmap.in that case it has static dummy final object as a value.
 It is used when we need to maintain the uniqueness of data.
+eg.findDuplicateCharactersInWord
+arrays.DuplicateLettersInWordTest
 

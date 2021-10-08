@@ -49,6 +49,7 @@ but multiple application contexts can be created per jvm(tomcat).
 
 **singleton**
 This scopes the bean definition to a single instance per Spring IoC container (default).
+
 If a scope is set to singleton, the Spring IoC container creates exactly one instance of the object defined by that bean
 definition. This single instance is stored in a cache of such singleton beans, and all subsequent requests
 and references for that named bean return the cached object.
@@ -57,6 +58,7 @@ you can set the scope property to singleton in the bean configuration file,
 
 **prototype**(on every injection,when bean is asked a new instance is created)
 This scopes a single bean definition to have any number of object instance.
+
 If the scope is set to prototype, the Spring IoC container creates a new bean instance of the object every time
 a request for that specific bean is made. As a rule, use the prototype scope for all state-full beans and
 the singleton scope for stateless beans.
@@ -137,6 +139,27 @@ View - View represents the visualization of the data that model contains.
 Controller - Controller acts on both model and view. It controls the data flow into model object and
 updates the view whenever data changes. It keeps view and model separate.
 
+This is simply a specialization of the @Component class, which allows us to auto-detect implementation classes
+through the classpath scanning.
+We use @Controller in combination with a @RequestMapping annotation for request handling methods.
+
 Transaction management
 =============================
+Transaction management [1, 2] refers to the tasks of processing multiple transactions issued by various 
+clients of a database server in such a way that the ACID contract can be fulfilled, that is, 
+the properties of atomicity, consistency preservation, isolation, and durability of each individual transaction can be .
+
+
+REST CONTROLLER:-
+RestController is a Spring annotation that is used to build REST API in a declarative way. 
+RestController annotation is applied to a class to mark it as a request handler, and Spring will do the building 
+and provide the RESTful web service at runtime.
+
+
+Session:-
+Session management is the process of securely handling multiple requests to a web-based application or service 
+from a single user or entity.
+
+SESSION MANAGEMENT:-
+Spring Session provides an API and implementations for managing a user's session information .
 

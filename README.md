@@ -40,6 +40,7 @@ by default,classpath is set to current directory.
 Execution Engine:-It contains
 ===============================
 Interpreter :-read bytecode stream then execute the instructions.
+
 Just in time(JIT)compiler:-here compiler refers to translator from the instruction set of a java virtual machine to instruction
 set of specific cpu.
 A Virtual processor.
@@ -136,6 +137,8 @@ c.equals
 
 Polymorphism:-
 ==================================================
+Polymorphism is the capability of a method to do different things based on the object that it is acting upon. 
+In other words, polymorphism allows you define one interface and have multiple implementations.
 * In polymorphism, calls resolved  dynamically on correct object type.
 * It is also known as dynamic dispatch methods because method called resolved on run time type of object.
 Example:--we have a women, man and child class and in that gethobby is a method.when we call getHobby of person then it

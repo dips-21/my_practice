@@ -2,8 +2,6 @@ package arrays;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 

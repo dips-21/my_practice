@@ -22,7 +22,6 @@ public class PriorityQueue {
             for (int j = i; j < rear; j++) {
 
                 if (Q[i] > Q[j]) {
-
                     temp = Q[i];
                     Q[i] = Q[j];
                     Q[j] = temp;

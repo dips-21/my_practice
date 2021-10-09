@@ -153,9 +153,6 @@ then it will gives class cast exception.
 
 HashCode and Equals:-
 =================================================================================
-HashSet contains only Keys whereas HashMap contains an entry(key and value).
-Mapping between key(object) to integer is known as hashing.
-
 Its a mapping between object to integer for even distribution in hash based structure like hashMap,hashSet.
 It allows constant time to get and put element.                                         O(1)->constant time
 Equal objects should have equal hashCode.   (a.equals(b))

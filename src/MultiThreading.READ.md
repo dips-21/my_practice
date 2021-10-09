@@ -114,3 +114,11 @@ Externalizable
 =====================
 Externalization provides implementation logic control to the application by overriding readExternal and writeExternal methods.
 
+Starvation:-
+==================
+Starvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to 
+make progress. ... If one thread invokes this method frequently, other threads that also need frequent synchronized
+access to the same object will often be blocked.
+
+Executor service:-
+=====================

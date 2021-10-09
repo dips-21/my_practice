@@ -12,7 +12,6 @@ For eg UserService(SqlRepo repo){  } //Dependency injection <--SqlRepo dependenc
 UserService(){
 repo=new MysqlRepo()}             //No dependency injection ,tight coupling
 
-Dependency Injection Framework initialises objects by passing them their dependencies.
 In Spring @Autowired or @Resource is used to indicate that the dependency needs to be injected
 
 for eg class UserService{
@@ -21,7 +20,7 @@ SqlRepo repo
 }
 
 By default Spring DI is by type (means matching Interface/Class type).
-If multiple matches then which one needs to be specified by using @Qualifier (DI by name) ,
+if multiple matches then which one needs to be specified by using @Qualifier (DI by name) ,
 eg @Qualifier("MongoRepo"),
 Each object created by Spring is managed by spring and is a spring bean.
 By default each spring bean is Singleton (ie only one instance of class exists) .
@@ -32,6 +31,18 @@ It is per application context.
 The objects that form the backbone of your application and that are managed by the Spring IoC container are called beans.
 A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.
 These beans are created with the configuration metadata that you supply to the container.
+
+Spring IOC Container:-
+==============================
+The Spring container is at the core of the Spring Framework.
+The container will create the objects, wire them together, configure them, and manage their complete life cycle
+from creation till destruction.
+The Spring container uses DI to manage the components that make up an application.
+These objects are called Spring Beans,
+The container gets its instructions on what objects to instantiate, configure, and assemble by reading the
+configuration metadata provided. The configuration metadata can be represented either by XML, Java annotations, or Java code.
+The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured
+and executable system or application.
 
 LIFE-CYCLE OF BEAN:-
 ---------------------
@@ -116,17 +127,6 @@ What is Spring Data Repository?
   based on the method name for eg findByQuestionDescription(String description); //where description =?
 * We can also write custom query on method using @Query
 
-Spring IOC Container:-
-==============================
-The Spring container is at the core of the Spring Framework.
-The container will create the objects, wire them together, configure them, and manage their complete life cycle
-from creation till destruction.
-The Spring container uses DI to manage the components that make up an application.
-These objects are called Spring Beans,
-The container gets its instructions on what objects to instantiate, configure, and assemble by reading the
-configuration metadata provided. The configuration metadata can be represented either by XML, Java annotations, or Java code.
-The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured
-and executable system or application.
 
 MVC design
 ================

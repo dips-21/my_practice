@@ -12,14 +12,24 @@ access in same package and child class   other classes through class
 eg SimpleList ,protected elements[]
 DynamicList extends SimpleList use elements[]
 
+Protected data member and method are only accessible by the classes of the same package and the subclasses present in 
+any package. You can also say that the protected access modifier is similar to default access modifier with one
+exception that it has visibility in sub classes.
+Classes cannot be declared protected. This access modifier is generally used in a parent child relationship.
+
+
 private - 
 ======================================
+If a class has private constructor then you cannot create the object of that class from outside of the class.
 access within the inner class. private or any other can be static.
 
 USE:- validation and controlled,or immutable object.
       less complexity
 
 public -   throughout  the class.thorughout the all package.
+=======================
+The members, methods and classes that are declared public can be accessed from anywhere. 
+This modifier doesn’t put any restriction on the access
 ======================================
 Default -  package level. 
 ======================================
@@ -99,9 +109,10 @@ loose coupling : If there is a UserService and it has an abstract type SqlRepo t
                  changes from MySqlRepo to MongoRepo then UserService does not need to change.
 implemented using interface and abstract class
 UserServiceTest
-
 it can be method body.
 
+Example:-
+=========
 In system there is 3 kind of user men women and child.if we have to add User then we will have to call three separate 
   methods for them.but with the help of abstraction we can define abstract type of it which is person.
 If those three classes has same functionality then we can add it in person class and override it into child class with extends keyword.
@@ -142,6 +153,7 @@ Polymorphism is the capability of a method to do different things based on the o
 In other words, polymorphism allows you define one interface and have multiple implementations.
 * In polymorphism, calls resolved  dynamically on correct object type.
 * It is also known as dynamic dispatch methods because method called resolved on run time type of object.
+
 Example:--we have a women, man and child class and in that gethobby is a method.when we call getHobby of person then it
          will called on correct run time type of object and gives actual class hobby,
 *overridden happens in run time type of polymorphism.
@@ -171,33 +183,36 @@ Eg.List has add(position,element)   //list has add method and it takes position 
 When the method being called is present in multiple classes which are in an inheritance hierarchy then the
 decision to call which method is based on run time type of the object.obj has virtual pointer n it points to virtual table.
 virtual table of it's class has location of all function of that class.
+
 *it must follow inheritance hirearchy.
 *private or static or final cannot be overridden.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
+*The protected method can be made public but not private in the subclass.
+* Run time polymorphism. non static not final method can be overriden. 
+  *If the method is static ,it will be called on class only and can't be overriden
+  *If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
+  *private and final can't be overriden  ,final College class getFees() ,
+                                          College college=new College() ; college.getFees();
+  final class cant be overriden
+  
 In SOLID
 L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
 for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
 private then addAll will break
 
 
-*The protected method can be made public but not private in the subclass.
-
-If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
-* Run time polymorphism. non static not final method can be overriden.
-
 //IMP-> if the method is non static then override method is resolved on
 run time type of its object on which method is being called.
 
-if the method is static ,it will be called on class only and can't be overriden
-private and final can't be overriden  ,final College class getFees()  ,College college=new College() ; college.getFees();
-final class cant be overriden
+
+
 
 override example
 ==============================
 Ex...If we take Loan as abstract class and it has three implementation class personal loan,home loan and gold loan.
-and there is getRateOfInterest method().If we take loan.getRateOfInterest(new homeloan) it will gives the homeLoan.
+and there is getRateOfInterest method().If we take loan.getRateOfInterest(new homeloan) it will gives the homeLoan\.
 ======================================================================================================================
 Eg. HashCode And Equals:-
 put(key,value)  get(key,value)
@@ -268,8 +283,9 @@ Buffer is already synchronized n it uses multiple thread.
 
 intern -
 ============
+This method searches the specified string in the memory pool and if it is found then it returns the reference of it, 
+else it allocates the memory space to the specified string and assign the reference to it.
 returns the canonical representation of the string
-
 
 
 **Comparable And Comparator:-
@@ -448,8 +464,9 @@ For example, if you have declared an array of size 5 in your program, and trying
 an ArrayIndexOutOfBoundsException exception occurs.
 ===================================================
 
-
-//final :  final can be initialized only once , they can be initialized during declaration 
+FInal Finally Finalize:-
+============================
+Final :  final can be initialized only once , they can be initialized during declaration 
             or in constructor if they are class fields
 
 finally : try ,catch will always run once ,clean up can be done ,close()
@@ -467,6 +484,10 @@ class inside the class.For eg If ListIterator is non static inner class of List,
 needs to be created first and ListIterator object will have reference to list object.
 
 InstanceOf (operator):-check Run time type.
+======================================================
+An instanceof in Java is a comparison operator which, given an object instance,
+checks whether that instance is of a specified type (class/sub-class/interface) or not.
+Just like other comparison operators, it returns true or false.
 
 
 static class:-
@@ -506,16 +527,11 @@ When we create an object to a wrapper class, it contains a field and in this fie
 we can store primitive data types. 
 In other words, we can wrap a primitive value into a wrapper class object.
 
-collection definiion:-
-checked unchecked/solid/
-
-Thread -Runnable versus thread
+solid/
 executorService
 volatile ,lock,synchronised
-
 Concurrent Collection 
 ConcurrentHashMap
-
 java8 lambda ,streams
 
 Socket Connection , 3way tcp handshake , SeverSocket and Socket

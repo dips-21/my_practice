@@ -85,11 +85,19 @@ Tree data structure will always have directed edges.
 t is used for inserting, deleting or searching any element in tree.	
 
 
+Tree:-
+================
+TreeMap is a balanced binary search tree.
+It has key and value.
+Java TreeMap maintains ascending order.
+it has sorted order based on comparator if we passed comparator then it will use comparator ,if key type is comparable
+then and we didnt pass comparator then it will use comparable..If key type is not comparable n we dont pass comparator
+then it will gives class cast exception.
+
 GRAPH:-
 =================
 A Graph is also a non-linear data structure.
-It is a collection of vertices and edges. For example, vertices are represented by V, and edge is represented as 'E', 
-so it can be written as:T = {V, E}
+It is a collection of vertices and edges.
 In graph data structure, there is no unique node.
 In graph, loop or cycle can be formed.
 It is a network model. For example, facebook is a social network that uses the graph data structure.
@@ -155,8 +163,8 @@ to prefix or postfix.                                   ,message queue.
 
 
 
-map vs set:-
----------------
+MAP vs SET:-
+=================
 Map:-
 Map is an interface.
 It is a data structure which is used to store key and value pair and we can get/remove value using key..

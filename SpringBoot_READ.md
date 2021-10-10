@@ -43,7 +43,7 @@ Similarly, when the bean is no longer required and is removed from the container
 
 
 **ApplicationContext:**BEAN SCopes:-
-==============================
+=====================================
 Central interface to provide configuration for an spring application.Usually there will be only one
 but multiple application contexts can be created per jvm(tomcat).
 

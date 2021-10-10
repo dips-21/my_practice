@@ -150,12 +150,10 @@ Transaction management [1, 2] refers to the tasks of processing multiple transac
 clients of a database server in such a way that the ACID contract can be fulfilled, that is, 
 the properties of atomicity, consistency preservation, isolation, and durability of each individual transaction can be .
 
-
 REST CONTROLLER:-
 RestController is a Spring annotation that is used to build REST API in a declarative way. 
 RestController annotation is applied to a class to mark it as a request handler, and Spring will do the building 
 and provide the RESTful web service at runtime.
-
 
 Session:-
 Session management is the process of securely handling multiple requests to a web-based application or service 
@@ -188,7 +186,6 @@ configuration metadata provided. The configuration metadata can be represented e
 The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured
 and executable system or application.
 
-
 Transaction management
 =============================
 ACID:-  
@@ -203,3 +200,5 @@ Why we are using spring boot instead of spring
 Easy to use but powerful database transaction management capabilities. Spring simplifies
 integration with other Java frameworks like JPA/Hibernate ORM, Struts/JSF/etc. web
 frameworks. State of the art Web MVC framework for building web applications.
+
+

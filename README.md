@@ -176,15 +176,18 @@ virtual table of it's class has location of all function of that class.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
+
 In SOLID
 L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
 for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
 private then addAll will break
 
-
+*we cannot decrease the visibility of method when overriding.
 *The protected method can be made public but not private in the subclass.
+===============================================================================
 
 If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
+==================================================================================================================
 * Run time polymorphism. non static not final method can be overriden.
 
 //IMP-> if the method is non static then override method is resolved on
@@ -411,17 +414,15 @@ Example
 
 
 
-
 Checked Exceptions
 =============================
-They occur at compile time.
 The compiler checks for a checked exception.
 These exceptions can be handled at the compilation time.
 It is a sub-class of the exception class.
 The JVM requires that the exception be caught and handled.
 Example of Checked exception- ‘File Not Found Exception’
 
-A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. 
+these are also called as compile time exceptions. 
 These exceptions cannot simply be ignored at the time of compilation; 
 the programmer should take care of (handle) these exceptions.
 

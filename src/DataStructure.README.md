@@ -158,9 +158,9 @@ to prefix or postfix.                                   ,message queue.
 map vs set:-
 ---------------
 Map:-
+===============
 Map is an interface.
-It is a data structure which is used to store key and value pair and we can get/remove value using key..
-in the map.   
+It is a data structure which is used to store key and value pair and we can get/remove value using key in the map.
 implementation <------linkedHashSet,HashSet,TreeSet
 For eg : map word count ,   <----                     
 set : store unique words ,find first duplicate
@@ -182,7 +182,7 @@ HashMap
 Hashmap is a Map implementation based on hash table.It supports get ,put and remove with time complexity of O(1)
 It uses hashcode of the key object to find the bucket in hash table
 and equals method to find the entry in that bucket .In case of hash collisions multiple entries will be chained in a 
-linkedlist in that bucket (in java8 it can be binary search tree if collision size if above threshold)
+linkedlist in that bucket .(in java8 it can be binary search tree if collision size if above threshold)
 
 It does not allow duplicate keys, but duplicate values are allowed.Only one Null key is allowed
 It's not thread safe (not synchronized,not safe to be used from multiple threads) 
@@ -222,3 +222,4 @@ o(n)-to add or remove element from any position.
     The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and
     arr[m+1..r] are sorted and merges the two sorted sub-arrays into one. See the following C
     implementation for details.
+    

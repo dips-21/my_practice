@@ -256,7 +256,7 @@ eg AbstractList (implements equals method) ,helps in code reuse
 
 
 The purpose of Interface is to define a contract on what behaviors will an object have(i.e methods declarations)
-Since java8 interface can have default method implementations (because earlier if an method was added to interface
+Since java8 interface can have default method implementations (because earlier if method was added to interface
 all it's implementation will have to be modified to add the new method).
 It can't have constructor (i.e any object initialisation logic)
 eg: List  only defines methods like add,remove,get //pure abstraction

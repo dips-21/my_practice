@@ -122,3 +122,19 @@ access to the same object will often be blocked.
 
 Executor service:-
 =====================
+
+
+What is thread race condition?
+=====================================
+A race condition occurs when two threads access a shared variable at the same time. ... 
+Then the first thread and second thread perform their operations on the value, and they race to see which 
+thread can write the value last to the shared variable.
+
+Race conditions can be avoided by proper thread synchronization in critical sections. 
+Thread synchronization can be achieved using a synchronized block of Java code.
+Thread synchronization can also be achieved using other synchronization constructs like locks or atomic variables like java.
+
+How do you handle race conditions?
+Race condition can be handled by Mutex or Semaphores.
+They act as a lock allows a process to acquire a resource based on certain requirements to prevent race condition.
+How do you prevent them from occurring? There are various ways to prevent race condition, such as Critical Section Avoidance.

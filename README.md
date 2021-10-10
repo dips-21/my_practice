@@ -5,6 +5,15 @@ This pointer is set as soon as the object is allocated (with NEW) and before any
 So in Java, it is safe for constructors to make virtual method calls,
 and they will be properly directed to the target's implementation of the virtual method.
 
+Public static void main:-
+================================
+First public means that any other object can access it.
+static means that the class in which it resides doesn't have to be instantiated first before the function can be called.
+void means that the function does not return a value.
+"main" means an entry point you can "run".
+
+Yes, We can overload the main method in java but JVM only calls the original main method,
+it will never call our overloaded main method.
 
 /Protected - 
 ======================================
@@ -54,6 +63,16 @@ Interpreter :-read bytecode stream then execute the instructions.
 Just in time(JIT)compiler:-here compiler refers to translator from the instruction set of a java virtual machine to instruction
 set of specific cpu.
 A Virtual processor.
+
+Constructor:-
+===================
+A constructor initializes an object when it is created.It has the same name as its class and is syntactically similar to a method. 
+However, constructors have no explicit return type.
+Typically, you will use a constructor to give initial values to the instance variables defined by the class, 
+or to perform any other start-up procedures required to create a fully formed object.
+All classes have constructors, whether you define one or not, because Java automatically provides a default 
+constructor that initializes all member variables to zero. However, once you define your own constructor, 
+the default constructor is no longer used.
 
  Encapsulation - (data fields) 
 ======================================
@@ -207,8 +226,6 @@ private then addAll will break
 run time type of its object on which method is being called.
 
 
-
-
 override example
 ==============================
 Ex...If we take Loan as abstract class and it has three implementation class personal loan,home loan and gold loan.
@@ -277,9 +294,26 @@ builder n buffer- buffer is synchronized.(objects shared by multiple threads )
 =====================
 String is thread safe.
 
+StringBuffer:-
+=======================
+StringBuffer in java is used to create modifiable String objects. 
+This means that we can use StringBuffer to append, reverse, replace, concatenate and manipulate Strings or 
+sequence of characters.
+
 If we want  friends list from different sources then we have to take append(method) from single thread
 then string Builder is used.
 Buffer is already synchronized n it uses multiple thread.  
+============================================================
+If a string is going to remain constant throughout the program, then use the String class object because a
+String object is immutable.                                            ===============================
+
+If a string can change (for example: lots of logic and operations in the construction of the string)
+and will only be accessed from a single thread, using a StringBuilder is good enough.
+
+If a string can change and will be accessed from multiple threads, use a StringBuffer because StringBuffer
+is synchronous, so you have thread-safety.
+
+If you don’t want thread-safety than you can also go with StringBuilder class as it is not synchronized.
 
 intern -
 ============
@@ -437,6 +471,9 @@ It is a sub-class of the exception class.
 The JVM requires that the exception be caught and handled.
 Example of Checked exception- ‘File Not Found Exception’
 
+Checked exceptions must be handled either by using try and catch block or by using throws clause in the method declaration.
+If not handles properly, it will give a compile-time error.
+
 A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. 
 These exceptions cannot simply be ignored at the time of compilation; 
 the programmer should take care of (handle) these exceptions.
@@ -444,6 +481,9 @@ the programmer should take care of (handle) these exceptions.
 For example, if you use FileReader class in your program to read data from a file,
 if the file specified in its constructor doesn't exist, then a FileNotFoundException occurs,
 and the compiler prompts the programmer to handle the exception.
+
+ClassNotFoundException ,InterruptedException ,InstantiationException ,IOException,SQLException
+    IllegalAccessException ,FileNotFoundException, etc
 
 Unchecked Exceptions
 ================================
@@ -460,8 +500,14 @@ These are also called as Runtime Exceptions.
 These include programming bugs, such as logic errors or improper use of an API.
 Runtime exceptions are ignored at the time of compilation.
 
+Java compiler does not check runtime exception at compile time whether programmer handles them or not. 
+If a runtime exception occurs in a method and programmer does not handle it, JVM terminates the program without the 
+execution of rest of the code.
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
 an ArrayIndexOutOfBoundsException exception occurs.
+
+ArithmeticException,ClassCastException ,NullPointerException ,ArrayIndexOutOfBoundsException ,NegativeArraySizeException
+    ArrayStoreException ,IllegalThreadStateException ,SecurityException, etc.
 ===================================================
 
 FInal Finally Finalize:-
@@ -541,5 +587,20 @@ blocking and non blocking IO
 Stream versus Reader classes
 BufferedReader , BufferedInputStream
 
+The Enumeration interface defines a means to retrieve successive elements from a data structure.
+For example, Enumeration defines a method called nextElement that is used to get the next element in a data 
+structure that contains multiple elements.
 
+MAVEN
+==========
+Maven is a powerful project management tool that is based on POM (project object model). 
+It is used for projects build, dependency and documentation. It simplifies the build process like ANT. ... 
+In short terms we can tell maven is a tool that can be used for building and managing any Java-based project.
 
+SOLID:-
+===========
+S : is for Single Responsibility Principle :- a class or module should do one thing only.
+O: is for Open/Closed Principle :-code entities should be open for extension, but closed for modification.
+L:Liskov Substitution Principle:-any child type of a parent type should be able to stand in for that parent without things blowing up.
+I :is for Interface Segregation Principle:- you should favor many, smaller, client-specific interfaces over one larger.
+D is for Dependency Inversion:-encourages you to write code that depends upon abstractions rather than upon concrete details.

@@ -244,8 +244,13 @@ For example, let's consider the same table named students with attributes such a
 Primary Key vs Unique key
 Here Stud_ID can be assigned as a unique constraint because each student must have a unique identification number.
 If a student changes the college, then he or she would not have any student ID.
-In that case, the entry may contain a NULL value because a unique key constraint allows storing NULL, 
+In that case, the entry may contain a NULL value because a unique key constraint allows storing NULL,
 but it should be only one.
+
+Surrogate key:-
+====================
+A surrogate key is a made up value with the sole purpose of uniquely identifying a row. 
+Usually, this is represented by an auto incrementing ID.
 
 TRANSACTION PROPERTIES:-
 ==========================
@@ -282,37 +287,7 @@ the state changes are recorded in a persisted transaction log.
 If our system is suddenly affected by a system crash or a power outage, then all unfinished 
 committed transactions may be replayed.
 =====================================================================================================
-Atomicity Either all changes(queries) in transaction will take place
-or none will (for eg all transfer money from person A to B
-update row of A to (bal-x) and update row of A to (bal+x) both will
-happen or none will
 
-consistency
-In a money transaction ,total sum should remain same ,money
-can't be created or lost
-https://www.ibm.com/docs/en/cics-ts/5.4?topic=processing-acid-properties-transactions
-
-
-Isolation
-In a transaction to transfer money from A to B ,any other transaction sees money in A's account or B's account.It does not see a state where money is deducted from A's but not deposited to B
-states of row
-for transfer Rs 500
-A=A-500 (money deducted from A)
-intermediate state ,money deducted but not yet deposited
-B=B+500
-If A had Rs 2000 and B had Rs 3000 ,any other transaction selecting
-A's or B'sum can't see A as 1500 and B as 3000
-
-Durability
-Changes done will not be lost.in case of database restart .
-The changes committed by transaction will be there even in case of system failure .For eg A should have 1500 and B 3500 even if database is restarted after failure
-
-======================================================================================================
-Spring Transaction ( @Transactional on spring bean method ).Spring AOP starts transaction before call and
-commits after it
-https://stackoverflow.com/questions/8490852/spring-transactional-isolation-propagation
-https://www.byteslounge.com/tutorials/spring-transaction-isolation-tutorial
-======================================================================================================
 
 Indexing : 
 ============
@@ -472,8 +447,6 @@ FOREIGN KEY (Person_ID) REFERENCES Persons(Person_ID)
 );
 
 
-
-
 Joins:-
 =============
 The goal of creating a join condition is that it helps you to combine the data from two or more DBMS tables. 
@@ -527,3 +500,48 @@ SELECT emp_name, SUM(working_hours) AS "Total working hours"
 FROM employees  
 GROUP BY emp_name;  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Atomicity Either all changes(queries) in transaction will take place
+or none will (for eg all transfer money from person A to B
+update row of A to (bal-x) and update row of A to (bal+x) both will
+happen or none will
+
+consistency
+In a money transaction ,total sum should remain same ,money
+can't be created or lost
+https://www.ibm.com/docs/en/cics-ts/5.4?topic=processing-acid-properties-transactions
+
+
+Isolation
+In a transaction to transfer money from A to B ,any other transaction sees money in A's account or B's account.It does not see a state where money is deducted from A's but not deposited to B
+states of row
+for transfer Rs 500
+A=A-500 (money deducted from A)
+intermediate state ,money deducted but not yet deposited
+B=B+500
+If A had Rs 2000 and B had Rs 3000 ,any other transaction selecting
+A's or B'sum can't see A as 1500 and B as 3000
+
+Durability
+Changes done will not be lost.in case of database restart .
+The changes committed by transaction will be there even in case of system failure .For eg A should have 1500 and B 3500 even if database is restarted after failure
+
+======================================================================================================
+Spring Transaction ( @Transactional on spring bean method ).Spring AOP starts transaction before call and
+commits after it
+https://stackoverflow.com/questions/8490852/spring-transactional-isolation-propagation
+https://www.byteslounge.com/tutorials/spring-transaction-isolation-tutorial
+======================================================================================================

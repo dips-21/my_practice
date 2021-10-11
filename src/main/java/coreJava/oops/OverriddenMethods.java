@@ -5,25 +5,22 @@ import java.util.List;
 
 public class OverriddenMethods {
 
-    public class Animal {
+    class Animal {
         public void eat() throws IOException {
             System.out.println("Generic Animal Eating Generically");
         }
     }
 
-    class Horse extends Animal{
+    class Horse extends Animal {
         @java.lang.Override
-        public void eat()  {
+        public void eat() {
             System.out.println("Horse eating hay, oats, " + "and horse treats");
         }
     }
 }
 
-/*void draw(Person p){   //Man m
-    p.drawFace();
-}*/
 
- class TestAnimals {
+class TestAnimals {
     public static void main(String[] args) {
         Animal a = new Animal();
         Animal b = new Horse();  //Animal ref, but a Horse object
@@ -43,3 +40,7 @@ public class OverriddenMethods {
 //interface Connection{
 //     //query ,close ,open
 //}
+
+/*void draw(Person p){   //Man m
+    p.drawFace();
+}*/

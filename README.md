@@ -5,6 +5,15 @@ This pointer is set as soon as the object is allocated (with NEW) and before any
 So in Java, it is safe for constructors to make virtual method calls,
 and they will be properly directed to the target's implementation of the virtual method.
 
+Public static void main:-
+================================
+First public means that any other object can access it.
+static means that the class in which it resides doesn't have to be instantiated first before the function can be called.
+void means that the function does not return a value.
+"main" means an entry point you can "run".
+
+Yes, We can overload the main method in java but JVM only calls the original main method,
+it will never call our overloaded main method.
 
 /Protected - 
 ======================================
@@ -12,14 +21,24 @@ access in same package and child class   other classes through class
 eg SimpleList ,protected elements[]
 DynamicList extends SimpleList use elements[]
 
+Protected data member and method are only accessible by the classes of the same package and the subclasses present in 
+any package. You can also say that the protected access modifier is similar to default access modifier with one
+exception that it has visibility in sub classes.
+Classes cannot be declared protected. This access modifier is generally used in a parent child relationship.
+
+
 private - 
 ======================================
+If a class has private constructor then you cannot create the object of that class from outside of the class.
 access within the inner class. private or any other can be static.
 
 USE:- validation and controlled,or immutable object.
       less complexity
 
 public -   throughout  the class.thorughout the all package.
+=======================
+The members, methods and classes that are declared public can be accessed from anywhere. 
+This modifier doesn’t put any restriction on the access
 ======================================
 Default -  package level. 
 ======================================
@@ -44,6 +63,16 @@ Interpreter :-read bytecode stream then execute the instructions.
 Just in time(JIT)compiler:-here compiler refers to translator from the instruction set of a java virtual machine to instruction
 set of specific cpu.
 A Virtual processor.
+
+Constructor:-
+===================
+A constructor initializes an object when it is created.It has the same name as its class and is syntactically similar to a method. 
+However, constructors have no explicit return type.
+Typically, you will use a constructor to give initial values to the instance variables defined by the class, 
+or to perform any other start-up procedures required to create a fully formed object.
+All classes have constructors, whether you define one or not, because Java automatically provides a default 
+constructor that initializes all member variables to zero. However, once you define your own constructor, 
+the default constructor is no longer used.
 
  Encapsulation - (data fields) 
 ======================================
@@ -86,8 +115,8 @@ person1<<name,age,city  >>    person2<<name,age,city>>  //one person can access 
     
 Abstraction:- (types of implementation hiding)
 =================================================
-abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to check equality 
-for arraylist,linkedList.
+Abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to check equality 
+for arraylist,linkedList.  
 List is an abstraction of arraylist and linkedlist so CheckIfEqual which takes two parameters as a list
 not arraylist n linked list.(List<Integer> listOne,List<Integer> listTwo)
 same method can be used to check if two linkedlist or arraylist are equal.
@@ -99,9 +128,10 @@ loose coupling : If there is a UserService and it has an abstract type SqlRepo t
                  changes from MySqlRepo to MongoRepo then UserService does not need to change.
 implemented using interface and abstract class
 UserServiceTest
-
 it can be method body.
 
+Example:-
+=========
 In system there is 3 kind of user men women and child.if we have to add User then we will have to call three separate 
   methods for them.but with the help of abstraction we can define abstract type of it which is person.
 If those three classes has same functionality then we can add it in person class and override it into child class with extends keyword.
@@ -142,6 +172,7 @@ Polymorphism is the capability of a method to do different things based on the o
 In other words, polymorphism allows you define one interface and have multiple implementations.
 * In polymorphism, calls resolved  dynamically on correct object type.
 * It is also known as dynamic dispatch methods because method called resolved on run time type of object.
+
 Example:--we have a women, man and child class and in that gethobby is a method.when we call getHobby of person then it
          will called on correct run time type of object and gives actual class hobby,
 *overridden happens in run time type of polymorphism.
@@ -171,17 +202,30 @@ Eg.List has add(position,element)   //list has add method and it takes position 
 When the method being called is present in multiple classes which are in an inheritance hierarchy then the
 decision to call which method is based on run time type of the object.obj has virtual pointer n it points to virtual table.
 virtual table of it's class has location of all function of that class.
+
 *it must follow inheritance hirearchy.
 *private or static or final cannot be overridden.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
+<<<<<<< HEAD
 
+=======
+*The protected method can be made public but not private in the subclass.
+* Run time polymorphism. non static not final method can be overriden. 
+  *If the method is static ,it will be called on class only and can't be overriden
+  *If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
+  *private and final can't be overriden  ,final College class getFees() ,
+                                          College college=new College() ; college.getFees();
+  final class cant be overriden
+  
+>>>>>>> 16842609694390b8c33559f855c5160305a8b501
 In SOLID
 L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
 for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
 private then addAll will break
 
+<<<<<<< HEAD
 *we cannot decrease the visibility of method when overriding.
 *The protected method can be made public but not private in the subclass.
 ===============================================================================
@@ -189,18 +233,17 @@ private then addAll will break
 If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
 ==================================================================================================================
 * Run time polymorphism. non static not final method can be overriden.
+=======
+>>>>>>> 16842609694390b8c33559f855c5160305a8b501
 
 //IMP-> if the method is non static then override method is resolved on
 run time type of its object on which method is being called.
 
-if the method is static ,it will be called on class only and can't be overriden
-private and final can't be overriden  ,final College class getFees()  ,College college=new College() ; college.getFees();
-final class cant be overriden
 
 override example
 ==============================
 Ex...If we take Loan as abstract class and it has three implementation class personal loan,home loan and gold loan.
-and there is getRateOfInterest method().If we take loan.getRateOfInterest(new homeloan) it will gives the homeLoan.
+and there is getRateOfInterest method().If we take loan.getRateOfInterest(new homeloan) it will gives the homeLoan\.
 ======================================================================================================================
 Eg. HashCode And Equals:-
 put(key,value)  get(key,value)
@@ -265,14 +308,32 @@ builder n buffer- buffer is synchronized.(objects shared by multiple threads )
 =====================
 String is thread safe.
 
+StringBuffer:-
+=======================
+StringBuffer in java is used to create modifiable String objects. 
+This means that we can use StringBuffer to append, reverse, replace, concatenate and manipulate Strings or 
+sequence of characters.
+
 If we want  friends list from different sources then we have to take append(method) from single thread
 then string Builder is used.
 Buffer is already synchronized n it uses multiple thread.  
+============================================================
+If a string is going to remain constant throughout the program, then use the String class object because a
+String object is immutable.                                            ===============================
+
+If a string can change (for example: lots of logic and operations in the construction of the string)
+and will only be accessed from a single thread, using a StringBuilder is good enough.
+
+If a string can change and will be accessed from multiple threads, use a StringBuffer because StringBuffer
+is synchronous, so you have thread-safety.
+
+If you don’t want thread-safety than you can also go with StringBuilder class as it is not synchronized.
 
 intern -
 ============
+This method searches the specified string in the memory pool and if it is found then it returns the reference of it, 
+else it allocates the memory space to the specified string and assign the reference to it.
 returns the canonical representation of the string
-
 
 
 **Comparable And Comparator:-
@@ -413,7 +474,10 @@ Example
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 16842609694390b8c33559f855c5160305a8b501
 Checked Exceptions
 =============================
 The compiler checks for a checked exception.
@@ -422,13 +486,23 @@ It is a sub-class of the exception class.
 The JVM requires that the exception be caught and handled.
 Example of Checked exception- ‘File Not Found Exception’
 
+<<<<<<< HEAD
 these are also called as compile time exceptions. 
+=======
+Checked exceptions must be handled either by using try and catch block or by using throws clause in the method declaration.
+If not handles properly, it will give a compile-time error.
+
+A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. 
+>>>>>>> 16842609694390b8c33559f855c5160305a8b501
 These exceptions cannot simply be ignored at the time of compilation; 
 the programmer should take care of (handle) these exceptions.
 
 For example, if you use FileReader class in your program to read data from a file,
 if the file specified in its constructor doesn't exist, then a FileNotFoundException occurs,
 and the compiler prompts the programmer to handle the exception.
+
+ClassNotFoundException ,InterruptedException ,InstantiationException ,IOException,SQLException
+    IllegalAccessException ,FileNotFoundException, etc
 
 Unchecked Exceptions
 ================================
@@ -445,12 +519,19 @@ These are also called as Runtime Exceptions.
 These include programming bugs, such as logic errors or improper use of an API.
 Runtime exceptions are ignored at the time of compilation.
 
+Java compiler does not check runtime exception at compile time whether programmer handles them or not. 
+If a runtime exception occurs in a method and programmer does not handle it, JVM terminates the program without the 
+execution of rest of the code.
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
 an ArrayIndexOutOfBoundsException exception occurs.
+
+ArithmeticException,ClassCastException ,NullPointerException ,ArrayIndexOutOfBoundsException ,NegativeArraySizeException
+    ArrayStoreException ,IllegalThreadStateException ,SecurityException, etc.
 ===================================================
 
-
-//final :  final can be initialized only once , they can be initialized during declaration 
+FInal Finally Finalize:-
+============================
+Final :  final can be initialized only once , they can be initialized during declaration 
             or in constructor if they are class fields
 
 finally : try ,catch will always run once ,clean up can be done ,close()
@@ -468,6 +549,10 @@ class inside the class.For eg If ListIterator is non static inner class of List,
 needs to be created first and ListIterator object will have reference to list object.
 
 InstanceOf (operator):-check Run time type.
+======================================================
+An instanceof in Java is a comparison operator which, given an object instance,
+checks whether that instance is of a specified type (class/sub-class/interface) or not.
+Just like other comparison operators, it returns true or false.
 
 
 static class:-
@@ -507,16 +592,11 @@ When we create an object to a wrapper class, it contains a field and in this fie
 we can store primitive data types. 
 In other words, we can wrap a primitive value into a wrapper class object.
 
-collection definiion:-
-checked unchecked/solid/
-
-Thread -Runnable versus thread
+solid/
 executorService
 volatile ,lock,synchronised
-
 Concurrent Collection 
 ConcurrentHashMap
-
 java8 lambda ,streams
 
 Socket Connection , 3way tcp handshake , SeverSocket and Socket
@@ -526,5 +606,29 @@ blocking and non blocking IO
 Stream versus Reader classes
 BufferedReader , BufferedInputStream
 
+ENumeration Interface:-
+====================================
+The Enumeration interface defines a means to retrieve successive elements from a data structure.
+For example, Enumeration defines a method called nextElement that is used to get the next element in a data 
+structure that contains multiple elements.
 
+MAVEN
+==========
+Maven is a powerful project management tool that is based on POM (project object model). 
+It is used for projects build, dependency and documentation. It simplifies the build process like ANT. ... 
+In short terms we can tell maven is a tool that can be used for building and managing any Java-based project.
 
+SOLID:-
+===========
+S : is for Single Responsibility Principle :- a class or module should do one thing only.
+O: is for Open/Closed Principle :-code entities should be open for extension, but closed for modification.
+L:Liskov Substitution Principle:-any child type of a parent type should be able to stand in for that parent without things blowing up.
+I :is for Interface Segregation Principle:- you should favor many, smaller, client-specific interfaces over one larger.
+D is for Dependency Inversion:-encourages you to write code that depends upon abstractions rather than upon concrete details.
+
+InputStreamReader:-
+====================
+An InputStreamReader is a bridge from byte streams to character streams: 
+It reads bytes and decodes them into characters using a specified charset. 
+The charset that it uses may be specified by name or may be given explicitly,
+or the platform's default charset may be accepted.

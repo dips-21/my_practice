@@ -44,7 +44,7 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 * so no exception is thrown.
 
 Enumerator:-
-==============
+=============================
 Enumeration is an interface. 
 It is used in the collection framework in java to retrieve the elements one by one. 
 Enumeration is a legacy interface that is applicable only for legacy classes like Vector, HashTable, Stack, etc. 
@@ -53,7 +53,7 @@ and we cannot perform remove operation.
 Enumeration object can be created by calling elements() method present in the Vector class.
 
 Iterator:-
-=============
+==================================
 An iterator is a universal cursor that can be applied to any collection object. 
 It provides a single direction iteration. By using an iterator, we can perform both read and remove operation, 
 but we cannot perform replace operation. Iterator must be used whenever we want to enumerate elements in 
@@ -79,7 +79,7 @@ It is also used to compare the current instance with another object of same type
 
 
       Comparator
-=======================
+===================================
 *Comparator interface is used to compare two or multiple elements
 The Comparator interface is used to sort elements that compare two objects and provides additional comparison method.
 *It implements comparable.
@@ -150,31 +150,26 @@ it has sorted order based on comparator if we passed comparator then it will use
 then and we didnt pass comparator then it will use comparable..If key type is not comparable n we dont pass comparator
 then it will gives class cast exception.
 
-
 HashCode and Equals:-
-=================================================================================
-HashSet contains only Keys whereas HashMap contains an entry(key and value).
-Mapping between key(object) to integer is known as hashing.
-
+============================================================================================================
 Its a mapping between object to integer for even distribution in hash based structure like hashMap,hashSet.
 It allows constant time to get and put element.                                         O(1)->constant time
-Equal objects should have equal hashCode.   (a.equals(b))
+Equal objects should have equal hashCode.   (a.equals(b)).
 and Unequal objects may have same hashCode due to collision but that can be minimized using a good hash function.
 First position is found using hashCode % array size ,in that entry will be found using equals.
 If we want logical equality (not identity ,memory address based) then we need to override equals.
 
 for eg "dog" new String("dog") , not same by == but are logically same ,
-p1=new Person("Dipali") p2=new Person("Dipali").
+p1=new Person("Jaanhvi") p2=new Person("Jaanhvi").
 
 for new objects to be equal which are logically same we have to overrride equals.
 
 Also if in a class we override equals but not hashcode then it will not behave correctly when used in a HashMap,HashSet.
-map.put(new Person("Dipali"),"hachi")       =============
-map.get(new Person("Dipali") should have returned "hachi"  ,Even if keys are equal by equals since new object has different  ,
+map.put(new Person("Jaanhvi"),"hachi")       =============
+map.get(new Person("Jaanvi") should have returned "hachi"  ,Even if keys are equal by equals since new object has different  ,
 hashcode so it will check at different position so it will not be found and will return null.
 GET/PUT  First find position using hashcode, then find entry in that bucket using equals.
 If we dont override HashCode and Equals then we will not get element at same position if we put it earlier on that position.
-
 
 coreJava.collections.HashMapTest
 HashMap takes key and value.
@@ -199,8 +194,6 @@ It internally use
 complexity   <---O(1)
 non synchronized
 non thread safe
-
-
 
 Comparison Table of LinkedHashMap and HashMap
 =======================================================================
@@ -234,11 +227,12 @@ this is for blocking queue only.
 Take--Take wait(blocks calling thread) wait until an element is available.
 
 Example:--
-Producer consumer ,Reader Writer:-PRoblem
+Producer consumer ,Reader Writer:-Problem
 The producer consumer pattern is a concurrency design pattern where one or more producer threads produce objects
 which are queued up, and then consumed by one or more consumer threads.
 
-//When queue is full then put() will block the thread trying to add until there is capacity.   //roti dabba full then wait to space to be available
+//When queue is full then put() will block the thread trying to add until there is capacity. 
+               //roti dabba full then wait to space to be available
 //When queue is empty then take() will block the thread trying to remove until there is an element.
 
 
@@ -251,15 +245,14 @@ either by dequeuing one or more items or clearing the queue completely.
 A BlockingQueue with one thread putting into it, and another thread taking from it.
 
 Abstract class:-
-=========================
+=======================================
 The purpose of Abstract class is to have partial implementation,i.e it needs to have at least one abstract method and 
 partial initialization can be done in abstract class constructor.
 It's constructor will be called when Child class object is created 
 eg AbstractList (implements equals method) ,helps in code reuse
 
-
 The purpose of Interface is to define a contract on what behaviors will an object have(i.e methods declarations)
-Since java8 interface can have default method implementations (because earlier if an method was added to interface
+Since java8 interface can have default method implementations (because earlier if method was added to interface
 all it's implementation will have to be modified to add the new method).
 It can't have constructor (i.e any object initialisation logic)
 eg: List  only defines methods like add,remove,get //pure abstraction
@@ -270,3 +263,5 @@ for eg: ArrayList implements Iterable Serializable
 
 3) Interface can only have public static final fields ,Abstract class can have any type of fields
 4) All methods in interface are implicitly public ,abstract can have private,protected ,default or public methods
+
+

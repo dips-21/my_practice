@@ -18,7 +18,6 @@ public class FindSentenceFromParagraphTest {
     public void searchParagraphFromWord() {
     String []paragraph={"Its a complicated world","Its hard to understand anyone","I get disturbed",
     "but I don't say anything"};
-    String word="hard";
     FindSentenceFromParagraph finder=new FindSentenceFromParagraph(paragraph);
    assertThat(finder.searchParagraphFromWord("disturbed"),is("I get disturbed"));
     }

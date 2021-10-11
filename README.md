@@ -115,8 +115,8 @@ person1<<name,age,city  >>    person2<<name,age,city>>  //one person can access 
     
 Abstraction:- (types of implementation hiding)
 =================================================
-abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to check equality 
-for arraylist,linkedList.
+Abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to check equality 
+for arraylist,linkedList.  
 List is an abstraction of arraylist and linkedlist so CheckIfEqual which takes two parameters as a list
 not arraylist n linked list.(List<Integer> listOne,List<Integer> listTwo)
 same method can be used to check if two linkedlist or arraylist are equal.
@@ -460,8 +460,6 @@ Example
 
 
 
-
-
 Checked Exceptions
 =============================
 They occur at compile time.
@@ -587,6 +585,8 @@ blocking and non blocking IO
 Stream versus Reader classes
 BufferedReader , BufferedInputStream
 
+ENumeration Interface:-
+====================================
 The Enumeration interface defines a means to retrieve successive elements from a data structure.
 For example, Enumeration defines a method called nextElement that is used to get the next element in a data 
 structure that contains multiple elements.
@@ -604,3 +604,10 @@ O: is for Open/Closed Principle :-code entities should be open for extension, bu
 L:Liskov Substitution Principle:-any child type of a parent type should be able to stand in for that parent without things blowing up.
 I :is for Interface Segregation Principle:- you should favor many, smaller, client-specific interfaces over one larger.
 D is for Dependency Inversion:-encourages you to write code that depends upon abstractions rather than upon concrete details.
+
+InputStreamReader:-
+====================
+An InputStreamReader is a bridge from byte streams to character streams: 
+It reads bytes and decodes them into characters using a specified charset. 
+The charset that it uses may be specified by name or may be given explicitly,
+or the platform's default charset may be accepted.

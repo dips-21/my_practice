@@ -1,13 +1,13 @@
 **SPRING**
 
 Spring Dependency Injection  (component scanning and creation of object using reflection ):-
-============================================================================================
+================================================================================================
 In Dependency injection dependencies of an object are passed to it instead of the object getting it's own dependencies.
-Dependency can be passed through constructor or setter .
+Dependency can be passed through constructor or setter.
 It provides loose coupling.
 The object does not look up its dependencies and does not know the location or class of the dependencies,
 rather everything is taken care by the Spring Framework.
-For eg UserService(SqlRepo repo){  } //Dependency injection <--SqlRepo dependency is passed as a constructor parameter
+For eg UserService(SqlRepo repo){  } //Dependency injection <--SqlRepo dependency is passed as a constructor parameter.
 
 UserService(){
 repo=new MysqlRepo()}             //No dependency injection ,tight coupling
@@ -23,11 +23,11 @@ By default Spring DI is by type (means matching Interface/Class type).
 if multiple matches then which one needs to be specified by using @Qualifier (DI by name) ,
 eg @Qualifier("MongoRepo"),
 Each object created by Spring is managed by spring and is a spring bean.
-By default each spring bean is Singleton (ie only one instance of class exists) .
+By default each spring bean is Singleton (ie only one instance of class exists).
 It is per application context.
 
 **BEAN**:-
-------------
+-------------------------------
 The objects that form the backbone of your application and that are managed by the Spring IoC container are called beans.
 A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.
 These beans are created with the configuration metadata that you supply to the container.
@@ -45,7 +45,7 @@ The Spring IoC container makes use of Java POJO classes and configuration metada
 and executable system or application.
 
 LIFE-CYCLE OF BEAN:-
----------------------
+-------------------------------------
 When a bean is instantiated, it may be required to perform some initialization to get it into a usable state.
 To define setup and teardown for a bean, we simply declare the <bean> with initmethod and/or destroy-method parameters.
 The init-method attribute specifies a method that is to be called on the bean immediately upon instantiation.
@@ -54,7 +54,7 @@ Similarly, when the bean is no longer required and is removed from the container
 
 
 **ApplicationContext:**BEAN SCopes:-
-==============================
+======================================
 Central interface to provide configuration for an spring application.Usually there will be only one
 but multiple application contexts can be created per jvm(tomcat).
 
@@ -97,7 +97,7 @@ ApplicationContext (manages all beans and spring config )
 Jsp bean scopes (Page ,request,session,application)
 
 Controller ,Service,Repository
-==============================================
+=====================================================================================================================
 @Controller this will url mapping of the method to be called on http requests ,Spring dispatcher servlet will call
 it's methods on matching url .For eg GET /questions/
 
@@ -111,7 +111,7 @@ If we need other methods the queries are generated based on method name
 for eg FindByEmail(String email) (this would generate select * from table where email=?)
 We can also write our own query using @Query on method
 
-Spring uses reflection to call our controller method with matching url
+Spring uses reflection to call our controller method with matching url.
 
 @Transaction for transactional method.Transaction management is done by spring (Declarative transaction management)
 AOP aspect oriented programming
@@ -125,11 +125,11 @@ What is Spring Data Repository?
   done by Spring ORM (like hibernate).
 * We can also define our methods in interface using standard naming pattern and query will be generated
   based on the method name for eg findByQuestionDescription(String description); //where description =?
-* We can also write custom query on method using @Query
+* We can also write custom query on method using @Query.
 
 
 MVC design
-================
+===========================================================
 MVC Pattern stands for Model-View-Controller Pattern.
 This pattern is used to separate application's concerns.
 
@@ -152,16 +152,19 @@ the properties of atomicity, consistency preservation, isolation, and durability
 
 
 REST CONTROLLER:-
+=====================
 RestController is a Spring annotation that is used to build REST API in a declarative way. 
 RestController annotation is applied to a class to mark it as a request handler, and Spring will do the building 
 and provide the RESTful web service at runtime.
 
 
 Session:-
+================
 Session management is the process of securely handling multiple requests to a web-based application or service 
 from a single user or entity.
 
 SESSION MANAGEMENT:-
+=====================
 Spring Session provides an API and implementations for managing a user's session information .
 
 
@@ -190,7 +193,7 @@ and executable system or application.
 
 
 Transaction management
-=============================
+=================================
 ACID:-  
 Atomicity -The entire transaction takes place at once or doesnt happen at all.  abort n commit
 Consistency:-the database must be consistent before and after the transaction.
@@ -198,8 +201,9 @@ Isolation:-Multiple transaction occur independently without reference.
 Durability:-The changes of a successful transaction occurs even if the system failure occurs.
 
 
-Why we are using spring boot instead of spring
-===========================================================
+Why we are using spring boot instead of spring              
+==========================================================================================
 Easy to use but powerful database transaction management capabilities. Spring simplifies
 integration with other Java frameworks like JPA/Hibernate ORM, Struts/JSF/etc. web
 frameworks. State of the art Web MVC framework for building web applications.
+

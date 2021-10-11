@@ -26,6 +26,7 @@ delete and update data in database.
 
 
 Joins :
+===========
 Join allows us to work on data present across different tables (which is the case in a normalised schema)
 https://learnsql.com/blog/sql-joins-types-explained/
 https://www.educative.io/blog/what-are-sql-joins

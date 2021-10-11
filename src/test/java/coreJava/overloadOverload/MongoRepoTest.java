@@ -72,7 +72,7 @@ public class MongoRepoTest {
     @Test
     public void overridingOnRepoRunTimeTypeAndOverloadingOnPersonCompileTimeType() {
         SqlRepo sqlRepo = new MySqlRepo();
-        Person p = new Man("me", 26, "fear");//overriding
+        Person p = new Man("me", 23, "fear");//overriding
         addToRepo(sqlRepo, p);
         assertThat(sqlRepo.addUser(p), is("Person to mysql"));
     }

@@ -26,7 +26,6 @@ any package. You can also say that the protected access modifier is similar to d
 exception that it has visibility in sub classes.
 Classes cannot be declared protected. This access modifier is generally used in a parent child relationship.
 
-
 private - 
 ======================================
 If a class has private constructor then you cannot create the object of that class from outside of the class.
@@ -88,7 +87,7 @@ we can hide only data fields in it..like the scope of resize an array is inside 
   
 ["dipali","mona","sona","mina"]     To store a TrekkingGroup information of person if we take 3 arrays names[],ages[],cities[] 
 25         29      33    16         if we add remove in one array then
-P           M      A      N          data of persons can be mismatch if we didnt make changes in other array,bcz one person data
+P           M      A       N          data of persons can be mismatch if we didnt make changes in other array,bcz one person data
 After deletion                      is not encapsulated.Instead of this we can take Person array, Person[] where person 
 ["dipali","sona","mina"]            has name age and city then it has some encapsulation ,while modifying data of one peroson 
                                     will not affect on data of another person if person array is full 
@@ -117,11 +116,14 @@ Abstraction:- (types of implementation hiding)
 =================================================
 Abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to check equality 
 for arraylist,linkedList.  
+
+\\AbstractionCodeReuseTest:-
+
 List is an abstraction of arraylist and linkedlist so CheckIfEqual which takes two parameters as a list
 not arraylist n linked list.(List<Integer> listOne,List<Integer> listTwo)
 same method can be used to check if two linkedlist or arraylist are equal.
 CheckIfEqual(List<Integer> listOne,List<Integer> listTwo)
-AbstractionCodeReuseTest
+
 
 loose coupling : If there is a UserService and it has an abstract type SqlRepo then 
                  it is loosely coupled and if the implementation
@@ -133,8 +135,9 @@ it can be method body.
 Example:-
 =========
 In system there is 3 kind of user men women and child.if we have to add User then we will have to call three separate 
-  methods for them.but with the help of abstraction we can define abstract type of it which is person.
-If those three classes has same functionality then we can add it in person class and override it into child class with extends keyword.
+methods for them.but with the help of abstraction we can define abstract type of it which is person.
+If those three classes has same functionality then we can add it in person class and override it into child
+class with extends keyword.
 
 
 Inheritance:-
@@ -205,27 +208,25 @@ virtual table of it's class has location of all function of that class.
 
 *it must follow inheritance hirearchy.
 *private or static or final cannot be overridden.
+*The protected method can be made public but not private in the subclass.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
-<<<<<<< HEAD
 
-=======
-*The protected method can be made public but not private in the subclass.
 * Run time polymorphism. non static not final method can be overriden. 
   *If the method is static ,it will be called on class only and can't be overriden
   *If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
   *private and final can't be overriden  ,final College class getFees() ,
                                           College college=new College() ; college.getFees();
-  final class cant be overriden
+  *final class cant be overriden.
   
->>>>>>> 16842609694390b8c33559f855c5160305a8b501
-In SOLID
+
+In SOLID 
 L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
 for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
 private then addAll will break
 
-<<<<<<< HEAD
+
 *we cannot decrease the visibility of method when overriding.
 *The protected method can be made public but not private in the subclass.
 ===============================================================================
@@ -234,7 +235,7 @@ If we provide lesser access in the subclass than that in the superclass, then we
 ==================================================================================================================
 * Run time polymorphism. non static not final method can be overriden.
 =======
->>>>>>> 16842609694390b8c33559f855c5160305a8b501
+
 
 //IMP-> if the method is non static then override method is resolved on
 run time type of its object on which method is being called.
@@ -329,11 +330,15 @@ is synchronous, so you have thread-safety.
 
 If you don’t want thread-safety than you can also go with StringBuilder class as it is not synchronized.
 
-intern -
+Intern -
 ============
 This method searches the specified string in the memory pool and if it is found then it returns the reference of it, 
 else it allocates the memory space to the specified string and assign the reference to it.
 returns the canonical representation of the string
+
+suppose we have string s1="Point"
+string s2=s1.intern();
+then it looks in pool if it is not there then add into it.
 
 
 **Comparable And Comparator:-
@@ -474,10 +479,6 @@ Example
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 16842609694390b8c33559f855c5160305a8b501
 Checked Exceptions
 =============================
 The compiler checks for a checked exception.
@@ -486,14 +487,12 @@ It is a sub-class of the exception class.
 The JVM requires that the exception be caught and handled.
 Example of Checked exception- ‘File Not Found Exception’
 
-<<<<<<< HEAD
 these are also called as compile time exceptions. 
 =======
 Checked exceptions must be handled either by using try and catch block or by using throws clause in the method declaration.
 If not handles properly, it will give a compile-time error.
 
-A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. 
->>>>>>> 16842609694390b8c33559f855c5160305a8b501
+A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions.
 These exceptions cannot simply be ignored at the time of compilation; 
 the programmer should take care of (handle) these exceptions.
 
@@ -513,25 +512,28 @@ This is because the exceptions are generated due to the mistakes in the program.
 These are not a part of the ‘Exception’ class since they are runtime exceptions.
 The JVM doesn’t require the exception to be caught and handled.
 Example of Unchecked Exceptions- ‘No Such Element Exception
-
+======================================================================================
 An unchecked exception is an exception that occurs at the time of execution. 
 These are also called as Runtime Exceptions.
 These include programming bugs, such as logic errors or improper use of an API.
-Runtime exceptions are ignored at the time of compilation.
+Runtime exceptions are ignored at the time of fcompilation.
 
 Java compiler does not check runtime exception at compile time whether programmer handles them or not. 
 If a runtime exception occurs in a method and programmer does not handle it, JVM terminates the program without the 
 execution of rest of the code.
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
 an ArrayIndexOutOfBoundsException exception occurs.
-
+==================================================================================================================
 ArithmeticException,ClassCastException ,NullPointerException ,ArrayIndexOutOfBoundsException ,NegativeArraySizeException
     ArrayStoreException ,IllegalThreadStateException ,SecurityException, etc.
 ===================================================
 
 FInal Finally Finalize:-
 ============================
-Final :  final can be initialized only once , they can be initialized during declaration 
+What are the 3 uses of final keyword in Java?
+Final keyword in Java has three different uses: create constants, prevent inheritance and prevent 
+methods from being overridden.
+Final :  final can be initialized only once , they can be initialized durFing declaration 
             or in constructor if they are class fields
 
 finally : try ,catch will always run once ,clean up can be done ,close()
@@ -632,3 +634,26 @@ An InputStreamReader is a bridge from byte streams to character streams:
 It reads bytes and decodes them into characters using a specified charset. 
 The charset that it uses may be specified by name or may be given explicitly,
 or the platform's default charset may be accepted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

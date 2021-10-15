@@ -7,7 +7,7 @@ public class PowerOfNumTest {
     PowerOfNum powerOfNum=new PowerOfNum();
     @Test
     public void getPowerOfNumber() {
-   double result= powerOfNum.getPower(2,3);
+   double result= powerOfNum. getPower(2,3);
         System.out.println(result);
     }
 

@@ -438,6 +438,7 @@ Order_Num int NOT NULL,
 Person_ID int,  
 FOREIGN KEY (Person_ID) REFERENCES Persons(Person_ID)  
 );
+  
 Table order:-
 CREATE TABLE Orders (  
 Order_ID int NOT NULL PRIMARY KEY,  
@@ -500,10 +501,114 @@ SELECT emp_name, SUM(working_hours) AS "Total working hours"
 FROM employees  
 GROUP BY emp_name;  
 
+Stored Procedure in SQL Server
+==============================================
+A stored procedure is a group of one or more pre-compiled SQL statements into a logical unit. 
+It is stored as an object inside the database server.
+It is a subroutine or a subprogram in the common computing language that has been created and stored in the database.
+Each procedure in SQL Server always contains a name, parameter lists, and Transact-SQL statements.
+The SQL Database Server stores the stored procedures as named objects. We can invoke the procedures by using triggers,
+other procedures, and applications such as Java, Python, PHP, etc. It can support almost all relational database systems.
 
+SQL Server builds an execution plan when the stored procedure is called the first time and stores them in the cache memory.
+The plan is reused by SQL Server in subsequent executions of the stored procedure, allowing it to run quickly and
+efficiently.
 
+Types of Stored Procedures
+=======================================
+User-defined Stored Procedures
+System Stored Procedures
 
+User-defined Stored Procedures
+Database developers or database administrators build user-defined stored procedures. 
+These procedures provide one or more SQL statements for selecting, updating, or removing data from database tables. 
+A stored procedure specified by the user accepts input parameters and returns output parameters .
+DDL and DML commands are used together in a user-defined procedure.
 
+We can further divide this procedure into two types:
+======================================================================
+T-SQL Stored Procedures: Transact-SQL procedures are one of the most popular types of SQL Server procedures.
+It takes parameters and returns them. These procedures handle INSERT, UPDATE, and DELETE statements with or without 
+parameters and output row data.
+
+CLR Stored Procedures: The SQL Server procedures are a group of SQL commands, and the CLR indicates the common
+language runtime. CLR stored procedures are made up of the CLR and a stored procedure, which is written in a CLR-based
+language like VB.NET or C#. CLR procedures are .Net objects that run in the SQL Server database's memory.
+
+System Stored Procedures
+The server's administrative tasks depend primarily on system stored procedures. When SQL Server is installed, 
+it creates system procedures. The system stored procedures prevent the administrator from querying or modifying
+the system and database catalog tables directly. Developers often ignore system stored procedures.
+
+SQL Server Stored Procedures Syntax
+The following are the basic syntax to create stored procedures in SQL Server:
+
+CREATE PROCEDURE [schema_name].procedure_name  
+@parameter_name data_type,   
+....   
+parameter_name data_type  
+
+AS  
+BEGIN  
+-- SQL statements  
+-- SELECT, INSERT, UPDATE, or DELETE statement  
+END  
+
+Parameter Explanations
+The stored procedure syntax has the following parameters:
+Schema_name: It is the name of your database or schema. By default, a procedure is associated with the current database,
+but we can also create it into another database by specifying the DB name.
+
+Procedure_Name: It represents the name of your stored procedure that should be meaningful names so that you can
+identify them quickly. It cannot be the system reserved keywords.
+
+Parameter_Name: It represents the number of parameters. It may be zero or more based upon the user requirements.
+We must ensure that we used the appropriate data type. For example, @Name VARCHAR(50).
+
+SET NOCOUNT ON in Stored Procedure
+================================================
+In some cases, we use the SET NOCOUNT ON statement in the stored procedure. 
+This statement prevents the message that displays the number of rows affected by SQL queries from being shown.
+NOCOUNT denotes that the count is turned off. It means that if SET NOCOUNT ON is set, no message would appear
+indicating the number of rows affected.
+
+How to execute/call a stored procedure
+====================================================?
+We can use the EXEC command to call/execute stored procedures in SQL Server.
+The following syntax illustrates the execution of a stored procedure:
+
+EXEC procedure_name;  
+Or,  
+EXECUTE procedure_name;  
+
+If we are using the SSMS, we need to use the below steps to execute stored procedures:
+====================================================================================================
+Navigate to the Programmability -> Stored Procedures.
+Next, select the Stored Procedure menu and expand it. You will see the available stored procedures.
+Right-click on the stored procedure you want to execute and choose the Execute Stored Procedure
+The Execute Procedure window will appear. If the procedure has any parameters, we must assign/pass them before clicking OK to execute it. If no parameters are defined, click OK to run the procedure.
+Stored Procedure Simple Example
+We can create a stored procedure in SQL Server in two ways:
+================================================================================
+Using T-SQL Query
+Using SQL Server Management Studio
+
+We will take a student table to demonstrate the stored procedure examples. This table has the following data:
+
+Stored Procedure in SQL Server
+The below example uses the CREATE PROCEDURE SQL statement for creating a stored procedure that displays
+the student's list in the increasing order of a salary from the STUDENT table in the selected database:
+
+CREATE PROCEDURE studentList  
+AS  
+BEGIN  
+SELECT name, age, salary  
+FROM STUDENT  
+ORDER BY salary;  
+END;   
+In this syntax, the studentList is the name of the stored procedure, and the AS keyword distinguishes the
+stored procedure's heading and body. The BEGIN and END keywords that accompany a single statement in a stored 
+procedure are optional. However, it's a good idea to include them to make the code more understandable.
 
 
 

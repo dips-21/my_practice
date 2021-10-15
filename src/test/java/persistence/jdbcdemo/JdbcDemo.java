@@ -3,19 +3,20 @@ import java.sql.*;
 public class JdbcDemo {
     public static void main(String[] args) {
             final String DB_URL = "jdbc:mysql://localhost/";
-            final String USER = "dips@localhost";
-            final String PASS = "mypass123";
+            final String USER = "dips1";
+            final String PASS = "MySqlp8ss";
 
             // final String QUERY = "SELECT *  FROM deptstaff where staffName='"+args[0]+"'";
              final String QUERY = "SELECT *  FROM deptstaff ";
-        String ageInput = args[0];
+        //String ageInput = args[0];
+        String ageInput = "15";
         System.out.println(ageInput);
         //final String QUERY = "SELECT *  FROM deptstaff where staffAge="+ ageInput;
        /*String msg="select name from table where age=%s";
           String.format(msg,10);*/
                 // Open a connection
         System.out.println(QUERY);
-                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cdac", "dips", "mypass123");
+                try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/cdac", USER, PASS);
                     Statement stmt = conn.createStatement();
                     ResultSet rs = stmt.executeQuery(QUERY);) {
                     // Extract data from r

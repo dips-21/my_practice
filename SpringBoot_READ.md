@@ -54,11 +54,7 @@ Similarly, when the bean is no longer required and is removed from the container
 
 
 **ApplicationContext:**BEAN SCopes:-
-<<<<<<< HEAD
-=====================================
-=======
-======================================
->>>>>>> 16842609694390b8c33559f855c5160305a8b501
+==============================================
 Central interface to provide configuration for an spring application.Usually there will be only one
 but multiple application contexts can be created per jvm(tomcat).
 
@@ -148,7 +144,7 @@ This is simply a specialization of the @Component class, which allows us to auto
 through the classpath scanning.
 We use @Controller in combination with a @RequestMapping annotation for request handling methods.
 
-Transaction management
+Transaction management      
 =============================
 Transaction management [1, 2] refers to the tasks of processing multiple transactions issued by various 
 clients of a database server in such a way that the ACID contract can be fulfilled, that is, 
@@ -208,7 +204,3 @@ Easy to use but powerful database transaction management capabilities. Spring si
 integration with other Java frameworks like JPA/Hibernate ORM, Struts/JSF/etc. web
 frameworks. State of the art Web MVC framework for building web applications.
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 16842609694390b8c33559f855c5160305a8b501

@@ -2,7 +2,8 @@ Multithreading:-
 ===========================================
 The main purpose of multithreading is to provide simultaneous execution of two or more parts of a program
 to maximum utilize the CPU time.
-A multithreaded program contains two or more parts that can run concurrently.
+A multithreaded program co
+ntains two or more parts that can run concurrently.
 Each such part of a program called thread.
 Multithreading means that you have multiple threads of execution inside the same application. 
 A thread is like a separate CPU executing your application. Thus, a multithreaded application is like an

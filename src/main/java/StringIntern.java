@@ -16,13 +16,13 @@ public class StringIntern {
         String s7 = new String("dips");
 
 
-        checkEqual(s1, s2, "s2==s11");
-        checkEqual(s4, s3, "s4==s3");
-        checkEqual(s4, s3.intern(), "s4==s3.intern()");
-        checkEqual(s1, s11, "s1==s11");
-        checkEqual(poolobj, s4, "poolobj==s4");
-        checkEqual(s6, poolobj, "s6==poolobj");
-        checkEqual(s3, s6, "s3==s6");
+        checkEqual(s1, s2, "s2==s11"); //true
+        checkEqual(s4, s3, "s4==s3"); //false
+        checkEqual(s4, s3.intern(), "s4==s3.intern()");     //true
+        checkEqual(s1, s11, "s1==s11");     //false
+        checkEqual(poolobj, s4, "poolobj==s4");    //true
+        checkEqual(s6, poolobj, "s6==poolobj");    //true
+        checkEqual(s3, s6, "s3==s6");     //false
 
         // String s5 = null;
         System.out.println(s1.equals(s5));

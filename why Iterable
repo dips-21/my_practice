@@ -6,7 +6,8 @@ An ITERABLE is:
     anything that can be looped over (i.e. you can loop over a string or file) or
     anything that can appear on the right-side of a for-loop: for x in iterable: ... or
     anything you can call with iter() that will return an ITERATOR: iter(obj) or
-    an object that defines __iter__ that returns a fresh ITERATOR, or it may have a __getitem__ method suitable for indexed lookup.
+    an object that defines __iter__ that returns a fresh ITERATOR, or it may have a __getitem__
+     method suitable for indexed lookup.
 
 
 
@@ -19,9 +20,11 @@ LinkedList ArrayList      arraylist (1)  random access ,better cache localisatio
                            linkedlist (dynamically allocated nodes , arraylist is static ,can be resized )
 
 
-arraylist implements  to the list interface.it stores the dynamic array and duplicated elements are stored in it.array list maintained the insertion order.we can randomly access elements in arraylist.
+arraylist implements  to the list interface.it stores the dynamic array and duplicated elements are stored in it.
+array list maintained the insertion order.we can randomly access elements in arraylist.
 
-linked list also implements listInterface.elements accessed at both end .it used doubly linked list internally.we can randomly access elements in it.It also maintains the insertion order.
+linked list also implements listInterface.elements accessed at both end .
+it used doubly linked list internally.we can randomly access elements in it.It also maintains the insertion order.
 
 
 why both list are non synchronised.and vector is also similar to arraylist n why it is synchronized

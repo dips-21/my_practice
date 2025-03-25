@@ -30,4 +30,10 @@ public class UserServiceTightCouplingTest {
        userService=new UserService(mySqlRepo);
        assertThat(userService.addUser(p), is("person to MongoDb"));
     }
+    @Test  // (tight coupling -if we change in one class then other class affected by it.)
+    public void sqlRepoName() {
+        SqlRepo sqlRepo = new MongoRepo();
+        SqlRepo.repoName();
+
+    }
 }

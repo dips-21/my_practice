@@ -1,0 +1,31 @@
+1) Function to reverse a string                                      -> Done
+2) how would you implement a simple test case using Junit/TestNG?
+3) Program to print even numbers from 1 to 100.                      -> Done
+4) Factorial number using recursion
+5) Sort an array in java? can you implement a sorting algorithm?
+6) function to check if a string is a palindrome?                    -> done
+7) How would you implement a simple login functionality using java?
+8) find largest and smallest numbers in an array?                    -> done
+9) concept of recursion with an example.
+10) How do you handle null values in java.
+11) Reverse an array                                                 -> done
+12) Remove duplicates from 2 array and merge and make it one.
+13) move all zeros to left                                           -> done with help
+14) Find in string repeat character and its count.                   ->
+15) How to concat and split string
+16) Sum an array
+17) Check Vowel
+18) Move even to left
+19) Print Fibonacci
+20) Find missing number in array.
+21) Find max and min IF, you can use collection?
+15) how to sort array?
+16) Find me the first and last occurrence of the letter 'a' in amazonaanazzz with index number
+17) Compress string : Input aaabbccca , output 4a2b3c
+18. Duplicate keys in a new HashMap
+19. Synchronize a thread, Lambda expression and Streams usage.
+20. Separate alphabets and numbers
+21. Print pattern- 1 2 3 *
+                   1 2 * 4
+                   1 * 3 4
+                   * 2 3 4

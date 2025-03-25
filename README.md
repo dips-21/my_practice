@@ -169,25 +169,25 @@ c.equals
 Polymorphism:-
 ==================================================
 Polymorphism is the capability of a method to do different things based on the object that it is acting upon. 
-In other words, polymorphism allows you define one interface and have multiple implementations.
+In other words, polymorphism allows you to define one interface and have multiple implementations.
 * In polymorphism, calls resolved  dynamically on correct object type.
 * It is also known as dynamic dispatch methods because method called resolved on run time type of object.
 
-Example:--we have a women, man and child class and in that gethobby is a method.when we call getHobby of person then it
-         will called on correct run time type of object and gives actual class hobby,
+Example:--we have a women, man and child class and in that getHobby is a method. When we call getHobby of person then it
+         will call on correct run time type of object and gives actual class hobby,
 *overridden happens in run time type of polymorphism.
 
 
 **Overloading
 ===================                                         
 *  In the same class there can be methods with same name but different parameters ,the decision on
-   which method will be called is made on the compile time type of parameters.The most specific matching method is called
+   which method will be called is made on the compile time type of parameters.The most specific matching method is call.
    If there is no unique match then it's a compile time error.
 *it must be in same classes.                            
 *the called resolved on compile time type of object.
 * we can change access modifier.
 
-*static,*private ,final  method be overloaded.                   
+*static,*private ,final  method can be overloaded.                   
 
 * compile time polymorphism (because the method called varies depending on compile time type of parameters)
 *
@@ -199,23 +199,28 @@ Eg.List has add(position,element)   //list has add method and it takes position 
 
 **Overriding Polymorphism
 ===========================
-When the method being called is present in multiple classes which are in an inheritance hierarchy then the
-decision to call which method is based on run time type of the object.obj has virtual pointer n it points to virtual table.
+When the method is being call, is present in multiple classes which are in an inheritance hierarchy then the
+decision to call which method is based upon run time type of the object.object has virtual pointer n it points to virtual table.
 virtual table of it's class has location of all function of that class.
 
-*it must follow inheritance hirearchy.
+*it must follow inheritance hierarchy.
 *private or static or final cannot be overridden.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
 *The protected method can be made public but not private in the subclass.
-* Run time polymorphism. non static not final method can be overriden. 
-  *If the method is static ,it will be called on class only and can't be overriden
+* Run time polymorphism. non-static not final method can be overridden. 
+  *If the method is static ,it will be called on class only and can't be overridden.
   *If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
-  *private and final can't be overriden  ,final College class getFees() ,
-                                          College college=new College() ; college.getFees();
-  final class cant be overriden
-  
+  *private and final can't be overridden  ,final College class getFees() ,
+                                          College college = new College() ; college.getFees();
+  final class can't be overridden
+
+override example
+==============================
+Ex...If we take Loan as abstract class and it has three implementation class personal loan,home loan and gold loan.
+and there is getRateOfInterest method().If we take loan.getRateOfInterest(new homeloan) it will gives the homeLoan\.
+
 In SOLID
 L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
 for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
@@ -313,7 +318,7 @@ and will only be accessed from a single thread, using a StringBuilder is good en
 If a string can change and will be accessed from multiple threads, use a StringBuffer because StringBuffer
 is synchronous, so you have thread-safety.
 
-If you don’t want thread-safety than you can also go with StringBuilder class as it is not synchronized.
+If you don’t want thread-safety then you can also go with StringBuilder class as it is not synchronized.
 
 intern -
 ============
@@ -335,36 +340,171 @@ syntax---compareTo(one object passed to compare
 with this.object itself)
 
 Comparison logic is coupled in comparable .
-comparable is tighly coupled with that class to check object comparsion.
+comparable is tightly coupled with that class to check object comparison.
 It is also used to compare the current instance with another object of same type.
 
 
             Comparator
 *Comparator interface is used to compare two or multiple elements
-The Comparer interface is used to sort elements that compare two objects and provides additional comparison method.
+The Compare interface is used to sort elements that compare two objects and provides additional comparison method.
 *It implements comparable.
 *It has compare() method to compare. 
 *it is in java.util package
 syntax--compare(two objects passed )
 
 comparable and comparator returns positive negative and 0 values.
-*if the first element is greater than second then it returns -1 negative integar.
-  *if the second element is greater than first then it returns 1 positive integar.
+*if the first element is greater than second then it returns -1 negative integer.
+  *if the second element is greater than first then it returns 1 positive integer.
   * if both objects are equal then it returns 0 value.
   *It throws null pointer exception if we pass null values to them.
-
+=============
 Logically, Comparable interface compares “this” reference with the object specified 
 and Comparator in Java compares two different class objects provided.
-
+=============
 we can write more than one custom comparators as you want for a given type, 
 comparable example we could just sort by only one attribute,
-i.e., age but in the comparator,we can use different attributes like weight, name, and year.
+i.e., age but in the comparator, we can use different attributes like weight, name, and year.
 
 **ASSOCIATION: Association
 ================================
 Association refers to the relationship between multiple objects. 
 It refers to how objects are related to each other and how they are using each other's functionality.
 Composition and aggregation are two types of association.
+
+Association, Composition, and Aggregation in Java
+=====================================================
+In Object-Oriented Programming (OOP), association, composition, and aggregation are types of relationships that describe
+how objects are connected to each other. These relationships define how objects interact and depend on one another.
+
+✅ 1. Association
+Association is a relationship between two or more objects where each object has its own lifecycle and they are linked to 
+each other. It represents a "uses-a" relationship.
+It is a loosely coupled relationship where objects are independent.
+Objects can exist without each other.
+
+📌 Example: Student and Teacher
+A teacher can teach multiple students, and a student can have multiple teachers.
+Both objects have their own lifecycle.
+class Student {
+String name;
+Student(String name) {
+this.name = name;
+}
+}
+class Teacher {
+String name;
+Teacher(String name) {
+this.name = name;
+}
+    void teaches(Student student) {
+        System.out.println(this.name + " teaches " + student.name);
+    }
+}
+public class Main {
+public static void main(String[] args) {
+Student s1 = new Student("John");
+Teacher t1 = new Teacher("Mr. Smith");
+t1.teaches(s1);
+}
+}
+Output:
+Mr. Smith teaches John
+When to Use:
+When objects are related but do not rely on each other for their existence.
+
+✅ 2. Aggregation
+Aggregation is a special form of association where one object contains references to another object, but the contained 
+object can exist independently.
+It represents a "has-a" relationship.
+It is a weak association where the contained object can live without the container.
+
+📌 Example: Department and Employee
+A department can have multiple employees, but an employee can exist without a department(e.g., an employee may be between jobs).
+import java.util.*;
+class Employee {
+String name;
+Employee(String name) {
+this.name = name;
+}
+}
+class Department {
+String deptName;
+List<Employee> employees = new ArrayList<>();
+    Department(String deptName) {
+        this.deptName = deptName;
+    }
+    void addEmployee(Employee emp) {
+        employees.add(emp);
+    }
+    void showEmployees() {
+        System.out.println("Department: " + deptName);
+        for (Employee e : employees) {
+            System.out.println("Employee: " + e.name);
+        }
+    }
+}
+
+public class Main {
+public static void main(String[] args) {
+Employee e1 = new Employee("Alice");
+Employee e2 = new Employee("Bob");
+        Department dept = new Department("IT");
+        dept.addEmployee(e1);
+        dept.addEmployee(e2);
+        dept.showEmployees();
+    }
+}
+Output:
+Department: IT
+Employee: Alice
+Employee: Bob
+When to Use:
+When objects have a parent-child relationship but the child object can survive without the parent.
+
+✅ 3. Composition
+Composition is a stronger form of aggregation where the contained object’s lifecycle is fully dependent on the container object.
+It represents a "part-of" relationship.
+If the parent object is destroyed, all its contained objects will also be destroyed.
+It is a strong association.
+📌 Example: House and Room
+A house is composed of rooms. If the house is destroyed, the rooms are destroyed too.
+class Room {
+String roomName;
+Room(String roomName) {
+this.roomName = roomName;
+}
+}
+class House {
+String houseName;
+List<Room> rooms;
+    House(String houseName) {
+        this.houseName = houseName;
+        rooms = new ArrayList<>();
+    }
+    void addRoom(String roomName) {
+        rooms.add(new Room(roomName)); // Room created within House
+    }
+    void showRooms() {
+        System.out.println("House: " + houseName);
+        for (Room room : rooms) {
+            System.out.println("Room: " + room.roomName);
+        }
+    }
+}
+public class Main {
+public static void main(String[] args) {
+House house = new House("Dream House");
+house.addRoom("Living Room");
+house.addRoom("Bedroom");
+        house.showRooms();
+    }
+}
+Output:
+House: Dream House
+Room: Living Room
+Room: Bedroom
+When to Use:
+When an object is a part of a bigger entity and cannot exist without it.
 
 Aggregation and Composition
 ==============================
@@ -373,7 +513,7 @@ Aggregation
 Aggregation is a way to achieve Association.
 Aggregation implies a relationship where the child can exist independently of the parent.
 
-For example, Bank and Employee, delete the Bank and the Employee still exist.
+For example, Bank and Employee, delete the Bank and  Employee still exist.
 
 It represents the weak relationship between objects.
 It is another way to reuse objects.
@@ -385,7 +525,6 @@ An association is said to be aggregation if both Objects can exist independently
 For example, a Team object and a Player object.
 The team contains multiple players but a player can exist without a team.
 
-
 Composition   HAS -A - RELATIONSHIP
 ====================================
 The composition is also a way to achieve Association. 
@@ -393,8 +532,7 @@ The composition represents the relationship where one object contains other obje
 Composition implies a relationship where the child cannot exist independent of the parent.
 There is a strong relationship between the containing object and the dependent object.
 It is the state where containing objects do not have an independent existence. 
-If you delete the parent object, all the child objects will be deleted automatically. 
-
+If you delete the parent object, all the child objects will be deleted automatically.
 
 The composition is the strong type of association.
 If an Object depends on another object and another object cannot exist without the owner object. 
@@ -469,16 +607,34 @@ It is a sub-class of the exception class.
 The JVM requires that the exception be caught and handled.
 Example of Checked exception- ‘File Not Found Exception’
 
-Checked exceptions must be handled either by using try and catch block or by using throws clause in the method declaration.
-If not handles properly, it will give a compile-time error.
-
-A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. 
-These exceptions cannot simply be ignored at the time of compilation; 
+tell -> A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions.
+These exceptions cannot simply be ignored at the time of compilation;
 the programmer should take care of (handle) these exceptions.
+Checked exceptions must be handled either by using try and catch block or by using throws clause/keyword in the method declaration.
+If not handles properly, it will give a compile-time error.
+Purpose: They are typically used for recoverable situations where the application might want to recover from the exception
+(e.g., file not found, database connection failure).
 
 For example, if you use FileReader class in your program to read data from a file,
 if the file specified in its constructor doesn't exist, then a FileNotFoundException occurs,
 and the compiler prompts the programmer to handle the exception.
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class CheckedExceptionExample {
+    public static void main(String[] args) {
+        try {
+            File file = new File("test.txt");
+            Scanner scanner = new Scanner(file); // This can throw FileNotFoundException
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+    }
+}
+FileNotFoundException is a checked exception, so the compiler forces us to handle it using a try-catch block.
+
 
 ClassNotFoundException ,InterruptedException ,InstantiationException ,IOException,SQLException
     IllegalAccessException ,FileNotFoundException, etc
@@ -486,14 +642,18 @@ ClassNotFoundException ,InterruptedException ,InstantiationException ,IOExceptio
 Unchecked Exceptions
 ================================
 These exceptions occur at runtime.
-The compiler doesn’t check for these kinds of exceptions.
+The compiler don't check for these kinds of exceptions.
 These kinds of exceptions can’t be caught or handled during compilation time.
 This is because the exceptions are generated due to the mistakes in the program.
 These are not a part of the ‘Exception’ class since they are runtime exceptions.
 The JVM doesn’t require the exception to be caught and handled.
 Example of Unchecked Exceptions- ‘No Such Element Exception
+=================
+Definition: Unchecked exceptions are exceptions that are not checked at compile time. They are checked at runtime.
+Purpose: They usually occur due to programming mistakes like invalid data, null references, or array index issues.
+==================
 
-An unchecked exception is an exception that occurs at the time of execution. 
+tell - An unchecked exception is an exception that occurs at the time of execution. 
 These are also called as Runtime Exceptions.
 These include programming bugs, such as logic errors or improper use of an API.
 Runtime exceptions are ignored at the time of compilation.
@@ -504,8 +664,23 @@ execution of rest of the code.
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
 an ArrayIndexOutOfBoundsException exception occurs.
 
+public class UncheckedExceptionExample {
+
+    public static void main(String[] args) {
+        String str = null;
+        System.out.println(str.length()); // This will throw NullPointerException
+    }
+}
+
+
 ArithmeticException,ClassCastException ,NullPointerException ,ArrayIndexOutOfBoundsException ,NegativeArraySizeException
     ArrayStoreException ,IllegalThreadStateException ,SecurityException, etc.
+
+✅ When to Use Checked vs Unchecked Exceptions?
+Checked Exceptions: Use when the application can recover from the exception, like when dealing with File I/O or Database
+operations.
+Unchecked Exceptions: Use when the issue is a programming bug that needs to be fixed, like null references or invalid array
+access.
 ===================================================
 
 FInal Finally Finalize:-
@@ -520,7 +695,81 @@ The finally block in java is used to put important codes such as clean up code
 e.g. closing the file or closing the connection. 
 The finally block executes whether exception rise or not and whether exception handled or not.
 
-finalise : not guaranteed to run , finalize method runs on garbage collection.
+finalize : not guaranteed to run , finalize method runs on garbage collection.
+
+===============================
+
+throw vs throws:-
+===================
+✅ 1. throw Keyword
+Purpose: The throw keyword is used to explicitly throw an exception (either checked or unchecked) during the execution of a
+program.
+Scope: It is used within a method or a block of code.
+Type: Only one exception object can be thrown at a time.
+Exception Object: Requires an exception object of the Throwable class or its subclass (e.g., Exception, Error).
+public class ThrowExample {
+
+    public static void validateAge(int age) {
+        if (age < 18) {
+            throw new IllegalArgumentException("Age must be 18 or above");
+        } else {
+            System.out.println("Access granted.");
+        }
+    }
+
+    public static void main(String[] args) {
+        validateAge(16); // This will throw an exception
+    }
+}
+🔎 Explanation:
+The throw keyword is used to manually throw an IllegalArgumentException.
+Since it's an unchecked exception, it doesn't need to be declared using throws.
+
+throws Keyword
+Purpose: The throws keyword is used to declare exceptions that a method might throw. It is a part of the method signature.
+Scope: It is used in the method declaration.
+Type: Multiple exceptions can be declared using commas.
+Exception Handling: It informs the caller of the method that it should handle or propagate the exception.
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ThrowsExample {
+
+    // Method declares that it might throw IOException
+    public static void readFile(String filePath) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        System.out.println(reader.readLine());
+        reader.close();
+    }
+
+    public static void main(String[] args) {
+        try {
+            readFile("test.txt"); // The caller must handle IOException
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+🔎 Explanation:
+The throws keyword is used to indicate that the readFile() method may throw an IOException.
+The caller (main method) must handle or propagate the exception using a try-catch block.
+
+🔎 Key Differences Between throw and throws
+Aspect	                            throw	                                        throws
+Purpose	         Used to throw an exception explicitly	           Used to declare exceptions that a method can throw
+Location	          Inside a method or block	                   In the method signature (next to the method name)
+Exception Type	Only one exception object can be thrown	            Multiple exceptions can be declared using commas
+Exception Object	Requires an instance of Throwable or subclass   	Does not throw an exception, only declares it
+Handling	Typically followed by a try-catch block or propagated	     Caller needs to handle the declared exceptions
+Example Use Case	Validating user input or custom exceptions	  File operations, database connectivity, external resources
+✅ When to Use throw vs throws?
+Use throw when you want to manually throw an exception based on a specific condition, like invalid input or business logic
+errors.
+Use throws when a method is likely to throw a checked exception (like IOException or SQLException) and you want to inform
+the caller to handle it.
+
 
 //Inner class :-
 ====================
@@ -567,9 +816,61 @@ These points makes this class as immutable.
 Wrapper class:-
 ====================
 A Wrapper class is a class whose object wraps or contains primitive data types. 
-When we create an object to a wrapper class, it contains a field and in this field, 
-we can store primitive data types. 
+When we create an object to a wrapper class, it contains a field and in this field, we can store primitive data types. 
 In other words, we can wrap a primitive value into a wrapper class object.
+
+Wrapper Class in Java
+A Wrapper Class in Java is a class that encapsulates (wraps) a primitive data type into an object.
+Java provides a wrapper class for each of its eight primitive data types:
+byte → Byte short → Short
+int → Integer long → Long
+float → Float double → Double
+char → Character boolean → Boolean
+
+Why are Wrapper Classes Used?
+Object Representation of Primitives:
+Java works with objects in collections and frameworks like ArrayList, HashMap, and HashSet, which cannot store primitive
+data types. Wrapper classes help convert primitive data types into objects using Autoboxing.
+
+Utility Methods:
+Wrapper classes provide useful methods for parsing, comparing, and converting data.
+Example: Integer.parseInt(), Double.valueOf(), Character.isDigit().
+
+Support for Generics:
+Generics in Java only support objects, not primitive data types.
+Wrapper classes allow the use of primitives within generic data structures.
+
+Data Conversion:
+Converting strings to numeric values using wrapper class methods like Integer.parseInt("123").
+
+Null Support:
+Unlike primitives, wrapper objects can hold a null value, making them suitable for representing the absence of a value.
+
+import java.util.ArrayList;
+public class WrapperExample {
+public static void main(String[] args) {
+// Autoboxing: Primitive to Wrapper
+int num = 10;
+Integer wrappedNum = num;  // Autoboxing
+        // Unboxing: Wrapper to Primitive
+        int primitiveNum = wrappedNum;  // Unboxing
+        // Using Wrapper class methods
+        String str = "123";
+        int parsedNum = Integer.parseInt(str);
+        System.out.println("Parsed Number: " + parsedNum);
+        // Using Wrapper in Collections
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(5);  // Autoboxing
+        list.add(10);
+        System.out.println("ArrayList: " + list);
+    }
+}
+Key Points to Remember
+Wrapper classes are immutable (cannot be changed once created).
+They are part of the java.lang package.
+Autoboxing and unboxing make working with wrapper classes seamless.
+Using wrapper classes may lead to increased memory consumption compared to primitives.
+
 
 solid/
 executorService
@@ -611,3 +912,156 @@ An InputStreamReader is a bridge from byte streams to character streams:
 It reads bytes and decodes them into characters using a specified charset. 
 The charset that it uses may be specified by name or may be given explicitly,
 or the platform's default charset may be accepted.
+
+
+✅ Understanding Object Slicing with Upcasting
+Upcasting
+Upcasting is the process of converting a derived class object to a base class reference.
+This is safe because the derived class object "is a" base class object (following the IS-A relationship).
+
+What is Downcasting?
+Downcasting is the process of converting a reference of a parent class (superclass) to a reference of its child class 
+(subclass). It allows access to the specific methods and properties of the child class, which are not accessible using 
+the parent class reference.
+Downcasting is typically done manually using type casting in Java.
+It is only possible when the object being referred to is actually an instance of the child class.
+
+✅ Why is Downcasting Required?
+Downcasting is generally required when:
+Accessing Child Class Methods and Properties:
+After upcasting (when a child object is referred to using a parent class reference), only the parent class methods are 
+accessible. 
+Downcasting is used to access the specialized methods of the child class.
+
+Performing Type-Specific Operations:
+If you have a collection of parent class objects, but need to invoke child class methods based on the actual type,
+downcasting is necessary.
+
+Using Polymorphism:
+During runtime, when the actual object type is a subclass, downcasting ensures the correct method or behavior is accessed.
+
+class Animal {
+void sound() {
+System.out.println("Animal makes a sound");
+}
+}
+class Dog extends Animal {
+void bark() {
+System.out.println("Dog barks");
+}
+}
+public class Main {
+public static void main(String[] args) {
+Animal animal = new Dog(); // Upcasting (Child class object referred by Parent class reference)
+animal.sound();  // Calls Animal's method
+                                                          //Downcasting to access Dog specific methods
+        if (animal instanceof Dog) { // Always check before downcasting
+            Dog dog = (Dog) animal; // Downcasting
+            dog.bark(); // Calls Dog's specific method
+        } else {
+            System.out.println("Downcasting is not possible.");
+        }
+    }
+}
+output- Animal makes a sound
+Dog barks
+
+If the object is not actually of the type being casted to, Java will throw a ClassCastException.
+Always ensure that the object is compatible before downcasting.
+
+✅ Conclusion
+Downcasting is used to convert a parent class reference back to its original child class type to access child-specific
+methods and properties.
+It should be done carefully using the instanceof operator to avoid runtime exceptions.
+It is typically used in scenarios involving polymorphism or collections of objects with mixed types.
+
+Q- Explain with the help of example. What are problems with multiple inheritance?
+Multiple Inheritance means a class can inherit from more than one parent class, acquiring the properties and behaviors of
+both. In Java, multiple inheritance using classes is not supported to avoid complexity and ambiguity.
+However, multiple inheritance using interfaces is allowed.
+The main reason Java doesn't support multiple inheritance using classes is to prevent ambiguity and conflicts that arise 
+when two parent classes have methods with the same name. This is commonly referred to as the "Diamond Problem."
+📌 Example of Diamond Problem (Multiple Inheritance Issue)
+Consider a scenario where:
+Class A has a method called display().
+Classes B and C inherit from Class A and override the display() method.
+Class D inherits from both B and C.
+Now, if D tries to call the display() method, it will lead to confusion — which version of display() should be called?
+This is the Diamond Problem.
+class A {
+void display() {
+System.out.println("Display from Class A");
+}
+}
+class B extends A {
+void display() {
+System.out.println("Display from Class B");
+}
+}
+class C extends A {
+void display() {
+System.out.println("Display from Class C");
+}
+}
+// Class D trying to inherit from both B and C // This is not allowed in Java
+/
+class D extends B, C {
+void show() {
+display(); // Ambiguity - which display() to call?
+}
+}
+*/
+public class Main {
+public static void main(String[] args) {
+// Not possible in Java
+}
+}
+Java does not support multiple inheritance using classes to prevent the diamond problem.
+However, Java supports multiple inheritance using interfaces because interfaces do not store any state and only contain
+abstract methods (until Java 8 introduced default methods).
+
+📌 Multiple Inheritance Using Interfaces (Supported in Java)
+Since interfaces only provide method signatures (not implementation), Java allows multiple inheritance using interfaces.
+If there is any conflict (e.g., same default method in multiple interfaces), it can be resolved using explicit overriding.
+Example of Multiple Inheritance Using Interfaces
+interface InterfaceA {
+default void display() {
+System.out.println("Display from InterfaceA");
+}
+}
+interface InterfaceB {
+default void display() {
+System.out.println("Display from InterfaceB");
+}
+}
+class ImplementingClass implements InterfaceA, InterfaceB {
+    // Resolve ambiguity using explicit overriding
+    @Override
+    public void display() {
+        System.out.println("Resolving ambiguity using InterfaceA");
+        InterfaceA.super.display(); // Call InterfaceA's method
+    }
+}
+public class Main {
+public static void main(String[] args) {
+ImplementingClass obj = new ImplementingClass();
+obj.display();
+}
+}
+Output:
+Resolving ambiguity using InterfaceA
+Display from InterfaceA
+Explanation:
+InterfaceA.super.display() is used to explicitly call display() from InterfaceA.
+This approach allows Java to handle multiple inheritance safely without ambiguity.
+
+✅ Problems with Multiple Inheritance (If It Were Allowed Using Classes)
+Diamond Problem -As explained, the diamond problem leads to ambiguity in method calls.
+Increased Complexity -Maintaining and understanding code becomes difficult when multiple parent classes have similar methods.
+Data Management Issues -If multiple parent classes contain similar fields, it leads to data inconsistency and conflicts.
+Constructor Chain Issues -Calling constructors from multiple parent classes can be problematic and lead to unpredictable behavior.
+Performance Overhead -More complex inheritance structures would result in increased memory consumption and slower performance.
+
+
+Q-✅ Which are the different types of design pattern? Explain singleton design pattern. 
+-> 

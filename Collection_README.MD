@@ -162,7 +162,7 @@ If we want logical equality (not identity ,memory address based) then we need to
 for eg "dog" new String("dog") , not same by == but are logically same ,
 p1=new Person("Jaanhvi") p2=new Person("Jaanhvi").
 
-for new objects to be equal which are logically same we have to overrride equals.
+for new objects to be equal which are logically same we have to override equals.
 
 Also if in a class we override equals but not hashcode then it will not behave correctly when used in a HashMap,HashSet.
 map.put(new Person("Jaanhvi"),"hachi")       =============

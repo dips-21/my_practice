@@ -378,7 +378,7 @@ To satisfy First normal form, each column of a table must have a single value. C
 of values or nested records are not allowed.
 In the initial table, Subject contains a set of subject values, meaning it does not comply.
 
-s2NF all non key columns except should depend on entire key
+2NF all non key columns except should depend on entire key
 3NF no transitive dependencies from non key columns to other cols
 https://stackoverflow.com/questions/723998/what-are-database-normal-forms-and-can-you-give-examples
 

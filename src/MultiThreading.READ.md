@@ -251,3 +251,20 @@ If instead the 4 subtasks were executed by 4 threads running on each their own C
 execution would have been fully parallel. However, it is not always easy to break a task into exactly as many subtasks 
 as the number of CPUs available. Often, it is easier to break a task into a number of subtasks which fit naturally with 
 the task at hand, and then let the thread scheduler take care of distributing the threads among the available CPUs. 
+
+
+DeadLock :-
+====================================
+✅ What is a Deadlock?
+A Deadlock in Java occurs when two or more threads are permanently blocked, each waiting for the other to release a resource.
+This results in a cyclic dependency where no thread can proceed, causing the program to freeze or hang.
+Example of Deadlock Scenario
+Thread-1 locks Resource A and waits for Resource B.
+Thread-2 locks Resource B and waits for Resource A.
+Since both threads are waiting indefinitely, a deadlock occurs.
+
+🔎 Conclusion
+Deadlock occurs when threads are stuck waiting for each other to release resources.
+You can detect deadlocks using thread dumps, tools like VisualVM, or programmatic detection with ThreadMXBean.
+Prevent deadlocks using consistent lock ordering, try-lock with timeout, and minimizing nested locks.
+

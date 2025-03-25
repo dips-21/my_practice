@@ -1,0 +1,325 @@
+Why do you need Selenium Webdriver Wait commands?
+When a web page loads on a browser, various web elements (buttons, links, images) that someone wants to interact
+with may load at various intervals.
+
+In automated Selenium testing, this causes some trouble when identifying certain elements.
+ If an element is not located, then the “ElementNotVisibleException” appears.
+  Selenium Wait commands help resolve this issue.
+
+Wait commands are essential for ensuring the stability, reliability, and effectiveness of automated tests in Selenium,
+ especially when dealing with dynamic web applications.
+
+You need Selenium Webdriver Wait Commands for the following reasons:
+
+Dynamic Content Handling: Many web applications load elements dynamically, meaning elements may not be
+ immediately available when the script tries to interact with them.
+ Wait commands help ensure that the script only proceeds once the necessary elements are present.
+
+Reducing Flakiness: Without appropriate waits, tests may fail sporadically due to timing issues, leading to unreliable
+test results. Wait commands help stabilize tests by allowing the application time to load completely.
+
+Improved Test Reliability: By waiting for specific conditions (e.g., visibility of elements, completion of actions),
+ tests become more robust and less prone to errors caused by slow loading times or unexpected delays.
+
+Error Handling: Using wait commands can prevent exceptions like NoSuchElementException or ElementNotInteractableException
+ by ensuring that the script only interacts with elements that are ready.
+
+Performance Optimization: Implicit waits can help reduce the overall runtime of tests by minimizing unnecessary polling.
+Explicit waits focus on specific conditions, which can lead to faster and more efficient test execution.
+
+Realistic User Simulation: Wait commands mimic real user behavior more closely, as users naturally wait for elements
+to load or respond. This leads to more accurate testing of the application’s performance and user experience.
+
+
+Selenium WebDriver provides three commands to implement waits in tests.
+=================================================
+Implicit Wait
+Explicit Wait
+Fluent Wait
+
+
+Implicit Wait in Selenium
+==================
+Implicit wait makes WebDriver to wait for a specified amount of time when trying to locate an element before throwing
+a NoSuchElementException. When implicit wait is set, the WebDriver will wait for a defined period, allowing for
+elements to load dynamically.
+
+Implicit Wait setting is a Global setting and applies to all elements in the script, and it remains in effect for
+the duration of the WebDriver instance.
+Once the command is run, Implicit Wait remains for the entire duration for which the browser is open.
+It’s default setting is 0, and the specific wait time needs to be set .
+However, implicit wait increases test script execution time. It makes each command wait for the defined time
+before resuming test execution. If the application responds normally, the implicit wait can slow down the
+execution of test scripts.
+
+by the following protocol.
+To add implicit waits in test scripts, import the following package.
+
+import java.util.concurrent.TimeUnit;
+Implicit Wait Syntax
+
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+Add the above code into the test script. It sets an implicit wait after the instantiation of WebDriver instance variable.
+
+Example of Implicit Wait Command
+Package waitExample;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class WaitTest {
+
+private WebDriver driver;
+private String baseUrl;
+private WebElement element;
+
+@BeforeMethod
+public void setUp() throws Exception {
+driver = new FirefoxDriver();
+baseUrl = "http://www.google.com";
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+}
+@Test
+public void testUntitled() throws Exception {
+driver.get(baseUrl);
+element = driver.findElement(By.id("lst-ib"));
+element.sendKeys("Selenium WebDriver Interview questions");
+element.sendKeys(Keys.RETURN);
+List<WebElement> list = driver.findElements(By.className("_Rm"));
+System.out.println(list.size());
+}
+@AfterMethod
+public void tearDown() throws Exception {
+driver.quit();
+}}
+
+Explicit Wait in Selenium
+=========================================
+Explicit wait in Selenium is a synchronization mechanism that allows the WebDriver to wait for a specific condition
+ to occur before proceeding with the next step in the code. Unlike Implicit waits, which apply globally,
+  explicit waits are applied only to specific elements or conditions, making them more flexible and precise.
+
+Setting Explicit Wait is important in cases where there are certain elements that naturally take more time to load.
+ If one sets an implicit wait command, then the browser will wait for the same time frame before loading every web
+ element. This causes an unnecessary delay in executing the test script.
+Explicit wait is more intelligent, but can only be applied for specified elements.
+
+However, it is an improvement on implicit wait since it allows the program to pause for dynamically loaded Ajax elements.
+
+In order to declare explicit wait, one has to use ExpectedConditions. The following Expected Conditions can be used
+in Explicit Wait.
+
+alertIsPresent()
+elementSelectionStateToBe()
+elementToBeClickable()
+elementToBeSelected()
+frameToBeAvaliableAndSwitchToIt()
+invisibilityOfTheElementLocated()
+invisibilityOfElementWithText()
+presenceOfAllElementsLocatedBy()
+presenceOfElementLocated()
+textToBePresentInElement()
+textToBePresentInElementLocated()
+textToBePresentInElementValue()
+titleIs()
+titleContains()
+visibilityOf()
+visibilityOfAllElements()
+visibilityOfAllElementsLocatedBy()
+visibilityOfElementLocated()
+                            To use Explicit Wait in test scripts, import the following packages into the script.
+
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
+Then, Initialize A Wait Object using WebDriverWait Class.
+
+Explicit Wait Syntax
+
+WebDriverWait wait = new WebDriverWait(driver,30);
+
+Here, the reference variable is named <wait> for the <WebDriverWait> class. It is instantiated using the WebDriver
+instance. The maximum wait time must be set for the execution to layoff. Note that the wait time is measured in seconds.
+
+Example of Explicit Wait Command
+In the following example, the test script is for logging into “gmail.com” with a username and password. After a
+successful login, the code waits for the “compose” button to be available on the home page. Here, you have to wait
+until the element is visible (Compose Button in this case) using the explicit wait command. Finally, it clicks on
+the button.
+
+package waitExample;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+public class ExpectedConditionExample {
+// created reference variable for WebDriver
+WebDriver driver;
+
+@BeforeMethod
+public void setup() throws InterruptedException {
+
+// initializing driver variable using FirefoxDriver
+driver=new FirefoxDriver();
+// launching gmail.com on the browser
+driver.get("https://gmail.com");
+// maximized the browser window
+driver.manage().window().maximize();
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+}
+
+@Test
+public void test() throws InterruptedException {
+// saving the GUI element reference into a "element" variable of WebElement type
+WebElement element = driver.findElement(By.id("Email"));
+// entering username
+element.sendKeys("dummy@gmail.com");
+element.sendKeys(Keys.RETURN);
+// entering password
+driver.findElement(By.id("Passwd")).sendKeys("password");
+// clicking signin button
+driver.findElement(By.id("signIn")).click();
+// explicit wait - to wait for the compose button to be click-able
+WebDriverWait wait = new WebDriverWait(driver,30);
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'COMPOSE')]")));
+// click on the compose button as soon as the "compose" button is visible
+driver.findElement(By.xpath("//div[contains(text(),'COMPOSE')]")).click();
+}
+@AfterMethod
+public void teardown() {
+// closes all the browser windows opened by web driver
+driver.quit();
+}}
+The above code instructs Selenium WebDriver to wait for 30 seconds before throwing a TimeoutException. If it finds
+the element before 30 seconds, then it will return immediately. After that, it will click on the “Compose” button.
+In this case, the program will not wait for the entire 30 seconds, thus saving time and executing the script faster.
+
+
+Fluent Wait in Selenium
+========================
+Fluent Wait in Selenium marks the maximum amount of time for Selenium WebDriver to wait for a certain condition
+(web element) becomes visible. It also defines how frequently WebDriver will check if the condition appears before
+throwing the “ElementNotVisibleException”.
+
+*Fluent Wait looks for a web element repeatedly at regular intervals until timeout happens or until
+the object is found.
+Fluent Wait commands are most useful when interacting with web elements that can take longer durations to load.
+This is something that often occurs in Ajax applications.
+
+While using Fluent Wait, it is possible to set a default polling period as needed. The user can configure the wait
+to ignore any exceptions during the polling period.
+
+Fluent waits are also sometimes called smart waits because they don’t wait out the entire duration defined in the code.
+Instead, the test continues to execute as soon as the element is detected – as soon as the condition specified in
+.until(YourCondition) method becomes true.
+
+Fluent Wait Syntax
+Wait wait = new FluentWait(WebDriver reference)
+.withTimeout(timeout, SECONDS)
+.pollingEvery(timeout, SECONDS)
+.ignoring(Exception.class);
+
+WebElement foo=wait.until(new Function<WebDriver, WebElement>() {
+public WebElement apply(WebDriver driver) {
+return driver.findElement(By.id("foo"));
+}
+});
+Example of Fluent Wait Command
+//Declare and initialise a fluent wait
+FluentWait wait = new FluentWait(driver);
+//Specify the timout of the wait
+wait.withTimeout(5000, TimeUnit.MILLISECONDS);
+//Sepcify polling time
+wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+//Specify what exceptions to ignore
+wait.ignoring(NoSuchElementException.class)
+
+//This is how we specify the condition to wait on.
+//This is what we will explore more in this chapter
+
+wait.until(ExpectedConditions.alertIsPresent());
+This command operates with two primary parameters: timeout value and polling frequency. The above code defines the time
+out value as 5 seconds and polling frequency as 0.25 seconds. It directs WebDriver to wait for no more than 5
+seconds to verify a specific condition. If the condition occurs during those 5 seconds, it will execute the next step
+in the test script. If not, it will return “ElementNotVisibleException”.
+
+Run Selenium Tests on Real Devices
+A few other associated commands are:
+
+PageLoadTimeout Command
+This command establishes the time WebDriver must wait for a page to completely load before triggering an error.
+In case the timeout set is negative, the page load time can be indefinite.
+
+Syntax:
+driver.manage().timeouts().pageLoadTimeout(100, SECONDS);
+
+SetScriptTimeout Command
+This command establishes the time WebDriver will wait for an asynchronous script to finish executing before triggering
+an error. Like the previous command, the script will run indefinitely if the timeout is set to a negative value.
+
+Syntax:
+driver.manage().timeouts().setScriptTimeout(100,SECONDS);
+
+Sleep Command
+Thread Sleep command is rarely used because it is quite ineffective. It causes WebDriver to wait for a specific time
+(and does not let it run faster even if the specified condition is met). In fact, Selenium wait commands are
+considered the smarter, more effective alternative to the Sleep command.
+
+Syntax:
+thread.sleep(1000);
+
+=====================================================================
+*Difference between Implicit and Explicit Wait Commands in Selenium
+=====================================================================
+The major difference between implicit and explicit wait is that:
+Implicit wait is applicable to all the elements in the test script, Explicit wait applies to the specific element only.
+
+Implicit Wait in Selenium	                                       Explicit Wait in Selenium
+===============================                             ===========================================
+Applies to all elements in a test script.	            Applies only to specific elements as intended by the user.
+No need to specify “ExpectedConditions” on the element to be located
+                                                  Must always specify “ExpectedConditions” on the element to be located
+Most effective when used in a test case in which the elements are located with the time frame specified in implicit wait
+Most effective when used when the elements are taking a long time to load. Also useful for verifying property of the
+element, such as visibilityOfElementLocated, elementToBeClickable, elementToBeSelected
+
+=========================
+Waits:
+Implicit Waits: Set a global time for the driver to wait for elements to load.
+Explicit Waits: Wait for a specific condition to be met before interacting with an element (e.g., element to be visible, clickable).
+Fluent Waits: Allow for more flexible wait configurations with timeouts and polling intervals.
+=========================
+
+Why use BrowserStack Automate for Selenium Tests?
+Here’s why you should use BrowserStack Automate to run Selenium Tests:
+
+Parallel Testing: BrowserStack Automate allows you to run tests simultaneously on various devices and browsers,
+reducing execution time and providing faster feedback.
+
+Real Devices and Browsers: Testing on actual devices and browsers gives a true picture of your app’s performance,
+unlike emulators. You can access the latest devices without needing to purchase them.
+
+Dedicated Dashboard: Automate provides a dashboard to monitor and manage your tests.
+It displays test results (Pass/Fail/Pending), device and browser details, test duration, screenshots, and more.
+
+Custom Reports with Artifacts: Create detailed and customizable reports that include test results, device and browser
+configurations, video recordings, and screenshots.
+
+Seamless CI/CD Integration: Easily integrate with CI/CD tools like Jenkins, TeamCity, and TravisCI, ensuring faster
+and more reliable application delivery.
+
+
+
+

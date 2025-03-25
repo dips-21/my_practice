@@ -1,0 +1,49 @@
+DDD : think about domain objects ,ie solve business case using software
+
+User        Worker     CollectionRequest     Hub
+Admin
+
+Hub can have a admin (admin_id foregin key in hub table )
+(Using host part ,request reaches the server
+Operating system uses port to send the data to correct process (i.e tomcat)
+Flow : Tomcat server listening to incoming connections
+Client side : DNS lookup , get IP address of server using domain name
+
+All IP routing is based on IP address not domain names  //localhost
+browser->OS---->DNS  (IP address ,usually of load balancer)
+
+DNS has load balancer IPs ,browser sends request to load balancer
+browser  => load balancer || fb server1| fb server 2| .....fb server100||
+round robin ,Least connection, (load balancing )
+ it established a TCP connection to the server (browser has a connection pool ,after idle time they will be closed)
+  (For eg browsing facebook will not open new connections everytime ,but opening a new website like Gmail will
+create new tcp connection to send http request over it )
+
+Multiple Http requests are sent over a tcp connection (Http is stateless)
+(state in database ,in memory httpsession )
+
+Http request handled by web server and through Servlet api calls
+Spring DispatcherServlet
+Spring servlet calls Filters matching the url
+for eg Authentication Filter ,Logging filter
+RequestMappings are stored on start up (for eg a map of url to class,method)
+Using reflection Spring will call controller method
+de-Serialisation when reading request data (for eg User json in request body
+createUSer (@RequestBody User u))
+Service Repository pattern
+//Separation of concerns
+
+Controller : Entry point for http requests in our code and creating response object. (Http request,response )
+Service : business rules ,transactions,logic (for eg allow N free requests ,
+allocate randomly to workers or based on worker expertise)
+
+Declarative transaction management using @Transactional
+
+Repository : fetch ,update db
+
+UserRepoistory //add update delete
+WorkerRepo
+Coll
+Hub
+Service
+

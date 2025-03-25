@@ -1,0 +1,139 @@
+Hierarchy of Classes & Interfaces of WebDriver Interface in Selenium WebDriver
+
+This post is updated with Selenium 4 changes in WebDriver hierarchy.
+
+There are many important classes and interfaces in Selenium WebDriver. In this post we will see hierarchy of classes and interface related to WebDriver interface.
+
+Understanding “Why” of a line of code is very much important and if you copy code from others without understanding, that is more harmful. I see people will downcast a WebDriver reference to TakesScreenshot type to capture a screen shot and downcast a WebDriver reference to JavascriptExecutor to execute a Javascript query but not able to explain the reason behind it. So in this post, I will try to explain the hierarchy of WebDriver so that you can easily understand when to up cast and downcast or if it is needed at all.
+
+Let’s start with some basic concepts of java :-
+
+We can not create an object of interface, i.e. we can not instantiate an interface.
+Interface has abstract methods means they do not have body, only declaration. Note – From JDK 1.8 there are many changes in Interface. WebDriver interface has no static or default methods as of now.
+When we create an object of a class and store it or assign it a reference of its super class or interface then it is called Up casting. We can not do reverse i.e a child type reference can not hold super type object.
+Below is a Java Program which demonstrates behavior when up casting is done and why need to down cast.
+
+Java Program
+package SpecialConcepts;
+
+class SuperClass1 {
+	public void super_print() {
+		System.out.println("Super Print");
+	}
+
+	public void super_show() {
+		System.out.println("Super Show");
+	}
+}
+
+public class SubClass1 extends SuperClass1 {
+
+	public void sub_print() {
+		System.out.println("Sub Print");
+	}
+
+	public void sub_show() {
+		System.out.println("Sub Show");
+	}
+
+	public static void main(String[] args) {
+
+		/* Child class object up cast to super class reference. Using super class reference , sub class object can not use methods
+		 of sub class despite of being object of that class. Up casting restricts access or visibility of methods downwards */
+		SuperClass1 superClass1 = new SubClass1();
+		superClass1.super_print();
+		superClass1.super_show();
+
+		/* To access sub class methods, super class reference needs to be downcast to sub class reference. Note here we can down cast
+		to a up cast reference only. */
+		SubClass1 subClass1 = (SubClass1)superClass1;
+		subClass1.sub_print();
+		subClass1.sub_show();
+
+
+	}
+}
+Output
+Super Print
+Super Show
+Sub Print
+Sub Show
+There is an important point. If a super class method is overridden in sub class then up cast reference will use overridden method without downcast.
+
+package SpecialConcepts;
+
+class SuperClass2 {
+ public void print() {
+ System.out.println("Super Print");
+ }
+}
+
+public class SubClass2 extends SuperClass2 {
+
+ public void print() {
+ System.out.println("Sub Print");
+ }
+
+ public static void main(String[] args) {
+ SuperClass2 superClass1 = new SubClass2();
+ superClass1.print();
+ }
+}
+Output
+Sub Print
+WebDriver Hierarchy Diagram
+
+Let’s understand above diagram in details:
+
+Interface SearchContext
+SearchContext is the top most interface in WebDriver hierarchy. This interface consists of two methods findElement​(By by) and findElements(By by). This interface is extended by both WebDriver and WebElement interfaces.
+
+Interface WebDriver
+WebDriver is an interface which extends SearchContext interface. As per official document :- WebDriver is a remote control interface that enables introspection and control of user agents (browsers). The methods in this interface fall into three categories:
+
+Control of the browser itself
+Selection of WebElement and WebElements
+Debugging aids
+Currently, you will need to instantiate implementations of this interface directly. It is hoped that you write your tests against this interface so that you may “swap in” a more fully featured browser when there is a requirement for one ( i.e. Up cast to WebDriver). Most implementations of this interface follow W3C WebDriver specification
+
+WebDriver interface has multiple inner interfaces which contains methods related o specific events.
+
+ImeHandler – An interface for managing input methods.
+Navigation – An interface for provide mechanism to access browser history.
+Options – An interface for managing stuff you would do in a browser menu
+TargetLocator – Used to locate a given frame or window.
+Timeouts – An interface for managing timeout behavior for WebDriver instances.
+Window – An interface to manage browser window actions like maximize, minimize etc.
+Class RemoteWebDriver
+RemoteWebDriver is the fully implemented class i.e. non -abstract class which implements WebDriver interface. All implementations of WebDriver that communicate with the browser, or a RemoteWebDriver server shall use a common wire protocol. This wire protocol defines a RESTful web service using JSON over HTTP.
+
+Note here that RemoteWebDriver has implementation to call RESTful Web Services of Selenium WebDriver which hits to respective browser server. It has no mechanism to perform any browser specific action.
+
+It also implements other interfaces. JavascriptExecutor and TakesScreenshot are one of them. Implementing JavascriptExecutor ensures that driver can execute JavaScript commands by providing access to the mechanism to do so. Implementing TakesScreenshot ensures that a driver that can capture a screenshot and store it in different ways.
+
+Browser’s specific classes
+Then we have browser specific driver classes like ChromeDriver(), EdgeDriver(), FirefoxDriver() etc in hierarchy. These classes provides control on a browser running on the local machine. These class are provided as a convenience for easily testing the browsers. The control serves (which is started every time when we launch a browser ) which each instance communicates with will live and die with the instance.
+
+So now we have a fair idea about hierarchy and basic understanding of each level in hierarchy. Let’s understand some important lines of code which we use always but may not know reason behind that.
+
+WebDriver driver = new ChromeDriver();
+TakesScreenshot takesScreenshot = (TakesScreenshot)driver;
+File screenshot = takesScreenshot.getScreenshotAs(OutputType.FILE);
+Why did we down cast WebDriver reference to TakesScreenshot?
+
+Because earlier ChromeDriver() object was hold by WebDriver type i.e. up cast. TakesScreenshot interface comes down in WebDriver hierarchy. As we have seen in above program that a up cast object has no visibility of non-overridden method of sub class. To capture a screenshot we need to use getScreenshoAs() method of TakesScreenshot interface. So to use method we must need to down cast to either RemoteWebdriver or TakesScreenshot interface.
+
+WebDriver driver = new ChromeDriver();
+RemoteWebDriver remoteWebDriver  = (RemoteWebDriver)driver;
+File screenshot1 = remoteWebDriver.getScreenshotAs(OutputType.FILE);
+Similar concept applies when we need to execute any Javascript command then we need to downcast to JavascripExecutor or RemoteWebDriver.
+
+WebDriver driver = new ChromeDriver();
+JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
+javascriptExecutor.executeScript("arguments[0].click()",driver.findElement(By.id("Some Id")));
+Remember here if we do not up cast , we no need to down cast.
+
+ChromeDriver chromeDriver = new ChromeDriver();
+File screenshot = chromeDriver.getScreenshotAs(OutputType.FILE);
+chromeDriver.executeScript("arguments[0].click()",driver.findElement(By.id("Some Id")));
+You can download/clone above sample project from here.

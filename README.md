@@ -251,16 +251,39 @@ It will call equals from correct man class.
 
 Interface:-
 ==================================================
+Availability of methods: Only abstract methods are available in interfaces, whereas non-abstract methods can be 
+present along with abstract methods in abstract classes.
+Variable types: Static and final variables can only be declared in the case of interfaces, whereas abstract classes 
+can also have non-static and non-final variables.
+Inheritance: Multiple inheritances are facilitated by interfaces, whereas abstract classes do not promote multiple
+inheritances.
+Data member accessibility: By default, the class data members of interfaces are of the public- type. Conversely, 
+the class members for an abstract class can be protected or private also.
+Implementation: With the help of an abstract class, the implementation of an interface is easily possible. However,
+the converse is not true;
+
+Abstract Class
+Abstract and non-abstract methods can both be found in an abstract class.
+Non-final variables can be present in abstract classes.
+It can also contain default and static methods starting with Java 8.
+Variables in an abstract class can be final, non-final, static, or non-static.
+The interface can be implemented using an abstract class.
+The keyword "extends" can be used to extend an abstract class.
+
+Interface ->
+An interface can only contain abstract methods not method body..
+Variables declared in a Java interface are by default final variables.
+Only static and final variables are used in the interface.
+An abstract class cannot be implemented using an interface.
+*It is mechanism to achieve full abstraction.
+* It contains a declaration part only.
+
 
 Interface is a type defines contract what behaviour it must have to do of that type.
 It defines what but not how methods do.
 eg. to be human you have to implements all methods in interface like walk.talk,
 It provides loose coupling.
 Interface can extend interface.
-
- *It is mechanism to achieve full abstraction.
- *There can be only abstract methods in the java interface not method body.
- * It contains a declaration part only.
 
 Multiple inheritance can be achieved using interface.
 It doesn’t contain a constructor.
@@ -765,10 +788,10 @@ Exception Object	Requires an instance of Throwable or subclass   	Does not throw
 Handling	Typically followed by a try-catch block or propagated	     Caller needs to handle the declared exceptions
 Example Use Case	Validating user input or custom exceptions	  File operations, database connectivity, external resources
 ✅ When to Use throw vs throws?
-Use throw when you want to manually throw an exception based on a specific condition, like invalid input or business logic
-errors.
-Use throws when a method is likely to throw a checked exception (like IOException or SQLException) and you want to inform
-the caller to handle it.
+Use throw when you want to manually throw an exception based on a specific condition, like invalid input or business
+logic errors.
+Use throws when a method is likely to throw a checked exception (like IOException or SQLException) and you want to
+inform the caller to handle it.
 
 
 //Inner class :-

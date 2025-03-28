@@ -490,6 +490,14 @@ malfunction and not be displayed. A valid URL will have a 200 HTTP status code. 
 invalid HTTP requests have 400 and 500 status codes.
  The 400 status code refers to a client-side error, while the 500 status code usually points to a server response error.
 
+To find broken links in Selenium, follow the instructions below.
+
+Using the <a> (anchor) tag, collect all of the links on a web page.
+For each link, send an HTTP request.
+Make that the HTTP response code is correct.
+Based on the HTTP response code, determine whether the link is genuine or not.
+Repeat the procedure for all of the links that were captured in the first step.
+
 
 73) How to find more then one web element in the list?
 -> to store the list ->             List<WebElement> eleList = driver.findElements(By.xpath("xpath"));

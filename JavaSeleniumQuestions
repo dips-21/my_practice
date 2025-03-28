@@ -41,11 +41,22 @@ Page Object Model (POM) is a design pattern used in Selenium automation testing 
 of web pages. In POM, each web page is represented as a Java class.
 All the elements (WebElements) and their corresponding actions (methods) are encapsulated in these classes.
 It makes the code more reusable, maintainable, and readable.
+
 ✅ Advantages of Page Object Model
 Reduces Code Duplication: Centralized location for web elements.
 Enhances Maintainability: Any UI changes require updates only in one place.
 Improves Readability: Clear separation between test logic and UI interaction.
 Reusability: Methods from Page classes can be reused in multiple test cases.
+
+Easy Maintenance: POM is useful when there is a change in a UI element or a change in action.
+An example would be: a drop-down menu is changed to a radio button. In this case, POM helps to identify the page or
+screen to be modified. As every screen will have different Java files, this identification is necessary to make
+ changes in the right files. This makes test cases easy to maintain and reduces errors.
+
+ Readability and Reliability of Scripts: When all screens have independent java files, one can quickly identify
+ actions performed on a particular screen by navigating through the java file. If a change must be made to a specific
+ code section, it can be efficiently done without affecting other files.
+
 ✅ POM Architecture
 The basic structure of a Page Object Model consists of:
 Page Classes → Contains WebElements and page-specific methods.
@@ -53,28 +64,16 @@ Test Classes → Contains the actual test logic using TestNG or JUnit.
 Base Class → Common methods like setup, teardown, browser initialization.
 Utility Class (Optional) → Contains generic reusable methods like handling alerts, waits, or taking screenshots.
 
--> What is Page Object Model in Selenium?
-   Page Object Model, also known as POM, is a design pattern in Selenium that creates an object repository for storing
-   all web elements. It helps reduce code duplication and improves test case maintenance.
-   In Page Object Model, consider each web page of an application as a class file. Each class file will contain only
-   corresponding web page elements. Using these elements, testers can perform operations on the website under test.
-
-Advantages of Page Object Model
-Easy Maintenance: POM is useful when there is a change in a UI element or a change in action.
-An example would be: a drop-down menu is changed to a radio button. In this case, POM helps to identify the page or
-screen to be modified. As every screen will have different Java files, this identification is necessary to make
- changes in the right files. This makes test cases easy to maintain and reduces errors.
-
-Code Reusability: All screens are independent. By using POM, one can use the test code for one
-screen, and reuse it in another test case. There is no need to rewrite code, thus saving time and effort.
-
-Readability and Reliability of Scripts: When all screens have independent java files, one can quickly identify
-actions performed on a particular screen by navigating through the java file. If a change must be made to a specific
-code section, it can be efficiently done without affecting other files.
-
 * Page Factory Model:-
 ===========================
 What is Page Factory in Selenium?
+-> Page Factory is a design pattern used to create an object repository for web elements in Selenium WebDriver.
+It's an extension of the Page Object Model design pattern, which is used to create a centralized repository for web
+elements. It uses annotations to identify and initialize web elements at runtime and make the code more readable
+and maintainable by separating the test code from the technical details of locating web elements. In order to use
+Page Factory, you need to create a class for each web page and define web elements in that class using the @FindBy
+annotation it also contains methods for interacting with the web elements.
+
 -> Page Factory is a class provided by Selenium WebDriver to support the Page Object Model (POM) design pattern.
 It enhances the management of WebElements by reducing code redundancy and improving maintainability.
 In Page Factory, testers use @FindBy annotation. The initElements method is used to initialize web elements.
@@ -243,7 +242,7 @@ Defect Detection Rate:
   The estimated time it would take to perform the automated tests manually, helping to quantify the time savings achieved
   by automation.
 
-13) BDD explain? Behaviour driven development
+13) BDD explain? Behaviour driven development/ cucumber
 -> BDD, or Behaviour Driven Development, is a software development methodology that focuses on defining and documenting
  how an application should behave from a user's perspective, using plain language and concrete examples to ensure clear
 communication and collaboration between developers, testers, and business stakeholders throughout the development process;
@@ -368,6 +367,10 @@ It's also known as the bug life cycle.
  Closed: All processes related to the defect have been complete
 
 22. Difference between Agile and Waterfall model.
+-> Agile testing focuses on finding and fixing errors as soon as possible, rather than waiting until the end of the
+project, and reducing the costs associated with fixing errors. By delivering high-quality products on time, this
+approach also results in a customer-centric approach.
+
 ->  Agile benefits: Faster feedback cycles, Improved time to market, Better visibility and accountability, and Higher
 potential for customer satisfaction.
     Waterfall benefits:
@@ -430,9 +433,7 @@ limit=10 → Limits the number of results to 10.
 Use Path Parameters when the resource is uniquely identifiable (e.g., by ID).
 Use Query Parameters when applying filters, searching, or paginating through resources.
 
-26. Explain the use of Jenkins in the Automation Framework.
--> below
-
+26 -below
 27. How will you execute methods or test cases in TestNG in a different order/your order?
 -> A TestNG class can have different tests like test1, test2, test3 etc. Once a user runs the TestNG class consisting
 of various tests, it runs the test cases in alphabetically order based on the name provided. However, user can assign
@@ -749,6 +750,12 @@ source or Reload Frame, the page includes frames.
 Similar to the first step, right-click on the page and click on View Page Source.
 On the page source, search for “iframe-tags”. If you find any iframe tags, it means the page includes iframes.
 
+9. What is the Actions class?
+The Actions class is a part of the Selenium Python bindings for automating web browsers.
+It allows you to perform actions on web elements, such as moving the mouse over an element, clicking on it,
+and sending keys to it. The Actions class is typically used in conjunction with the WebDriver class, which is the
+main class for interacting with a web browser.
+
 41. How to handle mouse actions in selenium?
 -> To handle mouse actions in Selenium, you use the "Actions" class, which provides methods like click(), doubleClick(),
 contextClick() (right click), moveToElement() (hover), clickAndHold(), and dragAndDrop() to perform various mouse
@@ -1028,10 +1035,195 @@ class to use the plugin and specify the configuration file.
 ->
 
 4) diff between scenario and scenario outline in cucumber?
+-> In **Cucumber** (a BDD tool), both `Scenario` and `Scenario Outline` are used to write test cases in Gherkin
+syntax.
+✅ **Scenario**
+   - A **Scenario** is used to run a single test case with a fixed set of values.
+   - It is useful when you have **one specific test case** to validate.
+   - No parameterization is involved.
+**Example:**
+   Scenario: Login with valid credentials
+     Given I am on the login page
+     When I enter username "user1" and password "pass123"
+     Then I should be logged in successfully
+   - In this case, only one test case with hardcoded values is executed.
+
+✅ **Scenario Outline**
+   - A **Scenario Outline** is used when you want to run the same scenario multiple times with different data sets.
+   - It supports **parameterization** using `<placeholder>` values.
+   - Examples are provided using the `Examples` keyword.
+
+   **Example:**
+   Scenario Outline: Login with multiple credentials
+     Given I am on the login page
+     When I enter username "<username>" and password "<password>"
+     Then I should see a "<message>"
+
+   Examples:
+     | username | password | message                   |
+     | user1    | pass123  | Login Successful          |
+     | user2    | wrong123 | Invalid Username/Password |
+     | user3    | pass456  | Login Successful          |
+   - This will run **three different test cases** using the data provided in the `Examples` table.
+
+   ### 🔎 **Key Differences at a Glance**
+
+   | Feature            | Scenario                           | Scenario Outline                     |
+   |---------------------|-----------------------------------|------------------------------------|
+   | Purpose             | Single test case                  | Multiple test cases using examples |
+   | Data Handling       | Hardcoded data                    | Parameterized using placeholders   |
+   | Examples Table      | Not used                          | Required with `Examples` keyword   |
+   | Test Execution      | Runs once                         | Runs multiple times (once per data set) |
+   | Best for            | Simple scenarios                  | Data-driven testing                |
+
+
 5. How do you handle authentication in cucumber scenarios for web application.
+-> ✅ Which Approach to Choose?
+There are several ways to handle authentication depending on the type of authentication mechanism your application
+uses.
+   Form-based Authentication (UI Login) → Use when testing login UI functionality.
+   API Authentication (Token/Session) → Use when backend API authentication needs to be validated or if UI login is
+    not necessary for the test.
+   Hooks for Authentication → Use when authentication is a prerequisite for multiple scenarios.
+   Environment Variables or Config → Use to secure sensitive information like credentials.
+
 6. What is diff between HTTPS, SSl, TLS?
+-> **HTTPS, SSL, and TLS** are all related to secure communication over the internet, but they serve different
+purposes.
+    ### ✅ **1. HTTPS (HyperText Transfer Protocol Secure)**
+    - **Definition:** HTTPS is the **secure version of HTTP**. It ensures encrypted communication between a web
+                       browser (client) and a web server.
+    - **Purpose:** Protects data from being intercepted or tampered with during transmission.
+    - **Uses:** Primarily used for secure web browsing, online banking, e-commerce, and any site that handles
+                 sensitive information.
+    - **How it Works:** It uses **SSL** or **TLS** to encrypt HTTP communication.
+    - **Example:** `https://www.example.com`
+
+    **Key Point:**
+    - HTTPS = **HTTP + SSL/TLS Encryption**
+
+    ### ✅ **2. SSL (Secure Sockets Layer)**
+    - **Definition:** SSL is an older **cryptographic protocol** designed to provide secure communication over a
+                       network.
+    - **Purpose:** It encrypts data exchanged between a browser and a server, preventing eavesdropping and tampering.
+    - **Status:** SSL is now outdated due to security vulnerabilities and has been replaced by **TLS**.
+    - **Version History:** SSL versions 2.0 and 3.0 are deprecated.
+
+    **Key Point:**
+    - SSL was the **first widely adopted encryption protocol** for web security.
+
+    ### ✅ **3. TLS (Transport Layer Security)**
+    - **Definition:** TLS is the successor to SSL and is a more secure and efficient cryptographic protocol.
+    - **Purpose:** Provides secure data transfer by encrypting communication and ensuring data integrity.
+    - **Status:** TLS is widely used today and is considered the industry standard for securing network
+                     communications.
+    - **Version History:** TLS 1.2 and TLS 1.3 are the most commonly used versions. TLS 1.3 offers better security
+                           and performance.
+
+    **Key Point:**
+    - TLS is an **improved, secure version** of SSL.
+
+    ## 🔎 **Comparison Table**
+
+    | Aspect               | HTTPS                          | SSL                           | TLS                          |
+    |-----------------------|--------------------------------|-------------------------------|------------------------------|
+    | **Purpose**            | Secure HTTP communication     | Encrypt data transmission    | Encrypt data transmission   |
+    | **Encryption Role**    | Uses SSL/TLS for encryption   | Encryption and authentication| Encryption and authentication|
+    | **Security Level**     | Depends on SSL or TLS         | Outdated, insecure           | Highly secure and modern    |
+    | **Status**             | Active and widely used        | Deprecated                    | Actively used and recommended|
+    | **Protocol Version**   | Supports TLS 1.2, 1.3         | SSL 2.0, SSL 3.0 (Deprecated)| TLS 1.2, TLS 1.3            |
+    | **Use Case**           | Secure websites and apps      | Previously used for websites | Secure websites, email, VoIP|
+    | **Speed and Efficiency**| Moderate                      | Slower due to inefficiency   | Faster with improved algorithms|
+
+    ## 🚀 **Summary**
+    - **HTTPS** ensures secure communication over the web using SSL or TLS.
+    - **SSL** was the original encryption protocol but is now insecure and deprecated.
+    - **TLS** is the modern, secure replacement for SSL, providing encrypted communication and data protection.
+
 7. Explain the contents of the Runner File in Cucumber.
+-> In Cucumber (using Java with TestNG or JUnit), the Runner File is used to trigger the execution of your feature
+files. It acts as a bridge between the feature files (written in Gherkin) and the step definitions (written in Java).
+   The Runner File typically contains annotations and configurations to specify how and what scenarios will be
+executed.
+The Runner File acts as an entry point to execute Cucumber tests.
+It includes the @CucumberOptions to configure feature files, step definitions, reports, tags, and output format.
+JUnit uses @RunWith(Cucumber.class) while TestNG extends AbstractTestNGCucumberTests.
+The tags option is useful for running specific test scenarios.
+
 8. Feature file vs Scenarios .
+->  ### ✅ **Feature File vs Scenario in Cucumber**
+    In **Cucumber** (using Gherkin syntax), both **Feature File** and **Scenario** are fundamental components used
+to write behavior-driven tests. However, they serve different purposes.
+
+ ## 🔎 **1. Feature File**
+    - **Definition:** A **Feature File** is a text file that contains one or more **Scenarios** that describe the
+behavior of a specific feature of the application.
+- **Purpose:** It is used to describe the functionality of a particular feature using plain English (Gherkin language)
+to ensure clear communication between developers, testers, and stakeholders.
+- **File Extension:** `.feature`
+- **Contains:**
+      - A brief feature description
+      - One or more Scenarios
+      - Optional Backgrounds, Scenario Outlines, or Examples
+
+    **Example:**
+    Feature: Login Functionality
+      As a registered user
+      I want to log in to the website
+      So that I can access my account
+
+      Scenario: Successful Login with Valid Credentials
+        Given I am on the login page
+        When I enter username "user1" and password "pass123"
+        Then I should be redirected to the homepage
+
+      Scenario: Login with Invalid Credentials
+        Given I am on the login page
+        When I enter username "user1" and password "wrongpass"
+        Then I should see an error message
+
+    **Explanation:**
+    - The `Feature` keyword represents a functionality.
+    - Each scenario is a different test case to validate the login feature.
+    - Gherkin keywords like `Given`, `When`, and `Then` describe the steps of the scenario.
+
+    ## 🔎 **2. Scenario**
+    - **Definition:** A **Scenario** is a single test case written in Gherkin that describes a specific situation
+                      or test condition for a particular feature.
+    - **Purpose:** It validates a specific behavior or functionality of the application.
+    - **Contains:**
+      - A series of steps using `Given`, `When`, `Then`, `And`, or `But` keywords.
+    - **Execution:** Each scenario runs independently.
+
+    **Example:*
+    Scenario: Successful Login with Valid Credentials
+      Given I am on the login page
+      When I enter username "user1" and password "pass123"
+      Then I should be redirected to the homepage
+
+    **Explanation:**
+    - This scenario represents a test case to verify that valid users can log in successfully.
+
+    ## 📊 **Feature File vs Scenario: Comparison Table**
+
+    | Aspect             | Feature File                                     | Scenario                                          |
+    |---------------------|--------------------------------------------------|---------------------------------------------------|
+    | **Definition**       | Describes a feature or functionality            | Describes a specific test case for a feature     |
+    | **Purpose**          | Acts as a container for scenarios               | Validates a particular aspect of the feature     |
+    | **Scope**            | High-level overview of the feature              | Focuses on a single use case or test condition   |
+    | **Contains**         | Feature description, scenarios, and examples    | Given, When, Then steps to execute a test        |
+    | **File Extension**   | `.feature`                                      | Defined within a feature file                    |
+    | **Execution**        | Multiple scenarios can be executed              | Each scenario runs independently                 |
+    | **Reusability**      | Feature files contain multiple test cases       | Scenarios are often reused in different contexts |
+    | **Level**            | Describes the overall feature behavior          | Validates the feature's functionality with tests |
+
+    ---
+
+    ## 🚀 **Conclusion**
+    - **Feature Files** describe the **what** — the behavior of the application.
+    - **Scenarios** describe the **how** — the step-by-step test case to validate that behavior.
+    - Multiple scenarios can exist within a single feature file to cover different test conditions for a specific
+      feature.
 
 ========================================================================================================================
   CI/CD
@@ -1158,10 +1350,10 @@ grep -lr 'your_text' . The dot . tells grep to start searching from the current 
 1. You have 3 frames( frame A, frame B, frame C). After clicking Frame C , the application opens another tab containing
 a login, password and sign in button. Write the selenium automation script for this scenario (in notepad)
 
-2. How to check for broken links? How would you validate each link if there are 20 links on a page?
+2. How to check for broken links? How would you validate each link if there are 20 links on a page? done
 3. Code snippet for Explcit and Implicit wait.
 4. code snippet for Drag and Drop in selenium.
-5. Write a code for taking screenshot in Selenium.
+5. Write a code for taking screenshot in Selenium. done
 6. Write the code snipped for passing values 1 and 2 to the parameters val1 and val2 through the XML file.
 7. How to print all the links from a webpage? Where do you store those links?
 8. Write code to read data from Excel file.

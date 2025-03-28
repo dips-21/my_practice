@@ -1,11 +1,11 @@
 COLLECTIONS:-
-=========================================================================
+=======================================================================
 The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
 Java Collections can achieve all the operations that you perform on a data such as searching, sorting,
 insertion, manipulation, and deletion. Java Collection means a single unit of objects.
 
 Iterable :
-==========================================================================
+================
 Abstraction of types that can be iterated using iterator ,iterate over big data set .
 An Iterable can represent group of objects whose size is not known .
 It can be like a FacebookFeed where all objects are not loaded in memory.
@@ -17,8 +17,8 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 ==========================================================================
 * Iterator is an interface it encapsulated the iteration logic
   which is applied on collection of objects which can be iterable.
-* collection framework provide iterator for it's implementations..eg.arraylist ,
-  linkedlist are implementations of Collection.
+* collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations
+  of Collection.
 * Any Iterable has to provide iterator() .
 * It has hasnext(),next(),remove() method.
 * HasNext() method return boolean value ,if the iterable list has more elements to
@@ -31,6 +31,7 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 * Remove() method remove the last elements which is called by next() method.
 * it is uni directional.It moves forward direction only.
 
+
 **Why Iterator throws ConcurrentModificationException:-
 =========================================================================
 * iterator has a expected count field (==list size)
@@ -41,7 +42,6 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 * This is fail fast iterator.
 * when listIterator.remove() is called both iterator expected count and actual count decrease
 * so no exception is thrown.
-
 
 Enumerator:-
 =============================
@@ -77,8 +77,9 @@ Comparison logic is coupled in comparable .
 comparable is tighly coupled with that class to check object comparison.
 It is also used to compare the current instance with another object of same type.
 
+
       Comparator
-==================================================================================
+===================================
 *Comparator interface is used to compare two or multiple elements
 The Comparator interface is used to sort elements that compare two objects and provides additional comparison method.
 *It implements comparable.
@@ -100,14 +101,14 @@ comparable example we could just sort by only one attribute,
 i.e., age but in the comparator,we can use different attributes like weight, name, and year.
 
 ArrayList
-===========================================================================
+=======================================================================
 In arraylist the array is encapsulated in it.
 
 Complexity of get element is O(1).
 If we remove elements from middle of first popsition then it then all elements will be shuffle.
-Cache friendly bcz continuouse memory allocation.when the page is loaded in memory then other elements 
+cache friendly bcz continuouse memory allocation.when the page is loaded in memory then other elements 
 are in same place.
-Fixed memory allocation.
+fixed memory allocation.
 Dynamic array (if array size full then it internally create new array).so memory could be wasted.
 in special case adding at last n there is spcae in internal array then complexity is o(1).
 o(n)-to add or remove element from any position.
@@ -130,7 +131,7 @@ DOubly Linked List additional memory will take for adding new node ,prev code.
 If too many elements removes then use linked list otherwise use arrayList. <-When to use
 ========================================================================================
 we can get elements easily bcz we know position.(memory allocation is continuous so direct access
-eg int[]a =new int[10]  and a[4] will be at address size of int*4 ).
+eg int[]a =new int[10]  and a[4] will be at address size of int*4 )
 
 
 TreeMap:=
@@ -159,7 +160,7 @@ First position is found using hashCode % array size ,in that entry will be found
 If we want logical equality (not identity ,memory address based) then we need to override equals.
 
 for eg "dog" new String("dog") , not same by == but are logically same ,
-p1=new Person("Jaanhvi") p2=new Person("Jaanhvi")..
+p1=new Person("Jaanhvi") p2=new Person("Jaanhvi").
 
 for new objects to be equal which are logically same we have to overrride equals.
 
@@ -189,7 +190,7 @@ LinkedHashMap:-
 ========================================================================
 Its iterator gives element in insertion order.
 Internally it uses a doubly linked list in addition to hashMap to maintain insertion order .
-It internally use  node.
+It internally use 
 complexity   <---O(1)
 non synchronized
 non thread safe
@@ -244,7 +245,7 @@ either by dequeuing one or more items or clearing the queue completely.
 A BlockingQueue with one thread putting into it, and another thread taking from it.
 
 Abstract class:-
-==============================================================================
+=======================================
 The purpose of Abstract class is to have partial implementation,i.e it needs to have at least one abstract method and 
 partial initialization can be done in abstract class constructor.
 It's constructor will be called when Child class object is created 
@@ -264,52 +265,3 @@ for eg: ArrayList implements Iterable Serializable
 4) All methods in interface are implicitly public ,abstract can have private,protected ,default or public methods
 
 
-What do you mean by static method and static variable in Java?
-The static variable is a class level variable and it is common to all the class objects i.e. a single copy of the
-static variable is shared among all the class objects. A static method manipulates the static variables in a class. ...
-These blocks are only executed once when the class is loaded.
-
-Can we declare static variable in static method in Java?
-You can't declare a static variable inside a method, static means that it's a variable/method of a class,
-it belongs to the whole class but not to one of its certain objects. This means that static keyword can be used only 
-in a 'class scope' i.e. it doesn't have any sense inside methods
-
-Can we override static method?
-Static methods cannot be overridden because they are not dispatched on the object instance at runtime.
-The compiler decides which method gets called. Static methods can be overloaded (meaning that you can have the
-same method name for several methods as long as they have different parameter types).
-
-How do you call a static method?
-A static method can be called directly from the class, without having to create an instance of the class. 
-A static method can only access static variables; it cannot access instance variables.
-Since the static method refers to the class, the syntax to call or refer to a static method is: class namme n method name.
-
-Can we declare static variable in non static method?
-Static variables are class variable not instance or local variable . that is why we can use static variable in
-non static method also. and static variables are not per object . static variables have one copy that will be used in
-entire program.
-
-Can we override static and private method in Java?
-No, we cannot override private or static methods in Java. Private methods in Java are not visible to any other
-class which limits their scope to the class in which they are declared.
-
-Can constructor be static?
-A class or struct can only have one static constructor. Static constructors cannot be inherited or overloaded.
-A static constructor cannot be called directly and is only meant to be called by the common language runtime (CLR).
-It is invoked automatically.
-
-Is private method are final?
-So, to answer question 2, yes, all compilers will treat private methods as final . 
-The compiler will not allow any private method to be overridden. Likewise, all compilers will prevent subclasses
-from overriding final methods.
-
-What is final and final method in Java?
-The final keyword in Java can also be applied to methods. A Java method with the final keyword is called a 
-final method and it can not be overridden in the subclass. You should make a method final in Java if you think it's
-complete and its behavior should remain constant in sub-classes.
-
-What is the final method?
-Final Method in Java
-The Method with Final Keyword cannot be overridden in the subclasses. 
-The purpose of the Final Method is to declare methods of how's definition can not be changed by a child or 
-subclass that extends it.

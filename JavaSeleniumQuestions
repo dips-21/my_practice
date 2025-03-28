@@ -1,0 +1,1366 @@
+1) OOPS
+2) == and equals() in java?
+3) How do you handle exceptions in java?
+4) What is the purpose of final keyword in java?
+5) Inheritance and its types
+6) What are java collections and can you name some commonly used interfaces?
+7) List and set difference?
+8) Finally block concept in java?
+9) Why String is Immutable and Immutable in Java? String Pool
+10) final keyword
+11) constructor? can we override constructor?
+12) where is a constructor used in your framework?
+13) How to achieve multiple abstraction in java?
+14) Interface
+15) Encapsulation? where have you used it in your project?
+16) Polymorphism? Where have you applied it in your framework?
+17) What is method overloading and method overriding? Explain both and where you used them in your framework?
+18) Have you used collections in your framework?
+19) What is the static keyword in Java?
+20) What is memory mgt ?
+21) Garbage collection.
+22) Difference between constructor overloading and method overloading?
+23) What are the exceptions in java? List some expectations you faced during automation and how you handled them.
+24) Can we have static methods in interface?
+25. In a class implementing an interface , can we change the value of any variable defined in the interface.
+26. Difference between throw() and throws()?
+27. Serialization and Deserialization
+28. Static variables & Static keyword
+29.
+30.
+
+
+   SELENIUM
+  ==========
+ * Provide me a brief overview of the tools and technologies you have worked on?
+
+1) POM model explain? its advantages and disadvantages.
+-> chatgpt - Page Object Model (POM) in Selenium WebDriver
+✅ What is Page Object Model (POM)?
+Page Object Model (POM) is a design pattern used in Selenium automation testing to create object-oriented representations
+of web pages. In POM, each web page is represented as a Java class.
+All the elements (WebElements) and their corresponding actions (methods) are encapsulated in these classes.
+It makes the code more reusable, maintainable, and readable.
+
+✅ Advantages of Page Object Model
+Reduces Code Duplication: Centralized location for web elements.
+Enhances Maintainability: Any UI changes require updates only in one place.
+Improves Readability: Clear separation between test logic and UI interaction.
+Reusability: Methods from Page classes can be reused in multiple test cases.
+
+Easy Maintenance: POM is useful when there is a change in a UI element or a change in action.
+An example would be: a drop-down menu is changed to a radio button. In this case, POM helps to identify the page or
+screen to be modified. As every screen will have different Java files, this identification is necessary to make
+ changes in the right files. This makes test cases easy to maintain and reduces errors.
+
+ Readability and Reliability of Scripts: When all screens have independent java files, one can quickly identify
+ actions performed on a particular screen by navigating through the java file. If a change must be made to a specific
+ code section, it can be efficiently done without affecting other files.
+
+✅ POM Architecture
+The basic structure of a Page Object Model consists of:
+Page Classes → Contains WebElements and page-specific methods.
+Test Classes → Contains the actual test logic using TestNG or JUnit.
+Base Class → Common methods like setup, teardown, browser initialization.
+Utility Class (Optional) → Contains generic reusable methods like handling alerts, waits, or taking screenshots.
+
+* Page Factory Model:-
+===========================
+What is Page Factory in Selenium?
+-> Page Factory is a design pattern used to create an object repository for web elements in Selenium WebDriver.
+It's an extension of the Page Object Model design pattern, which is used to create a centralized repository for web
+elements. It uses annotations to identify and initialize web elements at runtime and make the code more readable
+and maintainable by separating the test code from the technical details of locating web elements. In order to use
+Page Factory, you need to create a class for each web page and define web elements in that class using the @FindBy
+annotation it also contains methods for interacting with the web elements.
+
+-> Page Factory is a class provided by Selenium WebDriver to support the Page Object Model (POM) design pattern.
+It enhances the management of WebElements by reducing code redundancy and improving maintainability.
+In Page Factory, testers use @FindBy annotation. The initElements method is used to initialize web elements.
+
+✅ What is Page Factory?
+Page Factory is an extension of POM that uses @FindBy annotations to initialize WebElements.
+It utilizes the initElements() method to instantiate the elements at runtime.
+Improves readability and reduces driver.findElement() boilerplate code.
+
+Similarly, one can use @FindBy with different location strategies to find web elements and perform actions on them.
+Below are locators that can be used:
+
+Page Factory supports multiple locators:
+@FindBy(id = "elementId")
+@FindBy(name = "elementName")
+@FindBy(xpath = "//input[@id='elementId']")
+@FindBy(css = "input#elementId")
+@FindBy(tagName = "input")
+@FindBy(linkText = "Click Here")
+@FindBy(partialLinkText = "Click")
+@FindBy(className = "elementClass")
+WebElement element;
+
+initElements(): initElements is a static method in Page Factory class. Using the initElements method, one can initialize
+all the web elements located by @FindBy annotation.
+
+lazy initialization: AjaxElementLocatorFactory is a lazy load concept in Page Factory.
+This only identifies web elements when used in any operation or activity. The timeout of a web element can be
+assigned to the object class with the help of the AjaxElementLocatorFactory.
+
+📌 3. Using @FindAll and @FindBys
+@FindAll: Similar to an OR condition (any locator matching will work).
+@FindBys: Similar to an AND condition (all locators must match).
+
+@FindBy: An annotation used in Page Factory to locate and declare web elements using different locators.
+- example of declaring an element using @FindBy
+@FindBy(id="elementId")
+WebElement element;
+
+2) Cross browser testing how do you perform?
+-> Selenium is a test automation framework popular for cross browser testing as it offers browser automation support
+to different browsers such as chrome, firefox, IE and edge with its browser specific WebDrivers.
+
+Cross-browser testing in Selenium involves writing automated test scripts that run on different web browsers
+(like Chrome, Firefox, Edge) to verify that your website or web application functions consistently across various
+platforms, and you achieve this by utilizing Selenium WebDriver to control different browsers through code,
+typically by setting up a test framework (like TestNG) to manage different browser configurations within your test suite,
+allowing you to execute the same test cases across multiple browsers and identify any compatibility issues
+
+3) Can you explain how to handle dynamic web elements in selenium?
+-> To handle dynamic web elements in Selenium, the most effective approach is to use "waits," particularly explicit waits,
+which allow you to specifically wait for a certain condition to be met before interacting with an element, ensuring it
+is fully loaded and visible on the page, even if it appears dynamically due to JavaScript or AJAX calls; you can also
+leverage CSS selectors and XPath with specific attributes to identify dynamic elements accurately.
+Key strategies for handling dynamic elements in Selenium:
+   Explicit Waits:
+      Use WebDriverWait to wait for a specific condition like element visibility, presence, or clickable state before
+interacting with it.
+
+  from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.common.by  import By
+    wait = WebDriverWait(driver, 10)
+    element = wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'dynamic-element')]")))
+
+4) What are common challenges you face while automating tests with selenium?
+->
+
+5) Functional and non -functional testing?
+-> * It is basically defined as a type of testing which verifies that each function of the software application works in
+    conformance with the requirement and specification.Each functionality of the software application is tested by providing
+     appropriate test input, expecting the output and comparing the actual output with the expected output.
+     Non functional testing verifies whether the behavior of the system is as per the requirement or not.
+
+-> Functional Testing	                                                 Non-functional Testing
+It verifies the operations and actions of an application.	   It verifies the behavior of an application.
+   It is based on requirements of customer.	                    It is based on expectations of customer.
+It helps to enhance the behavior of the application.	    It helps to improve the performance of the application.
+Functional testing is easy to execute manually.	            It is hard to execute non-functional testing manually.
+It tests what the product does.	                                 It describes how the product does.
+Functional testing is based on the business requirement.	Non-functional testing is based on the performance requirement.
+   Examples:                                                           Examples:
+     1. Unit Testing                                                   2. Load Testing
+        2. Smoke Testing                                                  3. Stress Testing
+        3. Integration Testing                                            1. Performance Testing
+        4. Regression Testing                                             4. Scalability Testing
+
+6) concept of test automation framework?
+-> This framework typically comprises a set of guidelines, standards, tools, and reusable components. It often includes
+libraries, utilities, and APIs to interact with the embedded system, enabling the creation of test cases, execution
+scripts, and result analysis. It aims to simplify the testing process by providing a structured way to write test cases,
+manage test data, and facilitate the execution and reporting of test results.
+
+7) How do you ensure the reliability and maintainability of your automated tests?
+->  To ensure the reliability and maintainability of automated tests, key practices include:
+choosing a suitable testing framework, following coding standards, utilizing modular and reusable code, effectively
+managing test data, implementing continuous integration, regularly reviewing and updating test scripts, and analyzing
+test results to identify areas for improvement; essentially treating your test code with the same care as production
+code to maintain its functionality over time
+
+8) What is regression testing, and why it is imp?
+-> Regression testing is a software testing process that ensures that changes to an application don't negatively
+impact existing functionality. It's important because it helps identify bugs and maintain software quality.
+
+*Regression testing is a full or partial selection of already executed test cases that are re-executed to ensure existing
+functionalities work fine.
+
+Why it's important
+It helps identify bugs that may have been introduced by new changes
+It ensures that previously fixed bugs remain fixed
+It helps maintain software quality and reliability
+It reduces the risk of introducing new bugs and the time it takes to fix them
+It helps ensure that applications are stable and reliable for users
+
+9) smoke and sanity testing difference?
+-> Smoke testing is a high-level test that checks the basic functionality of a software build, while sanity testing
+is a more detailed test that checks specific changes. Both are important parts of the software testing process.
+                  Smoke testing                                                            Sanity testing
+Focus            Basic stability of the build                          Specific changes, like bug fixes or new features
+When it's done  Early in development or after a new build               After major changes or additions
+Depth           Surface-level, quick check                              More in-depth, targeted
+Purpose         Ensure the build is stable enough for further testing     Ensure new features or fixes work correctly
+
+Smoke testing is often performed by developers or testers. Sanity testing is a subset of regression testing.
+   Examples of smoke and sanity tests:
+   Smoke test: Testing a web application's login function
+   Sanity test: Checking that a mobile app's checkout and payment function computes taxes correctly
+
+10) what is test case and what are its key components?
+-> A "test case" is a detailed document that outlines a specific scenario to be tested in software, including the
+input data, expected output, and execution steps, to verify if the application functions as intended; its key components
+are typically: Test Case ID, Test Description/Title, Preconditions, Test Steps, Test Data, Expected Results, Actual
+Results, and Test Status (Pass/Fail).
+Breakdown of key components:
+Test Case ID: A unique identifier for the test case, usually a number or alphanumeric code.
+Test Description/Title: A concise summary of what the test case is verifying.
+Preconditions: Any necessary conditions that must be met before running the test.
+Test Steps: A detailed list of actions to be taken during the test execution.
+Test Data: Specific input values used in the test.
+Expected Results: The anticipated outcome of the test based on the requirements.
+Actual Results: The observed outcome after executing the test.
+Test Status: Whether the test passed or failed.
+
+
+11) CI/CD role in testing?
+12) how do you measure the effectiveness of your test automation?
+->To measure the effectiveness of test automation, key metrics like test automation coverage (percentage of automated
+test cases), defect detection rate, execution time reduction, build stability, automation script effectiveness, and
+equivalent manual testing effort (EMTE) are used, providing insights into how well your automated tests are covering
+your application and identifying defects, while also assessing the time saved compared to manual testing and the overall
+reliability of the automation process.
+  Key metrics to consider:
+Test Automation Coverage:
+ The percentage of test cases that are automated compared to the total number of test cases, indicating how much of
+ your application is covered by automated tests.
+Defect Detection Rate:
+  The ratio of defects found by automated tests to the total number of test cases executed, showing how effective your
+      automation is at finding bugs.
+  Execution Time Reduction:
+  The percentage decrease in testing time achieved by using automation compared to manual testing.
+  Build Stability:
+  The percentage of stable builds produced in a CI/CD pipeline, highlighting the reliability of your automated tests.
+  Automation Script Effectiveness:
+  The ratio of defects found by automated scripts to the total number of defects, evaluating the quality of your automated
+  test scripts.
+  Equivalent Manual Testing Effort (EMTE):
+  The estimated time it would take to perform the automated tests manually, helping to quantify the time savings achieved
+  by automation.
+
+13) BDD explain? Behaviour driven development/ cucumber
+-> BDD, or Behaviour Driven Development, is a software development methodology that focuses on defining and documenting
+ how an application should behave from a user's perspective, using plain language and concrete examples to ensure clear
+communication and collaboration between developers, testers, and business stakeholders throughout the development process;
+essentially, it prioritizes describing the "what" of the system's functionality rather than the technical "how" to achieve
+it, often utilizing a "Given-When-Then" structure to write test scenarios.
+
+**Behavior-Driven Development (BDD)** is a collaborative approach that defines application behavior using simple language
+and real-world examples. It ensures clear communication between developers, testers, and stakeholders, using a **"Given-
+When-Then"** format to describe test scenarios.
+
+The script in BDD is written using a language called Gherkin, which employs simple phrases like “Given,” “When,” and
+“Then” to outline the expected behavior of the software.
+
+🧑‍💻 Structure of BDD Scenario
+BDD uses Given-When-Then format to describe test scenarios:
+Given → Describes the initial context or state (Preconditions)
+When → Describes the action performed by the user
+Then → Describes the expected result or outcome
+Example:
+Feature: Login functionality
+  Scenario: Successful login with valid credentials
+    Given User is on the login page
+    When User enters valid username and password
+    And User clicks on the login button
+    Then User should be redirected to the homepage
+
+For instance, a scenario might be described as “Given a user is logged in, When they click on the ‘logout’ button, Then
+they should be logged out and redirected to the login page.”
+These scripts are subsequently translated into automated tests that verify if the software behaves as anticipated
+
+Behavior-driven development (BDD) is an agile software development methodology that prioritizes collaboration among
+developers, testers, and non-technical stakeholders to ensure customer-centric outcomes. In BDD, requirements are defined
+in terms of desired behaviors and user stories, enabling clearer communication and a focus on delivering business value.
+
+14) How do you switch to different windows in selenium?
+-> To switch between different windows in Selenium, you use the switchTo().window() method, where you need to provide
+the window handle (a unique identifier for the window) you want to switch to, which you can retrieve using the
+getWindowHandles() method to get a list of all open window handles; then iterate through the list to find the desired
+window and switch to it.
+
+15) Why do we use SET in Window Handles?
+-> These window handles are put into a set of strings, Set, from getWindowHandles(). A collection of this type
+organizes the window handles and makes them easier to loop through or keep track of.
+
+* This returns a Set containing the handles of all the currently active windows (parent window and child windows).
+Iterating through the set of window handles will help you identify the child window by constant checking against the
+parent window handle.*
+
+16) How do you pass your data to your selenium Scripts?
+-> To pass data to your Selenium scripts, you typically use a data-driven testing approach, where you store your test
+data in an external source like an Excel sheet, database, JSON file, or a dedicated data class, and then read this data
+within your Selenium script using libraries like Apache POI (for Excel) or JDBC (for databases), and feed it into your
+test methods using parameters or data providers provided by your testing framework (like TestNG or JUnit).
+
+Integrate with your Selenium script:
+Data Providers (TestNG): Define a method annotated with @DataProvider in your test class to fetch data from your source
+and return it as an iterator of data sets.
+Parameterization (JUnit): Use @Parameters annotation to pass data directly to your test method.
+
+17. How to decide the priorities of your test cases?
+-> *To decide the priorities of your test cases, consider factors like the importance of the requirements they cover,
+the potential business impact of failures, the risk associated with the feature, past defect history, complexity of
+the test case, and the time needed to execute it, essentially prioritizing the most critical functionality and areas
+with higher risk to ensure efficient testing and early defect detection.*
+
+Methods for prioritizing test cases:
+Risk-Based Prioritization:
+Create a risk matrix by considering the probability of failure and the impact of a failure to prioritize high-risk areas.
+Coverage-Based Prioritization:
+Prioritize test cases that provide the most comprehensive coverage of the application's functionalities.
+Dependency Analysis:
+Consider the dependencies between different features and prioritize tests that cover critical dependencies.
+Weighted Decision Matrix:
+Assign weights to different criteria like business impact, risk, and complexity to create a more comprehensive
+prioritization framework.
+
+Important aspects of test case prioritization:
+Regular Review and Updates:
+As the project evolves, regularly review and update test priorities based on new requirements, feedback, and defect trends.
+Communication with Stakeholders:
+Clearly communicate the rationale behind test case priorities to stakeholders.
+Automation Consideration:
+Prioritize test cases that are suitable for automation to improve testing efficiency.
+
+18. If you want to execute on test case again and again how do you do that?
+->  You cannot do it from the xml, but in the @Test annotation - you can add a invocationCount attribute with the
+number of times you want to run it. It would come out as those many tests run in the report.
+eg.@Test(invocationCount = 10)
+    public void testCount() {..}  -> please recheck
+
+19. What are different annotations of TestNG?
+-> TestNG annotations are code identifiers that define the behavior of test methods, classes, and suites.
+  They can be used to organize and execute tests in a logical order.
+   Examples of TestNG annotations
+   @BeforeSuite: Runs before all other test methods
+   @AfterSuite: Runs after all other test methods
+   @BeforeTest: Runs before all test methods in a folder
+   @AfterTest: Runs after all test methods in a folder
+   @BeforeClass: Runs before the first method of a class
+   @AfterClass: Runs after all methods of a class
+   @BeforeMethod: Runs before each test method
+   @AfterMethod: Runs after each test method
+   @BeforeGroups: Runs before test cases in a group
+   @AfterGroups: Runs after test cases in a group
+
+20. Write a hierarchy of annotations in TestNG.
+->  @BeforeSuite      @BeforeTest    @BeforeClass
+    @BeforeMethod     @Test          @AfterMethod
+    @AfterClass       @AfterTest     @AfterSuite
+
+21. What is defect life cycle.
+->  The defect life cycle is the process a software defect goes through from its discovery to its resolution.
+It's also known as the bug life cycle.
+    Stages in the defect life cycle:
+ New: The defect is reported
+ Accepted: The defect is verified as a defect
+ Rejected: The defect is verified as not a defect
+ Assigned: A developer is assigned to fix the defect
+ Fixed: The defect is fixed and ready for testing
+ Reopened: The fix is tested and found to be not working
+ Verified: The fix is tested and certified as working
+ Closed: All processes related to the defect have been complete
+
+22. Difference between Agile and Waterfall model.
+-> Agile testing focuses on finding and fixing errors as soon as possible, rather than waiting until the end of the
+project, and reducing the costs associated with fixing errors. By delivering high-quality products on time, this
+approach also results in a customer-centric approach.
+
+->  Agile benefits: Faster feedback cycles, Improved time to market, Better visibility and accountability, and Higher
+potential for customer satisfaction.
+    Waterfall benefits:
+    Works well for projects with definite requirements
+    May be better suited for projects distributed across different locations
+    When to use
+    You can use Agile and Waterfall together, with Waterfall for initial planning and Agile for execution.
+
+23. Difference between 201 and 204 Status code? also 401 and 403 ?
+-> 201 Created: This status code means that the request was successful, and the server created a new resource.
+   204 No Content: This status code indicates that the request was successful, but the server did not return any data.
+   401 indicates missing or invalid authentication.
+   403 indicates lack of permission despite valid authentication.(403 Forbidden : Permission denied (e.g. invalid API key).
+   400 Bad Request : Invalid argument (invalid request payload).
+
+24. What are the components of an API request?
+-> The components of an API request are the endpoint, method, parameters, request headers, and request body.
+   *Endpoint-> The URL of the API, which is the access point to the API ,Made up of the base URL and the path of the API
+   *Method -> The type of request, such as GET, POST, PUT, or DELETE
+   Parameters -> Data sent with the request that allows you to customize API requests
+   For example, you can use parameters to filter, sort, or manipulate data
+   Request headers -> Metadata about the request that provides information to the server to process the request
+   For example, the format of the data being sent, such as JSON
+   Request body -> Data sent to the server, often used with POST or PUT methods Request bodies are essentially JSON objects
+   Each component of an API request plays a specific role in the successful execution of an API call.
+
+Whether you're building a mobile app, a website, or a complex enterprise system, APIs play a crucial role in enabling
+different applications to communicate and share data. To comprehend APIs better, it's essential to break them down into
+their fundamental components: endpoints, resources, and methods.
+
+25. Query Parameters and Path Parameters.
+-> Query parameters and path parameters are both used to specify information in a URL to a REST API resource.
+Query parameters are used to modify request behavior, while path parameters are used to identify resources.
+
+chatgpt - In API development, Query Parameters and Path Parameters are commonly used to send data to a server through URL requests.
+✅ Path Parameters
+Definition: Path Parameters are part of the URL path and are used to identify specific resources.
+Usage: Typically used when you want to retrieve, update, or delete a specific resource using a unique identifier (e.g., ID).
+Format: Placed directly in the URL path using curly braces {} or a colon :.
+
+Example:
+GET /users/{userId}
+GET /products/123
+Explanation:
+/users/123 → Retrieves data for the user with ID 123.
+/products/123 → Fetches the product with ID 123.
+
+✅ Query Parameters
+Definition: Query Parameters are appended to the end of a URL using a ? and are used to filter, sort, or search data.
+Usage: Typically used for optional data, filtering results, or paginating data.
+Format: Consists of key-value pairs separated by &.
+Example:
+GET /products?category=electronics&sort=price&limit=10
+Explanation:
+category=electronics → Filters products by the electronics category.
+sort=price → Sorts the results by price.
+limit=10 → Limits the number of results to 10.
+
+✅ When to Use What?
+Use Path Parameters when the resource is uniquely identifiable (e.g., by ID).
+Use Query Parameters when applying filters, searching, or paginating through resources.
+
+26 -below
+27. How will you execute methods or test cases in TestNG in a different order/your order?
+-> A TestNG class can have different tests like test1, test2, test3 etc. Once a user runs the TestNG class consisting
+of various tests, it runs the test cases in alphabetically order based on the name provided. However, user can assign
+the priority to these tests so that these tests can run as per user’s priority. Priority starts from 0 and be in
+incremental order. Priority 0 takes the highest priority and decreasing the priority when priority gets increase as 1,2, 3 etc.
+
+how->
+Step 1: import org.testng.annotations.Test for TestNG.
+Step 2: Write an annotation as @test
+Step 3: Create a method for the @test annotation as test1 and provide the priority=1.
+Step 4: Repeat the steps for test2 and test3 for priority 0 and 2 respectively.
+Step 5: Now create the testNG.xml.
+Step 6: Now, run the testNG.xml or directly testNG class in IDE or compile and run it using command line.
+
+import org.testng.annotations.Test;
+public class OrderofTestExecutionInTestNG {
+    @Test(priority=1)
+    public void test1() {
+        System.out.println("Starting execution of TEST1");
+    }
+    @Test(priority=0)
+    public void test2() {
+        System.out.println("Starting execution of TEST2");
+    }
+    @Test(priority=2)
+    public void test3() {
+        System.out.println("Starting execution of TEST3");
+    }
+ Starting execution of TEST2
+ Starting execution of TEST1
+ Starting execution of TEST3
+
+If test2 (priority=0), test1(priority=1) and test3 has no priority then test2 will run first and after that test3
+and in the last test1. Since test3 doesn’t have user defined priority, TestNG assigns it to as priority=0 and in
+alphabetically test2 comes first and then test3.
+
+28. What is the diff between @Factory and @DataProvider annotations?  look chatgpt
+-> @DataProvider gives you the power to run a test method with different sets of data and @Factory gives you the power
+to run all methods inside a test class with different sets of data. Though you can also run test methods with @Factory
+also, it depends on your use case as to which approach fits it better.
+dataprovider is really good when you want to import data from a source(excel/db) and treat each row as a separate
+    testcase by running on the
+ same @test method .Result is u get testng report stating result of each row as a unique testcase
+
+@DataProvider - This annotation can be used to denote that the method will be used for supplying data to a test method.
+ The condition that needs to be met here is that the method marked as @DataProvider must return a 2D Object array
+ (Object[][]) where each Object[] will be used as the input parameter to an iteration of the test method which uses
+the data provider. Please note that there is no direct way of linking an Excel sheet or CSV to a Data Provider.
+In the following example, I will be using Apache POI to read an excel as provide the data to my Test Method:-
+
+@DataProvider(name="SearchData")
+public Object[][] GetSearchData() {
+   //Returning 2D array of Test Data
+   Object[][] arrayObject = readFromExcel("C:/InputData.xls","Sheet1");
+   return arrayObject;
+}
+
+public String[][] readFromExcel(String fileName, String sheetName) {
+   String[][] arrayExcelData = null;
+   try {
+
+      //Read the data from the Excel Sheet
+      FileInputStream fs = new FileInputStream(fileName);
+      Workbook wb = Workbook.getWorkbook(fs);
+      Sheet sh = wb.getSheet(sheetName);
+
+      int totalNoOfCols = sh.getColumns();
+      int totalNoOfRows = sh.getRows();
+      arrayExcelData = new String[totalNoOfRows-1][totalNoOfCols];
+
+      for (int i= 1 ; i < totalNoOfRows; i++) {
+
+      for (int j=0; j < totalNoOfCols; j++) {
+         arrayExcelData[i-1][j] = sh.getCell(j, i).getContents();
+      }
+   }
+   } catch (Exception e) {
+      e.printStackTrace();
+   }
+   return arrayExcelData;
+}
+
+//Using the Data Provider in the Test Method
+@Test(dataProvider = "SearchData")
+public void SearchData(String searchTerm)
+{
+   //use searchTerm in the test case. The Test method will run as many times as the
+   //rows in the excel(with searchTerm having different value everytime)
+}
+
+2. @Factory - This is another way of achieving data driven testing using testng.This feature allows all methods in a
+class to be run on multiple sets of data. Contrary to the @DataProvider annotation, this can be used to instantiate a
+class multiple times rather than just a method. The factory method should return an Object[]. This can be an array of
+Method calls or class objects. We can run the Factory class directly. Here's a sample code that shows this:-
+
+public class FactoryTest
+{
+   private string searchValue;
+
+   public FactoryTest(string searchValue) {
+      this.searchValue= searchValue;
+   }
+
+   @Test
+   public void testMethodOne() {
+       //do something with searchValue
+   }
+
+   @Test
+   public void testMethodTwo() {
+    //do something else with searchValue
+   }
+}
+
+public class FactoryClass
+{
+   @Factory
+   public Object[] factoryMethod() {
+      //Return an array of Objects of Factory Test Class, each with a different search value
+      return new Object[] { new FactoryTest("SearchTerm1"), new FactoryTest("SearchTerm1") };
+   }
+}
+
+
+29. How to test or handle browser notifications?
+-> To handle browser notifications in Selenium, you can use methods like dismiss(), accept(), and getText(). You can
+also use the try-catch block to handle unexpected alerts.
+   Methods to handle alerts
+   dismiss(): Clicks the Cancel button in the alert box
+   accept(): Clicks the OK button in the alert box
+   getText(): Captures the alert message
+
+30. Explain different xpath axes?
+-> An axis represents a relationship to the context (current) node, and is used to locate nodes relative to that node
+on the tree.
+
+31. Singleton Design Pattern. - check chatgpt
+-> The singleton design pattern is classified as a creational pattern — a set of rules used to create objects.
+Specifically, it's about how to use inheritance or delegation effectively when creating classes or objects.
+ *  singleton is defined as “a set that contains exactly one element”.
+The Singleton pattern ensures that only one instance of a class exists, which can be particularly useful in
+managing shared resources.
+Private constructors and factory methods are also an example of the singleton class.
+
+32. What is selenium Grid?  -> chrome
+-> Selenium Grid allows the execution of WebDriver scripts on remote machines by routing commands sent by the client
+to remote browser .
+-> Selenium Grid is a testing framework that allows you to run automated tests across multiple machines and browsers
+simultaneously. It's a key part of the Selenium suite of tools.
+
+How it works
+A central hub server routes test commands to remote browser instances
+Each remote browser instance is managed by a node
+The nodes register themselves with the hub through the Event Bus
+
+Why use Selenium Grid?
+Cross-browser testing: Run tests on multiple browsers and operating systems at once
+Reduced test time: Run tests in parallel across multiple machines to significantly reduce the time needed for
+comprehensive testing .
+Improved test results: Analyze and compare results across multiple browsers and operating systems .
+Ensure compatibility: Ensure that an app is compatible with many browser and operating system variants.
+
+33. Explain the WebDriver create statement line.
+->
+
+34. How do you run the failed test cases. (On failure you want to run the same case 2 times how will you handle it.)
+-> Implement the IRetryAnalyzer interface (in TestNG).
+   Within the retry method, add logic to check the current retry count and return true if the retry limit is not
+exceeded, otherwise return false to mark the test as failed.
+
+* How to capture failed test cases in selenium?
+Screenshot for Test Failure-
+Create a class. Implement TestNG 'ITestListener'.
+Call the method 'onTestFailure'.
+Add the code to take a screenshot with this method.
+Get the Test method name and take a screenshot with the test name. Then place it in the desired destination folder.
+
+35. How do you generate Reports in Selenium? How do you customise reports after your test execution?
+-> In Selenium with TestNG or JUnit, reports are typically generated to provide detailed insights into the test execution
+results.There are multiple ways to generate reports in Selenium:
+1. TestNG Reports -> TestNG has built-in support for generating reports in XML and HTML formats.
+After the test execution, TestNG automatically generates reports under the test-output folder.
+How to Generate:
+Simply run the TestNG test using testng.xml.
+After execution, check the index.html in the test-output folder for the report.
+2. Using ITestListener for Custom TestNG Reports
+Implement the ITestListener interface to capture test execution events and customize reports.
+You can log details like test start, test success, test failure, and skipped tests.
+3. Extent Reports
+ExtentReports is a powerful reporting library that provides rich HTML reports with logs, screenshots, and detailed
+execution information.
+Setup Steps:
+Add the ExtentReports dependency to your pom.xml (if using Maven)
+Implement in your Selenium code
+After execution, check the extent-report.html for results.
+✅ Customizing Reports
+You can customize reports using Extent reports :
+1. Customizing Extent Reports -> You can add screenshots, logs, and styling.
+
+To generate reports in Selenium, we typically use a dedicated reporting library like "Extent Reports" or "Allure"
+ alongside our test framework (like TestNG) where we can log test steps and results during execution, which are then
+compiled into a detailed HTML report after the tests finish; to customize these reports, you can modify the report
+configuration within your code by adding specific details, screenshots, and styling to tailor the report to your needs.
+
+For Quick Reports: Use TestNG default reports.
+For Advanced HTML Reports: Use Extent Reports.
+For Detailed Insights: Use Allure Reports.
+For Custom Logs: Integrate with Log4j.
+
+36. What kind of waits are there in Selenium?
+-> see WaitsInSelenium file
+
+37. How do you handle dynamic web elements?
+-> using waits mechanism we can handle this specifically explicit wait
+
+38. Write the syntax of the Select class and explain its methods.
+-> you can create the object of the Select class by using the following syntax:
+Select select = new Select(WebElement webElement); The Select class constructor accepts one parameter: the WebElement
+object returned by the locators of the specified element.
+
+void deselectAll() -> Clear all selected entries.
+void deSelectByContainsVisibleText(String text)
+void deselectByIndex(int index) -> Deselect the option at the given index.
+void deselectByValue(String value) -> Deselect all options that have a value matching the argument.
+void deselectByVisibleText(String text) -> Deselect all options that display text matching the argument.
+boolean equals(Object o)
+List<WebElement> getAllSelectedOptions()
+WebElement getFirstSelectedOption()
+List<WebElement> getOptions()
+WebElement getWrappedElement()
+int hashCode()
+boolean isMultiple()
+void selectByContainsVisibleText(String text) -> Selects all options that display text matching or containing the provided argument.
+void selectByIndex(int index) -> Select the option at the given index.
+void selectByValue(String value) -> Select all options that have a value matching the argument.
+void selectByVisibleText(String text) -> Select all options that display text matching the argument.
+
+39. How do you handle iFrames?
+->  What are iframes in Selenium?
+    Displaying a webpage as a part of another webpage this parameter we called iframe. If the element is present on the
+main page then we can directly interact and we can perform the actions but when the element is present on the iframe we
+can not directly interact with those elements. In such cases, we need to change the focus of selenium from the main page
+to the iframe.
+    *Difference between frame and iframe in Selenium*
+    In Selenium, both frame and iframe elements allow you to embed content or even another web page within the main page.
+However, there are slight differences also exist which are as follows:
+Frame: A frame is an HTML element that divides the webpage into different sections, each having its own content. It
+becomes an older element in HTML.
+iFrame: An iframe (inline frame) is more commonly used today. It allows us to embed external content or another webpage
+inside our main HTML document. For example, an embedded YouTube video is often placed inside an iframe.
+*Steps to Identify a Frame on a Page?*
+Step 1: Search the iframe on the inspection box
+Step 2: Right-click on that web element
+Step 3: Through view page source
+
+*How to Switch Over the Elements in iframes using Web Driver Commands?*
+After identifying the iframe if we need to handle a web element that is present on the iframe, in such cases, we need
+to change the focus of selenium from the main page to the iframe. There are three different ways to shift the focus of
+selenium from the main page to the iframe.
+
+Using the SwitchTo().frame function:->
+The SwitchTo().frame() function is important while working with frames or iframes in Selenium. Before we can interact
+with elements inside a frame , we must first tell Selenium which frame we want to focus on.
+
+Syntax:
+driver.switchTo().frame("frameName")
+
+Once switch into a frame, Selenium will start interacting with the elements inside that frame only.
+
+1. With the help of the index:
+We can switch to a frame using its index. The index starts from 0, means the first frame on the page has an index 0,
+the second frame has an index 1 and so on.
+
+Syntax:
+driver.switchTo().frame(index);
+driver.switchTo().frame(0);//Switch to the first frame
+
+2. With the help of id/name:
+If a frame has a name or ID attribute we can simply switch to it by using that name or ID.
+
+Syntax:
+driver.switchTo().frame("frameNameOrID");
+here we need to identify the id value or name value from the HTML codes of the iframe.
+
+This method is more reliable than switching by index because name and IDs typically remain static , even if the
+structure of page changes.
+driver.switchTo().frame("loginFrame"); // to switch to the frame with the name ' loginFrame'
+
+3. With the help of web element
+
+Syntax:
+driver.switchTo().frame(webelement);
+here we need to declare a webelement by using attributes of iframe.
+
+*How to Switch back to the Main iframe?*
+Suppose we need to change the focus of selenium from iframe to the main page or parent iframe for which there are two
+different ways.
+
+driver.switchTo().parentFrame(); - We use this method to change the focus of selenium from one iframe to parent iframe
+(previous iframe)
+
+driver.switchTo().defaultContent();
+driver.switchTo().defaultContent(); - We use this method to change the focus of selenium from one iframe to the main page.
+
+40. How do you determine whether an element is an iFrame or not?
+-> tell ->>> To determine if an element is an iFrame, you can check if its HTML tag is <iframe> by inspecting the element in your
+browser's developer tools; if the element is wrapped within <iframe> tags, it is considered an iFrame.
+   Key points:
+   Inspect the element: Right-click on the element and select "Inspect" to view its HTML code in the developer tools.
+   Check the tag: If the element is enclosed within <iframe> tags, it is an iFrame.
+
+Right-click on the specific element and check all the options. If you find an option like This Frame, view Frame
+source or Reload Frame, the page includes frames.
+Similar to the first step, right-click on the page and click on View Page Source.
+On the page source, search for “iframe-tags”. If you find any iframe tags, it means the page includes iframes.
+
+9. What is the Actions class?
+The Actions class is a part of the Selenium Python bindings for automating web browsers.
+It allows you to perform actions on web elements, such as moving the mouse over an element, clicking on it,
+and sending keys to it. The Actions class is typically used in conjunction with the WebDriver class, which is the
+main class for interacting with a web browser.
+
+41. How to handle mouse actions in selenium?
+-> To handle mouse actions in Selenium, you use the "Actions" class, which provides methods like click(), doubleClick(),
+contextClick() (right click), moveToElement() (hover), clickAndHold(), and dragAndDrop() to perform various mouse
+interactions on web elements within your test script; essentially allowing you to simulate mouse movements and clicks
+on a webpage.
+Key points about using the Actions class:
+-> Import the class.
+    from selenium.webdriver import ActionChains
+Create an Actions object.
+Code
+    actions = ActionChains(driver)
+Perform mouse actions:
+Click:-> actions.click(element).perform()
+Right click:-> actions.contextClick(element).perform()
+Double click:-> actions.doubleClick(element).perform()
+Hover over element:-> actions.moveToElement(element).perform()
+Drag and Drop:-> actions.drag_and_drop(source_element, target_element).perform()
+Example:
+Code
+   from selenium.webdriver import ActionChains
+
+# Assuming you have a 'login_button' element on the page
+actions = ActionChains(driver)
+actions.move_to_element(login_button).click().perform()
+
+
+42. How do you handle keyboard actions in Selenium?
+-> Handling Keyboard & Mouse Events
+   Handling special keyboard and mouse events are done using the Advanced User Interactions API. It contains the Actions
+and the Action classes that are needed when executing these events.most commonly used keyboard and mouse events provided by
+the Actions class are
+ Method	                                     Description
+   clickAndHold()	            Clicks (without releasing) at the current mouse location.
+   contextClick()	            Performs a context-click at the current mouse location. (Right Click Mouse Action)
+   doubleClick()	            Performs a double-click at the current mouse location.
+   dragAndDrop(source, target)	Performs click-and-hold at the location of the source element, moves to the location of
+                                 the target element, then releases the mouse.
+   Parameters: source- element to emulate button down at.
+   target- element to move to and release the mouse at.
+
+   dragAndDropBy(source, x-offset, y-offset)	Performs click-and-hold at the location of the source element, moves by
+                                                a given offset, then releases the mouse.
+   Parameters:  source- element to emulate button down at.
+   xOffset- horizontal move offset.
+   yOffset- vertical move offset.
+
+   keyDown(modifier_key)    Performs a modifier key press. Does not release the modifier key – subsequent interactions
+                            may assume it’s kept pressed.
+   Parameters:  modifier_key – any of the modifier keys (Keys.ALT, Keys.SHIFT, or Keys.CONTROL)
+
+   keyUp(modifier _key)	            Performs a key release.
+   Parameters:  modifier_key – any of the modifier keys (Keys.ALT, Keys.SHIFT, or Keys.CONTROL)
+
+   moveByOffset(x-offset, y-offset)	Moves the mouse from its current position (or 0,0) by the given offset.
+   Parameters: x-offset- horizontal offset. A negative value means moving the mouse left.
+               y-offset- vertical offset. A negative value means moving the mouse down.
+
+   moveToElement(toElement)	Moves the mouse to the middle of the element.
+   Parameters: toElement- element to move to.
+
+   release()	Releases the depressed left mouse button at the current mouse location
+   sendKeys(onElement, charsequence)	Sends a series of keystrokes onto the element.
+   Parameters: onElement – element that will receive the keystrokes, usually a text field
+   charsequence – any string value representing the sequence of keystrokes to be sent
+
+43. How do you press the ENTER key using the Actions class? Write the syntax.
+-> For pressing Enter key over a textbox we can pass Keys.ENTER or Keys.RETURN to the sendKeys method for that textbox.
+   WebElement textbox = driver.findElement(By.id("idOfElement"));
+   textbox.sendKeys(Keys.ENTER);
+   Or
+   WebElement textbox = driver.findElement(By.id("idOfElement"));
+   textbox.sendKeys(Keys.RETURN);
+
+44. Difference between findElement() and findElements()?
+-> driver.findElement() ->findElements returns a first single WebElement based on the locator passed as parameter.whereas
+   driver.findElements() returns a list of all webElements, all satisfying the locator value passed.
+Another diff between the two is if no element is found then findElement() throws NoSuchElementException whereas findElements()
+return a list of 0 elements.
+    Syntax- driver.findElement() -->> WebElement textbox = driver.findElement(By.id("textBoxLocator"));
+           driver.findElements() -->> List<WebElement> elements = elements.findElements(By.id("value"));
+
+
+45. Name 5 selenium exceptions (NoSuchElement, TimeoutException , StaleElement etc)
+WebDriverException - TimeoutException - NoAlertPresentException - NoSuchWindowException - NoSuchElementException
+-> line 220 in selenium interview file
+
+46. What are the new features of selenium 4.0.
+-> Selenium 4.0 has several new features, including:
+   W3C compliance: Selenium 4.0 is fully compliant with the World Wide Web Consortium (W3C) WebDriver Protocol.
+   This improves browser compatibility and stability.
+   Relative Locators: Selenium 4.0 introduced a new set of locators called "Relative Locators". These locators make it
+   easier to write maintainable tests. Methods include:
+above() below() toLeftOf() toRightOf() near()
+   Chrome Debugging Protocol (CDP): Selenium 4.0 supports the Chrome Debugging Protocol.
+   Window and tab management: Selenium 4.0 has improved window and tab management.
+   Selenium Grid: Selenium 4.0 has an enhanced Selenium Grid.
+   Selenium IDE: Selenium 4.0 has an upgraded Selenium IDE.
+   Documentation: Selenium 4.0 has improved documentation.
+   Telemetry and GraphQL: Selenium 4.0 includes telemetry and GraphQL.
+   Deprecation of Desired Capabilities: Selenium 4.0 deprecated Desired Capabilities.
+   Actions Class: Selenium 4.0 made modifications to the Actions Class.
+
+47. Find Xpath (the interviewer most of the time asks to open the Amazon website and asks to write Xpath of tricky elements)
+
+48. How will you capture screenshots?
+-> To capture screenshots in Selenium, we use the TakesScreenshot interface which is implemented by the WebDriver object,
+allowing you to call the getScreenshotAs() method to capture the current browser window as an image and save it to a
+specified location; essentially, you cast your WebDriver instance to TakesScreenshot and then use the getScreenshotAs()
+method to take the screenshot.
+   Key steps:
+   Import necessary modules: Import the required Selenium libraries in your code.
+   Create a WebDriver instance: Initialize your WebDriver object (e.g., ChromeDriver, FirefoxDriver).
+   Cast to TakesScreenshot: Type cast your WebDriver object to TakesScreenshot.
+   Capture screenshot: Use the getScreenshotAs() method on the casted object to capture the screenshot.
+   Save screenshot: Specify the file path and format where you want to save the captured screenshot.
+   Example code snippet (Java):
+   Code
+   WebDriver driver = new ChromeDriver(); // Initialize WebDriver
+   TakesScreenshot ts = (TakesScreenshot) driver; // Cast to TakesScreenshot [2, 3, 4]
+   File screenshot = ts.getScreenshotAs(OutputType.FILE); // Capture screenshot [2, 3, 4]
+   FileUtils.copyFile(screenshot, new File("path/to/save/screenshot.png")); // Save to file
+   Key points to remember:
+   TakesScreenshot interface: This is the key interface provided by Selenium to take screenshots.
+   getScreenshotAs() method: This method is used to capture the screenshot and returns it as a file object.
+   OutputType enum: You can specify the output format of the screenshot using the OutputType enum
+   (e.g., OutputType.FILE for saving as a file).
+
+49. What is a stale element exception in selenium?
+-> Exception is the fault or disruption that occurs during the execution of the program at runtime. While testing web
+applications with Selenium different types of exceptions are faced commonly.
+   StaleElementReferenceException is one of the most common Selenium exceptions which is often surfaced when the web
+element you are trying to interact with is no longer associated with an HTML element in the DOM(Document Object Model).
+As Selenium tries to reference a stale element, it throws a StaleElementReferenceException. It is one of the many
+subclasses of the WebDriverException class in Selenium.
+   The possible reasons for the web element getting stale can be:
+   a page refresh,
+   DOM update, or
+   location of the web element being changed.
+ However, web elements do not get relocated automatically, the driver creates a reference ID for the element and has
+a particular place in DOM that it expects to find.
+If the Selenium web driver cannot find the element in the current DOM, any action performed on that web element will
+throw a StaleElementReferenceException.
+
+50. What are 3 major challenges you faced while automating UI?
+->
+
+51. What are listeners in TestNG?
+-> Listener is defined as interface that modifies the default TestNG’s behavior. As the name suggests Listeners “listen”
+to the event defined in the selenium script and behave accordingly. It is used in selenium by implementing Listeners
+Interface. It allows customizing TestNG reports or logs. There are many types of TestNG listeners available.
+Types of Listeners in TestNG
+There are many types of listeners which allows you to change the TestNG’s behavior.
+Below are the few TestNG listeners:
+IReporter,
+ISuiteListener,
+ITestListener .
+
+*TestListener has onstart, ontestsuccess, ontestfailure,ontestskipped methods*
+OnStart- OnStart method is called when any Test starts.
+onTestSuccess- onTestSuccess method is called on the success of any Test.
+onTestFailure- onTestFailure method is called on the failure of any Test.
+onTestSkipped- onTestSkipped method is called on skipped of any Test.
+onTestFailedButWithinSuccessPercentage- method is called each time Test fails but is within success percentage.
+onFinish- onFinish method is called after all Tests are executed.
+
+IAnnotationTransformer , IAnnotationTransformer2 , IConfigurable , IConfigurationListener , IExecutionListener, IHookable ,
+IInvokedMethodListener ,IInvokedMethodListener2 ,IMethodInterceptor ,
+Above Interface are called TestNG Listeners. These interfaces are used in selenium to generate logs or customize the
+TestNG reports.
+
+52. Use of extract method in framework.
+-> In a software framework, the "extract method" is a refactoring technique that allows developers to take a block of
+code performing a specific task and move it into a separate, reusable method, improving code readability, maintainability,
+and modularity by encapsulating complex logic into smaller, well-defined functions.
+
+In Selenium, **"extract method"** typically refers to extracting or capturing information from a web element. This could
+involve extracting text, attributes, or properties of the element.
+
+Here are some common methods to **extract data** using Selenium in Java:
+### **1. Extract Text from an Element**
+- **`getText()`** → Extracts the visible text of a web element.
+
+WebDriver driver = new ChromeDriver();
+driver.get("https://www.amazon.in");
+WebElement element = driver.findElement(By.id("elementId"));
+String text = element.getText();
+System.out.println("Extracted Text: " + text);
+
+### **2. Extract Attribute Value**
+- **`getAttribute()`** → Extracts the value of a specified attribute from a web element.
+
+WebElement element = driver.findElement(By.id("elementId"));
+String attributeValue = element.getAttribute("href");
+System.out.println("Extracted Attribute Value: " + attributeValue);
+
+### **3. Extract CSS Property**
+- **`getCssValue()`** → Extracts the value of a specific CSS property.
+
+WebElement element = driver.findElement(By.id("elementId"));
+String color = element.getCssValue("color");
+System.out.println("Extracted CSS Color: " + color);
+```
+
+### **4. Extract Tag Name**
+- **`getTagName()`** → Extracts the tag name of the web element.
+
+WebElement element = driver.findElement(By.id("elementId"));
+String tagName = element.getTagName();
+System.out.println("Extracted Tag Name: " + tagName);
+
+### **5. Extract Data using JavaScript**
+- If data is not accessible directly, execute JavaScript using Selenium.
+
+JavascriptExecutor js = (JavascriptExecutor) driver;
+String text = (String) js.executeScript("return document.getElementById('elementId').textContent;");
+System.out.println("Extracted Text using JS: " + text);
+==============================================================================================================================
+   Jenkins
+1. Explain the use of Jenkins in the Automation Framework.
+-> Jenkins acts as a central hub in an automation framework, primarily used to organize and manage the execution of
+automated tests, builds, and deployments, simplify a continuous integration and delivery (CI/CD) pipeline where code
+changes are automatically built, tested, and deployed frequently, ensuring high quality software delivery throughout
+the development cycle.
+
+Example of how Jenkins is used in automation:
+A developer commits code to a repository: This triggers a Jenkins build job.
+Jenkins pulls the latest code: The code is automatically downloaded and compiled.
+Automated tests are executed: Jenkins runs the Selenium tests against the built application.
+Test results are analyzed: Jenkins generates reports showing test pass/fail status and detailed logs.
+Deployment to staging environment: If tests pass, Jenkins deploys the application to a staging environment for
+further testing.
+
+2. How do you trigger test cases?
+-> To trigger test cases in Jenkins, you need to create a Jenkins job that includes a build step which executes the
+command to run your automated tests (like "mvn test" for Maven projects), typically within a shell script, and then
+configure triggers like "Build Now" to manually initiate the test execution or set up scheduled builds to run tests
+automatically at specific intervals; essentially, you define the test execution command within the Jenkins job
+configuration and then trigger the job to run the tests
+
+========================================================================================================================
+  Maven
+1. How do you specify environment variables in Maven?
+-> To set an environment variable, use the command " export varname=value ", which sets the variable and exports it to
+the global environment (available to other processes). Enclosed the value with double quotes if it contains spaces.
+To set a local variable, use the command " varname =value " (or " set varname =value ").
+
+2. How do you specify a property in Maven that can be overridden at build time.
+->
+
+3. Explain the Maven Lifecycle.
+-> The Maven lifecycle is a series of phases that automates the process of building and deploying a project.
+The lifecycle is made up of three main phases: clean, build, and site.
+   Clean: Prepares the project for a new build by removing any previous build artifacts
+   Build: The main lifecycle that handles the build process, including compilation, testing, and packaging
+   Site: Manages the creation and deployment of project documentation
+
+5.How it works
+   Each phase is made up of a set of goals, which are specific tasks that contribute to building and managing a project
+   The phases are executed sequentially
+   You can specify the phase to be executed when you run a Maven build command
+   The complete Maven lifecycle is outlined in the pom.xml file within the project
+
+4. What Maven is
+   Maven is a widely used automation tool for projects. It's based on the project object model (POM) and is used for
+   project build, dependency, and documentation.
+======================================================================================================================
+ Cucumber & TestNG
+1) Explain your framework structure.
+->
+
+2) How do you perform parallel execution in your framework.
+->  Use the cucumber-jvm-parallel-plugin to enable parallel execution. Add the plugin dependency to your Maven or
+Gradle project. Create a configuration file to specify the number of threads and other options. Update your test runner
+class to use the plugin and specify the configuration file.
+
+3) what are cucumber options.
+->
+
+4) diff between scenario and scenario outline in cucumber?
+-> In **Cucumber** (a BDD tool), both `Scenario` and `Scenario Outline` are used to write test cases in Gherkin
+syntax.
+✅ **Scenario**
+   - A **Scenario** is used to run a single test case with a fixed set of values.
+   - It is useful when you have **one specific test case** to validate.
+   - No parameterization is involved.
+**Example:**
+   Scenario: Login with valid credentials
+     Given I am on the login page
+     When I enter username "user1" and password "pass123"
+     Then I should be logged in successfully
+   - In this case, only one test case with hardcoded values is executed.
+
+✅ **Scenario Outline**
+   - A **Scenario Outline** is used when you want to run the same scenario multiple times with different data sets.
+   - It supports **parameterization** using `<placeholder>` values.
+   - Examples are provided using the `Examples` keyword.
+
+   **Example:**
+   Scenario Outline: Login with multiple credentials
+     Given I am on the login page
+     When I enter username "<username>" and password "<password>"
+     Then I should see a "<message>"
+
+   Examples:
+     | username | password | message                   |
+     | user1    | pass123  | Login Successful          |
+     | user2    | wrong123 | Invalid Username/Password |
+     | user3    | pass456  | Login Successful          |
+   - This will run **three different test cases** using the data provided in the `Examples` table.
+
+   ### 🔎 **Key Differences at a Glance**
+
+   | Feature            | Scenario                           | Scenario Outline                     |
+   |---------------------|-----------------------------------|------------------------------------|
+   | Purpose             | Single test case                  | Multiple test cases using examples |
+   | Data Handling       | Hardcoded data                    | Parameterized using placeholders   |
+   | Examples Table      | Not used                          | Required with `Examples` keyword   |
+   | Test Execution      | Runs once                         | Runs multiple times (once per data set) |
+   | Best for            | Simple scenarios                  | Data-driven testing                |
+
+
+5. How do you handle authentication in cucumber scenarios for web application.
+-> ✅ Which Approach to Choose?
+There are several ways to handle authentication depending on the type of authentication mechanism your application
+uses.
+   Form-based Authentication (UI Login) → Use when testing login UI functionality.
+   API Authentication (Token/Session) → Use when backend API authentication needs to be validated or if UI login is
+    not necessary for the test.
+   Hooks for Authentication → Use when authentication is a prerequisite for multiple scenarios.
+   Environment Variables or Config → Use to secure sensitive information like credentials.
+
+6. What is diff between HTTPS, SSl, TLS?
+-> **HTTPS, SSL, and TLS** are all related to secure communication over the internet, but they serve different
+purposes.
+    ### ✅ **1. HTTPS (HyperText Transfer Protocol Secure)**
+    - **Definition:** HTTPS is the **secure version of HTTP**. It ensures encrypted communication between a web
+                       browser (client) and a web server.
+    - **Purpose:** Protects data from being intercepted or tampered with during transmission.
+    - **Uses:** Primarily used for secure web browsing, online banking, e-commerce, and any site that handles
+                 sensitive information.
+    - **How it Works:** It uses **SSL** or **TLS** to encrypt HTTP communication.
+    - **Example:** `https://www.example.com`
+
+    **Key Point:**
+    - HTTPS = **HTTP + SSL/TLS Encryption**
+
+    ### ✅ **2. SSL (Secure Sockets Layer)**
+    - **Definition:** SSL is an older **cryptographic protocol** designed to provide secure communication over a
+                       network.
+    - **Purpose:** It encrypts data exchanged between a browser and a server, preventing eavesdropping and tampering.
+    - **Status:** SSL is now outdated due to security vulnerabilities and has been replaced by **TLS**.
+    - **Version History:** SSL versions 2.0 and 3.0 are deprecated.
+
+    **Key Point:**
+    - SSL was the **first widely adopted encryption protocol** for web security.
+
+    ### ✅ **3. TLS (Transport Layer Security)**
+    - **Definition:** TLS is the successor to SSL and is a more secure and efficient cryptographic protocol.
+    - **Purpose:** Provides secure data transfer by encrypting communication and ensuring data integrity.
+    - **Status:** TLS is widely used today and is considered the industry standard for securing network
+                     communications.
+    - **Version History:** TLS 1.2 and TLS 1.3 are the most commonly used versions. TLS 1.3 offers better security
+                           and performance.
+
+    **Key Point:**
+    - TLS is an **improved, secure version** of SSL.
+
+    ## 🔎 **Comparison Table**
+
+    | Aspect               | HTTPS                          | SSL                           | TLS                          |
+    |-----------------------|--------------------------------|-------------------------------|------------------------------|
+    | **Purpose**            | Secure HTTP communication     | Encrypt data transmission    | Encrypt data transmission   |
+    | **Encryption Role**    | Uses SSL/TLS for encryption   | Encryption and authentication| Encryption and authentication|
+    | **Security Level**     | Depends on SSL or TLS         | Outdated, insecure           | Highly secure and modern    |
+    | **Status**             | Active and widely used        | Deprecated                    | Actively used and recommended|
+    | **Protocol Version**   | Supports TLS 1.2, 1.3         | SSL 2.0, SSL 3.0 (Deprecated)| TLS 1.2, TLS 1.3            |
+    | **Use Case**           | Secure websites and apps      | Previously used for websites | Secure websites, email, VoIP|
+    | **Speed and Efficiency**| Moderate                      | Slower due to inefficiency   | Faster with improved algorithms|
+
+    ## 🚀 **Summary**
+    - **HTTPS** ensures secure communication over the web using SSL or TLS.
+    - **SSL** was the original encryption protocol but is now insecure and deprecated.
+    - **TLS** is the modern, secure replacement for SSL, providing encrypted communication and data protection.
+
+7. Explain the contents of the Runner File in Cucumber.
+-> In Cucumber (using Java with TestNG or JUnit), the Runner File is used to trigger the execution of your feature
+files. It acts as a bridge between the feature files (written in Gherkin) and the step definitions (written in Java).
+   The Runner File typically contains annotations and configurations to specify how and what scenarios will be
+executed.
+The Runner File acts as an entry point to execute Cucumber tests.
+It includes the @CucumberOptions to configure feature files, step definitions, reports, tags, and output format.
+JUnit uses @RunWith(Cucumber.class) while TestNG extends AbstractTestNGCucumberTests.
+The tags option is useful for running specific test scenarios.
+
+8. Feature file vs Scenarios .
+->  ### ✅ **Feature File vs Scenario in Cucumber**
+    In **Cucumber** (using Gherkin syntax), both **Feature File** and **Scenario** are fundamental components used
+to write behavior-driven tests. However, they serve different purposes.
+
+ ## 🔎 **1. Feature File**
+    - **Definition:** A **Feature File** is a text file that contains one or more **Scenarios** that describe the
+behavior of a specific feature of the application.
+- **Purpose:** It is used to describe the functionality of a particular feature using plain English (Gherkin language)
+to ensure clear communication between developers, testers, and stakeholders.
+- **File Extension:** `.feature`
+- **Contains:**
+      - A brief feature description
+      - One or more Scenarios
+      - Optional Backgrounds, Scenario Outlines, or Examples
+
+    **Example:**
+    Feature: Login Functionality
+      As a registered user
+      I want to log in to the website
+      So that I can access my account
+
+      Scenario: Successful Login with Valid Credentials
+        Given I am on the login page
+        When I enter username "user1" and password "pass123"
+        Then I should be redirected to the homepage
+
+      Scenario: Login with Invalid Credentials
+        Given I am on the login page
+        When I enter username "user1" and password "wrongpass"
+        Then I should see an error message
+
+    **Explanation:**
+    - The `Feature` keyword represents a functionality.
+    - Each scenario is a different test case to validate the login feature.
+    - Gherkin keywords like `Given`, `When`, and `Then` describe the steps of the scenario.
+
+    ## 🔎 **2. Scenario**
+    - **Definition:** A **Scenario** is a single test case written in Gherkin that describes a specific situation
+                      or test condition for a particular feature.
+    - **Purpose:** It validates a specific behavior or functionality of the application.
+    - **Contains:**
+      - A series of steps using `Given`, `When`, `Then`, `And`, or `But` keywords.
+    - **Execution:** Each scenario runs independently.
+
+    **Example:*
+    Scenario: Successful Login with Valid Credentials
+      Given I am on the login page
+      When I enter username "user1" and password "pass123"
+      Then I should be redirected to the homepage
+
+    **Explanation:**
+    - This scenario represents a test case to verify that valid users can log in successfully.
+
+    ## 📊 **Feature File vs Scenario: Comparison Table**
+
+    | Aspect             | Feature File                                     | Scenario                                          |
+    |---------------------|--------------------------------------------------|---------------------------------------------------|
+    | **Definition**       | Describes a feature or functionality            | Describes a specific test case for a feature     |
+    | **Purpose**          | Acts as a container for scenarios               | Validates a particular aspect of the feature     |
+    | **Scope**            | High-level overview of the feature              | Focuses on a single use case or test condition   |
+    | **Contains**         | Feature description, scenarios, and examples    | Given, When, Then steps to execute a test        |
+    | **File Extension**   | `.feature`                                      | Defined within a feature file                    |
+    | **Execution**        | Multiple scenarios can be executed              | Each scenario runs independently                 |
+    | **Reusability**      | Feature files contain multiple test cases       | Scenarios are often reused in different contexts |
+    | **Level**            | Describes the overall feature behavior          | Validates the feature's functionality with tests |
+
+    ---
+
+    ## 🚀 **Conclusion**
+    - **Feature Files** describe the **what** — the behavior of the application.
+    - **Scenarios** describe the **how** — the step-by-step test case to validate that behavior.
+    - Multiple scenarios can exist within a single feature file to cover different test conditions for a specific
+      feature.
+
+========================================================================================================================
+  CI/CD
+1. What happens when CI/CD jobs stops in between?
+->When a CI/CD job stops in between, it indicates a failure in the pipeline, potentially halting the automated software
+delivery process. This requires investigation and resolution to ensure smooth and reliable releases.
+
+ Why CI/CD Jobs Stop:
+ Build Failures: The code might not compile or have errors, preventing the build process from completing.
+ Testing Failures: Automated tests might fail, indicating issues with the code's functionality or bugs.
+ Deployment Issues: Problems with the deployment process itself, such as network connectivity, server issues, or
+                    incorrect configurations, can cause deployments to fail.
+ Infrastructure Problems: Issues with the CI/CD infrastructure, such as server outages or resource limitations, can halt the
+                           pipeline.
+ Code Changes: Unexpected or conflicting code changes in the repository can cause build or test failures.
+ Security Vulnerabilities: Security scans might identify vulnerabilities that need to be addressed before deployment.
+
+ Consequences of a Stopped Job:
+ Delayed Releases: The software release process is paused, potentially delaying the delivery of new features or bug fixes.
+ Reduced Productivity: Developers and operations teams need to investigate and resolve the issue, which can consume valuable
+                       time and resources.
+ Potential for Bugs: If the pipeline stops prematurely, it can lead to the release of unstable or buggy software.
+ Increased Risk : A stopped pipeline can increase the risk of deploying unstable versions of the application.
+
+ Troubleshooting and Resolution:
+ Review Logs:  Examine the logs of the CI/CD system to identify the cause of the failure (e.g., build errors, test failures,
+               deployment issues).
+ Check Code: Review the code that triggered the failed job for any potential errors or issues.
+ Verify Infrastructure: Ensure that the CI/CD infrastructure is functioning correctly and that there are no resource
+                        limitations or outages.
+ Address Security Issues: If security vulnerabilities are identified, take steps to address them before proceeding with the
+                          release.
+ Communicate: Keep relevant teams informed about the issue and the steps taken to resolve it.
+ Implement Rollback: If a deployment has failed, have a plan in place to roll back to a previous stable version.
+
+2. How do you manage CI/CD pipeline when high priority scenarios fail during execution?
+->
+
+3. How do you run your test cases in parallel in cucumber?
+->  To run Cucumber test cases in parallel, you can leverage TestNG or JUnit with Maven, configuring the Surefire plugin
+to execute feature files or scenarios concurrently.
+
+4. CI/CD role in testing?
+-> A CI/CD pipeline is an automated process utilized by software development teams to streamline the creation, testing and
+deployment of applications.
+10 Best CI/CD Tools to Consider in 2024
+GitLab. ...
+Semaphore. ...
+CircleCI. ...
+CloudBees. ...
+Jenkins. ...
+Travis CI. ...
+ArgoCD. ...
+TeamCity.
+========================================================================================================================
+ Git & Version Control
+1) which version control you are using?
+->
+
+2) If you join a new project, what Git commands do you use from start to end? what are stages you follow?write in notepad
+-> When joining a new project using Git, you'll typically follow these stages and use these commands: clone the repository,
+set up your environment, create a branch, make changes, stage and commit your changes, push to the remote repository,
+and potentially pull and merge changes from others.
+
+1. Initial Setup & Familiarization:
+Clone the Repository: Use git clone <repository_url> to download the project's code to your local machine.
+Navigate to the Project Directory: Use cd <project_directory> to move into the cloned folder.
+Check the current branch: Use git branch to see the current branch.
+Check the remote origin: Use git remote -v to see the remote origin url.
+
+3. How do you resolve conflicts in Git?
+-> If git pull or git merge introduces conflicts, resolve them manually and then stage and commit the resolved files.
+
+To resolve merge conflicts in Git, you can manually edit the conflicting files and then commit the changes. You can also use
+the git mergetool command to run a merge utility.
+Steps to resolve merge conflicts
+Open the conflicting file in a text editor
+Make any necessary changes to resolve the conflict
+Run git add to stage the new merged content
+Run git commit to create a new commit
+
+4. Git pull and git Patch
+-> Patch files are simply Unified-Diff files showing the differences between your working tree and the base revision.
+A pull request is an request to another repository owner to pull changes from your repository. I.e. you must have access
+to a public repository where you can push your changes (normally a special branch).
+
+5. How to search for text in the current working repo/directory?
+-> Git Grep. Git ships with a command called grep that allows you to easily search through any committed tree, the working
+directory, or even the index for a string or regular expression.
+
+If you want to search through all files in the current directory and all its subdirectories, use the -r (recursive) option:
+grep -lr 'your_text' . The dot . tells grep to start searching from the current directory and go through all subdirectories.
+
+6. How to save local changes made without committing or moving them to a remote repository?
+-> Yes, you can use stash.
+   //git stash -m "optional description here"
+   It will save any uncommitted stuff in a special area where you can get it back later using
+   //git stash apply
+   You can see what is in the stash with
+   //git stash li
+
+========================================================================================================================
+  Sql and Linux
+1. Do you have any idea about SQL? and tell me few queries you performed.
+2. Do you have any idea about linux commands?
+3. Why default which join is implemented in SQL?
+4. Fetch employee without projects.
+5. Left, Right, Inner joins differences
+6. Pick a random DB record
+7. Fetch records where provisionType='suspend' (T1 with mapId as PK , T2 with provisionId as PK)
+========================================================================================================================
+  API Automation
+1. RestAssured vs Postman
+2. API testing framework used
+3. Data generation and validation in API testing
+4. API authentication techniques
+5. RESTful vs SOAP services
+6. Can GET replace PUT for resource creation
+7. API framework utilities
+8. Schema validation approach.
+9. API test case for Amazon UPI verification with govt. server.
+========================================================================================================================
+  Scenario-Based Questions
+1. You have 3 frames( frame A, frame B, frame C). After clicking Frame C , the application opens another tab containing
+a login, password and sign in button. Write the selenium automation script for this scenario (in notepad)
+
+2. How to check for broken links? How would you validate each link if there are 20 links on a page? done
+3. Code snippet for Explcit and Implicit wait.
+4. code snippet for Drag and Drop in selenium.
+5. Write a code for taking screenshot in Selenium. done
+6. Write the code snipped for passing values 1 and 2 to the parameters val1 and val2 through the XML file.
+7. How to print all the links from a webpage? Where do you store those links?
+8. Write code to read data from Excel file.
+9. Find the 2nd child element using selenium. (FIS)
+10. Get Xpath for all links under "Gaming Accessories" on Amazon (except "see more")
+11. Get Xpath fro Nintendo product.
+12. Handle dropdown with 100 options, displaying 10 at a time, requiring scrolling. Data handling approach
+13. Common exceptions encountered; write a sample code.
+14. Select "June" from a 12-month dropdown; best WAIT mechanism.
+15.

@@ -1,7 +1,7 @@
 import coreJava.movies.Movie;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+
 
 public class RatedMovieTest {
     //setter ,constructor ,builder

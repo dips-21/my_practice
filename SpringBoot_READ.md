@@ -54,7 +54,7 @@ Similarly, when the bean is no longer required and is removed from the container
 
 
 **ApplicationContext:**BEAN SCopes:-
-======================================
+==============================================
 Central interface to provide configuration for an spring application.Usually there will be only one
 but multiple application contexts can be created per jvm(tomcat).
 
@@ -144,19 +144,17 @@ This is simply a specialization of the @Component class, which allows us to auto
 through the classpath scanning.
 We use @Controller in combination with a @RequestMapping annotation for request handling methods.
 
-Transaction management
+Transaction management      
 =============================
 Transaction management [1, 2] refers to the tasks of processing multiple transactions issued by various 
 clients of a database server in such a way that the ACID contract can be fulfilled, that is, 
 the properties of atomicity, consistency preservation, isolation, and durability of each individual transaction can be .
-
 
 REST CONTROLLER:-
 =====================
 RestController is a Spring annotation that is used to build REST API in a declarative way. 
 RestController annotation is applied to a class to mark it as a request handler, and Spring will do the building 
 and provide the RESTful web service at runtime.
-
 
 Session:-
 ================
@@ -190,7 +188,6 @@ The container gets its instructions on what objects to instantiate, configure, a
 configuration metadata provided. The configuration metadata can be represented either by XML, Java annotations, or Java code.
 The Spring IoC container makes use of Java POJO classes and configuration metadata to produce a fully configured
 and executable system or application.
-
 
 Transaction management
 =================================

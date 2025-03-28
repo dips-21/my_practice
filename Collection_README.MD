@@ -162,7 +162,7 @@ If we want logical equality (not identity ,memory address based) then we need to
 for eg "dog" new String("dog") , not same by == but are logically same ,
 p1=new Person("Jaanhvi") p2=new Person("Jaanhvi").
 
-for new objects to be equal which are logically same we have to override equals.
+for new objects to be equal which are logically same we have to overrride equals.
 
 Also if in a class we override equals but not hashcode then it will not behave correctly when used in a HashMap,HashSet.
 map.put(new Person("Jaanhvi"),"hachi")       =============
@@ -265,47 +265,3 @@ for eg: ArrayList implements Iterable Serializable
 4) All methods in interface are implicitly public ,abstract can have private,protected ,default or public methods
 
 
-========================================================
-
-17. Differentiate between Array and ArrayList in Java.
--> Java provides arrays as a fundamental functionality. ArrayList is a component of Java's collection system. As a result,
-It is used to access array members, while ArrayList provides a set of methods for accessing and modifying components.
-ArrayList is not a fixed-size data structure, but Array is. When creating an ArrayList object, there is no need to
-provide its size. Even if we set a maximum capacity, we can add more parts afterward.
-Arrays can include both primitive data types and class objects, depending on the array's definition.
-ArrayList, on the other hand, only accepts object entries and not primitive data types. Note that when we use
-arraylist.add(1);, the primitive int data type is converted to an Integer object.
-Members of ArrayList are always referencing to objects at various memory locations since ArrayList can't be 
-constructed for primitive data types  As a result, the actual objects in an ArrayList are never kept in the same place.
-The references to the real items are maintained in close proximity. Whether an array is primitive or an object depends
-on the type of the array. Actual values for primitive kinds are continuous regions, whereas allocation for objects is
-equivalent to ArrayList.
-Many other operations, such as indexOf() and delete(), are supported by Java ArrayList. 
-Arrays do not support these functions.
-
-================================= ================== ===================
-
-3. Explain fail-fast and fail-safe iterators. Differentiate between them. 
--> If the collection's structure is changed, Fail-Fast iterators immediately throw ConcurrentModificationException. 
-   While a thread is iterating over a collection, structural alteration includes adding or deleting any element. 
-   Fail-safe Iterator classes include ArrayList Iterator and HashMap Iterator. 
-   Fail-fast iterators use an internal indicator called modCount, which is updated each time a collection is modified,
-   to determine if the collection has been structurally modified or not. When a fail-fast iterator gets the next item
-   (through the next() method), it checks the modCount flag, and if it discovers that the modCount has been changed
-   after the iterator was generated, it throws a ConcurrentModificationException.
-
-If a collection is structurally updated while iterating over it, fail-safe iterators don't throw any exceptions.
-Because they operate on a clone of the collection rather than the original collection, they are referred to as
-fail-safe iterators. Fail-safe Iterators include the CopyOnWriteArrayList and ConcurrentHashMap classes.
-
-Fail-Fast	
-These types of iterators do not allow modifying the collection while iterating over it.
-It throws ConcurrentModificationException if the collection is modified while iterating over it.
-It uses the original collection while traversing the elements.
-No extra memory is required in this case.
-
-Fail-Safe
-These types of iterators allow modifying the collection while iterating over it.
-No exception is thrown if the collection is modified while iterating over it.
-It uses a copy of the original collection while traversing over it.
-Extra memory is required in this case.

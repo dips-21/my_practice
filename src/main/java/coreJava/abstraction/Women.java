@@ -39,4 +39,5 @@ public class Women extends Person {
         result = 31 * result + (getHobby() != null ? getHobby().hashCode() : 0);
         return result;
     }
+
 }

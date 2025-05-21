@@ -174,7 +174,7 @@ test results to identify areas for improvement; essentially treating your test c
 code to maintain its functionality over time
 
 8) What is regression testing, and why it is imp?
--> Regression testing is a software testing process that ensures that changes to an application don't negatively
+->     testing is a software testing process that ensures that changes to an application don't negatively
 impact existing functionality. It's important because it helps identify bugs and maintain software quality.
 
 *Regression testing is a full or partial selection of already executed test cases that are re-executed to ensure existing
@@ -278,7 +278,7 @@ developers, testers, and non-technical stakeholders to ensure customer-centric o
 in terms of desired behaviors and user stories, enabling clearer communication and a focus on delivering business value.
 
 14) How do you switch to different windows in selenium?
--> To switch between different windows in Selenium, you use the switchTo().window() method, where you need to provide
+-> To switch between different windows in Selenium, we use the switchTo().window() method, where we need to provide
 the window handle (a unique identifier for the window) you want to switch to, which you can retrieve using the
 getWindowHandles() method to get a list of all open window handles; then iterate through the list to find the desired
 window and switch to it.

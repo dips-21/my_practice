@@ -1,5 +1,5 @@
 Polymorphic method invocations apply only to instance methods.
- You can always refer to an object with a more general reference variable type (a su-perclass or interface), 
+ You can always refer to an object with a more general reference variable type (a superclass or interface), 
 but at runtime, the ONLY things that are dynamically selected based on the actual object (rather than the reference type)
 are instance methods. Not static methods. Not variables. 
  Only overridden instance meth-ods are dynamically invoked based on the real object's type.

@@ -2,7 +2,7 @@ package arrays;
 
 import java.util.HashSet;
 
-public class Palindrome {
+public class  Palindrome {
     //wow   w
     boolean isPalindrome(String word) {            //nitin
         char[] words = word.toCharArray();               //0 1 2 3 4

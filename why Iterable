@@ -43,4 +43,4 @@ HashSet HashMap    hashcode equals  time complexity o(1) get and put , additiona
 Similar to associative array , AgeOfPerson[5]=25 (in array)   AgeOfPerson["dipali"]=25 ,AgeOfPErson.put("dipali",25)
  
 
- LinkedHashSet LinkedHashMap    //hashcode equals 
+ LinkedHashSet LinkedHashMap    //hashcode equals

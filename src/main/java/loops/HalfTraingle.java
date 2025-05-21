@@ -21,7 +21,43 @@ public class HalfTraingle {
         }
     }
 
+    static void printPattern2(int lines){
+        for (int i = 0; i < lines; i++) {     // lines
+
+            for (int j = lines; j > i; j--) {   // space
+                System.out.print(" ");
+            }
+                for (int k = 0; k <= i; k++) {
+                    System.out.print("*");
+                }
+
+            System.out.println();
+            }
+        }
+
+
+        static void printPattern3(int lines){
+        int num=1;
+            for (int i = 0; i < lines ; i++) {
+                for (int j = lines; j>= i ; j--) {
+                    System.out.print(" ");
+                }
+                for (int k = 1; k <= i+1; k++) {
+                    System.out.print(k+" ");
+                    //System.out.print(" ");
+                    num++;
+                }
+
+                System.out.println();
+            }
+
+        }
+
     public static void main(String[] args) {
-        printPattern(4);
+        //printPattern(4);
+       // printPattern2(3);
+        printPattern3(5);
     }
+
+
 }

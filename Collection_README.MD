@@ -13,31 +13,38 @@ and can provide an iterator implementation to iterate over large data set .For e
 or another web service on next() calls
 It is root(parent) of all collections .List ,Set,Queue all are iterable .
 
+
+Iterator:-
+==================================
+An iterator is a universal cursor that can be applied to any collection object.
+It provides a single direction iteration. By using an iterator, we can perform both read and remove operation,
+but we cannot perform replace operation. Iterator must be used whenever we want to enumerate elements in
+all collection framework implemented interfaces like Set, List, Queue, DeQue, and also implemented classes
+of Map interface.
+Iterator object can be created by calling iterator() method present in the Collection interface
+
 /**Iterator:-
 ==========================================================================
 * Iterator is an interface it encapsulated the iteration logic
   which is applied on collection of objects which can be iterable.
-* collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations
+* collection framework provide iterator for it's implementations.eg.arraylist ,linkedList are implementations
   of Collection.
 * Any Iterable has to provide iterator() .
-* It has hasnext(),next(),remove() method.
-* HasNext() method return boolean value ,if the iterable list has more elements to
-  iterate then it return true value.
-* Next() method is used to called the next elements in the list.if the iterator has no next element to iterate
-  then it throws NosuchElementsException.
+* It has hasNext(),next(),remove() method.
+* HasNext() method return boolean value ,if the iterable list has more elements to iterate then it return true value.
+* Next() method is used to call the next elements in the list. If the iterator has no next element to iterate
+  then it throws NoSuchElementsException.
 * if we called iterator without next method then it throws IllegalStateException.bcz when we called for remove
-  method then iterator check their expected count and actual size of elements.then if it  will not be matched then he throws
-  IllegalStateException bcz size of list elements always checked when we use next method..
+  method then iterator check their expected count and actual size of elements.Then if it  will not be matched then 
+  he throws IllegalStateException bcz size of list elements always checked when we use next method.
 * Remove() method remove the last elements which is called by next() method.
 * it is uni directional.It moves forward direction only.
 
 
 **Why Iterator throws ConcurrentModificationException:-
 =========================================================================
-* iterator has a expected count field (==list size)
-  while iterating it will check if expected count==size(actual count)
-* if list is directly modified (list.add() or list.remove())
-  then expected count will not be equal to actual count
+* iterator has expected count field (==list size) ,while iterating it will check if expected count==size(actual count).
+* if list is directly modified (list.add() or list.remove()) then expected count will not be equal to actual count
   this is treated as concurrent modification and exception is thrown
 * This is fail fast iterator.
 * when listIterator.remove() is called both iterator expected count and actual count decrease
@@ -52,31 +59,19 @@ It provides a single direction iteration. By using enumeration, we can perform o
 and we cannot perform remove operation.
 Enumeration object can be created by calling elements() method present in the Vector class.
 
-Iterator:-
-==================================
-An iterator is a universal cursor that can be applied to any collection object. 
-It provides a single direction iteration. By using an iterator, we can perform both read and remove operation, 
-but we cannot perform replace operation. Iterator must be used whenever we want to enumerate elements in 
-all collection framework implemented interfaces like Set, List, Queue, DeQue, and also implemented classes 
-of Map interface.
-Iterator object can be created by calling iterator() method present in the Collection interface
-
 **Comparable And Comparator:-
 ==================================
             Comparable                                             
 *comparable interface is used to compare single elements    
-*A comparable object is capable of comparing itself with
-another object                                                
+*A comparable object is capable of comparing itself with another object                                                
 *It has compareTo() method.                                   
 *it is in java.lang.package
 
-syntax---compareTo(one object passed to compare            
-with this.object itself)
+syntax---compareTo(one object passed to compare with this.object itself)
 
 Comparison logic is coupled in comparable .
-comparable is tighly coupled with that class to check object comparison.
+comparable is tightly coupled with that class to check object comparison.
 It is also used to compare the current instance with another object of same type.
-
 
       Comparator
 ===================================
@@ -85,7 +80,7 @@ The Comparator interface is used to sort elements that compare two objects and p
 *It implements comparable.
 *It has compare() method to compare.
 *it is in java.util package
-syntax--compare(two objects passed )
+syntax-> compare(two objects passed )
 
 comparable and comparator returns positive negative and 0 values.
 *if the first element is greater than second then it returns -1 negative integar.
@@ -105,8 +100,8 @@ ArrayList
 In arraylist the array is encapsulated in it.
 
 Complexity of get element is O(1).
-If we remove elements from middle of first popsition then it then all elements will be shuffle.
-cache friendly bcz continuouse memory allocation.when the page is loaded in memory then other elements 
+If we remove elements from middle of first position then it then all elements will be shuffle.
+cache friendly bcz continuous memory allocation.when the page is loaded in memory then other elements 
 are in same place.
 fixed memory allocation.
 Dynamic array (if array size full then it internally create new array).so memory could be wasted.
@@ -126,7 +121,7 @@ chances are less that other elements will be in same page (unlike in an array )
 
 It is dynamic memory allocation.
 Memory will allocate dynamically so no waste.
-DOubly Linked List additional memory will take for adding new node ,prev code.
+Doubly Linked List additional memory will take for adding new node ,prev code.
 
 If too many elements removes then use linked list otherwise use arrayList. <-When to use
 ========================================================================================
@@ -162,7 +157,7 @@ If we want logical equality (not identity ,memory address based) then we need to
 for eg "dog" new String("dog") , not same by == but are logically same ,
 p1=new Person("Jaanhvi") p2=new Person("Jaanhvi").
 
-for new objects to be equal which are logically same we have to overrride equals.
+for new objects to be equal which are logically same we have to override equals.
 
 Also if in a class we override equals but not hashcode then it will not behave correctly when used in a HashMap,HashSet.
 map.put(new Person("Jaanhvi"),"hachi")       =============
@@ -184,7 +179,6 @@ result = 31 * result + age;              //collision
 result = 31 * result +pincode;
 result = 31 * result +name.hashcode();
 return result
-= = = = =
 
 LinkedHashMap:-
 ========================================================================

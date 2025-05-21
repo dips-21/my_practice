@@ -64,7 +64,8 @@ public static void main (String [] args) {
 *override a method marked public and make it protected). 
 The overriding method cannot have a more restrictive access modifier than the method being overridden (for example, you can't override a method marked public and make it protected). 
 
-The overriding method CAN throw any unchecked (runtime) exception, regardless of whether the overridden method declares the exception but cannot throw any new checked exception which parent does not.
+The overriding method CAN throw any unchecked (runtime) exception, regardless of whether the overridden method declares the exception but cannot throw any new checked exception which 
+parent does not.
 constructor cannot be overriden
 
 private or static or final method cannot be overriden.

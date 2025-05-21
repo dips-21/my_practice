@@ -29,13 +29,13 @@ class ThreadCallableDemo {
         System.out.println("calculating sum til 5");
         Future<Integer> result1 = executors.submit(new SumTillNCallable(5));
         System.out.println("calculating sum til 10");
-        Future<Integer> result2 =  executors.submit(new SumTillNCallable(10));
-        System.out.println(" sum is "+result2.get());
+        Future<Integer> result2 = executors.submit(new SumTillNCallable(10));
+        System.out.println(" sum is " + result2.get());
         System.out.println("calculating sum til 15");
-        Future<Integer> result3 =  executors.submit(new SumTillNCallable(15));
-        System.out.println(" sum is "+result1.get());
+        Future<Integer> result3 = executors.submit(new SumTillNCallable(15));
+        System.out.println(" sum is " + result1.get());
 
-        System.out.println(" sum is "+result3.get());
+        System.out.println(" sum is " + result3.get());
         executors.shutdown();
     }
 }

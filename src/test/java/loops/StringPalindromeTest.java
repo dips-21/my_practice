@@ -19,6 +19,10 @@ public class StringPalindromeTest {
         assertThat(StringPalindrome.isEqual("dipali".toCharArray(),"diwali".toCharArray()),is(false));
     }
 
+    @Test
+    public void isEqual_03() {
+        assertThat(StringPalindrome.isEqual("nayan".toCharArray(),"nayan".toCharArray()),is(true));
+    }
 
     @Test
     public void reverse_01() {

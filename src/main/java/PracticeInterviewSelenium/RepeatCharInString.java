@@ -30,7 +30,7 @@ public class RepeatCharInString {
     public static void main(String[] args) {
         String input = "programming";
         int result = repeatedCharactersAndItsCount(input);
-        System.out.println("Number of repeated characters: " + result);
+        System.out.println("Number of repeated characters: " + input  + result);
     }
 
 }

@@ -3,7 +3,7 @@
 Spring Dependency Injection  (component scanning and creation of object using reflection ):-
 ================================================================================================
 In Dependency injection dependencies of an object are passed to it instead of the object getting it's own dependencies.
-Dependency can be passed through constructor or setter.
+Dependency can be passed through constructor or setter or field.
 It provides loose coupling.
 The object does not look up its dependencies and does not know the location or class of the dependencies,
 rather everything is taken care by the Spring Framework.
@@ -25,6 +25,16 @@ eg @Qualifier("MongoRepo"),
 Each object created by Spring is managed by spring and is a spring bean.
 By default each spring bean is Singleton (ie only one instance of class exists).
 It is per application context.
+
+
+Dependency Injection:-
+
+Let's imagine that you want to go fishing:
+Without dependency injection, you need to take care of everything yourself. You need to find a boat, to buy a
+fishing rod, to look for bait, etc. It's possible, of course, but it puts a lot of responsibility on you. In software
+terms, it means that you have to perform a lookup for all these things.
+With dependency injection, someone else takes care of all the preparation and makes the required equipment
+available to you. You will receive ("be injected") the boat, the fishing rod and the bait - all ready to use.
 
 **BEAN**:-
 -------------------------------
@@ -61,8 +71,9 @@ but multiple application contexts can be created per jvm(tomcat).
 **singleton**
 This scopes the bean definition to a single instance per Spring IoC container (default).
 
-If a scope is set to singleton, the Spring IoC container creates exactly one instance of the object defined by that bean
-definition. This single instance is stored in a cache of such singleton beans, and all subsequent requests
+If a scope is set to be singleton, the Spring IoC container creates exactly one instance of the object defined by that bean
+definition.This single instance is stored in a cache of such singleton beans, and all subsequent requests
+and references for that named bean return the cached object.
 and references for that named bean return the cached object.
 The default scope is always singleton. However, when you need one and only one instance of a bean,
 =========================================
@@ -204,3 +215,34 @@ Easy to use but powerful database transaction management capabilities. Spring si
 integration with other Java frameworks like JPA/Hibernate ORM, Struts/JSF/etc. web
 frameworks. State of the art Web MVC framework for building web applications.
 
+Difference between Stream and Parallel Stream
+
+Different ways to handle exception 
+
+Java 8 features you are aware of, right? Stream API and Function Interfaces. Let's say, for example, I have a Function Interface and I am having one abstract method and a couple of default and static methods. Now I want to access the default method from the Function Interface.
+
+can we add in run-time exceptions in Java? Which one? Run-time exceptions.
+-> Yes , in Java, you can add or throw runtime exceptions at runtime — in fact, runtime exceptions are unchecked 
+exceptions, meaning they do not require explicit handling using try-catch or throws declarations.
+
+what's the difference between abstraction and data hiding?
+
+so how does Java manage its memory with the broadband collection?
+
+so how does SpringBoot handle the dependency injection, so with annotations like auto-align and component?
+-> Spring Boot handles Dependency Injection (DI) using annotations and its built-in Inversion of Control (IoC) container. This helps create loosely coupled code.
+
+
+What is the difference between Fetched Type Lazy and Fetched Type Eager in Hibernate?
+
+let me understand, so you are working on microservices architecture, correct?so what is the communication mechanism,
+I mean, like, basically, inter-service communication, right? So, between microservices, so what are the different ways
+you are using now?
+
+
+What is the role of API Gateway in microservices?
+
+AWS Experience?
+
+Have you involved in the print security and the authentication operations?
+-> Yes, I’ve been involved in implementing basic authentication features for secured access, but I haven’t worked directly on print security solutions. However, I understand that secure print solutions often involve user authentication via ID badges, PINs, or smart cards, and integrate with systems like LDAP or SSO. I’d be keen to learn more and work in that area if given the opportunity."

@@ -1,3 +1,40 @@
+✅ Roles and Responsibilities of an Automation Test Engineer
+🔹 Automation Testing (Selenium + Java + TestNG)
+
+Developed, enhanced, and maintained Selenium WebDriver test scripts using Java and TestNG for UI and functional
+testing.
+Built modular, reusable, and scalable automation frameworks (data-driven, hybrid) to improve test efficiency.
+Implemented test result reporting using Extent Reports and integrated logs for better traceability.
+
+🔹 Product-Specific Testing (Verifix & Tbricks)
+Automated end-to-end test cases for Verifix, ensuring stability of real-time financial transaction workflows
+and trade execution modules.
+Designed and executed test scenarios for Tbricks, focusing on high-frequency trading, order placement, price
+feed validations, and backend workflows.
+Collaborated with developers to understand system internals and ensure automation covered critical user flows.
+
+🔹 CI/CD and Integration
+Integrated automated test suites into CI/CD pipelines using Jenkins, enabling tests to run on every build and
+improving release confidence.
+Maintained test scripts in Git repositories, and used Maven for build management and dependency handling.
+Monitored test results on CI servers and debugged failures proactively to reduce pipeline blockers.
+
+🔹 Agile Process Involvement
+Participated in all Agile ceremonies: sprint planning, daily stand-ups, reviews, retrospectives.
+Created and executed test plans and test cases based on user stories and acceptance criteria.
+Aligned test activities with sprint goals and collaborated with cross-functional teams for faster issue resolution.
+
+🔹 Defect Reporting & Quality Ownership
+Identified bugs and logged defects in JIRA, working closely with dev teams for root cause analysis and timely
+resolution.
+Performed regression testing during every release and ensured full test coverage before production deployments.
+Took ownership of test coverage metrics and continuously optimized the regression suite to balance speed and
+stability.
+
+🔹 Continuous Learning & Team Collaboration
+Explored new tools and frameworks to enhance test effectiveness and reduce test maintenance.
+Supported junior testers and participated in code reviews for automation scripts.
+Provided demo sessions on automation progress during sprint reviews and release readiness meetings.
 
 
 ## ✅ **Core Java Questions**

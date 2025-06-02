@@ -1,11 +1,11 @@
 COLLECTIONS:-
-=========================================================================
+=======================================================================
 The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
 Java Collections can achieve all the operations that you perform on a data such as searching, sorting,
 insertion, manipulation, and deletion. Java Collection means a single unit of objects.
 
 Iterable :
-==========================================================================
+================
 Abstraction of types that can be iterated using iterator ,iterate over big data set .
 An Iterable can represent group of objects whose size is not known .
 It can be like a FacebookFeed where all objects are not loaded in memory.
@@ -13,35 +13,42 @@ and can provide an iterator implementation to iterate over large data set .For e
 or another web service on next() calls
 It is root(parent) of all collections .List ,Set,Queue all are iterable .
 
+
+Iterator:-
+==================================
+An iterator is a universal cursor that can be applied to any collection object.
+It provides a single direction iteration. By using an iterator, we can perform both read and remove operation,
+but we cannot perform replace operation. Iterator must be used whenever we want to enumerate elements in
+all collection framework implemented interfaces like Set, List, Queue, DeQue, and also implemented classes
+of Map interface.
+Iterator object can be created by calling iterator() method present in the Collection interface
+
 /**Iterator:-
 ==========================================================================
 * Iterator is an interface it encapsulated the iteration logic
   which is applied on collection of objects which can be iterable.
-* collection framework provide iterator for it's implementations..eg.arraylist ,
-  linkedlist are implementations of Collection.
+* collection framework provide iterator for it's implementations.eg.arraylist ,linkedList are implementations
+  of Collection.
 * Any Iterable has to provide iterator() .
-* It has hasnext(),next(),remove() method.
-* HasNext() method return boolean value ,if the iterable list has more elements to
-  iterate then it return true value.
-* Next() method is used to called the next elements in the list.if the iterator has no next element to iterate
-  then it throws NosuchElementsException.
+* It has hasNext(),next(),remove() method.
+* HasNext() method return boolean value ,if the iterable list has more elements to iterate then it return true value.
+* Next() method is used to call the next elements in the list. If the iterator has no next element to iterate
+  then it throws NoSuchElementsException.
 * if we called iterator without next method then it throws IllegalStateException.bcz when we called for remove
-  method then iterator check their expected count and actual size of elements.then if it  will not be matched then he throws
-  IllegalStateException bcz size of list elements always checked when we use next method..
+  method then iterator check their expected count and actual size of elements.Then if it  will not be matched then 
+  he throws IllegalStateException bcz size of list elements always checked when we use next method.
 * Remove() method remove the last elements which is called by next() method.
 * it is uni directional.It moves forward direction only.
 
+
 **Why Iterator throws ConcurrentModificationException:-
 =========================================================================
-* iterator has a expected count field (==list size)
-  while iterating it will check if expected count==size(actual count)
-* if list is directly modified (list.add() or list.remove())
-  then expected count will not be equal to actual count
+* iterator has expected count field (==list size) ,while iterating it will check if expected count==size(actual count).
+* if list is directly modified (list.add() or list.remove()) then expected count will not be equal to actual count
   this is treated as concurrent modification and exception is thrown
 * This is fail fast iterator.
 * when listIterator.remove() is called both iterator expected count and actual count decrease
 * so no exception is thrown.
-
 
 Enumerator:-
 =============================
@@ -52,39 +59,28 @@ It provides a single direction iteration. By using enumeration, we can perform o
 and we cannot perform remove operation.
 Enumeration object can be created by calling elements() method present in the Vector class.
 
-Iterator:-
-==================================
-An iterator is a universal cursor that can be applied to any collection object. 
-It provides a single direction iteration. By using an iterator, we can perform both read and remove operation, 
-but we cannot perform replace operation. Iterator must be used whenever we want to enumerate elements in 
-all collection framework implemented interfaces like Set, List, Queue, DeQue, and also implemented classes 
-of Map interface.
-Iterator object can be created by calling iterator() method present in the Collection interface
-
 **Comparable And Comparator:-
 ==================================
             Comparable                                             
 *comparable interface is used to compare single elements    
-*A comparable object is capable of comparing itself with
-another object                                                
+*A comparable object is capable of comparing itself with another object                                                
 *It has compareTo() method.                                   
 *it is in java.lang.package
 
-syntax---compareTo(one object passed to compare            
-with this.object itself)
+syntax---compareTo(one object passed to compare with this.object itself)
 
 Comparison logic is coupled in comparable .
-comparable is tighly coupled with that class to check object comparison.
+comparable is tightly coupled with that class to check object comparison.
 It is also used to compare the current instance with another object of same type.
 
       Comparator
-==================================================================================
+===================================
 *Comparator interface is used to compare two or multiple elements
 The Comparator interface is used to sort elements that compare two objects and provides additional comparison method.
 *It implements comparable.
 *It has compare() method to compare.
 *it is in java.util package
-syntax--compare(two objects passed )
+syntax-> compare(two objects passed )
 
 comparable and comparator returns positive negative and 0 values.
 *if the first element is greater than second then it returns -1 negative integar.
@@ -100,14 +96,14 @@ comparable example we could just sort by only one attribute,
 i.e., age but in the comparator,we can use different attributes like weight, name, and year.
 
 ArrayList
-===========================================================================
+=======================================================================
 In arraylist the array is encapsulated in it.
 
 Complexity of get element is O(1).
-If we remove elements from middle of first popsition then it then all elements will be shuffle.
-Cache friendly bcz continuouse memory allocation.when the page is loaded in memory then other elements 
+If we remove elements from middle of first position then it then all elements will be shuffle.
+cache friendly bcz continuous memory allocation.when the page is loaded in memory then other elements 
 are in same place.
-Fixed memory allocation.
+fixed memory allocation.
 Dynamic array (if array size full then it internally create new array).so memory could be wasted.
 in special case adding at last n there is spcae in internal array then complexity is o(1).
 o(n)-to add or remove element from any position.
@@ -125,12 +121,12 @@ chances are less that other elements will be in same page (unlike in an array )
 
 It is dynamic memory allocation.
 Memory will allocate dynamically so no waste.
-DOubly Linked List additional memory will take for adding new node ,prev code.
+Doubly Linked List additional memory will take for adding new node ,prev code.
 
 If too many elements removes then use linked list otherwise use arrayList. <-When to use
 ========================================================================================
 we can get elements easily bcz we know position.(memory allocation is continuous so direct access
-eg int[]a =new int[10]  and a[4] will be at address size of int*4 ).
+eg int[]a =new int[10]  and a[4] will be at address size of int*4 )
 
 
 TreeMap:=
@@ -159,9 +155,9 @@ First position is found using hashCode % array size ,in that entry will be found
 If we want logical equality (not identity ,memory address based) then we need to override equals.
 
 for eg "dog" new String("dog") , not same by == but are logically same ,
-p1=new Person("Jaanhvi") p2=new Person("Jaanhvi")..
+p1=new Person("Jaanhvi") p2=new Person("Jaanhvi").
 
-for new objects to be equal which are logically same we have to overrride equals.
+for new objects to be equal which are logically same we have to override equals.
 
 Also if in a class we override equals but not hashcode then it will not behave correctly when used in a HashMap,HashSet.
 map.put(new Person("Jaanhvi"),"hachi")       =============
@@ -183,13 +179,12 @@ result = 31 * result + age;              //collision
 result = 31 * result +pincode;
 result = 31 * result +name.hashcode();
 return result
-= = = = =
 
 LinkedHashMap:-
 ========================================================================
 Its iterator gives element in insertion order.
 Internally it uses a doubly linked list in addition to hashMap to maintain insertion order .
-It internally use  node.
+It internally use 
 complexity   <---O(1)
 non synchronized
 non thread safe
@@ -243,8 +238,8 @@ either by dequeuing one or more items or clearing the queue completely.
 
 A BlockingQueue with one thread putting into it, and another thread taking from it.
 
-Abstract class:-
-==============================================================================
+Abstract class:- and Interface
+=======================================
 The purpose of Abstract class is to have partial implementation,i.e it needs to have at least one abstract method and 
 partial initialization can be done in abstract class constructor.
 It's constructor will be called when Child class object is created 
@@ -260,56 +255,156 @@ eg: List  only defines methods like add,remove,get //pure abstraction
 Interface is more loosely coupled ,if a class implements an interface ,it can implement other interfaces.
 for eg: ArrayList implements Iterable Serializable 
 
-3) Interface can only have public static final fields ,Abstract class can have any type of fields
-4) All methods in interface are implicitly public ,abstract can have private,protected ,default or public methods
+Interface can only have public static final fields ,Abstract class can have any type of fields
+All methods in interface are implicitly public ,abstract can have private,protected ,default or public methods
 
 
-What do you mean by static method and static variable in Java?
-The static variable is a class level variable and it is common to all the class objects i.e. a single copy of the
-static variable is shared among all the class objects. A static method manipulates the static variables in a class. ...
-These blocks are only executed once when the class is loaded.
+Hashmap vs Hashtable:-
+==========================
+HashMap and HashTable are both key-value storage classes in Java. HashMap is non-synchronized, making it faster
+for single-threaded tasks, while HashTable is inherently synchronized, providing thread safety. HashTable doesn’t
+allow any null keys or values, but HashMap lets you have one null key and several null values. Additionally,
+HashMap can be molded to retain insertion order or sorted order using its various implementations, whereas
+HashTable doesn’t guarantee any particular order for its entries.
 
-Can we declare static variable in static method in Java?
-You can't declare a static variable inside a method, static means that it's a variable/method of a class,
-it belongs to the whole class but not to one of its certain objects. This means that static keyword can be used only 
-in a 'class scope' i.e. it doesn't have any sense inside methods
+HashMap
+A hashmap is a class that is a part of the Java collection framework since Java 1.2. 
+This class belongs to java.util package. Java's Map interface can be implemented using this hashmap class.
+It usually stores the data in key, value pair (key, value), and you can access the value with the help of key
+in constant time, for example, an Integer. Inside a hashmap, one object is used as a key (index) to another 
+object (value). If there is a key already existing in the hashmap and we again try to insert the same key, 
+this time with a different value, then the value will be replaced with the new one of the corresponding key.
 
-Can we override static method?
-Static methods cannot be overridden because they are not dispatched on the object instance at runtime.
-The compiler decides which method gets called. Static methods can be overloaded (meaning that you can have the
-same method name for several methods as long as they have different parameter types).
+Syntax :
+HashMap<Integer,String> hm = new HashMap<Integer,String>();
 
-How do you call a static method?
-A static method can be called directly from the class, without having to create an instance of the class. 
-A static method can only access static variables; it cannot access instance variables.
-Since the static method refers to the class, the syntax to call or refer to a static method is: class namme n method name.
+Example :
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-Can we declare static variable in non static method?
-Static variables are class variable not instance or local variable . that is why we can use static variable in
-non static method also. and static variables are not per object . static variables have one copy that will be used in
-entire program.
+// Name of the class has to be "Main"
+// only if the class is public
+class MyClass
+{
+public static void main(String args[])
+{
+// Creating HashMap class object
+HashMap<Integer,String> hm=new HashMap<Integer,String>();
 
-Can we override static and private method in Java?
-No, we cannot override private or static methods in Java. Private methods in Java are not visible to any other
-class which limits their scope to the class in which they are declared.
+        // Adding data inside the HashMap
+        hm.put(10,"Ball");
+        hm.put(20,"Bat"); 
+        hm.put(30,"Wicket");
+        hm.put(40,"Tennis bat");
+        
+        // Printing the key and value of HashMap
+        System.out.println("-----------Hash map-----------");
+        for (Map.Entry m:hm.entrySet()) {
+            System.out.println(m.getKey()+" "+m.getValue());
+        }
+    }
+}
 
-Can constructor be static?
-A class or struct can only have one static constructor. Static constructors cannot be inherited or overloaded.
-A static constructor cannot be called directly and is only meant to be called by the common language runtime (CLR).
-It is invoked automatically.
+Output :
+-----------Hash map-----------
+20 Bat
+40 Tennis bat
+10 Ball
+30 Wicket
 
-Is private method are final?
-So, to answer question 2, yes, all compilers will treat private methods as final . 
-The compiler will not allow any private method to be overridden. Likewise, all compilers will prevent subclasses
-from overriding final methods.
+HashTable
+============
+A hashtable is a class that is a part of the Java collection framework.
+It implements a hash table, and it stores the data in key value pair (key, value). Inside a hashtable, we can
+store any non null object like a key or a value, that is, null values and keys are not allowed in hashtable.
+To store and retrieve objects successfully from a hashtable, the objects used as a key must implement the 
+hashCode method and the equals method, that is the object which is used as a key is hashed, and the resulting
+hashCode which we get after hashing the object key is used as an index to get the value which is associated 
+with the object key.
 
-What is final and final method in Java?
-The final keyword in Java can also be applied to methods. A Java method with the final keyword is called a 
-final method and it can not be overridden in the subclass. You should make a method final in Java if you think it's
-complete and its behavior should remain constant in sub-classes.
+Although HashMap and HashTable are similar, there are certainly notable differences between,
+Syntax :
+Hashtable<Integer,String> ht = new Hashtable<Integer,String>();
+Example :
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-What is the final method?
-Final Method in Java
-The Method with Final Keyword cannot be overridden in the subclasses. 
-The purpose of the Final Method is to declare methods of how's definition can not be changed by a child or 
-subclass that extends it.
+// Name of the class has to be "Main"
+// only if the class is public
+class MyClass
+{
+public static void main(String args[])
+{
+// Creating HashTable class object
+Hashtable<Integer,String> ht=new Hashtable<Integer,String>();
+
+        // Adding data inside the HashTable
+        ht.put(10,"Cricketers");
+        ht.put(20,"Footballers");
+        ht.put(30,"Boxer");
+        ht.put(40,"Swimmer");
+        
+        // Printing the key and value of HashTable
+       System.out.println("-------------Hash table--------------");
+        for (Map.Entry m:ht.entrySet()) {
+            System.out.println(m.getKey()+" "+m.getValue());
+        }
+    }
+}
+Output :-------------Hash table--------------
+10 Cricketers
+20 Footballers
+30 Boxer
+40 Swimmer
+
+Key Difference Between HashMap and HashTable
+The main difference between HashMap and HashTable is their approach to synchronization and thread safety. 
+While HashTable is inherently synchronized, ensuring that only one thread can access it at a time, HashMap
+is non-synchronized, allowing simultaneous access by multiple threads. This makes HashMap generally faster 
+in single-threaded scenarios, due to the absence of synchronization overhead.
+
+Why HashTable Doesn’t Allow null and HashMap Do?
+A HashTable stores the object in the key, value pair. In order to store and retrieve the object successfully,
+the object which is used as a key must implement the hashCode method and the equals method. Since null is not
+an object, it cannot implement these hashCode method and the equals method. So if we store null inside the
+HashTable, it will not work and throw a null pointer exception error. However, HashMap is a modern version
+of HashTable and it was created later. It will allow one null key and any number of null values.
+
+Conclusion
+HashMap is a class within the Java collection framework introduced in Java 1.2. It implements the Map 
+interface and stores data as key-value pairs.
+HashTable implements a hash table and similarly stores data as key-value pairs.
+For successful storage and retrieval in a HashTable, keys must implement both the hashCode and equals methods.
+The key’s hashCode, derived post-hashing, serves as an index to retrieve its associated value. Only non-null
+objects can be stored as keys or values.
+
+HashMap is non-synchronized, while HashTable is synchronized.
+HashMap can accommodate one null key and multiple null values. In contrast, HashTable prohibits both null 
+keys and values, leading to a NullPointerException upon attempting such insertions.
+Altering a HashMap during iteration can result in a ConcurrentModificationException. However, modifying a 
+HashTable under the same conditions doesn’t raise any exceptions.
+HashTable disallows null keys and values because, to function correctly, keys must implement the hashCode 
+and equals methods. Since null isn’t an object, it doesn’t implement these methods, and attempting to store 
+null in a HashTable results in a NullPointerException.
+
+
+15. Can you tell us the difference between the fail-safe and fail-fast iterator in java? - fail fast
+fail-fast iterator– It fails as soon as they realize that the structure of the collection is changed since
+the beginning of the iteration. The structural changes here are removing, adding, or updating any element
+from the collection when one thread is iterating over that other collection. The fail-fast can be implemented
+by maintaining a modification count. When the iteration thread will realize the change in the count, it throws
+ConcurrentModificationException.
+
+fail-safe iterator in Java- It does not throw an Exception when the collection is modified in a structural
+manner while one iteration is working over it. It works on the clone collection instead of the original 
+collection.
+
+ConcurrentHashMap
+ThreadSafe: One of the most significant differences between both is that a Cocurrenthashmap is synchronized
+internally and thread-safe which makes it suitable for a multithreaded environment whereas a hashmap is 
+non-synchronized as well non-thread-safe which makes it unsuitable for a multithreaded environment.
+Null Keys And Null Values: As we all know, data is kept in the form of key and value pairs in a hashmap and
+we can store as many null values in a hashmap as we want but only 1 null key can be stored whereas in a
+concurrent hashmap null keys, as well as null values, are not permitted.

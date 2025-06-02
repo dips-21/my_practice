@@ -837,9 +837,12 @@ The feign is declarating HTTP web client developed by Netflix
 If you want to use Feign,create and interface and annotate it.
 
 *API Gateway *
+=========================================
 A single entry point for client requests, routing them to appropriate microservices.
 Acts as a reverse proxy, handling crosscutting concerns like authentication, rate limiting and logging .
 
 Key features - Maps client requests to services(eg. /orders>. order-service)
 Authentication/Authorization: Validates JWTs or OAuth tokens.
 Rate Limiting - Prevents abuse eg. max 100 requests/min per user.
+
+

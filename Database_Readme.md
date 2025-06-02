@@ -612,13 +612,6 @@ procedure are optional. However, it's a good idea to include them to make the co
 
 
 
-
-
-
-
-
-
-
 Atomicity Either all changes(queries) in transaction will take place
 or none will (for eg all transfer money from person A to B
 update row of A to (bal-x) and update row of A to (bal+x) both will
@@ -650,3 +643,23 @@ commits after it
 https://stackoverflow.com/questions/8490852/spring-transactional-isolation-propagation
 https://www.byteslounge.com/tutorials/spring-transaction-isolation-tutorial
 ======================================================================================================
+
+
+Q 11. What is the difference between the HAVING
+clause and the WHERE clause?
+Ans: The WHERE clause is used to filter rows based on a
+condition before the data is grouped or aggregated.
+It operates on individual rows.
+The HAVING clause, on the other hand, is used to
+filter grouped rows based on a condition after the
+data is grouped or aggregated using the GROUP BY
+clause.
+
+
+Q 18. What is the purpose of the GROUP BY
+clause?
+Ans: The GROUP BY clause is used to group rows based
+on one or more columns in a table. It is typically used
+in conjunction with aggregate functions, such as
+SUM, AVG, COUNT, etc., to perform calculations on
+grouped data

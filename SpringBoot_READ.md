@@ -3,7 +3,7 @@
 Spring Dependency Injection  (component scanning and creation of object using reflection ):-
 ================================================================================================
 In Dependency injection dependencies of an object are passed to it instead of the object getting it's own dependencies.
-Dependency can be passed through constructor or setter or field.
+Dependency can be passed through constructor or setter.
 It provides loose coupling.
 The object does not look up its dependencies and does not know the location or class of the dependencies,
 rather everything is taken care by the Spring Framework.
@@ -26,16 +26,6 @@ Each object created by Spring is managed by spring and is a spring bean.
 By default each spring bean is Singleton (ie only one instance of class exists).
 It is per application context.
 
-
-Dependency Injection:-
-
-Let's imagine that you want to go fishing:
-Without dependency injection, you need to take care of everything yourself. You need to find a boat, to buy a
-fishing rod, to look for bait, etc. It's possible, of course, but it puts a lot of responsibility on you. In software
-terms, it means that you have to perform a lookup for all these things.
-With dependency injection, someone else takes care of all the preparation and makes the required equipment
-available to you. You will receive ("be injected") the boat, the fishing rod and the bait - all ready to use.
-
 **BEAN**:-
 -------------------------------
 The objects that form the backbone of your application and that are managed by the Spring IoC container are called beans.
@@ -57,7 +47,8 @@ and executable system or application.
 LIFE-CYCLE OF BEAN:-
 -------------------------------------
 When a bean is instantiated, it may be required to perform some initialization to get it into a usable state.
-To define setup and teardown for a bean, we simply declare the <bean> with initmethod and/or destroy-method parameters.
+To define setup and teardown for a bean, we simply declare the <bean> with initmethod and/or destroy-method 
+parameters.
 The init-method attribute specifies a method that is to be called on the bean immediately upon instantiation.
 Similarly, destroymethod specifies a method that is called just before a bean is removed from the container.
 Similarly, when the bean is no longer required and is removed from the container, some cleanup may be required.
@@ -71,9 +62,8 @@ but multiple application contexts can be created per jvm(tomcat).
 **singleton**
 This scopes the bean definition to a single instance per Spring IoC container (default).
 
-If a scope is set to be singleton, the Spring IoC container creates exactly one instance of the object defined by that bean
-definition.This single instance is stored in a cache of such singleton beans, and all subsequent requests
-and references for that named bean return the cached object.
+If a scope is set to singleton, the Spring IoC container creates exactly one instance of the object defined by that bean
+definition. This single instance is stored in a cache of such singleton beans, and all subsequent requests
 and references for that named bean return the cached object.
 The default scope is always singleton. However, when you need one and only one instance of a bean,
 =========================================
@@ -215,34 +205,71 @@ Easy to use but powerful database transaction management capabilities. Spring si
 integration with other Java frameworks like JPA/Hibernate ORM, Struts/JSF/etc. web
 frameworks. State of the art Web MVC framework for building web applications.
 
-Difference between Stream and Parallel Stream
 
-Different ways to handle exception 
+Lazy vs Eager-
+==================
+Lazy Loading means the related data is loaded only when it is actually accessed — not when the parent object 
+is fetched.
+@Entity
+public class Department {
+@Id
+private Long id;
 
-Java 8 features you are aware of, right? Stream API and Function Interfaces. Let's say, for example, I have a Function Interface and I am having one abstract method and a couple of default and static methods. Now I want to access the default method from the Function Interface.
+    private String name;
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    private List<Employee> employees;
+}
 
-can we add in run-time exceptions in Java? Which one? Run-time exceptions.
--> Yes , in Java, you can add or throw runtime exceptions at runtime — in fact, runtime exceptions are unchecked 
-exceptions, meaning they do not require explicit handling using try-catch or throws declarations.
+@Entity
+public class Employee {
+@Id
+private Long id;
 
-what's the difference between abstraction and data hiding?
+    private String name;
+    private String address;
 
-so how does Java manage its memory with the broadband collection?
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
+}
 
-so how does SpringBoot handle the dependency injection, so with annotations like auto-align and component?
--> Spring Boot handles Dependency Injection (DI) using annotations and its built-in Inversion of Control (IoC) container. This helps create loosely coupled code.
+//When you fetch a Department, the employees list is not loaded immediately.
+//The list is fetched only when you call department.getEmployees().
+//It Saves memory and improves performance if related data isn’t always needed.
 
+In our application, we had a one-to-many relationship between Department and Employee, where a department can
+have multiple employees.
+We used @OneToMany(fetch = FetchType.LAZY) on the Department.employees field and also
+@ManyToOne(fetch = FetchType.LAZY) on Employee.department to avoid unnecessary data loading.
+For example, when we fetch employee records like ID, name, and address, we often don't need the full
+Department details.
+By using lazy loading, the department field in Employee is not loaded until it's explicitly accessed,
+saving memory and improving performance — especially when processing large lists of employees where
+department data isn't required.
 
-What is the difference between Fetched Type Lazy and Fetched Type Eager in Hibernate?
+Reduces initial query size.
+Let’s say you have two entities: Department and Employee.
+One Department can have many Employees → @OneToMany relationship.
+Each Employee belongs to one Department → @ManyToOne.
+In our application, we had a one-to-many relationship between Department and Employee, where a department can
+have multiple employees.
+We used @OneToMany(fetch = FetchType.LAZY) on the Department.employees field and also
+@ManyToOne(fetch = FetchType.LAZY) on Employee.department to avoid unnecessary data loading.
+For example, when we fetch employee records like ID, name, and address, we often don't need the full Department 
+details.
+By using lazy loading, the department field in Employee is not loaded until it's explicitly accessed,
+saving memory and improving performance — especially when processing large lists of employees where department
+data isn't required.
 
-let me understand, so you are working on microservices architecture, correct?so what is the communication mechanism,
-I mean, like, basically, inter-service communication, right? So, between microservices, so what are the different ways
-you are using now?
+Eager Loading means the related data is loaded immediately along with the parent object.
+@Entity
+class Department {
+@OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
+private List<Employee> employees;
+}
+When you fetch a Department, Hibernate will also fetch all associated Employee records immediately, in the
+same query or through joins.
 
-
-What is the role of API Gateway in microservices?
-
-AWS Experience?
-
-Have you involved in the print security and the authentication operations?
--> Yes, I’ve been involved in implementing basic authentication features for secured access, but I haven’t worked directly on print security solutions. However, I understand that secure print solutions often involve user authentication via ID badges, PINs, or smart cards, and integrate with systems like LDAP or SSO. I’d be keen to learn more and work in that area if given the opportunity."
+🔍 Pros:
+Avoids LazyInitializationException.
+Better if you always need the related data.

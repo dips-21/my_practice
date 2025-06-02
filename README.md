@@ -14,7 +14,7 @@ void means that the function does not return a value.
 
 Yes, We can overload the main method in java but JVM only calls the original main method,
 it will never call our overloaded main method.
-
+ 
 /Protected - 
 ======================================
 access in same package and child class   other classes through class
@@ -26,6 +26,7 @@ any package. You can also say that the protected access modifier is similar to d
 exception that it has visibility in sub classes.
 Classes cannot be declared protected. This access modifier is generally used in a parent child relationship.
 
+
 private - 
 ======================================
 If a class has private constructor then you cannot create the object of that class from outside of the class.
@@ -34,7 +35,7 @@ access within the inner class. private or any other can be static.
 USE:- validation and controlled,or immutable object.
       less complexity
 
-public -   throughout  the class.thorughout the all package.
+public -   throughout  the class.throughout the all package.
 =======================
 The members, methods and classes that are declared public can be accessed from anywhere. 
 This modifier doesn’t put any restriction on the access
@@ -42,8 +43,8 @@ This modifier doesn’t put any restriction on the access
 Default -  package level. 
 ======================================
             
-JVM:-  Java virtual machine is an abstract machine.It is specification that provides run time environment in which java bytecode
-can be executed.JVM performs loads code,verifies code,executes code,provides run time env.
+JVM:-  Java virtual machine is an abstract machine.It is specification that provides run time environment in which java 
+bytecode can be executed.JVM performs loads code,verifies code,executes code,provides run time env.
 JVM provides the memory area,class file format,register set ,garbage collector heap.
 
 CLassloader is sub type of jvm which loads the class files.whenever we run the program it is loaded first by the classloadder.
@@ -52,20 +53,20 @@ java.util,java.io package
 
 extension:-This is the child classloader of Bootstrap and parent classloader of system classloader.
 
-system/Application classloader:- this is the child classloader of extension classloader..It loads the classfiles from classpath.
-by default,classpath is set to current directory.
+system/Application classloader:- this is the child classloader of extension classloader.It loads the classfiles from
+classpath. by default,classpath is set to current directory.
 
 Execution Engine:-It contains
 ===============================
 Interpreter :-read bytecode stream then execute the instructions.
 
-Just in time(JIT)compiler:-here compiler refers to translator from the instruction set of a java virtual machine to instruction
-set of specific cpu.
-A Virtual processor.
+Just in time(JIT)compiler:-here compiler refers to translator from the instruction set of a java virtual machine to 
+instruction set of specific cpu. A Virtual processor.
 
 Constructor:-
 ===================
-A constructor initializes an object when it is created.It has the same name as its class and is syntactically similar to a method. 
+A constructor initializes an object when it is created.It has the same name as its class and is syntactically similar 
+to a method. 
 However, constructors have no explicit return type.
 Typically, you will use a constructor to give initial values to the instance variables defined by the class, 
 or to perform any other start-up procedures required to create a fully formed object.
@@ -73,11 +74,15 @@ All classes have constructors, whether you define one or not, because Java autom
 constructor that initializes all member variables to zero. However, once you define your own constructor, 
 the default constructor is no longer used.
 
- Encapsulation - (data fields) 
+Encapsulation - (data fields) 
 ======================================
-Binding method and data together into a single unit are known as encapsulation.
-we can hide only data fields in it..like the scope of resize an array is inside the class only
- so we can hide it from others..
+Encapsulation in Java is achieved using access modifiers (private, protected, public) to restrict direct access to
+class members. It ensures data hiding and maintains control over how data is accessed and modified. Getters and
+setters are commonly used to enforce controlled access to private variables..
+
+It's an oop term, Binding method and data together into a single unit are known as encapsulation.
+we can hide only data fields in it.like the scope of resize an array is inside the class only
+ so we can hide it from others.
   ArrayList versus array ,array has no encapsulation .Arraylist add hides complexity of resize when it's full.
 * Encapsulation is data hiding it allows to have valid states of object.
   *field is private n methods are public.
@@ -87,7 +92,7 @@ we can hide only data fields in it..like the scope of resize an array is inside 
   
 ["dipali","mona","sona","mina"]     To store a TrekkingGroup information of person if we take 3 arrays names[],ages[],cities[] 
 25         29      33    16         if we add remove in one array then
-P           M      A       N          data of persons can be mismatch if we didnt make changes in other array,bcz one person data
+P           M      A      N          data of persons can be mismatch if we didnt make changes in other array,bcz one person data
 After deletion                      is not encapsulated.Instead of this we can take Person array, Person[] where person 
 ["dipali","sona","mina"]            has name age and city then it has some encapsulation ,while modifying data of one peroson 
                                     will not affect on data of another person if person array is full 
@@ -114,16 +119,16 @@ person1<<name,age,city  >>    person2<<name,age,city>>  //one person can access 
     
 Abstraction:- (types of implementation hiding)
 =================================================
-Abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to check equality 
-for arraylist,linkedList.  
+Data abstraction: Representation of essential features excluding their background details is known as 
+data abstraction.
 
-\\AbstractionCodeReuseTest:-
-
+Abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to 
+check equality for arraylist,linkedList.  
 List is an abstraction of arraylist and linkedlist so CheckIfEqual which takes two parameters as a list
 not arraylist n linked list.(List<Integer> listOne,List<Integer> listTwo)
 same method can be used to check if two linkedlist or arraylist are equal.
 CheckIfEqual(List<Integer> listOne,List<Integer> listTwo)
-
+AbstractionCodeReuseTest
 
 loose coupling : If there is a UserService and it has an abstract type SqlRepo then 
                  it is loosely coupled and if the implementation
@@ -134,23 +139,24 @@ it can be method body.
 
 Example:-
 =========
-In system there is 3 kind of user men women and child.if we have to add User then we will have to call three separate 
-methods for them.but with the help of abstraction we can define abstract type of it which is person.
-If those three classes has same functionality then we can add it in person class and override it into child
-class with extends keyword.
-
+In system there is 3 kind of user men women and child.if we have to add User then we will have to call 
+three separate methods for them but with the help of abstraction we can define abstract type of it which 
+is person.
+If those three classes has same functionality then we can add it in person class and override it into 
+child class with extends keyword.
 
 Inheritance:-
 ==================================================
-*When one object acquires all the properties and behaviors of a parent object, it is known as inheritance. 
+*When one object acquires all the properties and behaviors of a parent object, and they are in hierarchy
+it is known as inheritance. 
 *It provides code reusability. 
 *It is used to achieve runtime polymorphism,  
 *In that we can allows code defined in one class and other classes can be reused it.
 
-*Ex.if we have a women class ,in that  we have taken  working and non working women .means we can inherit all the properties
-of women in both the classes and also we can add others information in it like working women get salary.
+*Ex.if we have a women class ,in that  we have taken  working and non working women .means we can inherit all the 
+properties of women in both the classes and also we can add others information in it like working women get salary.
 so we dont have to write women functionality to the both sub classes.
-AgeWeightComparator AgeWeightHeightComparator  , we can override(modify) specific behavior (only methods that we need)
+AgeWeightComparator AgeWeightHeightComparator,we can override(modify) specific behavior (only methods that we need)
 ,rest of methods will be accessible from parent class 
 
 HeightWeightHairLengthComparator
@@ -172,20 +178,20 @@ c.equals
 Polymorphism:-
 ==================================================
 Polymorphism is the capability of a method to do different things based on the object that it is acting upon. 
-In other words, polymorphism allows you define one interface and have multiple implementations.
+In other words, polymorphism allows you to define one interface and have multiple implementations.
 * In polymorphism, calls resolved  dynamically on correct object type.
 * It is also known as dynamic dispatch methods because method called resolved on run time type of object.
 
-Example:--we have a women, man and child class and in that gethobby is a method.when we call getHobby of person then it
-         will called on correct run time type of object and gives actual class hobby,
+Example:--we have a woman, man and child class and in that get hobby is a method.when we call to getHobby
+of person then it will call on correct run time type of object and gives actual class hobby,
 *overridden happens in run time type of polymorphism.
 
 
 **Overloading
-===================                                         
-*  In the same class there can be methods with same name but different parameters ,the decision on
-   which method will be called is made on the compile time type of parameters.The most specific matching method is called
-   If there is no unique match then it's a compile time error.
+===================
+In the same class there can be methods with same name but different parameters, different datatypes,the decision on
+which method will be called is made on the compile time type of parameters.The most specific matching
+method is called. If there is no unique match then it's a compile time error. 
 *it must be in same classes.                            
 *the called resolved on compile time type of object.
 * we can change access modifier.
@@ -193,53 +199,30 @@ Example:--we have a women, man and child class and in that gethobby is a method.
 *static,*private ,final  method be overloaded.                   
 
 * compile time polymorphism (because the method called varies depending on compile time type of parameters)
-*
+
 Eg.List has add(position,element)   //list has add method and it takes position and element.
-                                    //n other one is list takes only (element)
-  list.add(element) ,
-   list.add(10)                      //if we call on list.add(10) then it will call on list.add(10) 
+       list.add(element) ,             //n other one is list takes only (element)
+      list.add(10)                      //if we call on list.add(10) then it will call on list.add(10) 
 
 
 **Overriding Polymorphism
 ===========================
 When the method being called is present in multiple classes which are in an inheritance hierarchy then the
-decision to call which method is based on run time type of the object.obj has virtual pointer n it points to virtual table.
-virtual table of it's class has location of all function of that class.
+decision to call which method is based on run time type of the object. object has virtual pointer n it points
+to virtual table. virtual table of it's class has location of all function of that class.
 
-*it must follow inheritance hirearchy.
+*it must follow inheritance hierarchy.
 *private or static or final cannot be overridden.
-*The protected method can be made public but not private in the subclass.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
-
-* Run time polymorphism. non static not final method can be overriden. 
-  *If the method is static ,it will be called on class only and can't be overriden
-  *If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
-  *private and final can't be overriden  ,final College class getFees() ,
-                                          College college=new College() ; college.getFees();
-  *final class cant be overriden.
-  
-
-In SOLID 
-L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
-for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
-private then addAll will break
-
-
-*we cannot decrease the visibility of method when overriding.
 *The protected method can be made public but not private in the subclass.
-===============================================================================
-
-If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
-==================================================================================================================
-* Run time polymorphism. non static not final method can be overriden.
-=======
-
-
-//IMP-> if the method is non static then override method is resolved on
-run time type of its object on which method is being called.
-
+* Run time polymorphism. non-static non-final method can be overridden. 
+  *If the method is static ,it will be called on class only and can't be overridden
+  *If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
+  *private and final can't be overridden  ,final College class getFees() ,
+                                          College college=new College() ; college.getFees();
+  final class cant be overridden
 
 override example
 ==============================
@@ -259,17 +242,66 @@ key.equal(map.entry.key)                     entry<- key value n next  <-node
 It will call equals from correct man class.
 
 
+//IMP-> if the method is non-static then override method is resolved on run time type of its object on which method
+is being called.
+
+In SOLID
+=======================
+Answer: SOLID principles guide object-oriented design to create maintainable, scalable code:
+ S - Single Responsibility Principle:  
+o A class should have one reason to change.
+o Example: Separate UserService (handles user data) from EmailService (sends emails).
+o Violation: A User class that also logs errors.
+
+ O - Open/Closed Principle:  
+o Classes should be open for extension, closed for modification.
+o Example:  
+interface PaymentProcessor { void process(); }
+class CreditCardProcessor implements PaymentProcessor { public void process() { /* logic */ } }
+class PayPalProcessor implements PaymentProcessor { public void process() { /* logic */ } }
+o Violation: Modifying a Payment class to add new payment types.
+
+ L - Liskov Substitution on Principle:  
+o Subtypes must be substitutable for their base types.
+o Example: A Bird interface with fly() should not be implemented by Ostrich (which
+can’t fly).
+o Correct: Separate FlyingBird interface.
+
+L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
+for eg.addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
+private then addAll will break
+
+ I - Interface Segregation on Principle:
+o Clients shouldn’t be forced to depend on interfaces they don’t use.
+o Example: Split a large Worker interface into Eatable and Workable.
+o Violation: A Printer class implementing an irrelevant Scan method.
+
+ D - Dependency Inversion Principle:  
+o Depend on abstractions, not concretions.
+o Example:  
+interface Database { void save(); }
+class MySQLDatabase implements Database { public void save() { /* logic */ } }
+class Service {
+private Database db;
+Service(Database db) { this.db = db; } // Inject abstraction
+}
+o Violation: Hardcoding MySQLDatabase in Service.
+
+What to Highlight:
+ How SOLID improves code maintainability.
+ Real-world examples (e.g., Spring’s use of DI).
+ Trade-offs (e.g., ISP may increase interface count).
+
 Interface:-
 ==================================================
-
 Interface is a type defines contract what behaviour it must have to do of that type.
 It defines what but not how methods do.
-eg. to be human you have to implements all methods in interface like walk.talk,
+ex. to be human you have to implements all methods in interface like walk,talk,
 It provides loose coupling.
 Interface can extend interface.
 
- *It is mechanism to achieve full abstraction.
- *There can be only abstract methods in the java interface not method body.
+ * It is mechanism to achieve full abstraction.
+ * There can be only abstract methods in the java interface not method body.
  * It contains a declaration part only.
 
 Multiple inheritance can be achieved using interface.
@@ -299,13 +331,29 @@ If many implementations are same, and they have a common behaviour, it is sugges
 Abstract classes contain methods, fields, constants.
 It can be fully implemented, partially implemented or not even implemented.
 
-
-String BUILDEr/buffer-
+String BUILDER/BUFFER-
 ==================================================
-Strings are immutable so if we want to change it ,everytime new object will have to be  created.
-but with the help of buffer/builder we can append it n modify it .
+Strings are immutable so if we want to change it ,everytime new object will have to be created.
+because everytime we created string object it will check in string pool and if it exists in string pool the 
+reference will be provided to given string object.
+if object doesn't exist's in string pool then it will create new object n heap space is also used wisely in this.
+if string is mutable then everytime if we change the string and if it's pointing to same reference variable then 
+everywhere the same string is present it will change but with the help of buffer/builder we can append it n modify it.
 
-builder n buffer- buffer is synchronized.(objects shared by multiple threads )
+StringBuffer is thread-safe since it is synchronised.
+It means that two threads can’t execute the StringBuffer functions at the same time.
+If they call the StringBuffer function at the same time, only one of the two threads acquires the lock and
+executes the method. The second thread has to wait until the execution of the first thread has been completed.
+String Buffer is considered to be less efficient than String Builder.
+String Buffer was introduced in Java 1.0.
+
+StringBuilder is not thread-safe because it is not synchronised. 
+It indicates that two threads can use StringBuilder’s methods at the same time.
+In this case, no thread has to wait for the execution of the other thread.
+String Builder is considered to be more efficient than String Buffer.
+String Builder was introduced in Java 1.5.
+
+builder And buffer- buffer is synchronized.(objects shared by multiple threads)
 =====================
 String is thread safe.
 
@@ -320,7 +368,7 @@ then string Builder is used.
 Buffer is already synchronized n it uses multiple thread.  
 ============================================================
 If a string is going to remain constant throughout the program, then use the String class object because a
-String object is immutable.                                            ===============================
+String object is immutable.===============================
 
 If a string can change (for example: lots of logic and operations in the construction of the string)
 and will only be accessed from a single thread, using a StringBuilder is good enough.
@@ -336,41 +384,34 @@ This method searches the specified string in the memory pool and if it is found 
 else it allocates the memory space to the specified string and assign the reference to it.
 returns the canonical representation of the string
 
-suppose we have string s1="Point"
-string s2=s1.intern();
-then it looks in pool if it is not there then add into it.
-
-
 **Comparable And Comparator:-
 ==================================
             Comparable                                             
 *comparable interface is used to compare single elements    
-*A comparable object is capable of comparing itself with 
-another object                                                
+*A comparable object is capable of comparing itself with another object                                                
 *It has compareTo() method.                                   
-*it is in java.lang.package                                  
+*It is in java.lang.package                                  
 
-syntax---compareTo(one object passed to compare            
-with this.object itself)
+syntax--
+compareTo(one object passed to compare with this.object itself)
 
 Comparison logic is coupled in comparable .
-comparable is tighly coupled with that class to check object comparsion.
+comparable is tightly coupled with that class to check object comparison.
 It is also used to compare the current instance with another object of same type.
 
-
             Comparator
-*Comparator interface is used to compare two or multiple elements
-The Comparer interface is used to sort elements that compare two objects and provides additional comparison method.
+*Comparator interface is used to compare two or multiple elements.
+*The Comparer interface is used to sort elements that compare two objects and provides additional comparison method.
 *It implements comparable.
 *It has compare() method to compare. 
 *it is in java.util package
 syntax--compare(two objects passed )
 
 comparable and comparator returns positive negative and 0 values.
-*if the first element is greater than second then it returns -1 negative integar.
-  *if the second element is greater than first then it returns 1 positive integar.
-  * if both objects are equal then it returns 0 value.
-  *It throws null pointer exception if we pass null values to them.
+* If the first element is greater than second then it returns -1 negative integar.
+  * If the second element is greater than first then it returns 1 positive integar.
+  * If both objects are equal then it returns 0 value.
+  * It throws null pointer exception if we pass null values to them.
 
 Logically, Comparable interface compares “this” reference with the object specified 
 and Comparator in Java compares two different class objects provided.
@@ -397,13 +438,12 @@ For example, Bank and Employee, delete the Bank and the Employee still exist.
 It represents the weak relationship between objects.
 It is another way to reuse objects.
 
-Aggregation
-
+Aggregation  - Tell 
+=============
 Aggregation is a weak association. 
 An association is said to be aggregation if both Objects can exist independently. 
 For example, a Team object and a Player object.
 The team contains multiple players but a player can exist without a team.
-
 
 Composition   HAS -A - RELATIONSHIP
 ====================================
@@ -412,8 +452,7 @@ The composition represents the relationship where one object contains other obje
 Composition implies a relationship where the child cannot exist independent of the parent.
 There is a strong relationship between the containing object and the dependent object.
 It is the state where containing objects do not have an independent existence. 
-If you delete the parent object, all the child objects will be deleted automatically. 
-
+If you delete the parent object, all the child objects will be deleted automatically.
 
 The composition is the strong type of association.
 If an Object depends on another object and another object cannot exist without the owner object. 
@@ -455,7 +494,7 @@ Exception vs error;-
 =====================
 Exceptions and errors both are subclasses of Throwable class.
 The error indicates a problem that mainly occurs due to the lack of system resources and our application should not catch 
-these types of problems. Some of the examples of errors are system crash error and out of memory error.
+these types of problems.Some of the examples of errors are system crash error and out of memory error.
 Errors mostly occur at runtime that's they belong to an unchecked type.
 
 Exceptions are the problems which can occur at runtime and compile time.
@@ -475,33 +514,29 @@ Sr. No.	                                    Key	Error	                          
 
 4                              It can't be occur at compile time
 Example
-                                OutOfMemoryError ,IOError                               NullPointerException , SqlException
+                                OutOfMemoryError,IOError                               NullPointerException,SqlException
 
 
 
 Checked Exceptions
 =============================
-The compiler checks for a checked exception.
-These exceptions can be handled at the compilation time.
-It is a sub-class of the exception class.
-The JVM requires that the exception be caught and handled.
-Example of Checked exception- ‘File Not Found Exception’
-
-these are also called as compile time exceptions. 
-=======
+A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions.
+These exceptions cannot simply be ignored at the time of compilation;
+the programmer should take care of (handle) these exceptions.
 Checked exceptions must be handled either by using try and catch block or by using throws clause in the method declaration.
 If not handles properly, it will give a compile-time error.
-
-A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions.
-These exceptions cannot simply be ignored at the time of compilation; 
-the programmer should take care of (handle) these exceptions.
 
 For example, if you use FileReader class in your program to read data from a file,
 if the file specified in its constructor doesn't exist, then a FileNotFoundException occurs,
 and the compiler prompts the programmer to handle the exception.
 
 ClassNotFoundException ,InterruptedException ,InstantiationException ,IOException,SQLException
-    IllegalAccessException ,FileNotFoundException, etc
+IllegalAccessException ,FileNotFoundException, etc
+
+The compiler checks for a checked exception.
+It is a sub-class of the exception class.
+The JVM requires that the exception be caught and handled.
+Example of Checked exception- ‘File Not Found Exception’
 
 Unchecked Exceptions
 ================================
@@ -511,33 +546,30 @@ These kinds of exceptions can’t be caught or handled during compilation time.
 This is because the exceptions are generated due to the mistakes in the program.
 These are not a part of the ‘Exception’ class since they are runtime exceptions.
 The JVM doesn’t require the exception to be caught and handled.
-Example of Unchecked Exceptions- ‘No Such Element Exception
-======================================================================================
+Example of Unchecked Exceptions-No Such Element Exception.
+
 An unchecked exception is an exception that occurs at the time of execution. 
 These are also called as Runtime Exceptions.
 These include programming bugs, such as logic errors or improper use of an API.
-Runtime exceptions are ignored at the time of fcompilation.
+Runtime exceptions are ignored at the time of compilation.
 
 Java compiler does not check runtime exception at compile time whether programmer handles them or not. 
 If a runtime exception occurs in a method and programmer does not handle it, JVM terminates the program without the 
 execution of rest of the code.
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
 an ArrayIndexOutOfBoundsException exception occurs.
-==================================================================================================================
+
 ArithmeticException,ClassCastException ,NullPointerException ,ArrayIndexOutOfBoundsException ,NegativeArraySizeException
     ArrayStoreException ,IllegalThreadStateException ,SecurityException, etc.
 ===================================================
 
-FInal Finally Finalize:-
+Final Finally Finalize:-
 ============================
-What are the 3 uses of final keyword in Java?
-Final keyword in Java has three different uses: create constants, prevent inheritance and prevent 
-methods from being overridden.
-Final :  final can be initialized only once , they can be initialized durFing declaration 
+Final :  final can be initialized only once, they can be initialized during declaration 
             or in constructor if they are class fields
 
 finally : try ,catch will always run once ,clean up can be done ,close()
-          try(Connction c:c.getConn()){} //auto after try , try with resources
+          try(Connection c:c.getConn()){} //auto after try , try with resources
 
 The finally block in java is used to put important codes such as clean up code 
 e.g. closing the file or closing the connection. 
@@ -556,14 +588,13 @@ An instanceof in Java is a comparison operator which, given an object instance,
 checks whether that instance is of a specified type (class/sub-class/interface) or not.
 Just like other comparison operators, it returns true or false.
 
-
 static class:-
 =================
 Static is like a normal top level class,inside namespace of outer class .
 It's object is created directly without outer class object.
 It does not have reference to its outer class object.
           class House{      static class Window{} }
-new pkg.House.Wndow() //House object not needed to created window.
+new pkg.House.Window() //House object not needed to created window.
 
 A static nested class may be instantiated without instantiating its outer class.
 Inner classes can access both static and non-static members of the outer class.
@@ -576,37 +607,74 @@ This class is only accessible inside class.only inner class can be private.
 
 //Immutable class :
 ====================
-It has private constructor ,
-                   public method which calls private constructor and returns created object
-                   no setter and getters
-                   return copy if returning a reference type which is not immutable.  
+It has private constructor, public method which calls private constructor and returns created object
+no setter and getters
+return copy if returning a reference type which is not immutable.  
     
 The instance variable of the class is final i.e. we cannot change the value of it after creating an object.
 The class is final so we cannot create the subclass.
 There is no setter methods i.e. we have no option to change the value of the instance variable.
 
-These points makes this class as immutable.
+These points make this class as immutable.
 
 Wrapper class:-
 ====================
 A Wrapper class is a class whose object wraps or contains primitive data types. 
-When we create an object to a wrapper class, it contains a field and in this field, 
-we can store primitive data types. 
+When we create an object to a wrapper class, it contains a field and in this field, we can store primitive data types. 
 In other words, we can wrap a primitive value into a wrapper class object.
 
-solid/
-executorService
-volatile ,lock,synchronised
-Concurrent Collection 
-ConcurrentHashMap
-java8 lambda ,streams
+Wrapper Class in Java
+=========================
+A Wrapper Class in Java is a class that encapsulates (wraps) a primitive data type into an object.
+Java provides a wrapper class for each of its eight primitive data types:
+byte → Byte short → Short
+int → Integer long → Long
+float → Float double → Double
+char → Character boolean → Boolean
 
-Socket Connection , 3way tcp handshake , SeverSocket and Socket
-Udp socket (datagram)
-blocking and non blocking IO
+Why are Wrapper Classes Used?
+Object Representation of Primitives:
+Java works with objects in collections and frameworks like ArrayList, HashMap, and HashSet, which cannot store primitive
+data types. Wrapper classes help convert primitive data types into objects using Autoboxing.
 
-Stream versus Reader classes
-BufferedReader , BufferedInputStream
+Utility Methods:
+Wrapper classes provide useful methods for parsing, comparing, and converting data.
+Example: Integer.parseInt(), Double.valueOf(), Character.isDigit().
+
+Support for Generics:
+Generics in Java only support objects, not primitive data types.
+Wrapper classes allow the use of primitives within generic data structures.
+
+Data Conversion:
+Converting strings to numeric values using wrapper class methods like Integer.parseInt("123").
+
+Null Support:
+Unlike primitives, wrapper objects can hold a null value, making them suitable for representing the absence of a value.
+
+import java.util.ArrayList;
+public class WrapperExample {
+public static void main(String[] args) {
+// Autoboxing: Primitive to Wrapper
+int num = 10;
+Integer wrappedNum = num;  // Autoboxing
+        // Unboxing: Wrapper to Primitive
+        int primitiveNum = wrappedNum;  // Unboxing
+        // Using Wrapper class methods
+        String str = "123";
+        int parsedNum = Integer.parseInt(str);
+        System.out.println("Parsed Number: " + parsedNum);
+        // Using Wrapper in Collections
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(5);  // Autoboxing
+        list.add(10);
+        System.out.println("ArrayList: " + list);
+    }
+}
+Key Points to Remember
+Wrapper classes are immutable (cannot be changed once created).
+They are part of the java.lang package.
+Autoboxing and unboxing make working with wrapper classes seamless.
+Using wrapper classes may lead to increased memory consumption compared to primitives.
 
 ENumeration Interface:-
 ====================================
@@ -636,24 +704,171 @@ The charset that it uses may be specified by name or may be given explicitly,
 or the platform's default charset may be accepted.
 
 
+✅ Understanding Object Slicing with Upcasting
+Upcasting
+===============
+Upcasting is the process of converting a derived class object to a base class reference.
+This is safe because the derived class object "is a" base class object (following the IS-A relationship).
+
+What is Downcasting?
+Downcasting is the process of converting a reference of a parent class (superclass) to a reference of its child class 
+(subclass). It allows access to the specific methods and properties of the child class, which are not accessible using 
+the parent class reference.
+Downcasting is typically done manually using type casting in Java.
+It is only possible when the object being referred to is actually an instance of the child class.
+
+✅ Why is Downcasting Required?
+Downcasting is generally required when:
+Accessing Child Class Methods and Properties:
+After upcasting (when a child object is referred to using a parent class reference), only the parent class methods are 
+accessible. 
+Downcasting is used to access the specialized methods of the child class.
+
+Performing Type-Specific Operations:
+If you have a collection of parent class objects, but need to invoke child class methods based on the actual type,
+downcasting is necessary.
+
+Using Polymorphism:
+During runtime, when the actual object type is a subclass, downcasting ensures the correct method or behavior is accessed.
+
+class Animal {
+void sound() {
+System.out.println("Animal makes a sound");
+}
+}
+class Dog extends Animal {
+void bark() {
+System.out.println("Dog barks");
+}
+}
+public class Main {
+public static void main(String[] args) {
+Animal animal = new Dog(); // Upcasting (Child class object referred by Parent class reference)
+animal.sound();  // Calls Animal's method
+                                                          //Downcasting to access Dog specific methods
+        if (animal instanceof Dog) { // Always check before downcasting
+            Dog dog = (Dog) animal; // Downcasting
+            dog.bark(); // Calls Dog's specific method
+        } else {
+            System.out.println("Downcasting is not possible.");
+        }
+    }
+}
+output- Animal makes a sound
+Dog barks
+
+If the object is not actually of the type being casted to, Java will throw a ClassCastException.
+Always ensure that the object is compatible before downcasting.
+
+✅ Conclusion
+Downcasting is used to convert a parent class reference back to its original child class type to access child-specific
+methods and properties.
+It should be done carefully using the instanceof operator to avoid runtime exceptions.
+It is typically used in scenarios involving polymorphism or collections of objects with mixed types.
+
+Q- Explain with the help of example. What are problems with multiple inheritance?*
+Multiple Inheritance means a class can inherit from more than one parent class, acquiring the properties and behaviors of
+both. In Java, multiple inheritance using classes is not supported to avoid complexity and ambiguity.
+However, multiple inheritance using interfaces is allowed.
+The main reason Java doesn't support multiple inheritance using classes is to prevent ambiguity and conflicts that arise 
+when two parent classes have methods with the same name. This is commonly referred to as the "Diamond Problem."
+📌 Example of Diamond Problem (Multiple Inheritance Issue)
+Consider a scenario where:
+Class A has a method called display().
+Classes B and C inherit from Class A and override the display() method.
+Class D inherits from both B and C.
+Now, if D tries to call the display() method, it will lead to confusion — which version of display() should be called?
+This is the Diamond Problem.
+class A {
+void display() {
+System.out.println("Display from Class A");
+}
+}
+class B extends A {
+void display() {
+System.out.println("Display from Class B");
+}
+}
+class C extends A {
+void display() {
+System.out.println("Display from Class C");
+}
+}
+// Class D trying to inherit from both B and C // This is not allowed in Java
+/
+class D extends B, C {
+void show() {
+display(); // Ambiguity - which display() to call?
+}
+}
+*/
+public class Main {
+public static void main(String[] args) {
+// Not possible in Java
+}
+}
+Java does not support multiple inheritance using classes to prevent the diamond problem.
+However, Java supports multiple inheritance using interfaces because interfaces do not store any state and only contain
+abstract methods (until Java 8 introduced default methods).
+
+📌 Multiple Inheritance Using Interfaces (Supported in Java)
+Since interfaces only provide method signatures (not implementation), Java allows multiple inheritance using interfaces.
+If there is any conflict (e.g., same default method in multiple interfaces), it can be resolved using explicit overriding.
+Example of Multiple Inheritance Using Interfaces
+interface InterfaceA {
+default void display() {
+System.out.println("Display from InterfaceA");
+}
+}
+interface InterfaceB {
+default void display() {
+System.out.println("Display from InterfaceB");
+}
+}
+class ImplementingClass implements InterfaceA, InterfaceB {
+    // Resolve ambiguity using explicit overriding
+    @Override
+    public void display() {
+        System.out.println("Resolving ambiguity using InterfaceA");
+        InterfaceA.super.display(); // Call InterfaceA's method
+    }
+}
+public class Main {
+public static void main(String[] args) {
+ImplementingClass obj = new ImplementingClass();
+obj.display();
+}
+}
+Output:
+Resolving ambiguity using InterfaceA
+Display from InterfaceA
+Explanation:
+InterfaceA.super.display() is used to explicitly call display() from InterfaceA.
+This approach allows Java to handle multiple inheritance safely without ambiguity.
+
+✅ Problems with Multiple Inheritance (If It Were Allowed Using Classes)
+Diamond Problem -As explained, the diamond problem leads to ambiguity in method calls.
+Increased Complexity -Maintaining and understanding code becomes difficult when multiple parent classes have similar methods.
+Data Management Issues -If multiple parent classes contain similar fields, it leads to data inconsistency and conflicts.
+Constructor Chain Issues -Calling constructors from multiple parent classes can be problematic and lead to unpredictable behavior.
+Performance Overhead -More complex inheritance structures would result in increased memory consumption and slower performance.
+
+
+Q-✅ Which are the different types of design pattern? Explain singleton design pattern. 
+-> 
 
 
 
 
+executorService
+volatile ,lock,synchronised
+Concurrent Collection
+ConcurrentHashMap
+java8 lambda ,streams
 
+Socket Connection , 3way tcp handshake , SeverSocket and Socket
+Udp socket (datagram)
+blocking and non blocking IO
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Stream versus Reader classes
+BufferedReader , BufferedInputStream

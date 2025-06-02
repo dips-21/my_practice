@@ -26,7 +26,6 @@ any package. You can also say that the protected access modifier is similar to d
 exception that it has visibility in sub classes.
 Classes cannot be declared protected. This access modifier is generally used in a parent child relationship.
 
-
 private - 
 ======================================
 If a class has private constructor then you cannot create the object of that class from outside of the class.
@@ -88,7 +87,7 @@ we can hide only data fields in it..like the scope of resize an array is inside 
   
 ["dipali","mona","sona","mina"]     To store a TrekkingGroup information of person if we take 3 arrays names[],ages[],cities[] 
 25         29      33    16         if we add remove in one array then
-P           M      A      N          data of persons can be mismatch if we didnt make changes in other array,bcz one person data
+P           M      A       N          data of persons can be mismatch if we didnt make changes in other array,bcz one person data
 After deletion                      is not encapsulated.Instead of this we can take Person array, Person[] where person 
 ["dipali","sona","mina"]            has name age and city then it has some encapsulation ,while modifying data of one peroson 
                                     will not affect on data of another person if person array is full 
@@ -117,11 +116,14 @@ Abstraction:- (types of implementation hiding)
 =================================================
 Abstraction hides concrete implementation type.like we can have a CheckIfEqual method which is used to check equality 
 for arraylist,linkedList.  
+
+\\AbstractionCodeReuseTest:-
+
 List is an abstraction of arraylist and linkedlist so CheckIfEqual which takes two parameters as a list
 not arraylist n linked list.(List<Integer> listOne,List<Integer> listTwo)
 same method can be used to check if two linkedlist or arraylist are equal.
 CheckIfEqual(List<Integer> listOne,List<Integer> listTwo)
-AbstractionCodeReuseTest
+
 
 loose coupling : If there is a UserService and it has an abstract type SqlRepo then 
                  it is loosely coupled and if the implementation
@@ -133,8 +135,9 @@ it can be method body.
 Example:-
 =========
 In system there is 3 kind of user men women and child.if we have to add User then we will have to call three separate 
-  methods for them.but with the help of abstraction we can define abstract type of it which is person.
-If those three classes has same functionality then we can add it in person class and override it into child class with extends keyword.
+methods for them.but with the help of abstraction we can define abstract type of it which is person.
+If those three classes has same functionality then we can add it in person class and override it into child
+class with extends keyword.
 
 
 Inheritance:-
@@ -142,12 +145,12 @@ Inheritance:-
 *When one object acquires all the properties and behaviors of a parent object, it is known as inheritance. 
 *It provides code reusability. 
 *It is used to achieve runtime polymorphism,  
-*In that we can allow code defined in one class and other classes can be reused it.
+*In that we can allows code defined in one class and other classes can be reused it.
 
-*Ex.if we have a woman class ,in that we have taken working and non-working women means we can inherit all the properties
+*Ex.if we have a women class ,in that  we have taken  working and non working women .means we can inherit all the properties
 of women in both the classes and also we can add others information in it like working women get salary.
-so we don't have to write women functionality to the both sub classes.
-AgeWeightComparator AgeWeightHeightComparator,we can override(modify) specific behavior (only methods that we need)
+so we dont have to write women functionality to the both sub classes.
+AgeWeightComparator AgeWeightHeightComparator  , we can override(modify) specific behavior (only methods that we need)
 ,rest of methods will be accessible from parent class 
 
 HeightWeightHairLengthComparator
@@ -173,8 +176,8 @@ In other words, polymorphism allows you define one interface and have multiple i
 * In polymorphism, calls resolved  dynamically on correct object type.
 * It is also known as dynamic dispatch methods because method called resolved on run time type of object.
 
-Example:--we have a woman, man and child class and in that gethobby is a method.when we call getHobby of person then
-it will call on correct run time type of object and gives actual class hobby,
+Example:--we have a women, man and child class and in that gethobby is a method.when we call getHobby of person then it
+         will called on correct run time type of object and gives actual class hobby,
 *overridden happens in run time type of polymorphism.
 
 
@@ -205,17 +208,34 @@ virtual table of it's class has location of all function of that class.
 
 *it must follow inheritance hirearchy.
 *private or static or final cannot be overridden.
+*The protected method can be made public but not private in the subclass.
 *we cannot decrease the visibility of method when overriding.(if parent scope is
 default then in child class it can be public but not private ).
 //for eg addAll uses add ,if we could override add and make it private ,that would break addAll.
-*The protected method can be made public but not private in the subclass.
+
 * Run time polymorphism. non static not final method can be overriden. 
   *If the method is static ,it will be called on class only and can't be overriden
   *If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
   *private and final can't be overriden  ,final College class getFees() ,
                                           College college=new College() ; college.getFees();
-  final class cant be overriden
+  *final class cant be overriden.
   
+
+In SOLID 
+L is liskov substitution principle means ,if a method works on parent type it should work on child type also.
+for eg addAll works on ArrayList , MyArrayList extends ArrayList and overrides add to make it
+private then addAll will break
+
+
+*we cannot decrease the visibility of method when overriding.
+*The protected method can be made public but not private in the subclass.
+===============================================================================
+
+If we provide lesser access in the subclass than that in the superclass, then we will get a compile-time error.
+==================================================================================================================
+* Run time polymorphism. non static not final method can be overriden.
+=======
+
 
 //IMP-> if the method is non static then override method is resolved on
 run time type of its object on which method is being called.
@@ -242,20 +262,9 @@ It will call equals from correct man class.
 Interface:-
 ==================================================
 
-The purpose of Interface is to define a contract on what behaviors will an object have(i.e methods declarations)
-Since java8 interface can have default method implementations (because earlier if method was added to interface
-all it's implementation will have to be modified to add the new method).It defines what but not how methods do.
-It can't have constructor (i.e any object initialisation logic)
-eg: List  only defines methods like add,remove,get //pure abstraction
-
-2)A class can extend only one abstract class ,so it cannot be extend any other class
-Interface is more loosely coupled ,if a class implements an interface ,it can implement other interfaces.
-for eg: ArrayList implements Iterable Serializable
-
-3) Interface can only have public static final fields.
-4) All methods in interface are implicitly public.
-
-eg. to be human you have to implement all methods in interface like walk.talk,
+Interface is a type defines contract what behaviour it must have to do of that type.
+It defines what but not how methods do.
+eg. to be human you have to implements all methods in interface like walk.talk,
 It provides loose coupling.
 Interface can extend interface.
 
@@ -264,7 +273,9 @@ Interface can extend interface.
  * It contains a declaration part only.
 
 Multiple inheritance can be achieved using interface.
-//It doesn’t contain static members.
+It doesn’t contain a constructor.
+It doesn’t contain static members.
+It contains public access modifier since everything in an interface is considered public.
 The performance of interface is not good.
 It is slow since it needs time to search for an actual method in the respective class.
 It is used to implement peripheral abilities of a class.
@@ -275,11 +286,7 @@ It needs to be fully implemented.
 
 Abstract Class:-
 =======================
-The purpose of Abstract class is to have partial implementation,it needs to have at least one abstract method and
-partial initialization can be done in abstract class constructor.
-It's constructor will be called when Child class object is create.
-eg AbstractList (implements equals method) ,helps in code reuse
-
+if we know Partial implementation.
 It contains the declaration and definition part.
 Multiple inheritance can’t be implemented using abstract class.
 It contains the constructor.
@@ -291,8 +298,7 @@ A class can use only one abstract class.
 If many implementations are same, and they have a common behaviour, it is suggested to use an abstract class.
 Abstract classes contain methods, fields, constants.
 It can be fully implemented, partially implemented or not even implemented.
-abstract can have private,protected ,default or public methods.
-Abstract class can have any type of fields
+
 
 String BUILDEr/buffer-
 ==================================================
@@ -324,11 +330,15 @@ is synchronous, so you have thread-safety.
 
 If you don’t want thread-safety than you can also go with StringBuilder class as it is not synchronized.
 
-intern -
+Intern -
 ============
 This method searches the specified string in the memory pool and if it is found then it returns the reference of it, 
 else it allocates the memory space to the specified string and assign the reference to it.
 returns the canonical representation of the string
+
+suppose we have string s1="Point"
+string s2=s1.intern();
+then it looks in pool if it is not there then add into it.
 
 
 **Comparable And Comparator:-
@@ -404,6 +414,7 @@ There is a strong relationship between the containing object and the dependent o
 It is the state where containing objects do not have an independent existence. 
 If you delete the parent object, all the child objects will be deleted automatically. 
 
+
 The composition is the strong type of association.
 If an Object depends on another object and another object cannot exist without the owner object. 
 Consider the case of Human having a heart. 
@@ -470,17 +481,18 @@ Example
 
 Checked Exceptions
 =============================
-They occur at compile time.
 The compiler checks for a checked exception.
 These exceptions can be handled at the compilation time.
 It is a sub-class of the exception class.
 The JVM requires that the exception be caught and handled.
 Example of Checked exception- ‘File Not Found Exception’
 
+these are also called as compile time exceptions. 
+=======
 Checked exceptions must be handled either by using try and catch block or by using throws clause in the method declaration.
 If not handles properly, it will give a compile-time error.
 
-A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. 
+A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions.
 These exceptions cannot simply be ignored at the time of compilation; 
 the programmer should take care of (handle) these exceptions.
 
@@ -500,25 +512,28 @@ This is because the exceptions are generated due to the mistakes in the program.
 These are not a part of the ‘Exception’ class since they are runtime exceptions.
 The JVM doesn’t require the exception to be caught and handled.
 Example of Unchecked Exceptions- ‘No Such Element Exception
-
+======================================================================================
 An unchecked exception is an exception that occurs at the time of execution. 
 These are also called as Runtime Exceptions.
 These include programming bugs, such as logic errors or improper use of an API.
-Runtime exceptions are ignored at the time of compilation.
+Runtime exceptions are ignored at the time of fcompilation.
 
 Java compiler does not check runtime exception at compile time whether programmer handles them or not. 
 If a runtime exception occurs in a method and programmer does not handle it, JVM terminates the program without the 
 execution of rest of the code.
 For example, if you have declared an array of size 5 in your program, and trying to call the 6th element of the array then 
 an ArrayIndexOutOfBoundsException exception occurs.
-
+==================================================================================================================
 ArithmeticException,ClassCastException ,NullPointerException ,ArrayIndexOutOfBoundsException ,NegativeArraySizeException
     ArrayStoreException ,IllegalThreadStateException ,SecurityException, etc.
 ===================================================
 
 FInal Finally Finalize:-
 ============================
-Final :  final can be initialized only once , they can be initialized during declaration 
+What are the 3 uses of final keyword in Java?
+Final keyword in Java has three different uses: create constants, prevent inheritance and prevent 
+methods from being overridden.
+Final :  final can be initialized only once , they can be initialized durFing declaration 
             or in constructor if they are class fields
 
 finally : try ,catch will always run once ,clean up can be done ,close()
@@ -575,62 +590,11 @@ These points makes this class as immutable.
 Wrapper class:-
 ====================
 A Wrapper class is a class whose object wraps or contains primitive data types. 
-When we create an object to a wrapper class, it contains a field and in this field, we can store primitive data types. 
+When we create an object to a wrapper class, it contains a field and in this field, 
+we can store primitive data types. 
 In other words, we can wrap a primitive value into a wrapper class object.
 
-Wrapper Class in Java
-A Wrapper Class in Java is a class that encapsulates (wraps) a primitive data type into an object.
-Java provides a wrapper class for each of its eight primitive data types:
-byte → Byte short → Short
-int → Integer long → Long
-float → Float double → Double
-char → Character boolean → Boolean
-
-Why are Wrapper Classes Used?
-Object Representation of Primitives:
-Java works with objects in collections and frameworks like ArrayList, HashMap, and HashSet, which cannot store primitive
-data types. Wrapper classes help convert primitive data types into objects using Autoboxing.
-
-Utility Methods:
-Wrapper classes provide useful methods for parsing, comparing, and converting data.
-Example: Integer.parseInt(), Double.valueOf(), Character.isDigit().
-
-Support for Generics:
-Generics in Java only support objects, not primitive data types.
-Wrapper classes allow the use of primitives within generic data structures.
-
-Data Conversion:
-Converting strings to numeric values using wrapper class methods like Integer.parseInt("123").
-
-Null Support:
-Unlike primitives, wrapper objects can hold a null value, making them suitable for representing the absence of a value.
-
-import java.util.ArrayList;
-public class WrapperExample {
-public static void main(String[] args) {
-// Autoboxing: Primitive to Wrapper
-int num = 10;
-Integer wrappedNum = num;  // Autoboxing
-        // Unboxing: Wrapper to Primitive
-        int primitiveNum = wrappedNum;  // Unboxing
-        // Using Wrapper class methods
-        String str = "123";
-        int parsedNum = Integer.parseInt(str);
-        System.out.println("Parsed Number: " + parsedNum);
-        // Using Wrapper in Collections
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(5);  // Autoboxing
-        list.add(10);
-        System.out.println("ArrayList: " + list);
-    }
-}
-Key Points to Remember
-Wrapper classes are immutable (cannot be changed once created).
-They are part of the java.lang package.
-Autoboxing and unboxing make working with wrapper classes seamless.
-Using wrapper classes may lead to increased memory consumption compared to primitives.
-
-
+solid/
 executorService
 volatile ,lock,synchronised
 Concurrent Collection 
@@ -664,247 +628,6 @@ L:Liskov Substitution Principle:-any child type of a parent type should be able 
 I :is for Interface Segregation Principle:- you should favor many, smaller, client-specific interfaces over one larger.
 D is for Dependency Inversion:-encourages you to write code that depends upon abstractions rather than upon concrete details.
 
-**1.Single responsibility principle:**
-According to the single responsibility principle, each Java class must perform only one function. Multiple capabilities
-in a single class mashup the code, and any changes made to the code may influence the entire class. It specifies the
-code and makes it simple to maintain.
-
-Let’s understand this by using an example:
-
-Suppose we have a class FinalExam that has 3 methods that perform 3 operations AddQuestion(), ExpectedAnswer(), 
-Marksdistribution(). Now all these 3 methods perform different actions. By using the single responsibility principle,
-we can separate these functionalities into three separate classes to fulfil the goal of the principle.
-
-Before implementing the Single responsibility principle:
-
-public class FinalExam{
-public void AddQuestion(){
-//functionality of the method
-}
-public void ExpectedAnswer(){
-//functionality of the method
-}
-public void Marksdistribution(){
-//functionality of the method
-}
-}
-The point of implementing the Single responsibility principle is not that a class can’t have more than one method
-but it’s recommended to use a single method for each class so that multiple capabilities in a single class don’t 
-mash up the code, and any changes made to the code may influence the entire class. Using a single responsibility
-principle makes code easy to maintain.
-
-After implementing the Single responsibility principle:
-
-public class FinalExam{
-public void AddQuestion(){
-//functionality of the method
-}
-}
-public class Answer{
-public void ExpectedAnswer(){
-//functionality of the method
-}
-}
-public class Marks{
-public void Marksdistribution(){
-//functionality of the method
-}
-}
-Why is this Principle Required?
-
-Testing is made easier when the Single Responsibility Principle is implemented. The class will have fewer test cases
-with a single responsibility. Because there is less functionality, there are fewer dependencies on other classes.
-Because smaller, well-purposed classes are easier to search, it leads to better code organization.
-
-**2.Open-Closed Principle**
-   According to this idea, a class should be created in such a way that it does its task flawlessly without the 
-expectation that it will be changed in the future. As a result, the class should stay closed to alteration, but it
-should be possible to extend it. Extending the class can be done in a variety of ways, including Inheriting from 
-class. Overwriting the required behaviour from the class. Extending certain behaviour of the class.
-Let’s understand it by using an example:
-
-Suppose, StudentInfo is a class and it has the method Streamname() that returns the name of the stream.
-
-public class StudentInfo  
-{  
-public String Streamname(Student st)   
-{  
-if (st instanceof Science)   
-{  
-return st.getStream();  
-if (st instanceof Commerce)
-{  
-return st.getStream();   
-}  
-}
-If we want to add another subclass named arts, simply, we add one more if statement that violates the open-closed
-principle. The only way to add the subclass and achieve the goal of principle is by overriding the Streamname() method , 
-as we have shown below.
-
-public class StudentInfo  
-{  
-public String Streamname()
-{  
-//functionality   
-}  
-}  
-public class Science extends StudentInfo   
-{  
-public String Streamname()   
-{  
-return this.getValue();  
-}  
-public class Commerce extends StudentInfo    
-{  
-public String Streamname()  
-{  
-return this.getValue();  
-}  
-public class arts extends StudentInfo    
-{  
-public String Streamname()  
-{  
-return this.getValue();  
-}  
-}
-Why is this principle required?
-Because classes may come from third-party libraries, OCP is essential. We should be able to extend those classes without
-having to worry about whether or not the base classes will be able to support our expansions. However, inheritance may
-result in subclasses that are dependent on the implementation of the base class. The use of interfaces is recommended 
-to avoid this. Loose coupling occurs as a result of the added abstraction.
-
-**3. Liskov substitution principle**
-   Barbara Liskov proposed the Liskov Substitution Principle (LSP). It pertains to inheritance in the sense that
-derived classes must be 100% interchangeable with their base classes. To put it another way, if class A is a subtype 
-of class B, we should be able to substitute B with A without affecting the program’s behaviour.
-
-It goes beyond the open-close principle to look at how a superclass and its subclasses behave. Unless there is a 
-compelling reason to do otherwise, we should build the classes to preserve the property. Let’s understand it with an
-example:
-
-public class Rectangle {
-private double height;
-private double width;
-public void setHeight(double h) { height = h; }
-public void setWidth(double w) { width = w; }
-...
-}
-public class Square extends Rectangle {
-public void setHeight(double h) {
-super.setHeight(h);
-super.setWidth(h);
-}
-public void setWidth(double w) {
-super.setHeight(w);
-super.setWidth(w);
-}
-}
-The above classes do not obey LSP because you cannot replace the Rectangle base class with its derived class Square.
-The Square class has extra constraints, i.e., the height and width must be the same. Therefore, substituting Rectangle
-with Square class may result in unexpected behaviour.
-
-Why is this principle is required?
-This prevents inheritance from being abused. It assists us in adhering to the “is-a” relationship. Subclasses must 
-also adhere to a contract established by the base class. In this way, it’s similar to Bertrand Meyer’s Design by 
-Contract. It’s easy to think of a circle as a form of an ellipse, yet circles lack two foci or major/minor axes.
-
-**4.Interface segregation principle**
-   According to the interface segregation concept, a client should never be required to implement an interface that it
-does not use, or to rely on any method that it does not use. So, fundamentally, the interface segregation principles
-are that you favour small, client-specific interfaces over monolithic, larger interfaces. In other words, forcing the
-client to rely on something they don’t require is not a good idea. In short, No client should be forced to depend on
-methods that it does not use.
-Let’s understand it with the help of an example:
-Suppose there’s an interface for a vehicle and a Bike class:
-
-public interface Vehicle {
-public void drive();
-public void stop();
-public void refuel();
-public void openDoors();
-}
-public class Bike implements Vehicle {
-
-    // Can be implemented
-    public void drive() {...}
-    public void stop() {...}
-    public void refuel() {...}
-    
-    // Can not be implemented
-    public void openDoors() {...}
-}
-As you can see, a Bike class should not implement the openDoors() method because a bike does not have any doors! To 
-address this, ISP offers to break down the interfaces into several, small coherent interfaces so that no class is
-required to implement any interfaces (and thus methods) that it does not require.
-
-After implying the interface segregation principle
-
-public interface Driving {
-public void drive();
-}
-public interface stops{
-public void stop();
-}
-public interface refueling{
-public void refuel();
-}
-public interface opening{
-public void openDoors();
-
-}
-public class Bike implements Driving,stops,refueling {
-public void drive() {...}
-public void stop() {...}
-public void refuel() {...}
-}
-Why is this principle required?
-The Interface Segregation Principle makes our code more readable and maintainable. We’ve pared down our class 
-implementation to simplify the operations that are required, with no extra or extraneous code. As we only use that 
-method that is required and can leave other methods.
-
-**5. Dependency Inversion Principle**
-The Dependency Inversion Principle (DIP) asserts that rather than real implementations, we should rely on abstractions
-(interfaces and abstract classes)(classes). Details should not be dependent on abstractions; rather, abstractions
-should be dependent on details.
-Let’s understand it by using an example:
-We have a class WindowMachine that contains keyboard and monitor classes inside it and we create instances of monitor
-and keyboard class inside WindowMachine constructor to use them.
-
-public class WindowsMachine  
-{  
-public final keyboard;  
-public final monitor;  
-public WindowsMachine()  
-{  
-monitor = new monitor();  //instance of monitor class  
-keyboard = new keyboard(); //instance of keyboard class  
-}  
-}
-But the problem with this code is that now all three classes are tightly coupled to each other which makes it hard to
-test the WindowMachine class let’s make this code loosely coupled with the help of the Dependency Inversion principle.
-
-To make the code loosely coupled, we decouple the WindowsMachine from the keyboard by using the Keyboard interface 
-and this keyword.
-
-public interface Keyboard   
-{   
-//functionality  
-}  
-public class WindowsMachine  
-{  
-private final Keyboard keyboard;  
-private final Monitor monitor;  
-public WindowsMachine(Keyboard keyboard, Monitor monitor)   
-{  
-this.keyboard = keyboard;  
-this.monitor = monitor;  
-}  
-}
-
-Why is this principle is required?
-It allows a programmer to remove hardcoded dependencies so that the application becomes loosely coupled and 
-extendable.
-
 InputStreamReader:-
 ====================
 An InputStreamReader is a bridge from byte streams to character streams: 
@@ -913,155 +636,24 @@ The charset that it uses may be specified by name or may be given explicitly,
 or the platform's default charset may be accepted.
 
 
-✅ Understanding Object Slicing with Upcasting
-Upcasting
-Upcasting is the process of converting a derived class object to a base class reference.
-This is safe because the derived class object "is a" base class object (following the IS-A relationship).
-
-What is Downcasting?
-Downcasting is the process of converting a reference of a parent class (superclass) to a reference of its child class 
-(subclass). It allows access to the specific methods and properties of the child class, which are not accessible using 
-the parent class reference.
-Downcasting is typically done manually using type casting in Java.
-It is only possible when the object being referred to is actually an instance of the child class.
-
-✅ Why is Downcasting Required?
-Downcasting is generally required when:
-Accessing Child Class Methods and Properties:
-After upcasting (when a child object is referred to using a parent class reference), only the parent class methods are 
-accessible. 
-Downcasting is used to access the specialized methods of the child class.
-
-Performing Type-Specific Operations:
-If you have a collection of parent class objects, but need to invoke child class methods based on the actual type,
-downcasting is necessary.
-
-Using Polymorphism:
-During runtime, when the actual object type is a subclass, downcasting ensures the correct method or behavior is accessed.
-
-class Animal {
-void sound() {
-System.out.println("Animal makes a sound");
-}
-}
-class Dog extends Animal {
-void bark() {
-System.out.println("Dog barks");
-}
-}
-public class Main {
-public static void main(String[] args) {
-Animal animal = new Dog(); // Upcasting (Child class object referred by Parent class reference)
-animal.sound();  // Calls Animal's method
-                                                          //Downcasting to access Dog specific methods
-        if (animal instanceof Dog) { // Always check before downcasting
-            Dog dog = (Dog) animal; // Downcasting
-            dog.bark(); // Calls Dog's specific method
-        } else {
-            System.out.println("Downcasting is not possible.");
-        }
-    }
-}
-output- Animal makes a sound
-Dog barks
-
-If the object is not actually of the type being casted to, Java will throw a ClassCastException.
-Always ensure that the object is compatible before downcasting.
-
-✅ Conclusion
-Downcasting is used to convert a parent class reference back to its original child class type to access child-specific
-methods and properties.
-It should be done carefully using the instanceof operator to avoid runtime exceptions.
-It is typically used in scenarios involving polymorphism or collections of objects with mixed types.
-
-Q-Explain with the help of example. What are problems with multiple inheritance?
-=================================================================================================
-Multiple Inheritance means a class can inherit from more than one parent class, acquiring the properties and behaviors
-of both. In Java, multiple inheritance using classes is not supported to avoid complexity and ambiguity.
-However, multiple inheritance using interfaces is allowed.
-The main reason Java doesn't support multiple inheritance using classes is to prevent ambiguity and conflicts that arise 
-when two parent classes have methods with the same name. This is commonly referred to as the "Diamond Problem."
-📌 Example of Diamond Problem (Multiple Inheritance Issue)
-Consider a scenario where:
-Class A has a method called display().
-Classes B and C inherit from Class A and override the display() method.
-Class D inherits from both B and C.
-Now, if D tries to call the display() method, it will lead to confusion — which version of display() should be called?
-This is the Diamond Problem.
-class A {
-void display() {
-System.out.println("Display from Class A");
-}
-}
-class B extends A {
-void display() {
-System.out.println("Display from Class B");
-}
-}
-class C extends A {
-void display() {
-System.out.println("Display from Class C");
-}
-}
-// Class D trying to inherit from both B and C // This is not allowed in Java
-/
-class D extends B, C {
-void show() {
-display(); // Ambiguity - which display() to call?
-}
-}
-*/
-public class Main {
-public static void main(String[] args) {
-// Not possible in Java
-}
-}
-Java does not support multiple inheritance using classes to prevent the diamond problem.
-However, Java supports multiple inheritance using interfaces because interfaces do not store any state and only contain
-abstract methods (until Java 8 introduced default methods).
-
-📌 Multiple Inheritance Using Interfaces (Supported in Java)
-Since interfaces only provide method signatures (not implementation), Java allows multiple inheritance using interfaces.
-If there is any conflict (e.g., same default method in multiple interfaces), it can be resolved using explicit overriding.
-Example of Multiple Inheritance Using Interfaces
-interface InterfaceA {
-default void display() {
-System.out.println("Display from InterfaceA");
-}
-}
-interface InterfaceB {
-default void display() {
-System.out.println("Display from InterfaceB");
-}
-}
-class ImplementingClass implements InterfaceA, InterfaceB {
-    // Resolve ambiguity using explicit overriding
-    @Override
-    public void display() {
-        System.out.println("Resolving ambiguity using InterfaceA");
-        InterfaceA.super.display(); // Call InterfaceA's method
-    }
-}
-public class Main {
-public static void main(String[] args) {
-ImplementingClass obj = new ImplementingClass();
-obj.display();
-}
-}
-Output:
-Resolving ambiguity using InterfaceA
-Display from InterfaceA
-Explanation:
-InterfaceA.super.display() is used to explicitly call display() from InterfaceA.
-This approach allows Java to handle multiple inheritance safely without ambiguity.
-
-✅ Problems with Multiple Inheritance (If It Were Allowed Using Classes)
-Diamond Problem -As explained, the diamond problem leads to ambiguity in method calls.
-Increased Complexity -Maintaining and understanding code becomes difficult when multiple parent classes have similar methods.
-Data Management Issues -If multiple parent classes contain similar fields, it leads to data inconsistency and conflicts.
-Constructor Chain Issues -Calling constructors from multiple parent classes can be problematic and lead to unpredictable behavior.
-Performance Overhead -More complex inheritance structures would result in increased memory consumption and slower performance.
 
 
-Q-✅ Which are the different types of design pattern? Explain singleton design pattern. 
--> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

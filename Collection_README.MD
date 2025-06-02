@@ -1,11 +1,11 @@
 COLLECTIONS:-
-=======================================================================
+=========================================================================
 The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
 Java Collections can achieve all the operations that you perform on a data such as searching, sorting,
 insertion, manipulation, and deletion. Java Collection means a single unit of objects.
 
 Iterable :
-================
+==========================================================================
 Abstraction of types that can be iterated using iterator ,iterate over big data set .
 An Iterable can represent group of objects whose size is not known .
 It can be like a FacebookFeed where all objects are not loaded in memory.
@@ -17,8 +17,8 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 ==========================================================================
 * Iterator is an interface it encapsulated the iteration logic
   which is applied on collection of objects which can be iterable.
-* collection framework provide iterator for it's implementations..eg.arraylist ,linkedlist are implementations
-  of Collection.
+* collection framework provide iterator for it's implementations..eg.arraylist ,
+  linkedlist are implementations of Collection.
 * Any Iterable has to provide iterator() .
 * It has hasnext(),next(),remove() method.
 * HasNext() method return boolean value ,if the iterable list has more elements to
@@ -31,7 +31,6 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 * Remove() method remove the last elements which is called by next() method.
 * it is uni directional.It moves forward direction only.
 
-
 **Why Iterator throws ConcurrentModificationException:-
 =========================================================================
 * iterator has a expected count field (==list size)
@@ -42,6 +41,7 @@ It is root(parent) of all collections .List ,Set,Queue all are iterable .
 * This is fail fast iterator.
 * when listIterator.remove() is called both iterator expected count and actual count decrease
 * so no exception is thrown.
+
 
 Enumerator:-
 =============================
@@ -77,9 +77,8 @@ Comparison logic is coupled in comparable .
 comparable is tighly coupled with that class to check object comparison.
 It is also used to compare the current instance with another object of same type.
 
-
       Comparator
-===================================
+==================================================================================
 *Comparator interface is used to compare two or multiple elements
 The Comparator interface is used to sort elements that compare two objects and provides additional comparison method.
 *It implements comparable.
@@ -101,14 +100,14 @@ comparable example we could just sort by only one attribute,
 i.e., age but in the comparator,we can use different attributes like weight, name, and year.
 
 ArrayList
-=======================================================================
+===========================================================================
 In arraylist the array is encapsulated in it.
 
 Complexity of get element is O(1).
 If we remove elements from middle of first popsition then it then all elements will be shuffle.
-cache friendly bcz continuouse memory allocation.when the page is loaded in memory then other elements 
+Cache friendly bcz continuouse memory allocation.when the page is loaded in memory then other elements 
 are in same place.
-fixed memory allocation.
+Fixed memory allocation.
 Dynamic array (if array size full then it internally create new array).so memory could be wasted.
 in special case adding at last n there is spcae in internal array then complexity is o(1).
 o(n)-to add or remove element from any position.
@@ -131,7 +130,7 @@ DOubly Linked List additional memory will take for adding new node ,prev code.
 If too many elements removes then use linked list otherwise use arrayList. <-When to use
 ========================================================================================
 we can get elements easily bcz we know position.(memory allocation is continuous so direct access
-eg int[]a =new int[10]  and a[4] will be at address size of int*4 )
+eg int[]a =new int[10]  and a[4] will be at address size of int*4 ).
 
 
 TreeMap:=
@@ -152,7 +151,7 @@ then it will gives class cast exception.
 
 HashCode and Equals:-
 ============================================================================================================
-It's a mapping between object to integer for even distribution in hash based structure like hashMap,hashSet.
+Its a mapping between object to integer for even distribution in hash based structure like hashMap,hashSet.
 It allows constant time to get and put element.                                         O(1)->constant time
 Equal objects should have equal hashCode.   (a.equals(b)).
 and Unequal objects may have same hashCode due to collision but that can be minimized using a good hash function.
@@ -160,7 +159,7 @@ First position is found using hashCode % array size ,in that entry will be found
 If we want logical equality (not identity ,memory address based) then we need to override equals.
 
 for eg "dog" new String("dog") , not same by == but are logically same ,
-p1=new Person("Jaanhvi") p2=new Person("Jaanhvi").
+p1=new Person("Jaanhvi") p2=new Person("Jaanhvi")..
 
 for new objects to be equal which are logically same we have to overrride equals.
 
@@ -171,8 +170,11 @@ hashcode so it will check at different position so it will not be found and will
 GET/PUT  First find position using hashcode, then find entry in that bucket using equals.
 If we dont override HashCode and Equals then we will not get element at same position if we put it earlier on that position.
 
+coreJava.collections.HashMapTest
 HashMap takes key and value.
-
+HashMap
+Use of hashcode :
+Use of equals :
 Person(age ) hashcode(){return age;)  //not even distribution
 new Person("Dipali") //hashcode = 56 ,hashcode%size of array =1 , in array at position 1
 new Person("Dipali") can be 60 , 60%5=0
@@ -187,7 +189,7 @@ LinkedHashMap:-
 ========================================================================
 Its iterator gives element in insertion order.
 Internally it uses a doubly linked list in addition to hashMap to maintain insertion order .
-It internally use 
+It internally use  node.
 complexity   <---O(1)
 non synchronized
 non thread safe
@@ -206,6 +208,8 @@ Performance 	                         Fast 	                          Almost Sim
 Extends 	                        AbstractMap class 	                        HashMap class
 Memory 	                                Low Memory                  	More memory as compared to HashMap.
 Thread-safety 	                    Non-thread-safe 	                        Non-thread-safe
+
+
 
 Queue:-
 ================================================================================
@@ -239,269 +243,73 @@ either by dequeuing one or more items or clearing the queue completely.
 
 A BlockingQueue with one thread putting into it, and another thread taking from it.
 
-HashMap:-
-=========
-The main difference between HashMaps and Hash Tables is their underlying data structure. HashMaps are implemented 
-using an array of linked lists, where each element in the array is a linked list of key-value pairs. Hash Tables, on
-the other hand, use an array of buckets, where each bucket is a key-value pair.
+Abstract class:-
+==============================================================================
+The purpose of Abstract class is to have partial implementation,i.e it needs to have at least one abstract method and 
+partial initialization can be done in abstract class constructor.
+It's constructor will be called when Child class object is created 
+eg AbstractList (implements equals method) ,helps in code reuse
 
-HashMap and HashTable are both key-value storage clas
+The purpose of Interface is to define a contract on what behaviors will an object have(i.e methods declarations)
+Since java8 interface can have default method implementations (because earlier if method was added to interface
+all it's implementation will have to be modified to add the new method).
+It can't have constructor (i.e any object initialisation logic)
+eg: List  only defines methods like add,remove,get //pure abstraction
 
-ses in Java. HashMap is non-synchronized, making it faster for 
-single-threaded tasks, while HashTable is inherently synchronized, providing thread safety. HashTable doesn’t allow
-any null keys or values, but HashMap lets you have one null key and several null values. Additionally, HashMap can
-be molded to retain insertion order or sorted order using its various implementations, whereas HashTable doesn’t 
-guarantee any particular order for its entries.
+2)A class can extend only one abstract class ,so it cannot be extend any other class 
+Interface is more loosely coupled ,if a class implements an interface ,it can implement other interfaces.
+for eg: ArrayList implements Iterable Serializable 
 
-HashMap
-A hashmap is a class that is a part of the Java collection framework since Java 1.2. This class belongs to java.util
-package. Java's Map interface can be implemented using this hashmap class. It usually stores the data in key, value
-pair (key, value), and you can access the value with the help of key in constant time, for example, an Integer. 
-Inside a hashmap, one object is used as a key (index) to another object (value). If there is a key already existing
-in the hashmap and we again try to insert the same key, this time with a different value, then the value will be
-replaced with the new one of the corresponding key.
-
-Syntax :
-HashMap<Integer,String> hm = new HashMap<Integer,String>();
-
-Example :
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-
-// Name of the class has to be "Main"
-// only if the class is public
-class MyClass {
-public static void main(String args[])
-{
-// Creating HashMap class object
-HashMap<Integer,String> hm=new HashMap<Integer,String>();
-        // Adding data inside the HashMap
-        hm.put(10,"Ball");
-        hm.put(20,"Bat"); 
-        hm.put(30,"Wicket");
-        hm.put(40,"Tennis bat");
-        // Printing the key and value of HashMap
-        System.out.println("-----------Hash map-----------");
-        for (Map.Entry m:hm.entrySet()) {
-            System.out.println(m.getKey()+" "+m.getValue());
-        }
-    }
-}
-Output :
------------Hash map-----------
-20 Bat
-40 Tennis bat
-10 Ball
-30 Wicket
+3) Interface can only have public static final fields ,Abstract class can have any type of fields
+4) All methods in interface are implicitly public ,abstract can have private,protected ,default or public methods
 
 
-*HashTable*
-A hashtable is a class that is a part of the Java collection framework. It implements a hash table, and it stores the
-data in key value pair (key, value). Inside a hashtable, we can store any non null object like a key or a value, 
-that is,null values and keys are not allowed in hashtable.To store and retrieve objects successfully from a hashtable,
-the objects used as a key must implement the hashCode method and the equals method, that is the object which is used
-as a key is hashed, and the resulting hashCode which we get after hashing the object key is used as an index to get
-the value which is associated with the object key.
+What do you mean by static method and static variable in Java?
+The static variable is a class level variable and it is common to all the class objects i.e. a single copy of the
+static variable is shared among all the class objects. A static method manipulates the static variables in a class. ...
+These blocks are only executed once when the class is loaded.
 
-Although HashMap and HashTable are similar, there are certainly notable differences between them
+Can we declare static variable in static method in Java?
+You can't declare a static variable inside a method, static means that it's a variable/method of a class,
+it belongs to the whole class but not to one of its certain objects. This means that static keyword can be used only 
+in a 'class scope' i.e. it doesn't have any sense inside methods
 
-Syntax :
-Hashtable<Integer,String> ht = new Hashtable<Integer,String>();
-Example :
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+Can we override static method?
+Static methods cannot be overridden because they are not dispatched on the object instance at runtime.
+The compiler decides which method gets called. Static methods can be overloaded (meaning that you can have the
+same method name for several methods as long as they have different parameter types).
 
-// Name of the class has to be "Main"
-// only if the class is public
-class MyClass {
-public static void main(String args[])
-{
-// Creating HashTable class object
-Hashtable<Integer,String> ht=new Hashtable<Integer,String>();
-        // Adding data inside the HashTable
-        ht.put(10,"Cricketers");
-        ht.put(20,"Footballers");
-        ht.put(30,"Boxer");
-        ht.put(40,"Swimmer");
-        // Printing the key and value of HashTable
-       System.out.println("-------------Hash table--------------");
-        for (Map.Entry m:ht.entrySet()) {
-            System.out.println(m.getKey()+" "+m.getValue());
-        }
-    }
-}
+How do you call a static method?
+A static method can be called directly from the class, without having to create an instance of the class. 
+A static method can only access static variables; it cannot access instance variables.
+Since the static method refers to the class, the syntax to call or refer to a static method is: class namme n method name.
 
-Output :
--------------Hash table--------------
-10 Cricketers
-20 Footballers
-30 Boxer
-40 Swimmer
+Can we declare static variable in non static method?
+Static variables are class variable not instance or local variable . that is why we can use static variable in
+non static method also. and static variables are not per object . static variables have one copy that will be used in
+entire program.
 
-Key Difference Between HashMap and HashTable
-The main difference between HashMap and HashTable is their approach to synchronization and thread safety. While
-HashTable is inherently synchronized, ensuring that only one thread can access it at a time, HashMap is non-synchronized,
-allowing simultaneous access by multiple threads. This makes HashMap generally faster in single-threaded scenarios,
-due to the absence of synchronization overhead.
+Can we override static and private method in Java?
+No, we cannot override private or static methods in Java. Private methods in Java are not visible to any other
+class which limits their scope to the class in which they are declared.
 
-**Why HashTable Doesn’t Allow null and HashMap Do?**
-In the above differences between HashTable and HashMap, there is a point : A HashMap can allow null keys and values,
-whereas a HashTable does not allow null.
-You must be wondering, why a HashMap can store a null whereas HashTable cannot store a null. Let us understand the
-reason in detail.
+Can constructor be static?
+A class or struct can only have one static constructor. Static constructors cannot be inherited or overloaded.
+A static constructor cannot be called directly and is only meant to be called by the common language runtime (CLR).
+It is invoked automatically.
 
-A HashTable stores the object in the key, value pair. In order to store and retrieve the object successfully, the
-object which is used as a key must implement the hashCode method and the equals method. Since null is not an object,
-it cannot implement these hashCode method and the equals method. So if we store null inside the HashTable, it will 
-not work and throw a null pointer exception error. However, HashMap is a modern version of HashTable and it was 
-created later. It will allow one null key and any number of null values.
+Is private method are final?
+So, to answer question 2, yes, all compilers will treat private methods as final . 
+The compiler will not allow any private method to be overridden. Likewise, all compilers will prevent subclasses
+from overriding final methods.
 
-import java.util.*;
-public class MyClass {
-public static void main(String args[]) {
+What is final and final method in Java?
+The final keyword in Java can also be applied to methods. A Java method with the final keyword is called a 
+final method and it can not be overridden in the subclass. You should make a method final in Java if you think it's
+complete and its behavior should remain constant in sub-classes.
 
-      //----------------hashmap--------------------------------    
-      HashMap<String, Integer> hm = new HashMap<String, Integer>();
-      hm.put("Rahul", 102);
-      hm.put("Sweta", 204);
-      hm.put(null, 101);
-      hm.put("Deepak", null);
-      hm.put("Aman", null);
-      
-      System.out.println("-------------Hash map--------------");
-      
-      // printing the entry of hashmap
-      for(String keys : hm.keySet()){
-          System.out.println(keys+" "+hm.get(keys));
-      }
-      
-      //----------hashtable -------------------------
-      Hashtable<String, Integer> ht = new Hashtable<String, Integer>();
-      ht.put("Ravi", 10);
-      ht.put("Raj", 20);
-      ht.put("Amit", 30);
-      ht.put(null, 40);
-      
-      System.out.println("-----------Hash table-----------");
-      
-      // printing the entry of hastable
-      for(String keys : ht.keySet()){
-          System.out.println(keys+" "+ht.get(keys));
-      }
-    }
-}
-
-Output :
--------------Hash map--------------
-null 101
-Rahul 102
-Aman null
-Sweta 204
-Deepak null
-
-Exception in thread "main" java.lang.NullPointerException: Cannot invoke "Object.hashCode()" because "key" is null
-at java.base/java.util.Hashtable.put(Hashtable.java:481)
-at MyClass.main(MyClass.java:28)
-
-Explanation :
-In the above code, we are implementing both the HashMap and HashTable inside the public class MyClass. To demonstrate 
-our above point, we have added null inside both the HashMap and HashTable to check whether it is working. We can
-clearly see, that the HashMap is working completely fine after storing the null as its key, and value, and it is 
-also printing its data. However, the HashTable throws an error null pointer exception after we added null as data
-inside it. Hence, we can conclude that the HashMap allows null, whereas the HashTable does not allow null.
-
-Let us now don't add null inside the HashTable and check if it is working or not.
-
-import java.util.*;
-public class MyClass {
-public static void main(String args[]) 
-      //----------------hashmap--------------------------------    
-      HashMap<String, Integer> hm = new HashMap<String, Integer>();
-      hm.put("Rahul", 102);
-      hm.put("Sweta", 204);
-      hm.put(null, 101);
-      hm.put("Deepak", null);
-      hm.put("Aman", null);
-      
-      System.out.println("-------------Hash map--------------");
-      
-      // printing the entry of hashmap
-      for(String keys : hm.keySet()){
-          System.out.println(keys+" "+hm.get(keys));
-      }
-      
-      //----------hashtable -------------------------
-      Hashtable<String, Integer> ht = new Hashtable<String, Integer>();
-      ht.put("Ravi", 10);
-      ht.put("Raj", 20);
-      ht.put("Amit", 30);
-      
-      System.out.println("-----------Hash table-----------");
-      
-      // printing the entry of hastable
-      for(String keys : ht.keySet()){
-          System.out.println(keys+" "+ht.get(keys));
-      }
-    }
-}
-
-Output :
--------------Hash map--------------
-null 101
-Rahul 102
-Aman null
-Sweta 204
-Deepak null
------------Hash table-----------
-Amit 30
-Raj 20
-Ravi 10
-
-
-Explanation :
-We can clearly see, that if we are not adding null inside the HashTable, it is not throwing any error, and the 
-code is working completely fine.
-
-Conclusion
-HashMap is a class within the Java collection framework introduced in Java 1.2. It implements the Map interface and
-stores data as key-value pairs.
-HashTable implements a hash table and similarly stores data as key-value pairs.
-For successful storage and retrieval in a HashTable, keys must implement both the hashCode and equals methods.
-The key’s hashCode, derived post-hashing, serves as an index to retrieve its associated value. Only non-null objects
-can be stored as keys or values.
-We highlighted some distinctions between HashMap and HashTable.
-HashMap is non-synchronized, while HashTable is synchronized.
-HashMap can accommodate one null key and multiple null values. In contrast, HashTable prohibits both null keys and
-values, leading to a NullPointerException upon attempting such insertions.
-Altering a HashMap during iteration can result in a ConcurrentModificationException. However, modifying a HashTable
-under the same conditions doesn’t raise any exceptions.
-HashTable disallows null keys and values because, to function correctly, keys must implement the hashCode and equals
-methods. Since null isn’t an object, it doesn’t implement these methods, and attempting to store null in a HashTable
-results in a NullPointerException.
-
-
-Internal working of HashMap- > 
-Hashmap internally works on the principle of hashing.
-Hashing means use some function or algorithm to map object data to integer value, hashcode()method returns you that
-hashcode. Hence its necessary to write hashcode () method properly for better performance of hashmap.
-If you override hashcode method then you its necessary to fulfills hashcode and equals contract. 
-
-
-*Collision* -
-In case of collision, Entry objects are stored in linked list form. When an entry objects needs to be 
-stored in particular index, Hashmap checks whether there is already an entry? If there is no entry already present,
-the entry object is stored in this location.
-
-If there is already an object sitting on calculated index, its next attribute is checked. If its null, and current
-entry object becomes next node in linkedlist. If next variable is not null, procedure is followed until next is
-evaluated is null. 
-
-What if we add the another value object with same key as entered before. Logically it should replace the old value.
-How it is done? Well, after determining the index position of Entry object, while iterating over linked list on
-calculated index, Hashmap calls equals method on key object for each entry object.
-
-All these entry object in linkedList will have similar hashcode and equals() method will test for true equality. 
-If key.equals(k) will be true then both keys are treated as same key object. This will cause the replacing of value
-object inside entry object only.
+What is the final method?
+Final Method in Java
+The Method with Final Keyword cannot be overridden in the subclasses. 
+The purpose of the Final Method is to declare methods of how's definition can not be changed by a child or 
+subclass that extends it.

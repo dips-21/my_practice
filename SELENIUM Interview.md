@@ -83,11 +83,17 @@ Performing complex tests that need to loop, perform setup, or interact with exte
 15) Selenium Grid?
 Selenium grid is a tool used together with selenium RC to run tests to different machines against different browsers in
 parallel . That is running multiple tests at the same time against different machines running different browsers and
+<<<<<<< HEAD
 operating systems  and also different version. In simple words it is used to distribute your test execution on
 multiple platforms and environments concurrently.(parallel mode)
 
 When you use selenium grid with TESTNG , can enable the parallel execution of tests across the multiple machine,
 which will reduce the execution time  of tests without  reducing the performance of the machine.
+=======
+operating systems . In simple words it is used to distribute your test execution on multiple platforms and environments
+concurrently.(parallel mode)
+
+>>>>>>> origin/master
 Want to run tests in parallel across multiple machines? Then, Grid is for you.
 Selenium Grid allows the execution of WebDriver scripts on remote machines by routing commands sent by the client to
 remote browser instances.
@@ -110,6 +116,7 @@ It allows running test cases in parallel thereby saving test execution time .
 A hub is a server or a central point that controls the test execution on different machines.
 
 19) Node in selenium Grid ?
+<<<<<<< HEAD
 -> As a part of selenium grid configuration, we configure a single machine as hub and other remaining machine as
 node. Actual execution of the Automated tests happen in node machine,
 node machine receives tests execution request from the hub , there can be more node machines in the grid configuration,
@@ -119,10 +126,16 @@ can have different platform and browsers.node machine platform can be different 
 
 20) What are the types of WebDriver APIs available in Selenium ?
 Selenium webDriver itself an API, where WD is the interface having the diff classes like
+=======
+Node is the machine which is attached to the hub . There can be multiple nodes in Selenium Grid.
+
+20) What are the types of WebDriver APIs available in Selenium ?
+>>>>>>> origin/master
 - Firefox Driver , Gecko driver , internet explorer driver , Chrome driver , HTML driver , Opera Driver ,Safari driver,
 Android Driver , Iphone driver , EventFiring WebDriver.
 
 
+<<<<<<< HEAD
 21) which is fastest driver ? ->
 -> Earlier HTMLUnitDriver used to be the fastest headless browser. As HTMLUnitDriver and phantomJS are now deprecated.
 we are left with the chrome and firefox headless browser.In the current days Chrome headless and firefox headless
@@ -131,13 +144,20 @@ need to add this lines.
 ChromeOptions options = new ChromeOptions();
 options.addArguments("--headless");
 WebDriver driver = new ChromeDriver(options);
+=======
+21) which is fastest driver ? -> HTMLUnitDriver bcz it does not execute tests in the browser.
+>>>>>>> origin/master
 
 22) Selenium WebD supported languages - java , c# , python , rubt, perl , PHP
 
 23 ) supporting OS - windows , linux , apple
 
+<<<<<<< HEAD
 24) What are the open source frameworks supported by selenium webdriver ?
 -> Junit , TestNG , Cucumber , JBheave , Appium, Robot framework , Protractor, WebDriverIO, Carina, Serenity, Galen.
+=======
+24) What are the open source frameworks supported by selenium webdriver ?  Junit , TestNG , Cucumber , JBheave
+>>>>>>> origin/master
 
 25) what are the locators available in selenium ?
 -ID
@@ -196,23 +216,39 @@ Verify - In simple words,there wont be any halt in the test execution even thoug
 30) Soft Assert and Hard Assert?
 Soft Assert - Soft Assert collects errors during @Test .Soft Assert does not throw an exception when an assert fails and
 would continue with the next step after the assert statement . (Logo)
+<<<<<<< HEAD
  Soft Assertion continues with test execution even if the assertion conditions fails. it does not throw any error
  when the assertion condition fails but continues with the next step of the test.
 
 Hard Assert - Hard assert throws an AssertException immediately when an assert statement fails and test suite
 continue with next @Test.  (Login)
+=======
+      Soft Assertion continues with test execution even if the assertion conditions fails. it does not throw any error when
+      the assertion condition fails but continues with the next step of the test.
+
+Hard Assert - Hard assert throws an AssertException immediately when an assert statement fails and test suite continue with
+next @Test.  (Login)
+>>>>>>> origin/master
   Hard assertion does not continue with execution until the assertion condition is True.
   Hard assertion usually throw an assertion error whenever an assertion condition fails.
   The test case will be immediately marked as failed when a hard assertion condition fails.
   by default assert in selenium WD are hard asserts.
 
 31) What are the verification points available in Selenium ?
+<<<<<<< HEAD
 In selenium IDE , we use selenese verify and assert commands as verification points .
 In selenium web driver ,there is no built-in features for verification points.
 It totally depends on our coding style. some of the verification points are - isDisplayed() , isEnabled , isSelected(),
 size()- Element is present or not(for checking isPresent) , getTitle(), getCurrentURL(),getPageSource().
 and it is used to check for page title , to check for certain text ,to check for certain elements like text box,
 button , drop down
+=======
+In selenium IDE , we use selenese verify and assert commands as verification points .In selenium web driver , there is no
+built-in features for verification points. It totally depends on our coding style. some of the verification points are -
+to check for page title
+to check for certain text
+to check for certain elements like text box, button , drop down
+>>>>>>> origin/master
 
 32) How to launch a browser using Selenium WD?
 -> Webdriver is an interface , we create Object of Webdriver interface.
@@ -235,22 +271,31 @@ firefox driver class .
 
 36) We do create a reference variable ' driver ' of type WebDriver -> WebDriver driver = new ChromeDriver();
 instead of creating -> ChromeDriver driver = new ChromeDriver();   what is the purpose of doing this way?
+<<<<<<< HEAD
 -> For writing selenium automation code once and running it on different browsers few things to understand ,
 we cannot create object for WD interface we created objets for IEDriver, SafariDriver, Chrome etc.can be upcasted
 to WD interface.
 If we create a reference variable driver of type WD interface then we could use the same driver variable to work
 with any browser of our choice such as IEDriver, SafariDriver, Chrome etc.
+=======
+-> If we create a reference variable driver of type WD then we could use the same driver variable to work with any browser
+of our choice such as IEDriver, SafariDriver etc.
+>>>>>>> origin/master
 
 37) what are the diff  you have faced in selenium WD?
 - WebDriverException
 - TimeoutException
 - NoAlertPresentException
 - NoSuchWindowException
+<<<<<<< HEAD
 - NoSuchElementException   -> when locators is not available in webpage
 - NoSuchFrameException
 - invalidSelectorException  -> not proper given xpath (// is proper but we take /// then got )
 - ElementNotInteractableException - > hidden button
 - NoSuchSessionException - After quitting browser if we try to perform action
+=======
+- NoSuchElementException
+>>>>>>> origin/master
 
  - Element Not Visible Exception
  While running Selenium tests, it is common for testers to get the message “Element Not Visible Exception“.
@@ -275,7 +320,11 @@ with any browser of our choice such as IEDriver, SafariDriver, Chrome etc.
 
 38) How to login into any site if it is showing any authentication pop-up for Username and Password?
 - to do this  we pass Username and password with the URL - http://username:password@url
+<<<<<<< HEAD
 example -driver.get("http://admin:admin123@amazon.com")
+=======
+example -http://admin:admin123@xyz.com
+>>>>>>> origin/master
 
 39) what are the types of waits available in selenium WD?  (IMP)
 - we could see three types such as
@@ -287,6 +336,7 @@ Thread.sleep()
 
 static wait is thread.sleep(1000);
 
+<<<<<<< HEAD
 40) - 1) IMPLICIT Waits :- Implicit wait tells to the WD to wait for a certain amount of time before it throws
 an NosuchElement exception.Once we set the time, WD will wait for the element based on the time we set before it
 throws an exception. The default
@@ -302,11 +352,24 @@ move to next step.
 Explicit wait in Selenium is a synchronization mechanism that allows the WebDriver to wait for a specific condition
 to occur before proceeding with the next step in the code. Unlike Implicit waits, which apply globally,
  explicit waits are applied only to specific elements or conditions, making them more flexible and precise.
+=======
+40) - 1) IMPLICIT Waits :- tells to the WD to wait for a certain amount of time before it throws an exception.Once we set the
+time, WD will wait for the element based on the time we set before it throws an exception. The default setting is 0. We
+need to set some wait time to make WD to wait for the required time . (Global wait )
+If one sets an implicit wait command, then the browser will wait for the same time frame before loading every web
+ element. This causes an unnecessary delay in executing the test script.
+
+2) EXPLICIT Waits :-
+Explicit wait in Selenium is a synchronization mechanism that allows the WebDriver to wait for a specific condition
+ to occur before proceeding with the next step in the code. Unlike Implicit waits, which apply globally,
+  explicit waits are applied only to specific elements or conditions, making them more flexible and precise.
+>>>>>>> origin/master
 
 Setting Explicit Wait is important in cases where there are certain elements that naturally take more time to load.
 Explicit wait is more intelligent, but can only be applied for specified elements.
 
     Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+<<<<<<< HEAD
     WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("facebook")));
      element.click();            -> revealed.isDisplayed());
 
@@ -314,6 +377,12 @@ Explicit wait is more intelligent, but can only be applied for specified element
 FluentWait can define the maximum amount of time to wait for a specific condition and frequency with
 which to check the condition before throwing an "ElementNotVisbleException" exception.
 Polling time can be customized in fluent wait
+=======
+    wait.until(d -> revealed.isDisplayed());
+
+42) Fluent Waits : - FluentWait can define the maximum amount of time to wait for a specific condition and frequency with
+which to check the condition before throwing an "ElementNotVisbleException" exception.
+>>>>>>> origin/master
 
 41) What is WD Wait in selenium WD?
 WebDriverWait is applied on a certain element with defined expected condition and time. This wait is only applied to the
@@ -334,6 +403,7 @@ password.sendKeys(“abcdefgh123”); - Enters text into the password field
 - //to initialize js object
 JavascriptExecutor Js= (JavascriptExecutor)driver;
 //to enter username
+<<<<<<< HEAD
 
 Js.executeScript("document.getElementByID('User').value='s/w testing material website.com'");
 Js.executeScript("document.getElementByID('Pass').value='tester'");
@@ -344,19 +414,34 @@ Js.executeScript("arguments[0].value='imac'",searchbox);
 45) Clear->  by clear method we can clear the text from the textbox -> .clear();
 46) Text() -> by using getText() method we can get a text of a web element
 47) by using getAttribute(value/name) method we can get a attribute value.
+=======
+Js.executeScript("document.getElementByID('User').value='s/w testing material website.com'");
+Js.executeScript("document.getElementByID('Pass').value='tester'");
+
+45) by clear method we can clear the text from the textbox
+46) by using getText() method we can get a text of a web element
+47) by using getAttribute(value) method we can get a attribute value.
+>>>>>>> origin/master
 48) by linkText - hyperlink
 49) by submit method we can submit a form.
 50) by keys.enter we can enter key on a text box in selenium WD.
 
+<<<<<<< HEAD
 51) by using driver.wait(5000) this will pause the execution for 5 seconds.
 
 Thread.sleep(long milis)method we can pause
+=======
+51) by using Thread.sleep(long milis)method we can pause
+>>>>>>> origin/master
 
 52) Is selenium server needed to run selenium WD scripts?
 when we are distributing our SWD scripts to execute using selenium Grid, we need to use selenium server.
 
 53) what happens if I run this cmd? -> driver.get("www.google.com");
+<<<<<<< HEAD
 -> InvalidArgumentException
+=======
+>>>>>>> origin/master
 An exception is thrown.. we need to pass http protocol within driver.get() method.
 --driver.get("http://www.google.com");
 
@@ -386,12 +471,16 @@ as to refresh a page.
    Using driver.get("URL") on the current URL or using driver.getCurrentUrl()
    Using drier.navigate().to("URL") on the current URL or driver.navigate().to(driver.getCurrentUrl());
    Using sendKeys(Keys.F5) on any textbox on the webpage
+<<<<<<< HEAD
    using javaScriptExecutor - > jse.executeScript( "window.location.reload();");
+=======
+>>>>>>> origin/master
 
 62) What is diff between driver.getWindowHandle() and driver.getWindowHandles()?
 -> driver.getWindowHandle() -> It returns a handle of the current page (a unique identifier)
    driver.getWindowHandles() -> It returns a set of handles of the all pages available.
 
+<<<<<<< HEAD
 In Selenium, getWindowHandle() is a method that returns the handle of the current active window.
 getWindowHandle() returns a unique ID of the current window.
 This ID identifies the window within the driver instance.
@@ -403,6 +492,21 @@ getWindowHandle() is useful when you need to identify the current window for imm
 It's especially helpful when you have to keep track of the original window after switching to other window.
 getWindowHandles() returns the handles of all the windows opened by the web driver.
 driver.switchTo().window(childWindow) switches the WebDriver's focus to a specific window.
+=======
+   In Selenium, getWindowHandle() is a method that returns the handle of the current active window.
+   It's useful for keeping track of the original window so you can return to it after switching to other windows.
+   Syntax - String currentWindowHandle = driver.getWindowHandle().
+   How it works
+   getWindowHandle() returns a unique ID of the current window.
+   This ID identifies the window within the driver instance.
+   getWindowHandle() returns a value of the String type.
+   When to use
+   getWindowHandle() is useful when you need to identify the current window for immediate actions.
+   It's especially helpful when you have to keep track of the original window after switching to other window
+
+   getWindowHandles() returns the handles of all the windows opened by the web driver.
+   switchTo().window() switches the WebDriver's focus to a specific window.
+>>>>>>> origin/master
 
 63) diff bet driver.close() and driver.quit() methods?
 ->  driver.close() -> to close current webDriver instance
@@ -460,6 +564,7 @@ actions.moveToElement(ele).build().perform();
 testing. We could handle windows based popups in selenium using some third party tools such as AutoIT, Robot class.
 
 71) How to handle hidden elements in SWD? ->>> It is one of the most important selenium WD questions.
+<<<<<<< HEAD
 -> *By default we cannot handle hidden elements in selenium WD.
  Will result in exceptions like ElementNotVisible of ElementNotInteractable Exception.
  But there is way , where we can use JavaScriptExecutor for handling hidden element too.
@@ -468,6 +573,10 @@ testing. We could handle windows based popups in selenium using some third party
 Handling hidden elements in Selenium WebDriver requires specific techniques because Selenium cannot directly
 interact with elements that are not visible on the web page. Here are some methods to handle hidden elements
 effectively-
+=======
+-> * Handling hidden elements in Selenium WebDriver requires specific techniques because Selenium cannot directly interact
+with elements that are not visible on the web page. Here are some methods to handle hidden elements effectively-
+>>>>>>> origin/master
 
 -> We can handle hidden elements by using javascript executor.
 (JavaScriptExecutor(driver)).executeScript("document.getElementsByClassName(ElementLocator).click();");
@@ -526,6 +635,7 @@ Debug using Developer Tools to check if the element is actually hidden or not.
 
 
 72) How can you find Broken links in web page using SWD? --->>>IMP
+<<<<<<< HEAD
 -->> If we get 4xx or 5xx HTTP status code in the response from the server, when we hit any URL,then they are broken
 links. A valid URL will have a 200 HTTP status code.
 The 400 status code refers to a client-side error, while the 500 status code usually points to a server response
@@ -536,6 +646,15 @@ it is meant to. This usually occurs because the website or particular web page i
 When someone clicks on a broken link, an error message is displayed.
       Broken links may exist due to some kind of server error, which, in turn, causes the corresponding page to
 malfunction and not be displayed.Broken links, which are essentially
+=======
+-->>  A broken link, also often called a dead link, is one that does not work i.e. does not redirect to the webpage
+it is meant to. This usually occurs because the website or particular web page is down or does not exist.
+When someone clicks on a broken link, an error message is displayed.
+      Broken links may exist due to some kind of server error, which, in turn, causes the corresponding page to
+malfunction and not be displayed. A valid URL will have a 200 HTTP status code.  Broken links, which are essentially
+invalid HTTP requests have 400 and 500 status codes.
+ The 400 status code refers to a client-side error, while the 500 status code usually points to a server response error.
+>>>>>>> origin/master
 
 To find broken links in Selenium, follow the instructions below.
 
@@ -547,7 +666,10 @@ Repeat the procedure for all of the links that were captured in the first step.
 
 
 73) How to find more then one web element in the list?
+<<<<<<< HEAD
 with findElements command we can find those links .
+=======
+>>>>>>> origin/master
 -> to store the list ->             List<WebElement> eleList = driver.findElements(By.xpath("xpath"));
 -> to fetch the size of the list -> int listSize = eleList.size();
                                     for(int=0;i<listSize;i++){
@@ -562,26 +684,40 @@ page that stores the links          driver.navigate().back();
 76) + 77) List some scenarios which we cannot automate using SWD?
 -> BitMap comparison is not possible using SWD
    Automating Captcha is not possible
+<<<<<<< HEAD
    We cannot read bar code or QR code using SWD
+=======
+   We cannot read bar code using SWD
+>>>>>>> origin/master
    windows OS based popups
    third party calenders/elements
    image
    word/PDF
+<<<<<<< HEAD
    OTP , desktop application, video controls
+=======
+>>>>>>> origin/master
 
 78) What is Object Repository in SWD?
 -> Object repo is used to store element values in a centralized location instead of hard coding them within the scripts.
 We do create a property file to store all the elements and these property files act as an object repo in SWD.
 
+<<<<<<< HEAD
 how you build object repo in your project framework?
 ->I have used POM and page factory to build object repo in my project framework.
 
+=======
+>>>>>>> origin/master
 79) HOw can you use recovery scenario in SWD?
 -> By using "try catch block" within SWD Java tests.
 try{
 driver.get("www.xyz.com");}
 Catch(Exception e){
+<<<<<<< HEAD
 System.out.println(e.getMessage()
+=======
+System.out.println(e.getMessage());}
+>>>>>>> origin/master
 
 80) how to upload a file in SWD?
 - > by using sendKeys method and Using AutoIT script.   sendKeys(c:\\tests\dipali.jpg);
@@ -625,6 +761,7 @@ System.out.println(e.getMessage()
     @Listeners: Specifies listener classes that can intervene in test events(e.g., start of a test, failure, end of the suite).
     @Ignore: Instructs TestNG to skip the execution of a test method.
     @Factory: Helps in the dynamic execution of test cases, allowing parameters to be passed to the entire test class at runtime.
+<<<<<<< HEAD
     @BeforeGroups and @AfterGroups: Run methods before and after specific groups of tests, respectively.
 
 91) How to read JS variable in selenium WD ?
@@ -656,3 +793,6 @@ the remote node machine or cloud machine.
 RC?
 
 DB connection -> driverMAnager.getconnection(url,username, password)
+=======
+    @BeforeGroups and @AfterGroups: Run methods before and after specific groups of tests, respectively.
+>>>>>>> origin/master

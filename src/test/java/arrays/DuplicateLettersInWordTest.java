@@ -27,6 +27,11 @@ public class DuplicateLettersInWordTest {
     }
 
 
+    @Test
+    public void DuplicateLettersInWordYes() {
+        assertThat(duplicateLettersInWord.hasDuplicateLetter("apple"), is(true));
+    }
+
 
     @Test
     public void removeDuplicateLetter() {

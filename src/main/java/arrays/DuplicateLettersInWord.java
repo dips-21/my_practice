@@ -17,7 +17,6 @@ public class DuplicateLettersInWord {
         return false;
     }
 
-
     String removeAllDuplicates(String word) {
         char[] words = word.toCharArray();
         HashSet<Character> visitedSet = new LinkedHashSet<>();
@@ -34,7 +33,7 @@ public class DuplicateLettersInWord {
             char ch = itr.next();
             stringBuilder.append(ch);
         }
-        return stringBuilder.toString();
+         return stringBuilder.toString();
     }
 //f()                      main(){ int c=f();
 //int a=b*b;

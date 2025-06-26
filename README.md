@@ -766,7 +766,7 @@ methods and properties.
 It should be done carefully using the instanceof operator to avoid runtime exceptions.
 It is typically used in scenarios involving polymorphism or collections of objects with mixed types.
 
-Q- Explain with the help of example. What are problems with multiple inheritance?*
+Q- Explain with the help of example. What are problems with multiple inheritance?
 Multiple Inheritance means a class can inherit from more than one parent class, acquiring the properties and behaviors of
 both. In Java, multiple inheritance using classes is not supported to avoid complexity and ambiguity.
 However, multiple inheritance using interfaces is allowed.
